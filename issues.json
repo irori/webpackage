@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/339",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/339/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/339/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/339/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/339",
+    "id": 380827242,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjMwOTM0OTY5",
+    "number": 339,
+    "title": "reject Transfer-Encoding header",
+    "user": {
+      "login": "nyaxt",
+      "id": 18355,
+      "node_id": "MDQ6VXNlcjE4MzU1",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/18355?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nyaxt",
+      "html_url": "https://github.com/nyaxt",
+      "followers_url": "https://api.github.com/users/nyaxt/followers",
+      "following_url": "https://api.github.com/users/nyaxt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nyaxt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nyaxt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nyaxt/subscriptions",
+      "organizations_url": "https://api.github.com/users/nyaxt/orgs",
+      "repos_url": "https://api.github.com/users/nyaxt/repos",
+      "events_url": "https://api.github.com/users/nyaxt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nyaxt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-11-14T18:22:08Z",
+    "updated_at": "2018-11-14T18:22:08Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/339",
+      "html_url": "https://github.com/WICG/webpackage/pull/339",
+      "diff_url": "https://github.com/WICG/webpackage/pull/339.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/339.patch"
+    },
+    "body": "Addresses #336 "
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/338",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/338/labels{/name}",
@@ -41,9 +95,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-11-09T01:53:26Z",
-    "updated_at": "2018-11-09T01:53:26Z",
+    "updated_at": "2018-11-09T02:05:31Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "I've seen SXG inner exchange's response headers containing:\r\n```\r\nCache-Control: no-cache, no-store\r\nExpires: <past date>\r\n```\r\n\r\nHow should we handle these cases?\r\n- Option 1) Add them to the banned headers list\r\n- Option 2) As proposed by @mnot in #326, enforce the [response cacheability algorithm](https://httpwg.org/specs/rfc7234.html#response.cacheability) in verification steps.\r\n\r\nMy preference is Option 2."
@@ -143,12 +197,12 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 5,
     "created_at": "2018-11-09T01:34:59Z",
-    "updated_at": "2018-11-09T01:38:22Z",
+    "updated_at": "2018-11-11T04:10:35Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
-    "body": "I've noticed the `Transfer-Encoding` header usage in SXG inner response headers.\r\nWe should specify how it will work.\r\n\r\n- Option 1) Add to banned headers list.\r\n- Option 2) Clarify in the loading spec that...\r\n  - Option 2.a) Only compression schemes are allowed (Ban only `Transfer-Encoding: chunked`)\r\n  - Option 2.b) They are ignored.\r\n\r\nNote that Chromium ToT currently ignores them. Which means, the response bytes are treated as they are raw bytes and doesn't go through decompressor/unchunking."
+    "body": "I've noticed the `Transfer-Encoding` header usage in SXG inner response headers.\r\nWe should specify how it will work.\r\n\r\n- Option 1) Add to banned headers list.\r\n- Option 2) Clarify in the loading spec that...\r\n  - Option 2.a) Only compression schemes are allowed (Ban only `Transfer-Encoding: chunked`)\r\n  - Option 2.b) They are ignored.\r\n\r\nNote that Chromium ToT currently ~~ignores them. Which means, the response bytes are treated as they are raw bytes and doesn't go through decompressor/unchunking.~~ supports them"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/335",
@@ -943,9 +997,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 3,
     "created_at": "2018-11-01T02:27:11Z",
-    "updated_at": "2018-11-03T08:13:09Z",
+    "updated_at": "2018-11-09T05:06:34Z",
     "closed_at": "2018-11-02T04:54:29Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1318,7 +1372,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1327,8 +1381,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2018-10-18T23:30:25Z",
-    "updated_at": "2018-10-24T11:17:39Z",
-    "closed_at": null,
+    "updated_at": "2018-11-14T21:55:21Z",
+    "closed_at": "2018-11-14T21:55:17Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/317",
@@ -1372,7 +1426,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "twifkak",
@@ -1419,8 +1473,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-10-18T23:15:58Z",
-    "updated_at": "2018-10-18T23:30:39Z",
-    "closed_at": null,
+    "updated_at": "2018-11-14T21:55:17Z",
+    "closed_at": "2018-11-14T21:55:17Z",
     "author_association": "COLLABORATOR",
     "body": "The files in there (except for firebase.json) are out of date and caused some confusion in #315."
   },
@@ -1767,7 +1821,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "https://wicg.github.io/webpackage/loading.html makes several mentions of `b1`. It will need to updated to refer to `b2`, as well as changes to where inner URL and payload digest are found, per the changes in #296 ([change log](https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#change-log)). Possibly other things?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/309",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1821,10 +1878,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/309.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/308",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3068,7 +3122,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-08-08T22:22:19Z",
-    "updated_at": "2018-09-18T22:46:57Z",
+    "updated_at": "2018-11-14T21:42:29Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -3077,7 +3131,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/285.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/285.patch"
     },
-    "body": "See https://docs.google.com/document/d/1JdJkdY7cK2rD9JXbK75sSn069c0rhF9UnLQACBZ1OtY/edit for more analysis and options, but building on @mnot's Variants seems like a good plan here.\n\nIf we go this way, it probably makes sense to move away from storing arbitrary request headers in both signed exchanges and bundles, and toward storing something like a [Variants header](https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants) directly.\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/285.html\" title=\"Last updated on Sep 18, 2018, 10:46 PM GMT (a7d3eb4)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/285/cf685b1...jyasskin:a7d3eb4.html\" title=\"Last updated on Sep 18, 2018, 10:46 PM GMT (a7d3eb4)\">Diff</a>"
+    "body": "See https://docs.google.com/document/d/1JdJkdY7cK2rD9JXbK75sSn069c0rhF9UnLQACBZ1OtY/edit for more analysis and options, but building on @mnot's Variants seems like a good plan here.\n\nIf we go this way, it probably makes sense to move away from storing arbitrary request headers in both signed exchanges and bundles, and toward storing something like a [Variants header](https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants) directly.\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/285.html\" title=\"Last updated on Nov 14, 2018, 9:42 PM GMT (e585628)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/285/7a8aaaf...jyasskin:e585628.html\" title=\"Last updated on Nov 14, 2018, 9:42 PM GMT (e585628)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/284",
@@ -3348,7 +3402,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/280.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/279",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3402,10 +3459,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/279.patch"
     },
     "body": "To address #276 "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/278",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4985,7 +5039,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/250.patch"
     },
     "body": "Address #243 "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/249",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5039,10 +5096,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/249.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/248",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6686,7 +6740,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/220.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/219",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6740,10 +6797,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/219.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/218",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8364,7 +8418,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/190.patch"
     },
     "body": "Follow spec changes after #178 and 3fc67e270b4a89bed9a46732c985fd984c2a66d3\r\n\r\nFYI: @jyasskin "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/189",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8418,10 +8475,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/189.patch"
     },
     "body": "Addresses #135 \r\nCorresponding spec change at f4ca17d1377bed966fdba85c03adbd798cfb5a96\r\n\r\n@jyasskin FYI"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/188",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8997,7 +9051,7 @@
     "milestone": null,
     "comments": 7,
     "created_at": "2018-04-12T00:30:47Z",
-    "updated_at": "2018-05-09T19:53:56Z",
+    "updated_at": "2018-11-14T21:44:05Z",
     "closed_at": "2018-05-09T19:53:56Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -10100,7 +10154,10 @@
     "closed_at": "2018-04-02T01:35:44Z",
     "author_association": "COLLABORATOR",
     "body": "https://jyasskin.github.io/webpackage/implementation-draft/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#stateful-headers\r\n\r\nCC @twifkak @nyaxt "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/159",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10154,10 +10211,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/159.patch"
     },
     "body": "#152 \r\n\r\nPTAL"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/158",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11851,7 +11905,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/130.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/129",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11899,10 +11956,7 @@
     "closed_at": "2018-03-05T21:29:35Z",
     "author_association": "NONE",
     "body": "It's \"Chrome OS\", not \"ChromeOS\"."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/128",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13397,7 +13451,10 @@
     "closed_at": "2017-12-24T15:30:17Z",
     "author_association": "NONE",
     "body": "Hnm"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/99",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13451,10 +13508,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/99.patch"
     },
     "body": "Instead of arrays with alternating keys and values, which side-steps the\r\ndisagreement about CBOR canonical map ordering rules, I now specify one\r\nof the ordering rules and use maps where they make sense.\r\n\r\nThe one place I'm still not using a map is in the top level of the\r\nexchange representation, where the request/response/payload ordering\r\nseems useful and where we might someday want to add, for example, the\r\nrequest payload between the request and response.\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/use-maps/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://jyasskin.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/use-maps/draft-yasskin-http-origin-signed-responses.txt)\r\n\r\n@MikeBishop"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/98",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15080,7 +15134,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "https://github.com/WICG/webpackage/pull/60#discussion_r121227994 points out that we might not want to store the [`:method` header](http://httpwg.org/specs/rfc7540.html#HttpRequest) in requests. We only know of uses of `GET` requests, and having the ability to code other methods might cause bugs."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/69",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15128,10 +15185,7 @@
     "closed_at": "2018-01-24T18:39:34Z",
     "author_association": "COLLABORATOR",
     "body": "For example, we might want to be able to start playing a large video file without hashing the whole thing.\r\n\r\nSee https://tools.ietf.org/html/draft-thomson-http-mice for one approach."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/68",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16631,7 +16685,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "From @dimich-g's https://github.com/dimich-g/webpackage/pull/36#issuecomment-290316360:\r\n\r\nHaving external sub-packages could be useful to tell the UA that it's likely to need some files, without incurring an extra download cost when the UA happens to already have that package."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/39",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16679,10 +16736,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "From @dimich-g's https://github.com/dimich-g/webpackage/pull/36#issuecomment-290316360:\r\n\r\nWithout a signed manifest, there's no structure to identify sub-packages.\r\n\r\nHowever, it might just work to lump all the resources together at the top level. Do we need to identify the sub-package structure?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/38",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18152,7 +18206,10 @@
     "closed_at": "2017-08-10T13:48:24Z",
     "author_association": "NONE",
     "body": "[The section on the index ](https://github.com/dimich-g/webpackage#use-case-optional-content-index) says that compression may be permitted, but that may/will yield binary data.  However, because the header of the is document is text - most sniffers will consider this a text file and treat it accordingly (eg. screwing up line endings).\r\n\r\nEither require that all data be text-encoded (eg. BASE64) or use a binary format."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/9",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18200,10 +18257,7 @@
     "closed_at": "2017-01-24T02:07:46Z",
     "author_association": "NONE",
     "body": "As defined [in its IANA registration](https://www.iana.org/assignments/media-types/application/index), this is not a valid media type.  Instead, either a new sub-type should be defined and/or the appropriate format extension (eg. +json) should be added."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/8",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
