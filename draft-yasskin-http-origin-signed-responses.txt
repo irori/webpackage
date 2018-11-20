@@ -1199,33 +1199,33 @@ Internet-Draft            Signed HTTP Exchanges            November 2018
    that returns "valid".  If any signature returns "valid", return
    "valid".  Otherwise, return "invalid".
 
-   1.  If the signature's "validity-url" parameter (Paragraph 6) is not
-       same-origin [7] with "requestUrl", return "invalid".
+   1.   If the signature's "validity-url" parameter (Paragraph 6) is not
+        same-origin [7] with "requestUrl", return "invalid".
 
-   2.  Use Section 3.5 to determine the signature's validity for
-       "requestUrl", "headers", and "payload", getting "certificate-
-       chain" back.  If this returned "invalid" or didn't return a
-       certificate chain, return "invalid".
+   2.   Use Section 3.5 to determine the signature's validity for
+        "requestUrl", "headers", and "payload", getting "certificate-
+        chain" back.  If this returned "invalid" or didn't return a
+        certificate chain, return "invalid".
 
-   3.  Let "exchange" be the exchange metadata and headers parsed out of
-       "headers".
+   3.   Let "exchange" be the exchange metadata and headers parsed out
+        of "headers".
 
-   4.  If "exchange"'s request method is not safe (Section 4.2.1 of
-       [RFC7231]) or not cacheable (Section 4.2.3 of [RFC7231]), return
-       "invalid".
+   4.   If "exchange"'s request method is not safe (Section 4.2.1 of
+        [RFC7231]), return "invalid".
 
-   5.  If "exchange"'s headers contain a stateful header field, as
-       defined in Section 4.1, return "invalid".
+   5.   If "exchange"'s response is not complete (Section 3.1 of
+        [RFC7234]), return "invalid".
 
-   6.  Let "authority" be the host component of "requestUrl".
+   6.   If Section 3 of [RFC7234] forbids a shared cache from storing
+        "exchange"'s response, return "invalid".
 
-   7.  Validate the "certificate-chain" using the following substeps.
-       If any of them fail, re-run Section 3.5 once over the signature
-       with the "forceFetch" flag set, and restart from step 2.  If a
-       substep fails again, return "invalid".
+   7.   If "exchange"'s headers contain a stateful header field, as
+        defined in Section 4.1, return "invalid".
 
-       1.  Use "certificate-chain" to validate that its first entry,
-           "main-certificate" is trusted as "authority"'s server
+   8.   Let "authority" be the host component of "requestUrl".
+
+   9.   Validate the "certificate-chain" using the following substeps.
+        If any of them fail, re-run Section 3.5 once over the signature
 
 
 
@@ -1234,36 +1234,41 @@ Yasskin                   Expires May 24, 2019                 [Page 22]
 Internet-Draft            Signed HTTP Exchanges            November 2018
 
 
-           certificate ([RFC5280] and other undocumented conventions).
-           Let "path" be the path that was used from the "main-
-           certificate" to a trusted root, including the "main-
-           certificate" but excluding the root.
+        with the "forceFetch" flag set, and restart from step 2.  If a
+        substep fails again, return "invalid".
 
-       2.  Validate that "main-certificate" has the CanSignHttpExchanges
-           extension (Section 4.2).
+        1.  Use "certificate-chain" to validate that its first entry,
+            "main-certificate" is trusted as "authority"'s server
+            certificate ([RFC5280] and other undocumented conventions).
+            Let "path" be the path that was used from the "main-
+            certificate" to a trusted root, including the "main-
+            certificate" but excluding the root.
 
-       3.  Validate that "main-certificate" has an "ocsp" property
-           (Section 3.3) with a valid OCSP response whose lifetime
-           ("nextUpdate - thisUpdate") is less than 7 days ([RFC6960]).
-           Note that this does not check for revocation of intermediate
-           certificates, and clients SHOULD implement another mechanism
-           for that.
+        2.  Validate that "main-certificate" has the
+            CanSignHttpExchanges extension (Section 4.2).
 
-       4.  Validate that valid SCTs from trusted logs are available from
-           any of:
+        3.  Validate that "main-certificate" has an "ocsp" property
+            (Section 3.3) with a valid OCSP response whose lifetime
+            ("nextUpdate - thisUpdate") is less than 7 days ([RFC6960]).
+            Note that this does not check for revocation of intermediate
+            certificates, and clients SHOULD implement another mechanism
+            for that.
 
-           +  The "SignedCertificateTimestampList" in "main-
-              certificate"'s "sct" property (Section 3.3),
+        4.  Validate that valid SCTs from trusted logs are available
+            from any of:
 
-           +  An OCSP extension in the OCSP response in "main-
-              certificate"'s "ocsp" property, or
+            +  The "SignedCertificateTimestampList" in "main-
+               certificate"'s "sct" property (Section 3.3),
 
-           +  An X.509 extension in the certificate in "main-
-              certificate"'s "cert" property,
+            +  An OCSP extension in the OCSP response in "main-
+               certificate"'s "ocsp" property, or
 
-           as described by Section 3.3 of [RFC6962].
+            +  An X.509 extension in the certificate in "main-
+               certificate"'s "cert" property,
 
-   8.  Return "valid".
+            as described by Section 3.3 of [RFC6962].
+
+   10.  Return "valid".
 
 4.1.  Stateful header fields
 
@@ -1278,17 +1283,16 @@ Internet-Draft            Signed HTTP Exchanges            November 2018
 
    o  "Authorization", [RFC7235]
 
-   o  "Cookie", [RFC6265]
-
-   o  "Cookie2", [RFC2965]
-
-
 
 
 Yasskin                   Expires May 24, 2019                 [Page 23]
 
 Internet-Draft            Signed HTTP Exchanges            November 2018
 
+
+   o  "Cookie", [RFC6265]
+
+   o  "Cookie2", [RFC2965]
 
    o  "Proxy-Authorization", [RFC7235]
 
@@ -1335,10 +1339,6 @@ Internet-Draft            Signed HTTP Exchanges            November 2018
    Note that this extension contains an ASN.1 NULL (bytes "05 00")
    because some implementations have bugs with empty extensions.
 
-   Leaf certificates without this extension need to be revoked if the
-   private key is exposed to an unauthorized entity, but they generally
-
-
 
 
 Yasskin                   Expires May 24, 2019                 [Page 24]
@@ -1346,6 +1346,8 @@ Yasskin                   Expires May 24, 2019                 [Page 24]
 Internet-Draft            Signed HTTP Exchanges            November 2018
 
 
+   Leaf certificates without this extension need to be revoked if the
+   private key is exposed to an unauthorized entity, but they generally
    don't need to be revoked if a signing oracle is exposed and then
    removed.
 
@@ -1392,8 +1394,6 @@ Internet-Draft            Signed HTTP Exchanges            November 2018
    o  The effective request URI (Section 5.5 of [RFC7230]) of the
       request,
 
-   o  The serialized headers defined by Section 5.1.1, and
-
 
 
 
@@ -1401,6 +1401,8 @@ Yasskin                   Expires May 24, 2019                 [Page 25]
 
 Internet-Draft            Signed HTTP Exchanges            November 2018
 
+
+   o  The serialized headers defined by Section 5.1.1, and
 
    o  The response's payload.
 
@@ -1448,8 +1450,6 @@ Internet-Draft            Signed HTTP Exchanges            November 2018
 
    This header field appears once instead of being incorporated into the
    signatures' parameters because the signed header fields need to be
-   consistent across all signatures of an exchange, to avoid forcing
-
 
 
 
@@ -1458,6 +1458,7 @@ Yasskin                   Expires May 24, 2019                 [Page 26]
 Internet-Draft            Signed HTTP Exchanges            November 2018
 
 
+   consistent across all signatures of an exchange, to avoid forcing
    higher-level protocols to merge the header field lists of valid
    signatures.
 
@@ -1504,8 +1505,7 @@ Internet-Draft            Signed HTTP Exchanges            November 2018
    The use of a SETTINGS parameter to opt-in to an otherwise
    incompatible protocol change is a use of "Extending HTTP/2" defined
    by Section 5.5 of [RFC7540].  If a server were to send a cross-origin
-   Push without first receiving a ENABLE_CROSS_ORIGIN_PUSH setting with
-   the value of 1 it would be a protocol violation.
+
 
 
 
@@ -1513,6 +1513,9 @@ Yasskin                   Expires May 24, 2019                 [Page 27]
 
 Internet-Draft            Signed HTTP Exchanges            November 2018
 
+
+   Push without first receiving a ENABLE_CROSS_ORIGIN_PUSH setting with
+   the value of 1 it would be a protocol violation.
 
 5.2.2.  NO_TRUSTED_EXCHANGE_SIGNATURE error code
 
@@ -1558,9 +1561,6 @@ Internet-Draft            Signed HTTP Exchanges            November 2018
    NO_TRUSTED_EXCHANGE_SIGNATURE.  Otherwise, the client MUST treat the
    pushed response as if the server were authoritative for the
    PUSH_PROMISE's authority.
-
-
-
 
 
 
@@ -2886,6 +2886,9 @@ Appendix D.  Change Log
    o  Refer to draft-yasskin-httpbis-origin-signed-exchanges-impl for
       draft version numbers.
 
+   o  Require "exchange"'s response to be complete and cachable by a
+      shared cache.
+
    draft-04
 
    o  Update to draft-ietf-httpbis-header-structure-06.
@@ -2904,15 +2907,15 @@ Appendix D.  Change Log
 
    o  Require absolute URLs.
 
-   o  Make all identifiers in headers lower-case, as required by
-      Structured Headers.
-
 
 
 Yasskin                   Expires May 24, 2019                 [Page 52]
 
 Internet-Draft            Signed HTTP Exchanges            November 2018
 
+
+   o  Make all identifiers in headers lower-case, as required by
+      Structured Headers.
 
    o  Switch back to the TLS 1.3 signature format.
 
@@ -2959,9 +2962,6 @@ Internet-Draft            Signed HTTP Exchanges            November 2018
    o  Remove the update.url field from signature validity updates, in
       favor of just re-fetching the original request URL.
 
-   o  Define an HTTP/2 extension to use a setting to enable cross-origin
-      Server Push.
-
 
 
 
@@ -2969,6 +2969,9 @@ Yasskin                   Expires May 24, 2019                 [Page 53]
 
 Internet-Draft            Signed HTTP Exchanges            November 2018
 
+
+   o  Define an HTTP/2 extension to use a setting to enable cross-origin
+      Server Push.
 
    o  Define an "Accept-Signature" header to negotiate whether to send
       Signatures and which ones.
@@ -2990,9 +2993,6 @@ Author's Address
    Google
 
    Email: jyasskin@chromium.org
-
-
-
 
 
 
