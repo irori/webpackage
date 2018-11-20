@@ -1,6 +1,108 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/341",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/341/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/341/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/341/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/341",
+    "id": 382514259,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjMyMjAxODcw",
+    "number": 341,
+    "title": "verifier.go: Add checks for request method and stateful headers",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-11-20T06:06:12Z",
+    "updated_at": "2018-11-20T06:54:45Z",
+    "closed_at": "2018-11-20T06:54:40Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/341",
+      "html_url": "https://github.com/WICG/webpackage/pull/341",
+      "diff_url": "https://github.com/WICG/webpackage/pull/341.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/341.patch"
+    },
+    "body": "This implements Step 3-5 of the \"Cross-origin trust\" algorithm\r\n([Section 4 of draft-yasskin-http-origin-signed-responses.html](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#rfc.section.4))."
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/340",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/340/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/340/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/340/events",
+    "html_url": "https://github.com/WICG/webpackage/issues/340",
+    "id": 381803268,
+    "node_id": "MDU6SXNzdWUzODE4MDMyNjg=",
+    "number": 340,
+    "title": "Consider banning Strict-Transport-Security and Public-Key-Pins headers",
+    "user": {
+      "login": "jyasskin",
+      "id": 83420,
+      "node_id": "MDQ6VXNlcjgzNDIw",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/83420?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jyasskin",
+      "html_url": "https://github.com/jyasskin",
+      "followers_url": "https://api.github.com/users/jyasskin/followers",
+      "following_url": "https://api.github.com/users/jyasskin/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jyasskin/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jyasskin/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jyasskin/subscriptions",
+      "organizations_url": "https://api.github.com/users/jyasskin/orgs",
+      "repos_url": "https://api.github.com/users/jyasskin/repos",
+      "events_url": "https://api.github.com/users/jyasskin/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jyasskin/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 4,
+    "created_at": "2018-11-17T00:10:08Z",
+    "updated_at": "2018-11-17T00:33:01Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "In https://github.com/WICG/webpackage/issues/336#issuecomment-439560219, @sleevi suggests that we add the contents of [`kSecurityStateHeaders`](https://cs.chromium.org/chromium/src/net/http/http_response_headers.cc?l=77) to https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers.\r\n\r\n@sleevi, you're worried about attackers targeting sites that use a set of HSTS domains as an authentication cookie?\r\n\r\nHTTP will define some set of headers that shared caches don't store, and I'd like to just blindly ban that list in signed exchanges, but I do see an argument to be a bit stricter in signed exchanges, since with signed exchanges the attacker doesn't have to be the first to visit the cache.\r\n\r\nOn the other hand, to be vulnerable to this attack, a site has to be using HSTS in a user-hostile way."
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/339",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/339/labels{/name}",
@@ -43,7 +145,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-11-14T18:22:08Z",
-    "updated_at": "2018-11-14T18:22:08Z",
+    "updated_at": "2018-11-16T23:27:14Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -197,9 +299,9 @@
 
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 8,
     "created_at": "2018-11-09T01:34:59Z",
-    "updated_at": "2018-11-11T04:10:35Z",
+    "updated_at": "2018-11-17T00:10:34Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "I've noticed the `Transfer-Encoding` header usage in SXG inner response headers.\r\nWe should specify how it will work.\r\n\r\n- Option 1) Add to banned headers list.\r\n- Option 2) Clarify in the loading spec that...\r\n  - Option 2.a) Only compression schemes are allowed (Ban only `Transfer-Encoding: chunked`)\r\n  - Option 2.b) They are ignored.\r\n\r\nNote that Chromium ToT currently ~~ignores them. Which means, the response bytes are treated as they are raw bytes and doesn't go through decompressor/unchunking.~~ supports them"
@@ -655,9 +757,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2018-11-05T03:08:46Z",
-    "updated_at": "2018-11-06T01:51:59Z",
+    "updated_at": "2018-11-20T06:06:36Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -765,7 +867,7 @@
     "milestone": null,
     "comments": 7,
     "created_at": "2018-11-02T01:13:16Z",
-    "updated_at": "2018-11-05T01:51:14Z",
+    "updated_at": "2018-11-20T05:59:46Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -774,7 +876,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/326.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/326.patch"
     },
-    "body": "Chromium CL: https://chromium-review.googlesource.com/c/chromium/src/+/1313712"
+    "body": "Chromium CL: https://chromium-review.googlesource.com/c/chromium/src/+/1313712\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/nyaxt/webpackage/pull/326.html\" title=\"Last updated on Nov 20, 2018, 5:59 AM GMT (95b849a)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/326/54c7a94...nyaxt:95b849a.html\" title=\"Last updated on Nov 20, 2018, 5:59 AM GMT (95b849a)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/325",
@@ -1719,7 +1821,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/312.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/311",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1821,10 +1926,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "https://wicg.github.io/webpackage/loading.html makes several mentions of `b1`. It will need to updated to refer to `b2`, as well as changes to where inner URL and payload digest are found, per the changes in #296 ([change log](https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#change-log)). Possibly other things?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/309",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -2346,9 +2448,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2018-09-04T05:54:08Z",
-    "updated_at": "2018-09-04T05:54:08Z",
+    "updated_at": "2018-11-19T07:57:42Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Currently the loading spec says the newer HTTP cache contents should override the stashed exchange if the cached one is newer, but discussing this with @sleevi we suspected this may not make a lot sense if the underlying HTTP cache is NOT single-keyed (e.g. is double-keyed / partitioned).  So the question here is how much real benefit would this behavior have, and if we should really implement it.\r\n\r\n(Context: Chromium currently doesn't implement this behavior, and no plan to do so until this issue is clarified or we see a real, clear benefit)"
@@ -2394,9 +2496,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-09-04T05:34:27Z",
-    "updated_at": "2018-09-04T05:34:27Z",
+    "updated_at": "2018-11-17T00:23:29Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Just want to make sure this is what is intended: in Step 26 https://wicg.github.io/webpackage/loading.html#parsing-b1 says:\r\n\r\n> If parsedExchange’s response's status is a redirect status or the signed exchange version of parsedExchange’s response is not undefined, return a failure.\r\n\r\nThis means if an inner response's content type is `application/signed-exchange` but without `v=` UA just lets it go (and result in downloading for navigations, or may just return the outer response for other cases). This might be what the spec intends but felt a bit unclear so filing this issue. /cc @irori "
@@ -3294,7 +3396,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/282.patch"
     },
     "body": "Drop the HAR entry if:\r\n- Request method is not GET.\r\n- Status code is not valid. Chromium puts status code 0 if the request\r\n  failed with a network error."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/281",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3402,10 +3507,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/280.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/279",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4931,7 +5033,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/252.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/251",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5039,10 +5144,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/250.patch"
     },
     "body": "Address #243 "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/249",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6631,7 +6733,10 @@
     "closed_at": "2018-06-21T02:30:43Z",
     "author_association": "COLLABORATOR",
     "body": "Current Signed Exchange spec draft [says](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#rfc.section.3.1) `cert-url` and `validity-url` should be [an absolute-URL string](https://url.spec.whatwg.org/#absolute-url-string), but that could potentially allow multiple schemes than http/https (e.g. file and ws), while it doesn't seem to include data: URL.  It looks we'd better clarify what schemes should be allowed there."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/221",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6740,10 +6845,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/220.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/219",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8316,7 +8418,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/192.patch"
     },
     "body": "Addresses #191 "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/191",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8418,10 +8523,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/190.patch"
     },
     "body": "Follow spec changes after #178 and 3fc67e270b4a89bed9a46732c985fd984c2a66d3\r\n\r\nFYI: @jyasskin "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/189",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10020,7 +10122,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/162.patch"
     },
     "body": "#160 \r\n\r\nPTAL"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/161",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10154,10 +10259,7 @@
     "closed_at": "2018-04-02T01:35:44Z",
     "author_association": "COLLABORATOR",
     "body": "https://jyasskin.github.io/webpackage/implementation-draft/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#stateful-headers\r\n\r\nCC @twifkak @nyaxt "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/159",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11797,7 +11899,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/132.patch"
     },
     "body": "@davidben, you'll probably like this one. It refactors the rules for trusting cross-origin exchanges so that they can be shared by Push and the application/http-exchange format. This let me cover all headers from those two transfer methods unconditionally, with only same-origin exchanges able to use `Signed-Headers` to select a subset.\r\n\r\nThere's a bunch of text motion, but sections id'ed `signed-headers` and `significant-headers` are basically unchanged in their new locations, and `authority-chain-validation` became the algorithm in `cross-origin-trust`.\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/unify-cross-origin/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/unify-cross-origin/draft-yasskin-http-origin-signed-responses.txt)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/131",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11905,10 +12010,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/130.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/129",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13355,7 +13457,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Scenario: Developer A includes a package from Developer B (e.g. a specific version of jQuery, or a hypothetical wasm implementation of python3) to serve the purpose of a shared library. This is loaded from a version-specific URL, say packages.jquery.com/v3-2-1, to ensure that A's app is running with the right version of jQuery or python that it was developed for. However, A has to trust the integrity of B and B's server to actually keep the resource static. B or any attacker on B's server has the power to inject malicious code into A's web app. This makes shared libraries impractical for security-critical applications. \r\n\r\nTo solve this problem, A links B's package with both a URL and a hash, which is checked by the client as soon as B's package is loaded (libraries are unlikely to need streaming). So A can have absolute confidence that their app uses the exact same version of the resource that it has been developed for, while keeping the benefits of shared library use.\r\n  "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/101",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13451,10 +13556,7 @@
     "closed_at": "2017-12-24T15:30:17Z",
     "author_association": "NONE",
     "body": "Hnm"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/99",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -14962,7 +15064,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "[example.com.key](https://github.com/WICG/webpackage/tree/master/go/webpack/testdata/pki/example.com.key) is currently a secp256r1 key, but we should also test creating packages for each of:\r\n* RSA <= 3072 bits\r\n* RSA with 3073-7680 bits (probably 4096)\r\n* secp384r1\r\n* secp521r1\r\n\r\nI'll probably create the keys for `rsa2048.example.com`, `secp521r1.example.com`, etc."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/71",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15134,10 +15239,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "https://github.com/WICG/webpackage/pull/60#discussion_r121227994 points out that we might not want to store the [`:method` header](http://httpwg.org/specs/rfc7540.html#HttpRequest) in requests. We only know of uses of `GET` requests, and having the ability to code other methods might cause bugs."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/69",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16589,7 +16691,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "https://github.com/dimich-g/webpackage#use-cases has lots of examples that use an old version of the design."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/41",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16685,10 +16790,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "From @dimich-g's https://github.com/dimich-g/webpackage/pull/36#issuecomment-290316360:\r\n\r\nHaving external sub-packages could be useful to tell the UA that it's likely to need some files, without incurring an extra download cost when the UA happens to already have that package."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/39",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18110,7 +18212,10 @@
     "closed_at": "2017-06-27T22:40:15Z",
     "author_association": "NONE",
     "body": "There is nothing specified for exactly which bytes are hashed - either for an individual file/resource for the header or the index.  \r\n\r\nDo you include the boundary string?  Do you include any closing line endings?  "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/11",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18206,10 +18311,7 @@
     "closed_at": "2017-08-10T13:48:24Z",
     "author_association": "NONE",
     "body": "[The section on the index ](https://github.com/dimich-g/webpackage#use-case-optional-content-index) says that compression may be permitted, but that may/will yield binary data.  However, because the header of the is document is text - most sniffers will consider this a text file and treat it accordingly (eg. screwing up line endings).\r\n\r\nEither require that all data be text-encoded (eg. BASE64) or use a binary format."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/9",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
