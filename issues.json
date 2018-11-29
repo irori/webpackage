@@ -149,9 +149,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-11-20T20:10:38Z",
-    "updated_at": "2018-11-20T20:10:38Z",
+    "updated_at": "2018-11-27T06:54:43Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "#326 leaves the loading spec more restrictive than the RFC draft in terms of which status codes are allowed. We should figure out how browsers implement https://httpwg.org/http-core/draft-ietf-httpbis-cache-latest.html#response.cacheability and refer to that from the loading spec instead of blindly requiring only status 200, or we should tighten the RFC draft to require just that status."
@@ -915,7 +915,7 @@
     "milestone": null,
     "comments": 2,
     "created_at": "2018-11-05T03:08:46Z",
-    "updated_at": "2018-11-20T08:06:16Z",
+    "updated_at": "2018-11-29T05:09:20Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -924,7 +924,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/328.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/328.patch"
     },
-    "body": "\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/nyaxt/webpackage/pull/328.html\" title=\"Last updated on Nov 20, 2018, 8:05 AM GMT (3117315)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/328/54c7a94...nyaxt:3117315.html\" title=\"Last updated on Nov 20, 2018, 8:05 AM GMT (3117315)\">Diff</a>"
+    "body": "\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/nyaxt/webpackage/pull/328.html\" title=\"Last updated on Nov 29, 2018, 5:09 AM GMT (80fcf9e)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/328/2609899...nyaxt:80fcf9e.html\" title=\"Last updated on Nov 29, 2018, 5:09 AM GMT (80fcf9e)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/327",
@@ -1395,9 +1395,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2018-10-31T15:06:48Z",
-    "updated_at": "2018-11-01T01:48:22Z",
+    "updated_at": "2018-11-28T23:33:34Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "When a server returns a web package in the application/signed-exchange format, it'll embed the request URL in the returned binary blob in the fallbackUrl field. Depending on the server implementation, the encoding of bytes of the URL might vary. Some implementation might choose the easiest solution, which is to just reflect whatever representation the client sends.\r\n\r\nThis is problematic, because this gives attackers an easy injection point within the first few bytes of the file, which can be turned into code running in the victim origin using content sniffing. The Adobe PDF parser for example ignores the unknown prefix bytes if it finds a valid PDF signature within the first 1kb of the file.\r\n\r\nThe \"x-content-type-options: nosniff\" header instruct browsers to not do content sniffing, but plugins can choose to (and in many cases do) ignore them. Because of this, the usual suggestion is to host partially user controlled binary files only on sandbox domains (when it's not possible to sufficiently escape the user controlled parts, which is usually not the case).\r\n\r\nThis demo page is not vulnerable to this, because it requires a special Accept request header: https://azei-package-test.com/ Clients that can't interpret the web package format will never send this header, so they'll never see the signed exchange file format.\r\n\r\nOne solution would be to use some kind of encoding for all reflected values (e.g. base64) to avoid introducing a valuable injection point in the first place."
@@ -2693,7 +2693,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -2702,8 +2702,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-09-03T06:45:27Z",
-    "updated_at": "2018-11-21T00:40:33Z",
-    "closed_at": null,
+    "updated_at": "2018-11-29T07:13:53Z",
+    "closed_at": "2018-11-29T07:13:53Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/298",
@@ -2747,17 +2747,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2018-08-28T04:15:09Z",
-    "updated_at": "2018-08-28T04:15:09Z",
-    "closed_at": null,
+    "updated_at": "2018-11-28T20:06:39Z",
+    "closed_at": "2018-11-28T20:06:39Z",
     "author_association": "COLLABORATOR",
     "body": "The new spec allows fallbackURLs up to 65536 bytes long, but several existing browsers have lower limits than that. Perhaps the fetch spec should say how browsers should respond if the fallbackUrl is too long, or alternatively specify a minimum length they must support. Otherwise, browsers may behave differently (e.g. network error, redirect to fallback URL, or display a trimmed URL). Or is this already covered by some other part of Fetch?"
   },
