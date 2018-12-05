@@ -34,17 +34,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 5,
     "created_at": "2018-11-30T23:19:28Z",
-    "updated_at": "2018-11-30T23:19:35Z",
-    "closed_at": null,
+    "updated_at": "2018-12-05T15:38:41Z",
+    "closed_at": "2018-12-05T15:37:48Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/346",
@@ -52,7 +52,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/346.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/346.patch"
     },
-    "body": "Bikeshed warned that I'd never defined |fallbackUrl|, but I missed it\nbefore going on parental leave. Do y'all see any problems with picking this conversion from bytes to a string?\n\n@irori, we ought to test this with a couple bad fallback URLs, say one starting with a BOM, and one with an invalid sequence that the UTF-8 decoder might convert to U+FFFD. Would you be willing to add those tests?\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/346.html\" title=\"Last updated on Nov 30, 2018, 11:19 PM GMT (876b3c9)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/346/25a0996...jyasskin:876b3c9.html\" title=\"Last updated on Nov 30, 2018, 11:19 PM GMT (876b3c9)\">Diff</a>"
+    "body": "Bikeshed warned that I'd never defined |fallbackUrl|, but I missed it\nbefore going on parental leave. Do y'all see any problems with picking this conversion from bytes to a string?\n\n@irori, we ought to test this with a couple bad fallback URLs, say one starting with a BOM, and one with an invalid sequence that the UTF-8 decoder might convert to U+FFFD. Would you be willing to add those tests?\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/346.html\" title=\"Last updated on Dec 1, 2018, 12:31 AM GMT (121ecb1)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/346/2eddf31...jyasskin:121ecb1.html\" title=\"Last updated on Dec 1, 2018, 12:31 AM GMT (121ecb1)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/344",
@@ -3437,7 +3437,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-08-08T22:22:19Z",
-    "updated_at": "2018-11-30T22:23:12Z",
+    "updated_at": "2018-12-04T02:13:45Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -3446,7 +3446,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/285.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/285.patch"
     },
-    "body": "See https://docs.google.com/document/d/1JdJkdY7cK2rD9JXbK75sSn069c0rhF9UnLQACBZ1OtY/edit for more analysis and options, but building on @mnot's Variants seems like a good plan here.\n\nIf we go this way, it probably makes sense to move away from storing arbitrary request headers in both signed exchanges and bundles, and toward storing something like a [Variants header](https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants) directly.\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/285.html\" title=\"Last updated on Nov 30, 2018, 10:20 PM GMT (8d60b58)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/285/25a0996...jyasskin:8d60b58.html\" title=\"Last updated on Nov 30, 2018, 10:20 PM GMT (8d60b58)\">Diff</a>"
+    "body": "See https://docs.google.com/document/d/1JdJkdY7cK2rD9JXbK75sSn069c0rhF9UnLQACBZ1OtY/edit for more analysis and options, but building on @mnot's Variants seems like a good plan here.\n\nIf we go this way, it probably makes sense to move away from storing arbitrary request headers in both signed exchanges and bundles, and toward storing something like a [Variants header](https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants) directly.\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/285.html\" title=\"Last updated on Dec 1, 2018, 1:04 AM GMT (2fb6c8f)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/285/2eddf31...jyasskin:2fb6c8f.html\" title=\"Last updated on Dec 1, 2018, 1:04 AM GMT (2fb6c8f)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/284",
@@ -6445,7 +6445,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-06-22T16:19:05Z",
-    "updated_at": "2018-06-25T01:47:11Z",
+    "updated_at": "2018-12-01T00:34:29Z",
     "closed_at": "2018-06-25T01:47:11Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -6997,7 +6997,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2018-06-18T02:16:54Z",
-    "updated_at": "2018-06-18T03:02:34Z",
+    "updated_at": "2018-12-03T08:36:34Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "By using [data-url](https://fetch.spec.whatwg.org/#data-urls) in cert-url of [Signature Header](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#signature-header), the [certificate chain](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cert-chain-format) can be contained in a Signed HTTP Exchange. It is useful for offline loading.\r\n\r\nBut having the same certificate chain in multiple Signed HTTP Exchanges in a Bundled HTTP Exchange is not efficient. We should have a way to contain one certificate chain per one host name for multiple Signed HTTP Exchanges in a Bundled HTTP Exchange.\r\n\r\nI filed this issue from the discussion in https://crrev.com/c/1102281."
@@ -13864,7 +13864,7 @@
     "milestone": null,
     "comments": 7,
     "created_at": "2017-12-21T00:58:41Z",
-    "updated_at": "2018-05-29T21:00:12Z",
+    "updated_at": "2018-12-01T00:34:31Z",
     "closed_at": "2018-05-29T21:00:12Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
