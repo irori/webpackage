@@ -305,6 +305,8 @@ ul.toc li {
 <link href="#rfc.section.3.5" rel="Chapter" title="3.5 Interpreting CBOR HTTP headers">
 <link href="#rfc.section.4" rel="Chapter" title="4 Guidelines for bundle authors">
 <link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations">
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 Version skew">
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Content sniffing">
 <link href="#rfc.section.6" rel="Chapter" title="6 IANA considerations">
 <link href="#rfc.section.6.1" rel="Chapter" title="6.1 Internet Media Type Registration">
 <link href="#rfc.section.6.2" rel="Chapter" title="6.2 Web Bundle Section Name Registry">
@@ -423,7 +425,11 @@ ul.toc li {
 </li>
 <li>5.   <a href="#rfc.section.5">Security Considerations</a>
 </li>
-<li>6.   <a href="#rfc.section.6">IANA considerations</a>
+<ul><li>5.1.   <a href="#rfc.section.5.1">Version skew</a>
+</li>
+<li>5.2.   <a href="#rfc.section.5.2">Content sniffing</a>
+</li>
+</ul><li>6.   <a href="#rfc.section.6">IANA considerations</a>
 </li>
 <ul><li>6.1.   <a href="#rfc.section.6.1">Internet Media Type Registration</a>
 </li>
@@ -816,7 +822,30 @@ headers = {* bstr =&gt; bstr}
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#security" id="security">Security Considerations</a>
 </h1>
-<p id="rfc.section.5.p.1">Bundles currently have no mechanism for ensuring that the signed exchanges they contain constitute a consistent version of those resources. Even if a website never has a security vulnerability when resources are fetched at a single time, an attacker might be able to combine a set of resources pulled from different versions of the website to build a vulnerable site. While the vulnerable site could have occurred by chance on a client&#8217;s machine due to normal HTTP caching, bundling allows an attacker to guarantee that it happens. Future work in this specification might allow a bundle to constrain its resources to come from a consistent version.</p>
+<h1 id="rfc.section.5.1">
+<a href="#rfc.section.5.1">5.1.</a> <a href="#seccons-version-skew" id="seccons-version-skew">Version skew</a>
+</h1>
+<p id="rfc.section.5.1.p.1">Bundles currently have no mechanism for ensuring that the signed exchanges they contain constitute a consistent version of those resources. Even if a website never has a security vulnerability when resources are fetched at a single time, an attacker might be able to combine a set of resources pulled from different versions of the website to build a vulnerable site. While the vulnerable site could have occurred by chance on a client&#8217;s machine due to normal HTTP caching, bundling allows an attacker to guarantee that it happens. Future work in this specification might allow a bundle to constrain its resources to come from a consistent version.</p>
+<h1 id="rfc.section.5.2">
+<a href="#rfc.section.5.2">5.2.</a> <a href="#seccons-content-sniffing" id="seccons-content-sniffing">Content sniffing</a>
+</h1>
+<p id="rfc.section.5.2.p.1">While modern browsers tend to trust the <samp>Content-Type</samp> header sent with a resource, especially when accompanied by <samp>X-Content-Type-Options: nosniff</samp>, plugins will sometimes search for executable content buried inside a resource and execute it in the context of the origin that served the resource, leading to XSS vulnerabilities. For example, some PDF reader plugins look for <samp>%PDF</samp> anywhere in the first 1kB and execute the code that follows it.</p>
+<p id="rfc.section.5.2.p.2">The <samp>application/webbundle</samp> format defined above includes URLs and request headers early in the format, which an attacker could use to cause these plugins to sniff a bad content type.</p>
+<p id="rfc.section.5.2.p.3">To avoid vulnerabilities, servers are advised to only serve an <samp>application/webbundle</samp> resource from a domain if it would also be safe for that domain to serve the bundle&#8217;s content directly, and to follow at least one of the following strategies:</p>
+<p></p>
+
+<ol>
+<li>Only serve bundles from dedicated domains that don&#8217;t have access to sensitive cookies or user storage.</li>
+<li>Generate bundles &#8220;offline&#8221;, that is, in response to a trusted author submitting content or existing signatures reaching a certain age, rather than in response to untrusted-reader queries.</li>
+<li>Do all of: <ol>
+<li>If the bundle&#8217;s contained URLs (e.g. in the manifest and index) are derived from the request for the bundle, <a href="https://url.spec.whatwg.org/#percent-encode">percent-encode</a> (<a href="#URL" class="xref">[URL]</a>) any bytes that are greater than 0x7E or are not <a href="https://url.spec.whatwg.org/#url-code-points">URL code points</a> (<a href="#URL" class="xref">[URL]</a>) in these URLs. It is particularly important to make sure no unescaped nulls (0x00) or angle brackets (0x3C and 0x3E) appear.</li>
+<li>Similarly, if the request headers for any contained resource are based on the headers sent while requesting the bundle, only include request header field names <strong>and values</strong> that appear in a static allowlist. Keep the set of allowed request header fields smaller than 24 elements to prevent attackers from controlling a whole CBOR length byte.</li>
+<li>Restrict the number of items a request can direct the server to include in a bundle to less than 12, again to prevent attackers from controlling a whole CBOR length byte.</li>
+<li>Do not reflect request header fields into the set of response headers.</li>
+</ol>
+</li>
+</ol>
+<p id="rfc.section.5.2.p.5">If the server serves responses that are written by a potential attacker but then escaped, the <samp>application/webbundle</samp> format allows the attacker to use the length of the response to control a few bytes before the start of the response.  Any existing mechanisms that prevent polyglot documents probably keep working in the face of this new attack, but we don&#8217;t have a guarantee of that.</p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#iana-considerations" id="iana-considerations">IANA considerations</a>
 </h1>

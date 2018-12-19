@@ -326,6 +326,7 @@ ul.toc li {
 <link href="#rfc.section.6.5" rel="Chapter" title="6.5 Unsigned headers">
 <link href="#rfc.section.6.6" rel="Chapter" title="6.6 application/signed-exchange">
 <link href="#rfc.section.6.7" rel="Chapter" title="6.7 Key re-use with TLS">
+<link href="#rfc.section.6.8" rel="Chapter" title="6.8 Content sniffing">
 <link href="#rfc.section.7" rel="Chapter" title="7 Privacy considerations">
 <link href="#rfc.section.8" rel="Chapter" title="8 IANA considerations">
 <link href="#rfc.section.8.1" rel="Chapter" title="8.1 Signature Header Field Registration">
@@ -515,6 +516,8 @@ ul.toc li {
 <li>6.6.   <a href="#rfc.section.6.6">application/signed-exchange</a>
 </li>
 <li>6.7.   <a href="#rfc.section.6.7">Key re-use with TLS</a>
+</li>
+<li>6.8.   <a href="#rfc.section.6.8">Content sniffing</a>
 </li>
 </ul><li>7.   <a href="#rfc.section.7">Privacy considerations</a>
 </li>
@@ -1343,6 +1346,25 @@ following array&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...[
 <p id="rfc.section.6.7.p.4">This specification uses the CanSignHttpExchanges X.509 extension (<a href="#cross-origin-cert-req" class="xref">Section 4.2</a>) to discourage re-use of TLS keys to sign exchanges or vice-versa.</p>
 <p id="rfc.section.6.7.p.5">We require that clients reject certificates with the CanSignHttpExchanges extension when making TLS connections to minimize the chance that servers will re-use keys like this. Ideally, we would make the extension critical so that even clients that don&#8217;t understand it would reject such TLS connections, but this proved impossible because certificate-validating libraries ship on significantly different schedules from the clients that use them.</p>
 <p id="rfc.section.6.7.p.6">Even once all clients reject these certificates in TLS connections, this will still just discourage and not prevent key re-use, since a server operator can unwisely request two different certificates with the same private key.</p>
+<h1 id="rfc.section.6.8">
+<a href="#rfc.section.6.8">6.8.</a> <a href="#seccons-content-sniffing" id="seccons-content-sniffing">Content sniffing</a>
+</h1>
+<p id="rfc.section.6.8.p.1">While modern browsers tend to trust the <samp>Content-Type</samp> header sent with a resource, especially when accompanied by <samp>X-Content-Type-Options: nosniff</samp>, plugins will sometimes search for executable content buried inside a resource and execute it in the context of the origin that served the resource, leading to XSS vulnerabilities. For example, some PDF reader plugins look for <samp>%PDF</samp> anywhere in the first 1kB and execute the code that follows it.</p>
+<p id="rfc.section.6.8.p.2">The <samp>application/signed-exchange</samp> format (<a href="#application-signed-exchange" class="xref">Section 5.3</a>) includes a URL and request and response headers early in the format, which an attacker could use to cause these plugins to sniff a bad content type.</p>
+<p id="rfc.section.6.8.p.3">To avoid vulnerabilities, servers are advised to only serve an <samp>application/signed-exchange</samp> resource (SXG) from a domain if it would also be safe for that domain to serve the SXG&#8217;s content directly, and to follow at least one of the following strategies:</p>
+<p></p>
+
+<ol>
+<li>Only serve signed exchanges from dedicated domains that don&#8217;t have access to sensitive cookies or user storage.</li>
+<li>Generate signed exchanges &#8220;offline&#8221;, that is, in response to a trusted author submitting content or existing signatures reaching a certain age, rather than in response to untrusted-reader queries.</li>
+<li>Do all of: <ol>
+<li>If the SXG&#8217;s fallback URL (<a href="#application-signed-exchange" class="xref">Section 5.3</a>) is derived from the request URL, <a href="https://url.spec.whatwg.org/#percent-encode">percent-encode</a> (<a href="#URL" class="xref">[URL]</a>) any bytes that are greater than 0x7E or are not <a href="https://url.spec.whatwg.org/#url-code-points">URL code points</a> (<a href="#URL" class="xref">[URL]</a>) in the fallback URL . It is particularly important to make sure no unescaped nulls (0x00) or angle brackets (0x3C and 0x3E) appear.</li>
+<li>Only include request header field names <strong>and values</strong> that appear in a static allowlist. Keep the set of allowed request header fields smaller than 24 elements to prevent attackers from controlling a whole CBOR length byte.</li>
+<li>Do not reflect request header fields into the set of response headers.</li>
+</ol>
+</li>
+</ol>
+<p id="rfc.section.6.8.p.5">There are still a few binary length fields that an attacker may influence to contain sensitive bytes, but they&#8217;re always followed by lowercase alphabetic strings from a small set of possibilities, which reduces the chance that a client will sniff them as indicating a particular content type.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#privacy-considerations" id="privacy-considerations">Privacy considerations</a>
 </h1>
