@@ -1,6 +1,60 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/356",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/356/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/356/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/356/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/356",
+    "id": 392941324,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQwMDg5OTQy",
+    "number": 356,
+    "title": "go/signedexchange: Run signedexchange tests against all supported versions",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2018-12-20T08:37:47Z",
+    "updated_at": "2018-12-20T08:43:51Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/356",
+      "html_url": "https://github.com/WICG/webpackage/pull/356",
+      "diff_url": "https://github.com/WICG/webpackage/pull/356.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/356.patch"
+    },
+    "body": "This patch turns all existing tests in signedexchange_test.go\r\ninto grouped tests parameterized by format version."
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/355",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/355/labels{/name}",
@@ -509,9 +563,9 @@
 
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 6,
     "created_at": "2018-11-30T23:19:28Z",
-    "updated_at": "2018-12-05T15:38:41Z",
+    "updated_at": "2018-12-20T08:44:08Z",
     "closed_at": "2018-12-05T15:37:48Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1555,7 +1609,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/326.patch"
     },
     "body": "Chromium CL: https://chromium-review.googlesource.com/c/chromium/src/+/1313712\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/nyaxt/webpackage/pull/326.html\" title=\"Last updated on Nov 20, 2018, 5:59 AM GMT (95b849a)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/326/54c7a94...nyaxt:95b849a.html\" title=\"Last updated on Nov 20, 2018, 5:59 AM GMT (95b849a)\">Diff</a>"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/325",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1609,10 +1666,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/325.patch"
     },
     "body": "So that the package can be used independently from Signed Exchange."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/324",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3336,7 +3390,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/296.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/295",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3384,10 +3441,7 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Recommend that if the user hits the \"reload\" button in their browser, the browser will contact the logical origin (i.e. the URL that is visible in the browser's URL bar) to determine freshness.\r\n\r\n(Currently not specified, but seem to be the expected behaviour, see e.g. [1](https://github.com/WICG/webpackage/issues/149#issuecomment-374011263), [2](https://github.com/WICG/webpackage/issues/293#issuecomment-415102090).) "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/294",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4923,7 +4977,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/266.patch"
     },
     "body": "Prints warning message when:\r\n- OCSP data cannot be parsed as a DER-encoded OCSP response\r\n- Cert and OCSP do not have embedded SCT, and `-sctDir` is not specified\r\n\r\nDidn't make them error since these are OK if generated cert-chain is used for testing, with the `--ignore-certificate-errors-spki-list` Chromium flag."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/265",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4977,10 +5034,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/265.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/264",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6659,7 +6713,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "@slightlyoff mentioned that we might want to have [third-party security reviewers](https://tools.ietf.org/html/draft-yasskin-webpackage-use-cases-01#section-2.2.3) check more or less stringently depending on which permissions an app uses. To do that, they'll need to be able to sign over the permissions they've checked for."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/235",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6713,10 +6770,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/235.patch"
     },
     "body": "The examples show a mi-sha256 hexdigest instead of bas64 encoding,\r\n\r\nsee https://github.com/martinthomson/http-mice/blob/master/draft-thomson-http-mice.md"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/234",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8275,7 +8329,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "1, navigate to https://example.com/a.sxg\r\n2, a.sxg is signed by https://example.net so browser display it as https://example.net\r\n3, clicking the link on https://example.net\r\n\r\nin request of 3, which origin should on referrer header example.com (actual) or example.net (display) ?\r\n(spec seems not mention this: https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/205",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8329,10 +8386,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/205.patch"
     },
     "body": "HTTP Header names are case-insensitive."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/204",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -9991,7 +10045,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Various things in the ecosystem use symlinks, the behavior of symlinks in node and how HTTP redirects is not compatible per https://github.com/nodejs/modules/issues/62 . Could repurpose the `Location` header over `file:` but https://fetch.spec.whatwg.org/#scheme-fetch could be changed in a forwards incompatible way if we do that."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/175",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10077,10 +10134,7 @@
     "closed_at": "2018-07-10T06:34:41Z",
     "author_association": "COLLABORATOR",
     "body": "https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cert-chain-format\r\n\r\n> 2. The first certificate’s ocsp value *if any* MUST be a complete, DER-encoded OCSP response for that certificate\r\n\r\nThis reads main certificate's ocsp property is optional, but actually it's required in the step 6.3 of [Cross-origin trust](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cross-origin-trust)?\r\n\r\n> 3. Each certificate’s sct value MUST be a SignedCertificateTimestampList for that certificate\r\n\r\n- Add \"if any\" since SCTs may be embedded in the `cert` or `ocsp`? (#171)\r\n- The step 6.4 of [Cross-origin trust](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cross-origin-trust) uses only SCTs for main certificate. If `sct` is to provide a channel to supply SCTs instead of the TLS extension, should the spec say that subsequent certificates MUST NOT have a `sct` value?\r\n\r\n@jyasskin @hajimehoshi @nyaxt "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/174",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11755,7 +11809,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/146.patch"
     },
     "body": "PTAL"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/145",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11809,10 +11866,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/145.patch"
     },
     "body": "PTAL"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/144",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13427,7 +13481,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/116.patch"
     },
     "body": "That draft splits the rsa_pss signature algorithm names to depend on the key's OID. I suspect all RSA keys in the wild use the rsaEncryption OID, so banning that (to avoid Bleichenbacher attacks) would be equivalent to banning RSA keys, but if not, maybe we could allow the RSASSA-PSS ones.\r\n\r\n@sleevi @davidben"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/115",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13475,10 +13532,7 @@
     "closed_at": "2018-01-30T00:46:19Z",
     "author_association": "NONE",
     "body": "The README suggests loading will be done at the W3C, which made me wonder. Shouldn't loading be integrated into Fetch somehow?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/114",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -14984,7 +15038,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Hello web packaging fans - \r\n\r\nWe're just cleaning up issues in possibly obsolete repos under [our organization](github.com/w3ctag/) (W3CTAG). One of these documents was the original packaging on the web which has since been obsoleted by your work. However there are many open issues on our document and before we summarily closed them we wanted to alert you to these issues in case you wanted to bring any of them over into your issues list. Can you please have a look through [these issues](https://github.com/w3ctag/packaging-on-the-web/issues) and leave a note on each issue to let us know that it's OK to close it? If you do take one of them on as an issue, please leave a note including a link to your new issue.\r\n\r\nThanks,\r\nDan Appelquist\r\nCo-Chair, W3CTAG"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/85",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15038,10 +15095,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/85.patch"
     },
     "body": "I hope this'll make it a little easier to follow along as things move into formal standards bodies."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/84",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16649,7 +16703,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/56.patch"
     },
     "body": "I'll try to get some experienced Go programmers to review this and suggest other ways to improve readability, as requested in https://github.com/dimich-g/webpackage/pull/53#pullrequestreview-38510830."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/55",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16703,10 +16760,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/55.patch"
     },
     "body": "There's no support yet for serializing the text format including manifest data, or serializing and signing the CBOR format."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/54",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18176,7 +18230,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "For some use cases like Source Maps packages may wish to not include the full asset within themselves but have another package containing debugging symbols. Currently fragment URLs are proposed for removal, however I don't see a clear way to have a situation like:\r\n\r\n```\r\nminified.webpackage\r\n\\- index.min.js\r\n```\r\n\r\n```\r\nsource-maps.webpackage\r\n\\- index.min.js.map\r\n```\r\n\r\nAnd have `index.min.js` able to point to `index.min.js.map`."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/25",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18230,10 +18287,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/25.patch"
     },
     "body": "fixes https://github.com/dimich-g/webpackage/issues/9 by using a sub tree of `application/package.index`"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/24",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
