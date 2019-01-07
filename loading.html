@@ -1214,7 +1214,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 6dcb46ba8cae3704b42c05bcd8578c92d239786a" name="generator">
   <link href="https://wicg.github.io/webpackage/loading.html" rel="canonical">
-  <meta content="67ecc9351a7911f2944eecf60694c287e728474c" name="document-revision">
+  <meta content="1a81570ab4adddd0fb8786e9182ed8ae202e3581" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1414,7 +1414,7 @@ pre .property::before, pre .property::after {
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Loading Signed Exchanges</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-01-06">6 January 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-01-07">7 January 2019</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1478,31 +1478,32 @@ A human-readable <a href="http://www.w3.org/community/about/agreements/cla-deed/
      <ol class="toc">
       <li><a href="#identifying-sxg"><span class="secno">4.1</span> <span class="content">Identifying signed exchanges</span></a>
       <li><a href="#parsing-fallback"><span class="secno">4.2</span> <span class="content">Extracting the fallback URL</span></a>
-      <li><a href="#parsing-b2"><span class="secno">4.3</span> <span class="content">Parsing <code>b2</code> signed exchanges</span></a>
+      <li><a href="#parsing"><span class="secno">4.3</span> <span class="content">Parsing signed exchanges</span></a>
       <li><a href="#parsing-prefix"><span class="secno">4.4</span> <span class="content">Parsing the invariant prefix</span></a>
       <li>
        <a href="#parsing-signature"><span class="secno">4.5</span> <span class="content">Parsing a Signature Header Field</span></a>
        <ol class="toc">
         <li><a href="#handling-cert-url"><span class="secno">4.5.1</span> <span class="content">Handling the certificate reference</span></a>
        </ol>
-      <li><a href="#signed-message"><span class="secno">4.6</span> <span class="content">The signed message</span></a>
+      <li><a href="#the-signed-message"><span class="secno">4.6</span> <span class="content">The signed message</span></a>
       <li><a href="#validating-signature"><span class="secno">4.7</span> <span class="content">Validating a signature</span></a>
       <li><a href="#cross-origin-trust"><span class="secno">4.8</span> <span class="content">Cross-origin trust</span></a>
       <li><a href="#trusting-certificate"><span class="secno">4.9</span> <span class="content">Establishing trust in a certificate</span></a>
+      <li><a href="#parse-b2-cbor-headers"><span class="secno">4.10</span> <span class="content">Parsing b2 CBOR headers</span></a>
       <li>
-       <a href="#parse-cbor-headers"><span class="secno">4.10</span> <span class="content">Parsing CBOR headers</span></a>
+       <a href="#parse-cbor-headers"><span class="secno">4.11</span> <span class="content">Parsing b3 CBOR headers</span></a>
        <ol class="toc">
-        <li><a href="#headers-from-map"><span class="secno">4.10.1</span> <span class="content">Converting a map to a header list</span></a>
+        <li><a href="#headers-from-map"><span class="secno">4.11.1</span> <span class="content">Converting a map to a header list</span></a>
        </ol>
-      <li><a href="#read-a-body"><span class="secno">4.11</span> <span class="content">Creating the response stream.</span></a>
-      <li><a href="#request-matching"><span class="secno">4.12</span> <span class="content">Request matching</span></a>
+      <li><a href="#read-a-body"><span class="secno">4.12</span> <span class="content">Creating the response stream.</span></a>
+      <li><a href="#request-matching"><span class="secno">4.13</span> <span class="content">Request matching</span></a>
       <li>
-       <a href="#stream-algs"><span class="secno">4.13</span> <span class="content">Stream algorithms</span></a>
+       <a href="#stream-algs"><span class="secno">4.14</span> <span class="content">Stream algorithms</span></a>
        <ol class="toc">
-        <li><a href="#create-read-buffer"><span class="secno">4.13.1</span> <span class="content">Create a read buffer</span></a>
-        <li><a href="#read-up-to-bytes"><span class="secno">4.13.2</span> <span class="content">Read up to bytes</span></a>
-        <li><a href="#read-bytes"><span class="secno">4.13.3</span> <span class="content">Read bytes</span></a>
-        <li><a href="#dump-stream"><span class="secno">4.13.4</span> <span class="content">Dump to another stream</span></a>
+        <li><a href="#create-read-buffer"><span class="secno">4.14.1</span> <span class="content">Create a read buffer</span></a>
+        <li><a href="#read-up-to-bytes"><span class="secno">4.14.2</span> <span class="content">Read up to bytes</span></a>
+        <li><a href="#read-bytes"><span class="secno">4.14.3</span> <span class="content">Read bytes</span></a>
+        <li><a href="#dump-stream"><span class="secno">4.14.4</span> <span class="content">Dump to another stream</span></a>
        </ol>
      </ol>
     <li>
@@ -1587,8 +1588,8 @@ is null or an <a data-link-type="dfn" href="#exchange" id="ref-for-exchange">exc
      . 
     <li>If <var>request</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-body" id="ref-for-concept-request-body①">body</a> is non-null, set <var>newRequest</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-body" id="ref-for-concept-request-body②">body</a> to the result of <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-body-clone" id="ref-for-concept-body-clone">cloning</a> <var>request</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-body" id="ref-for-concept-request-body③">body</a>. 
     <li>
-     <ins>If <var>request</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange①">stashed exchange</a> is non-null, set <var>newRequest</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange②">stashed exchange</a> to an exchange whose <a data-link-type="dfn" href="#exchange-request" id="ref-for-exchange-request">request</a> is the <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-clone" id="ref-for-concept-request-clone①">clone</a> of <var>request</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange③">stashed
-  exchange</a>'s <a data-link-type="dfn" href="#exchange-request" id="ref-for-exchange-request①">request</a> and whose <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response">response</a> is the <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-clone" id="ref-for-concept-response-clone">clone</a> of <var>request</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange④">stashed exchange</a>'s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response①">response</a>.</ins>
+     <ins>If <var>request</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange①">stashed exchange</a> is non-null, set <var>newRequest</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange②">stashed exchange</a> to an exchange whose <a data-link-type="dfn" href="#exchange-request-url" id="ref-for-exchange-request-url">request URL</a> is a copy of <var>request</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange③">stashed
+  exchange</a>'s <a data-link-type="dfn" href="#exchange-request-url" id="ref-for-exchange-request-url①">request URL</a> and whose <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response">response</a> is the <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-clone" id="ref-for-concept-response-clone">clone</a> of <var>request</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange④">stashed exchange</a>'s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response①">response</a>.</ins>
     <li>Return <var>newRequest</var>. 
    </ol>
    <h3 class="heading settled algorithm" data-algorithm="Response date" data-level="2.3" id="mp-response-date"><span class="secno">2.3. </span><span class="content">Response date</span><a class="self-link" href="#mp-response-date"></a></h3>
@@ -1620,19 +1621,19 @@ header field</a>.</p>
       <dt data-md>undefined
       <dd data-md>
        <p>Do nothing.</p>
-      <dt data-md><code>"b2"</code>
+      <dt data-md><code>"b2"</code> or <code>"b3"</code>
       <dd data-md>
        <ol>
         <li data-md>
-         <p>Let <var>parsedExchange</var> be the result of <a data-link-type="dfn" href="#parsing-a-b2-signed-exchange" id="ref-for-parsing-a-b2-signed-exchange">parsing a b2 signed
-exchange</a> from <var>actualResponse</var> in the context of <var>request</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-client" id="ref-for-concept-request-client">client</a>.</p>
+         <p>Let <var>parsedExchange</var> be the result of <a data-link-type="dfn" href="#parsing-a-signed-exchange" id="ref-for-parsing-a-signed-exchange">parsing a signed
+exchange</a> of version <code>b2</code> or <code>b3</code>, respectively, from <var>actualResponse</var> in the context of <var>request</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-client" id="ref-for-concept-request-client">client</a>.</p>
         <li data-md>
          <p>If <var>parsedExchange</var> is a failure, return a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-network-error" id="ref-for-concept-network-error">network error</a>.</p>
         <li data-md>
          <p>Set <var>actualResponse</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-status" id="ref-for-concept-status">status</a> to <code>303</code>.</p>
         <li data-md>
          <p><a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-set" id="ref-for-concept-header-list-set">Set</a> <var>actualResponse</var>’s <code>`Location`</code> header to
-the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#ascii-encode" id="ref-for-ascii-encode">ASCII encoding</a> of the <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-serializer" id="ref-for-concept-url-serializer">serialization</a> of <var>parsedExchange</var>’s <a data-link-type="dfn" href="#exchange-request" id="ref-for-exchange-request②">request</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-url" id="ref-for-concept-request-url">url</a>.</p>
+the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#ascii-encode" id="ref-for-ascii-encode">ASCII encoding</a> of the <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-serializer" id="ref-for-concept-url-serializer">serialization</a> of <var>parsedExchange</var>’s <a data-link-type="dfn" href="#exchange-request-url" id="ref-for-exchange-request-url②">request URL</a>.</p>
         <li data-md>
          <p>Set <var>request</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange⑤">stashed exchange</a> to <var>parsedExchange</var>.</p>
        </ol>
@@ -1666,12 +1667,12 @@ implemented in browsers, which still uses draft versions.</p>
      <p>If <var>httpRequest</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange⑥">stashed exchange</a> isn’t null:</p>
      <ol>
       <li data-md>
-       <p>Let <var>stashedRequest</var> be <var>httpRequest</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange⑦">stashed exchange</a>'s <a data-link-type="dfn" href="#exchange-request" id="ref-for-exchange-request③">request</a></p>
+       <p>Let <var>stashedExchange</var> be <var>httpRequest</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange⑦">stashed exchange</a>.</p>
       <li data-md>
        <p>If</p>
        <ul>
         <li data-md>
-         <p><var>httpRequest</var> <a data-link-type="dfn" href="#matches-the-stored-request" id="ref-for-matches-the-stored-request">matches the stored request</a> <var>stashedRequest</var> and</p>
+         <p><var>httpRequest</var> <a data-link-type="dfn" href="#matches-the-stored-exchange" id="ref-for-matches-the-stored-exchange">matches the stored exchange</a> <var>stashedExchange</var> and</p>
         <li data-md>
          <p><var>response</var> is null or <var>response</var>’s <a data-link-type="dfn" href="#response-date" id="ref-for-response-date">date</a> is earlier than <var>httpRequest</var>’s <a data-link-type="dfn" href="#request-stashed-exchange" id="ref-for-request-stashed-exchange⑧">stashed exchange</a>'s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response②">response</a>'s <a data-link-type="dfn" href="#response-date" id="ref-for-response-date①">date</a></p>
        </ul>
@@ -1692,7 +1693,7 @@ the signed exchange’s response in the HTTP cache.</p>
    <p>An exchange is a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#struct" id="ref-for-struct">struct</a> with the following items:</p>
    <ul>
     <li data-md>
-     <p><dfn class="dfn-paneled" data-dfn-for="exchange" data-dfn-type="dfn" data-export id="exchange-request">request</dfn>, a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request" id="ref-for-concept-request①">request</a>.</p>
+     <p><dfn class="dfn-paneled" data-dfn-for="exchange" data-dfn-type="dfn" data-export id="exchange-request-url">request URL</dfn>, a <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url" id="ref-for-concept-url">URL</a>.</p>
     <li data-md>
      <p><dfn class="dfn-paneled" data-dfn-for="exchange" data-dfn-type="dfn" data-export id="exchange-response">response</dfn>, a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response①">response</a>.</p>
    </ul>
@@ -1746,7 +1747,7 @@ which the first <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#lis
 guard the integrity of the response payload.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-for="exchange signature" data-dfn-type="dfn" data-noexport id="exchange-signature-validityurl">validityUrl</dfn>
     <dd data-md>
-     <p>A <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url" id="ref-for-concept-url">URL</a> describing where to update this signature.</p>
+     <p>A <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url" id="ref-for-concept-url①">URL</a> describing where to update this signature.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-for="exchange signature" data-dfn-type="dfn" data-noexport id="exchange-signature-validityurlbytes">validityUrlBytes</dfn>
     <dd data-md>
      <p>The bytes that <a data-link-type="dfn" href="#exchange-signature-validityurl" id="ref-for-exchange-signature-validityurl">validityUrl</a> was parsed from.</p>
@@ -1795,16 +1796,23 @@ the result of the following steps:</p>
     <li data-md>
      <p>Return <var>fallbackUrlBytes</var>.</p>
    </ol>
-   <h3 class="heading settled algorithm" data-algorithm="Parsing b2 signed exchanges" data-level="4.3" id="parsing-b2"><span class="secno">4.3. </span><span class="content">Parsing <code>b2</code> signed exchanges</span><a class="self-link" href="#parsing-b2"></a></h3>
-   <p>This section defines how to load the format defined in <a data-link-type="biblio" href="#biblio-draft-yasskin-httpbis-origin-signed-exchanges-impl-02">[draft-yasskin-httpbis-origin-signed-exchanges-impl-02]</a>.</p>
-   <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="parsing-a-b2-signed-exchange">Parsing a b2 signed exchange</dfn> from a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response④">response</a> <var>response</var> in the
-context of an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object" id="ref-for-environment-settings-object">environment settings object</a> <var>client</var> returns the result of the
-following steps:</p>
+   <h3 class="heading settled algorithm" data-algorithm="Parsing signed exchanges" data-level="4.3" id="parsing"><span class="secno">4.3. </span><span class="content">Parsing signed exchanges</span><a class="self-link" href="#parsing"></a></h3>
+   <p>This section defines how to load the formats defined in <a data-link-type="biblio" href="#biblio-draft-yasskin-httpbis-origin-signed-exchanges-impl-02">[draft-yasskin-httpbis-origin-signed-exchanges-impl-02]</a> and <a data-link-type="biblio" href="#biblio-draft-yasskin-httpbis-origin-signed-exchanges-impl-03">[draft-yasskin-httpbis-origin-signed-exchanges-impl-03]</a>.</p>
+   <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="parsing-a-signed-exchange">Parsing a signed exchange</dfn> of version <var>version</var> from a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response④">response</a> <var>response</var> in the context of an <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object" id="ref-for-environment-settings-object">environment settings object</a> <var>client</var> returns
+the result of the following steps:</p>
    <ol>
     <li data-md>
      <p class="assertion">Assert: This algorithm is running <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel" id="ref-for-in-parallel①">in parallel</a>.</p>
     <li data-md>
-     <p class="assertion">Assert: The <a data-link-type="dfn" href="#signed-exchange-version" id="ref-for-signed-exchange-version②">signed exchange version</a> of <var>response</var> is <code>"b2"</code>.</p>
+     <p class="assertion">Assert: The <a data-link-type="dfn" href="#signed-exchange-version" id="ref-for-signed-exchange-version②">signed exchange version</a> of <var>response</var> is, if <var>version</var> is</p>
+     <dl class="switch">
+      <dt data-md><code>b2</code>
+      <dd data-md>
+       <p><code>"b2"</code></p>
+      <dt data-md><code>b3</code>
+      <dd data-md>
+       <p><code>"b3"</code></p>
+     </dl>
     <li data-md>
      <p>If <var>response</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-url" id="ref-for-concept-response-url">URL</a>'s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-origin" id="ref-for-concept-url-origin">origin</a> is not a <a data-link-type="dfn" href="https://w3c.github.io/webappsec-secure-contexts/#potentially-trustworthy-origin" id="ref-for-potentially-trustworthy-origin">potentially
 trustworthy origin</a>, return failure.</p>
@@ -1820,7 +1828,15 @@ resource via a signed exchange are no worse than retrieving it via TLS.</p>
      <p>Let (<var>magic</var>, <var>requestUrlBytes</var>, <var>requestUrl</var>) be the result of <a data-link-type="dfn" href="#parsing-the-invariant-prefix" id="ref-for-parsing-the-invariant-prefix①">parsing the
 invariant prefix</a> from <var>stream</var>. If returns a failure, return that failure.</p>
     <li data-md>
-     <p>If <var>magic</var> is not <code>`sxg1-b2\0`</code>, return a failure.</p>
+     <p>If <var>magic</var> is not the following value, depending on <var>version</var>, return a failure:</p>
+     <dl class="switch">
+      <dt data-md><code>b2</code>
+      <dd data-md>
+       <p><code>`sxg1-b2\0`</code></p>
+      <dt data-md><code>b3</code>
+      <dd data-md>
+       <p><code>`sxg1-b3\0`</code></p>
+     </dl>
     <li data-md>
      <p class="assertion">Assert: <var>requestUrlBytes</var> should match the result of <a data-link-type="dfn" href="#extracting-the-fallback-url" id="ref-for-extracting-the-fallback-url①">extracting the
 fallback URL</a> from <var>response</var>.</p>
@@ -1854,9 +1870,17 @@ from <var>stream</var>.</p>
     <li data-md>
      <p>If <var>headerBytes</var> is a failure, return it.</p>
     <li data-md>
-     <p>If <var>parsedSignature</var> <a data-link-type="dfn" href="#exchange-signature-is-valid" id="ref-for-exchange-signature-is-valid">is not valid</a> for <var>headerBytes</var> and <var>requestUrlBytes</var>, return a failure.</p>
+     <p>If <var>parsedSignature</var> <a data-link-type="dfn" href="#exchange-signature-is-valid" id="ref-for-exchange-signature-is-valid">is not valid</a> for <var>headerBytes</var> and <var>requestUrlBytes</var>, and signed exchange version <var>version</var>, return a failure.</p>
     <li data-md>
-     <p>Let <var>parsedExchange</var> be the result of <a data-link-type="dfn" href="#parsing-cbor-headers" id="ref-for-parsing-cbor-headers">parsing CBOR headers</a> given <var>headerBytes</var> and <var>requestUrl</var>.</p>
+     <p>Let <var>parsedExchange</var> be, if <var>version</var> is:</p>
+     <dl class="switch">
+      <dt data-md><code>b2</code>
+      <dd data-md>
+       <p>the result of <a data-link-type="dfn" href="#parsing-b2-cbor-headers" id="ref-for-parsing-b2-cbor-headers">parsing b2 CBOR headers</a> given <var>headerBytes</var> and <var>requestUrl</var>.</p>
+      <dt data-md><code>b3</code>
+      <dd data-md>
+       <p>the result of <a data-link-type="dfn" href="#parsing-b3-cbor-headers" id="ref-for-parsing-b3-cbor-headers">parsing b3 CBOR headers</a> given <var>headerBytes</var> and <var>requestUrl</var>.</p>
+     </dl>
     <li data-md>
      <p>If <var>parsedSignature</var> <a data-link-type="dfn" href="#exchange-signature-establishes-cross-origin-trust" id="ref-for-exchange-signature-establishes-cross-origin-trust">does not establish cross-origin
 trust</a> for <var>parsedExchange</var>, return a failure.</p>
@@ -1880,7 +1904,7 @@ returning.</p>
    <p>All signed exchange versions start with the same initial bytes, parsed by this
 section.</p>
    <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="parsing-the-invariant-prefix">Parsing the invariant prefix</dfn> from a <a data-link-type="dfn" href="#read-buffer" id="ref-for-read-buffer">read buffer</a> <var>stream</var> returns
-a failure or the triple of a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence⑧">byte sequence</a> <var>magic</var>, <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence⑨">byte sequence</a> <var>fallbackUrlBytes</var>, and <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url" id="ref-for-concept-url①">URL</a> <var>fallbackUrl</var> returned by the following steps:</p>
+a failure or the triple of a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence⑧">byte sequence</a> <var>magic</var>, <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence⑨">byte sequence</a> <var>fallbackUrlBytes</var>, and <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url" id="ref-for-concept-url②">URL</a> <var>fallbackUrl</var> returned by the following steps:</p>
    <ol>
     <li data-md>
      <p class="assertion">Assert: This algorithm is running <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel" id="ref-for-in-parallel②">in parallel</a>.</p>
@@ -1991,9 +2015,9 @@ returns the result of the following steps:</p>
     <li data-md>
      <p class="assertion">Assert: This algorithm is running <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel" id="ref-for-in-parallel④">in parallel</a>.</p>
     <li data-md>
-     <p>Let <var>certRequest</var> be a new <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request" id="ref-for-concept-request②">request</a> with the following items:</p>
+     <p>Let <var>certRequest</var> be a new <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request" id="ref-for-concept-request①">request</a> with the following items:</p>
      <dl>
-      <dt data-md><a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-url" id="ref-for-concept-request-url①">url</a>
+      <dt data-md><a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-url" id="ref-for-concept-request-url">url</a>
       <dd data-md>
        <p><var>certUrl</var></p>
       <dt data-md><a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-header-list" id="ref-for-concept-request-header-list">header list</a>
@@ -2035,16 +2059,24 @@ isn’t <a data-link-type="dfn" href="https://tools.ietf.org/html/draft-yasskin-
     <li data-md>
      <p>Return <var>chain</var>.</p>
    </ol>
-   <h3 class="heading settled algorithm" data-algorithm="The signed message" data-level="4.6" id="signed-message"><span class="secno">4.6. </span><span class="content">The signed message</span><a class="self-link" href="#signed-message"></a></h3>
-   <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="b2-signed-message">b2 signed message</dfn> for an <a data-link-type="dfn" href="#exchange-signature" id="ref-for-exchange-signature②">exchange signature</a> <var>signature</var> and <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⓪">byte sequences</a> <var>requestUrlBytes</var> and <var>headerBytes</var> is the concatenation
-of the following <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①①">byte sequences</a>:</p>
+   <h3 class="heading settled algorithm" data-algorithm="The signed message" data-level="4.6" id="the-signed-message"><span class="secno">4.6. </span><span class="content">The signed message</span><a class="self-link" href="#the-signed-message"></a></h3>
+   <p>The <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="signed-message">signed message</dfn> for a version <var>version</var>, an <a data-link-type="dfn" href="#exchange-signature" id="ref-for-exchange-signature②">exchange signature</a> <var>signature</var> and <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⓪">byte sequences</a> <var>requestUrlBytes</var> and <var>headerBytes</var> is the
+concatenation of the following <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①①">byte sequences</a>:</p>
    <ol>
     <li data-md>
      <p>The byte 0x20 (SP) repeated 64 times. This matches the TLS 1.3 (<a data-link-type="biblio" href="#biblio-rfc8446">[RFC8446]</a>)
 format to avoid cross- protocol attacks if anyone uses the same key in a TLS
 certificate and an exchange-signing certificate.</p>
     <li data-md>
-     <p><code>`HTTP Exchange 1 b2`</code> to serve as a context string.</p>
+     <p>A context string consisting of, if <var>version</var> is:</p>
+     <dl class="switch">
+      <dt data-md><code>b2</code>
+      <dd data-md>
+       <p><code>`HTTP Exchange 1 b2`</code></p>
+      <dt data-md><code>b3</code>
+      <dd data-md>
+       <p><code>`HTTP Exchange 1 b3`</code></p>
+     </dl>
      <p class="note" role="note"><span>Note:</span> Each draft of <a data-link-type="biblio" href="#biblio-draft-yasskin-httpbis-origin-signed-exchanges-impl-02">[draft-yasskin-httpbis-origin-signed-exchanges-impl-02]</a> and the final RFC
 for <a data-link-type="biblio" href="#biblio-draft-yasskin-http-origin-signed-responses">[draft-yasskin-http-origin-signed-responses]</a> will use distinct context
 strings.</p>
@@ -2073,7 +2105,8 @@ strings.</p>
    </ol>
    <h3 class="heading settled algorithm" data-algorithm="Validating a signature" data-level="4.7" id="validating-signature"><span class="secno">4.7. </span><span class="content">Validating a signature</span><a class="self-link" href="#validating-signature"></a></h3>
    <p>An <a data-link-type="dfn" href="#exchange-signature" id="ref-for-exchange-signature③">exchange signature</a> <var>signature</var> <dfn class="dfn-paneled" data-dfn-for="exchange signature" data-dfn-type="dfn" data-lt="is
-valid|is not valid" data-noexport id="exchange-signature-is-valid">is valid</dfn> for <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①②">byte sequences</a> <var>requestUrlBytes</var> and <var>headerBytes</var> if the following steps return <code>valid</code>:</p>
+valid|is not valid" data-noexport id="exchange-signature-is-valid">is valid</dfn> for <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①②">byte sequences</a> <var>requestUrlBytes</var> and <var>headerBytes</var>, and signed exchange version <var>version</var>, if the following steps
+return <code>valid</code>:</p>
    <ol>
     <li data-md>
      <p>Let <var>clockSkew</var> be the uncertainty in the UA’s estimate of the current time
@@ -2094,7 +2127,7 @@ allow UAs to take clock skew into account. <a href="https://github.com/WICG/webp
 exchange trusted for longer, are constrained to modify the client’s clock
 and can’t also attack its estimate of its skew.</p>
     <li data-md>
-     <p>Let <var>message</var> be the <a data-link-type="dfn" href="#b2-signed-message" id="ref-for-b2-signed-message">b2 signed message</a> for <var>signature</var>, <var>requestUrlBytes</var>, and <var>headerBytes</var>.</p>
+     <p>Let <var>message</var> be the <a data-link-type="dfn" href="#signed-message" id="ref-for-signed-message">signed message</a> for <var>version</var>, <var>signature</var>, <var>requestUrlBytes</var>, and <var>headerBytes</var>.</p>
     <li data-md>
      <p>Let <var>publicKey</var> be the <a data-link-type="dfn" href="#certificate-public-key" id="ref-for-certificate-public-key①">public key</a> of <var>parsedSignature</var>’s <a data-link-type="dfn" href="#exchange-signature-certificate-chain" id="ref-for-exchange-signature-certificate-chain②">certificate chain</a>'s <a data-link-type="dfn" href="#certificate-chain-leaf" id="ref-for-certificate-chain-leaf④">leaf</a>. If
 the certificate can’t be parsed enough to find this public key, return <code>invalid</code>.</p>
@@ -2111,12 +2144,11 @@ signature of <var>message</var> by <var>publicKey</var> using the <a data-link-t
 cross-origin trust" data-noexport id="exchange-signature-establishes-cross-origin-trust">establishes cross-origin trust</dfn> in an <a data-link-type="dfn" href="#exchange" id="ref-for-exchange①">exchange</a> <var>exchange</var> if the following steps return "trusted":</p>
    <ol>
     <li data-md>
-     <p>Let <var>requestUrl</var> be <var>exchange</var>’s <a data-link-type="dfn" href="#exchange-request" id="ref-for-exchange-request④">request</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-url" id="ref-for-concept-request-url②">url</a>.</p>
+     <p>Let <var>requestUrl</var> be <var>exchange</var>’s <a data-link-type="dfn" href="#exchange-request-url" id="ref-for-exchange-request-url③">request URL</a>.</p>
     <li data-md>
      <p>If <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-validityurl" id="ref-for-exchange-signature-validityurl②">validityUrl</a>'s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-origin" id="ref-for-concept-url-origin①">origin</a> is not <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/origin.html#same-origin" id="ref-for-same-origin">same origin</a> with <var>requestUrl</var>’s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-origin" id="ref-for-concept-url-origin②">origin</a>, return "untrusted".</p>
     <li data-md>
-     <p>If <var>exchange</var>’s <a data-link-type="dfn" href="#exchange-request" id="ref-for-exchange-request⑤">request</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-header-list" id="ref-for-concept-request-header-list①">header list</a> includes a <a data-link-type="dfn" href="https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers" id="ref-for-stateful-headers">stateful request header</a> or <var>exchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response⑧">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list①">header list</a> includes a <a data-link-type="dfn" href="https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers" id="ref-for-stateful-headers①">stateful response header</a>, return
-"untrusted".</p>
+     <p>If <var>exchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response⑧">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list①">header list</a> includes a <a data-link-type="dfn" href="https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers" id="ref-for-stateful-headers">stateful response header</a>, return "untrusted".</p>
     <li data-md>
      <p>If <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-expiration-time" id="ref-for-exchange-signature-expiration-time⑦">expiration time</a> is more than 604800
 seconds (7 days) after <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-date" id="ref-for-exchange-signature-date⑥">date</a>, return
@@ -2163,8 +2195,8 @@ revoked 7 or more days ago (for example using the <var>leaf</var>’s <a data-li
     <li data-md>
      <p>Return <code>trusted</code>.</p>
    </ol>
-   <h3 class="heading settled algorithm" data-algorithm="Parsing CBOR headers" data-level="4.10" id="parse-cbor-headers"><span class="secno">4.10. </span><span class="content">Parsing CBOR headers</span><a class="self-link" href="#parse-cbor-headers"></a></h3>
-   <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="parsing-cbor-headers">Parsing CBOR headers</dfn> from a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①③">byte sequence</a> <var>headerBytes</var> and
+   <h3 class="heading settled algorithm" data-algorithm="Parsing b2 CBOR headers" data-level="4.10" id="parse-b2-cbor-headers"><span class="secno">4.10. </span><span class="content">Parsing b2 CBOR headers</span><a class="self-link" href="#parse-b2-cbor-headers"></a></h3>
+   <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="parsing-b2-cbor-headers">Parsing b2 CBOR headers</dfn> from a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①③">byte sequence</a> <var>headerBytes</var> and
 a URL <var>requestUrl</var> returns a failure or an <a data-link-type="dfn" href="#exchange" id="ref-for-exchange②">exchange</a> via the following steps:</p>
    <ol>
     <li data-md>
@@ -2203,8 +2235,6 @@ map</a> <var>headers</var>[0].</p>
     <li data-md>
      <p>If <var>requestHeaders</var> is a failure, return it.</p>
     <li data-md>
-     <p>Let <var>request</var> be a new <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request" id="ref-for-concept-request③">request</a> with <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-url" id="ref-for-concept-request-url③">url</a> <var>requestUrl</var> and <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-header-list" id="ref-for-concept-request-header-list②">header list</a> <var>requestHeaders</var>.</p>
-    <li data-md>
      <p>Let <var>responseHeaders</var> be the result of <a data-link-type="dfn" href="#creating-a-header-list-from-the-cbor-map" id="ref-for-creating-a-header-list-from-the-cbor-map①">creating a header list from the CBOR
 map</a> <var>headers</var>[1].</p>
     <li data-md>
@@ -2212,9 +2242,42 @@ map</a> <var>headers</var>[1].</p>
     <li data-md>
      <p>Let <var>response</var> be a new <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response⑤">response</a> with <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-status" id="ref-for-concept-response-status③">status</a> <var>headers</var>[1][<code>`:status`</code>] and <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list②">header list</a> <var>responseHeaders</var>.</p>
     <li data-md>
-     <p>Return an <a data-link-type="dfn" href="#exchange" id="ref-for-exchange③">exchange</a> of <var>request</var> and <var>response</var>.</p>
+     <p>Return an <a data-link-type="dfn" href="#exchange" id="ref-for-exchange③">exchange</a> of <var>requestUrl</var> and <var>response</var>.</p>
+     <p class="note" role="note"><span>Note:</span> This ignores <var>requestHeaders</var>, which can’t be encoded in b3 and later.</p>
    </ol>
-   <h4 class="heading settled algorithm" data-algorithm="Converting a map to a header list" data-level="4.10.1" id="headers-from-map"><span class="secno">4.10.1. </span><span class="content">Converting a map to a header list</span><a class="self-link" href="#headers-from-map"></a></h4>
+   <h3 class="heading settled algorithm" data-algorithm="Parsing b3 CBOR headers" data-level="4.11" id="parse-cbor-headers"><span class="secno">4.11. </span><span class="content">Parsing b3 CBOR headers</span><a class="self-link" href="#parse-cbor-headers"></a></h3>
+   <p><dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="parsing-b3-cbor-headers">Parsing b3 CBOR headers</dfn> from a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①④">byte sequence</a> <var>headerBytes</var> and
+a URL <var>requestUrl</var> returns a failure or an <a data-link-type="dfn" href="#exchange" id="ref-for-exchange④">exchange</a> via the following steps:</p>
+   <ol>
+    <li data-md>
+     <p>Let <var>headers</var> be the result of <a data-link-type="dfn" href="https://wicg.github.io/webpackage/draft-yasskin-wpack-bundled-exchanges.html#parse-known-length" id="ref-for-parse-known-length①">parsing a CBOR item</a> from <var>headerBytes</var>,
+matching the following CDDL rule:</p>
+<pre>    headers = {
+      ':status': bstr,
+      * bstr => bstr,
+    }
+</pre>
+    <li data-md>
+     <p>If any of the following is true, return a failure:</p>
+     <ul>
+      <li data-md>
+       <p><var>headers</var> is an error.</p>
+      <li data-md>
+       <p><var>headers</var> contains any key starting with <code>`:`</code> that isn’t <code>`:status`</code>.</p>
+      <li data-md>
+       <p><var>headers</var>[<code>`:status`</code>] is not <code>200</code>.</p>
+     </ul>
+    <li data-md>
+     <p>Let <var>responseHeaders</var> be the result of <a data-link-type="dfn" href="#creating-a-header-list-from-the-cbor-map" id="ref-for-creating-a-header-list-from-the-cbor-map②">creating a header list from the CBOR
+map</a> <var>headers</var>.</p>
+    <li data-md>
+     <p>If <var>responseHeaders</var> is a failure, return it.</p>
+    <li data-md>
+     <p>Let <var>response</var> be a new <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response⑥">response</a> with <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-status" id="ref-for-concept-response-status④">status</a> <var>headers</var>[<code>`:status`</code>] and <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list③">header list</a> <var>responseHeaders</var>.</p>
+    <li data-md>
+     <p>Return an <a data-link-type="dfn" href="#exchange" id="ref-for-exchange⑤">exchange</a> of <var>requestUrl</var> and <var>response</var>.</p>
+   </ol>
+   <h4 class="heading settled algorithm" data-algorithm="Converting a map to a header list" data-level="4.11.1" id="headers-from-map"><span class="secno">4.11.1. </span><span class="content">Converting a map to a header list</span><a class="self-link" href="#headers-from-map"></a></h4>
    <p>The result of <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="creating-a-header-list-from-the-cbor-map">creating a header list from the CBOR map</dfn> <var>map</var> is
 returned by the following steps:</p>
    <ol>
@@ -2238,8 +2301,8 @@ alpha</a>, return a failure.</p>
     <li data-md>
      <p>Return <var>headers</var>.</p>
    </ol>
-   <h3 class="heading settled algorithm" data-algorithm="Creating the response stream." data-level="4.11" id="read-a-body"><span class="secno">4.11. </span><span class="content">Creating the response stream.</span><a class="self-link" href="#read-a-body"></a></h3>
-   <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="reading a body|read a body" data-noexport id="reading-a-body">read a body</dfn> from a <a data-link-type="dfn" href="#read-buffer" id="ref-for-read-buffer①">read buffer</a> <var>stream</var> into a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response⑥">response</a> <var>response</var> using an <a data-link-type="dfn" href="#exchange-signature" id="ref-for-exchange-signature⑤">exchange signature</a> <var>signature</var> to check its integrity, the UA MUST:</p>
+   <h3 class="heading settled algorithm" data-algorithm="Creating the response stream." data-level="4.12" id="read-a-body"><span class="secno">4.12. </span><span class="content">Creating the response stream.</span><a class="self-link" href="#read-a-body"></a></h3>
+   <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="reading a body|read a body" data-noexport id="reading-a-body">read a body</dfn> from a <a data-link-type="dfn" href="#read-buffer" id="ref-for-read-buffer①">read buffer</a> <var>stream</var> into a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response⑦">response</a> <var>response</var> using an <a data-link-type="dfn" href="#exchange-signature" id="ref-for-exchange-signature⑤">exchange signature</a> <var>signature</var> to check its integrity, the UA MUST:</p>
    <ol>
     <li data-md>
      <p>If <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-integrity-header" id="ref-for-exchange-signature-integrity-header①">integrity header</a>'s first item is:</p>
@@ -2251,14 +2314,14 @@ alpha</a>, return a failure.</p>
          <p>If the length of <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-integrity-header" id="ref-for-exchange-signature-integrity-header②">integrity header</a> isn’t 1, return a failure.</p>
         <li data-md>
          <p>Let <var>instance-digests</var> be the result of <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-get-decode-split" id="ref-for-concept-header-list-get-decode-split">getting,
-decoding, and splitting</a> <code>`digest`</code> from <var>response</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list③">header list</a>.</p>
+decoding, and splitting</a> <code>`digest`</code> from <var>response</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list④">header list</a>.</p>
          <p class="note" role="note"><span>Note:</span> No <a data-link-type="dfn" href="https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml#http-dig-alg-1" id="ref-for-http-dig-alg-1">Digest algorithm</a> uses non-ASCII characters or 0x22
 (<code>"</code>), so this is equivalent to parsing from the <a data-link-type="dfn" href="https://tools.ietf.org/html/rfc3230#section-4.3.2" id="ref-for-section-4.3.2">Digest</a> ABNF <code>&lt;encoded digest output></code>.</p>
         <li data-md>
          <p>Let <var>mi</var> be the element of <var>instance-digests</var> that starts with <code>"mi-sha256-03="</code>. If there is no such element, return a failure.</p>
         <li data-md>
          <p>Let <var>codings</var> be the result of <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-get-decode-split" id="ref-for-concept-header-list-get-decode-split①">getting, decoding, and
-splitting</a> <code>`content-encoding`</code> in <var>response</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list④">header list</a>.</p>
+splitting</a> <code>`content-encoding`</code> in <var>response</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list⑤">header list</a>.</p>
         <li data-md>
          <p>If <var>codings</var> doesn’t include <code>"mi-sha256-03"</code>, return a failure.</p>
         <li data-md>
@@ -2289,35 +2352,59 @@ splitting</a> <code>`content-encoding`</code> in <var>response</var>’s <a data
        <p><a data-link-type="dfn" href="#read-buffer-dump" id="ref-for-read-buffer-dump">Dump</a> <var>stream</var> to <var>outputStream</var>.</p>
      </ol>
    </ol>
-   <h3 class="heading settled algorithm" data-algorithm="Request matching" data-level="4.12" id="request-matching"><span class="secno">4.12. </span><span class="content">Request matching</span><a class="self-link" href="#request-matching"></a></h3>
-   <p>A <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request" id="ref-for-concept-request④">request</a> <var>browserRequest</var> <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="matches-the-stored-request">matches the stored request</dfn> <var>storedRequest</var> if the following steps return "match":</p>
+   <h3 class="heading settled algorithm" data-algorithm="Request matching" data-level="4.13" id="request-matching"><span class="secno">4.13. </span><span class="content">Request matching</span><a class="self-link" href="#request-matching"></a></h3>
+   <p>A <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request" id="ref-for-concept-request②">request</a> <var>browserRequest</var> <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="matches-the-stored-exchange">matches the stored exchange</dfn> <var>storedExchange</var> if the following steps return "match":</p>
    <ol>
     <li data-md>
-     <p>If <var>browserRequest</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-url" id="ref-for-concept-request-url④">url</a> is not <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-equals" id="ref-for-concept-url-equals">equal</a> to <var>storedRequest</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-url" id="ref-for-concept-request-url⑤">url</a>, return "mismatch".</p>
+     <p>If <var>browserRequest</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-url" id="ref-for-concept-request-url①">url</a> is not <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-equals" id="ref-for-concept-url-equals">equal</a> to <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-request-url" id="ref-for-exchange-request-url④">request URL</a>, return "mismatch".</p>
     <li data-md>
-     <p><a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-iterate" id="ref-for-list-iterate">For each</a> header (<var>name</var>, <var>storedValue</var>) in <var>storedRequest</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-header-list" id="ref-for-concept-request-header-list③">header list</a>:</p>
-     <ol>
-      <li data-md>
-       <p>If <var>name</var> doesn’t name the request header field of a <a data-link-type="dfn" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#define" id="ref-for-define">content
-negotiation mechanism specified to be usable with Variants</a>, return
-"mismatch".</p>
-      <li data-md>
-       <p>Otherwise, let <var>variantMatches</var> be the algorithm for selecting a result
-defined by <var>name</var>’s content negotiation mechanism.</p>
-      <li data-md>
-       <p>Let <var>browserValue</var> be the result of <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-get" id="ref-for-concept-header-list-get">getting</a> <var>name</var> from <var>browserRequest</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-header-list" id="ref-for-concept-request-header-list④">header list</a>.</p>
-      <li data-md>
-       <p>If <var>variantMatches</var> returns an empty list when given a request header of <var>browserValue</var> and an available-values list consisting of
-«<var>storedValue</var>», return "mismatch".</p>
-     </ol>
+     <p>If <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response⑨">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list⑥">header list</a> <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#header-list-contains" id="ref-for-header-list-contains①">contains</a>:</p>
+     <dl class="switch">
+      <dt data-md>Neither a <code>`Variants`</code> nor a <code>`Variant-Key`</code> header
+      <dd data-md>
+       <p>Return "match".</p>
+       <p class="note" role="note"><span>Note:</span> This states that exactly one resource lives at the request URL, and
+no content negotiation is intended.</p>
+      <dt data-md>A <code>`Variant-Key`</code> header but no <code>`Variants`</code> header
+      <dd data-md>
+       <p>Return "mismatch".</p>
+       <p class="note" role="note"><span>Note:</span> This indicates a likely misconfiguration, and returning "mismatch"
+makes that fail fast.</p>
+      <dt data-md>A <code>`Variants`</code> header but no <code>`Variant-Key`</code> header
+      <dd data-md>
+       <p>Return "mismatch".</p>
+       <p class="note" role="note"><span>Note:</span> This behavior is implied by the below steps, but we make it
+explicit here.</p>
+      <dt data-md>Both a <code>`Variants`</code> and a <code>`Variant-Key`</code> header
+      <dd data-md>
+       <p>Proceed to the following steps.</p>
+     </dl>
+    <li data-md>
+     <p>If <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-get" id="ref-for-concept-header-list-get">getting</a> <code>`Variants`</code> from <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response①⓪">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list⑦">header list</a> returns a value that fails
+to parse according to the instructions for the <a data-link-type="dfn" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants" id="ref-for-variants">Variants Header Field</a>,
+return "mismatch".</p>
+    <li data-md>
+     <p>Let <var>acceptableVariantKeys</var> be the result of running the <a data-link-type="dfn" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache" id="ref-for-cache">Variants Cache
+Behavior</a> on an incoming-request of <var>browserRequest</var> and stored-responses
+of a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list②">list</a> containing <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response①①">response</a>.</p>
+    <li data-md>
+     <p>Let <var>variantKeys</var> be the result of <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-get" id="ref-for-concept-header-list-get①">getting</a> <code>`Variant-Key`</code> from <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response①②">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list⑧">header list</a>,
+and parsing it into a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list③">list</a> of <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list④">lists</a> as described in <a data-link-type="dfn" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variant-key" id="ref-for-variant-key">Variant-Key
+Header Field</a>.</p>
+    <li data-md>
+     <p>If parsing <var>variantKeys</var> failed, return "mismatch".</p>
+    <li data-md>
+     <p>If the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#set-intersection" id="ref-for-set-intersection">intersection</a> of <var>acceptableVariantKeys</var> and <var>variantKeys</var> is <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list-empty" id="ref-for-list-empty">empty</a>, return "mismatch".</p>
+     <p class="issue" id="issue-e1733bef"><a class="self-link" href="#issue-e1733bef"></a> This depends on the <a data-link-type="dfn" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache" id="ref-for-cache①">Variants Cache
+Behavior</a> returning a list of lists. <a href="https://github.com/httpwg/http-extensions/issues/744">&lt;https://github.com/httpwg/http-extensions/issues/744></a></p>
     <li data-md>
      <p>Return "match".</p>
    </ol>
-   <h3 class="heading settled" data-level="4.13" id="stream-algs"><span class="secno">4.13. </span><span class="content">Stream algorithms</span><a class="self-link" href="#stream-algs"></a></h3>
+   <h3 class="heading settled" data-level="4.14" id="stream-algs"><span class="secno">4.14. </span><span class="content">Stream algorithms</span><a class="self-link" href="#stream-algs"></a></h3>
    <p class="issue" id="issue-3ffca592"><a class="self-link" href="#issue-3ffca592"></a> The algorithms in this section create and operate over
 ECMAScript objects like <code class="idl"><a data-link-type="idl" href="https://streams.spec.whatwg.org/#rs-class" id="ref-for-rs-class①">ReadableStream</a></code> despite not having a Realm to attach
 them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github.com/whatwg/fetch/issues/730></a></p>
-   <h4 class="heading settled algorithm" data-algorithm="Create a read buffer" data-level="4.13.1" id="create-read-buffer"><span class="secno">4.13.1. </span><span class="content">Create a read buffer</span><a class="self-link" href="#create-read-buffer"></a></h4>
+   <h4 class="heading settled algorithm" data-algorithm="Create a read buffer" data-level="4.14.1" id="create-read-buffer"><span class="secno">4.14.1. </span><span class="content">Create a read buffer</span><a class="self-link" href="#create-read-buffer"></a></h4>
    <p>A <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="new-read-buffer">new read buffer</dfn> for a <code class="idl"><a data-link-type="idl" href="https://streams.spec.whatwg.org/#rs-class" id="ref-for-rs-class②">ReadableStream</a></code> <var>stream</var> is a new <a data-link-type="dfn" href="#read-buffer" id="ref-for-read-buffer②">read
 buffer</a> struct whose items are:</p>
    <dl>
@@ -2329,9 +2416,9 @@ buffer</a> struct whose items are:</p>
      <p>The result of <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-get-reader" id="ref-for-concept-get-reader①">getting a reader</a> from <var>stream</var>.</p>
     <dt data-md><a data-link-type="dfn" href="#read-buffer-bytes" id="ref-for-read-buffer-bytes">bytes</a>
     <dd data-md>
-     <p>An empty <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①④">byte sequence</a>.</p>
+     <p>An empty <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⑤">byte sequence</a>.</p>
    </dl>
-   <h4 class="heading settled algorithm" data-algorithm="Read up to bytes" data-level="4.13.2" id="read-up-to-bytes"><span class="secno">4.13.2. </span><span class="content">Read up to bytes</span><a class="self-link" href="#read-up-to-bytes"></a></h4>
+   <h4 class="heading settled algorithm" data-algorithm="Read up to bytes" data-level="4.14.2" id="read-up-to-bytes"><span class="secno">4.14.2. </span><span class="content">Read up to bytes</span><a class="self-link" href="#read-up-to-bytes"></a></h4>
    <p>To <dfn class="dfn-paneled" data-dfn-for="read buffer" data-dfn-type="dfn" data-lt="reading up to" data-noexport id="read-buffer-reading-up-to">read up to</dfn> <var>N</var> bytes from a <a data-link-type="dfn" href="#read-buffer" id="ref-for-read-buffer③">read buffer</a> <var>buffer</var>, the UA MUST:</p>
    <ol>
     <li data-md>
@@ -2353,7 +2440,7 @@ chunk</a> with <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-
         <dd data-md>
          <ol>
           <li data-md>
-           <p>Let <var>bs</var> be the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⑤">byte sequence</a> represented by the <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-Uint8Array" id="ref-for-idl-Uint8Array①">Uint8Array</a></code> object.</p>
+           <p>Let <var>bs</var> be the <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⑥">byte sequence</a> represented by the <code class="idl"><a data-link-type="idl" href="https://heycam.github.io/webidl/#idl-Uint8Array" id="ref-for-idl-Uint8Array①">Uint8Array</a></code> object.</p>
           <li data-md>
            <p>Set <var>buffer</var> to the concatenation of <var>buffer</var> and <var>bs</var>.</p>
          </ol>
@@ -2369,9 +2456,9 @@ chunk</a> with <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-
      <p>If <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-bytes" id="ref-for-read-buffer-bytes②">bytes</a> item is at least <var>N</var> bytes long:</p>
      <ol>
       <li data-md>
-       <p>Let <var>result</var> be a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⑥">byte sequence</a> consisting of the first N bytes of <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-bytes" id="ref-for-read-buffer-bytes③">bytes</a> item.</p>
+       <p>Let <var>result</var> be a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⑦">byte sequence</a> consisting of the first N bytes of <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-bytes" id="ref-for-read-buffer-bytes③">bytes</a> item.</p>
       <li data-md>
-       <p>Set <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-bytes" id="ref-for-read-buffer-bytes④">bytes</a> item to a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⑦">byte sequence</a> consisting of the bytes after the <var>N</var>th from its old value.</p>
+       <p>Set <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-bytes" id="ref-for-read-buffer-bytes④">bytes</a> item to a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⑧">byte sequence</a> consisting of the bytes after the <var>N</var>th from its old value.</p>
      </ol>
     <li data-md>
      <p>Otherwise:</p>
@@ -2379,12 +2466,12 @@ chunk</a> with <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-
       <li data-md>
        <p>Let <var>result</var> be <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-bytes" id="ref-for-read-buffer-bytes⑤">bytes</a> item.</p>
       <li data-md>
-       <p>Set <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-bytes" id="ref-for-read-buffer-bytes⑥">bytes</a> item to an empty <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⑧">byte sequence</a>.</p>
+       <p>Set <var>buffer</var>’s <a data-link-type="dfn" href="#read-buffer-bytes" id="ref-for-read-buffer-bytes⑥">bytes</a> item to an empty <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence①⑨">byte sequence</a>.</p>
      </ol>
     <li data-md>
      <p>Return <var>result</var>.</p>
    </ol>
-   <h4 class="heading settled algorithm" data-algorithm="Read bytes" data-level="4.13.3" id="read-bytes"><span class="secno">4.13.3. </span><span class="content">Read bytes</span><a class="self-link" href="#read-bytes"></a></h4>
+   <h4 class="heading settled algorithm" data-algorithm="Read bytes" data-level="4.14.3" id="read-bytes"><span class="secno">4.14.3. </span><span class="content">Read bytes</span><a class="self-link" href="#read-bytes"></a></h4>
    <p>To <dfn class="dfn-paneled" data-dfn-for="read buffer" data-dfn-type="dfn" data-noexport id="read-buffer-read">read</dfn> <var>N</var> bytes from a <a data-link-type="dfn" href="#read-buffer" id="ref-for-read-buffer④">read buffer</a> <var>buffer</var>,
 the UA MUST:</p>
    <ol>
@@ -2399,7 +2486,7 @@ the UA MUST:</p>
     <li data-md>
      <p>Otherwise, return a failure.</p>
    </ol>
-   <h4 class="heading settled algorithm" data-algorithm="Dump to another stream" data-level="4.13.4" id="dump-stream"><span class="secno">4.13.4. </span><span class="content">Dump to another stream</span><a class="self-link" href="#dump-stream"></a></h4>
+   <h4 class="heading settled algorithm" data-algorithm="Dump to another stream" data-level="4.14.4" id="dump-stream"><span class="secno">4.14.4. </span><span class="content">Dump to another stream</span><a class="self-link" href="#dump-stream"></a></h4>
    <p>To <dfn class="dfn-paneled" data-dfn-for="read buffer" data-dfn-type="dfn" data-noexport id="read-buffer-dump">Dump</dfn> a <a data-link-type="dfn" href="#read-buffer" id="ref-for-read-buffer⑤">read buffer</a> <var>input</var> to a <code class="idl"><a data-link-type="idl" href="https://streams.spec.whatwg.org/#rs-class" id="ref-for-rs-class③">ReadableStream</a></code> <var>output</var>, the UA MUST:</p>
    <ol>
     <li data-md>
@@ -2608,7 +2695,6 @@ stop the UA from trusting it no more than 7 days later.</p>
   <ul class="index">
    <li><a href="#public-key-algorithm">algorithm</a><span>, in §3.3</span>
    <li><a href="#augmented-certificate">Augmented Certificate</a><span>, in §3.2</span>
-   <li><a href="#b2-signed-message">b2 signed message</a><span>, in §4.6</span>
    <li><a href="#read-buffer-bytes">bytes</a><span>, in §3.2</span>
    <li><a href="#augmented-certificate-certificate">certificate</a><span>, in §3.3</span>
    <li>
@@ -2618,7 +2704,7 @@ stop the UA from trusting it no more than 7 days later.</p>
      <li><a href="#exchange-signature-certificate-chain">dfn for exchange signature</a><span>, in §3.4</span>
     </ul>
    <li><a href="#exchange-signature-certsha256">certSha256</a><span>, in §3.4</span>
-   <li><a href="#creating-a-header-list-from-the-cbor-map">creating a header list from the CBOR map</a><span>, in §4.10.1</span>
+   <li><a href="#creating-a-header-list-from-the-cbor-map">creating a header list from the CBOR map</a><span>, in §4.11.1</span>
    <li>
     date
     <ul>
@@ -2627,7 +2713,7 @@ stop the UA from trusting it no more than 7 days later.</p>
     </ul>
    <li><a href="#exchange-signature-establishes-cross-origin-trust">does not establish cross-origin trust</a><span>, in §4.8</span>
    <li><a href="#certificate-chain-has-a-trusted-leaf">does not have a trusted leaf</a><span>, in §4.9</span>
-   <li><a href="#read-buffer-dump">Dump</a><span>, in §4.13.4</span>
+   <li><a href="#read-buffer-dump">Dump</a><span>, in §4.14.4</span>
    <li><a href="#exchange-signature-establishes-cross-origin-trust">establishes cross-origin trust</a><span>, in §4.8</span>
    <li><a href="#exchange">Exchange</a><span>, in §3</span>
    <li><a href="#exchange-signature">Exchange Signature</a><span>, in §3.3</span>
@@ -2640,25 +2726,27 @@ stop the UA from trusting it no more than 7 days later.</p>
    <li><a href="#exchange-signature-is-valid">is not valid</a><span>, in §4.7</span>
    <li><a href="#exchange-signature-is-valid">is valid</a><span>, in §4.7</span>
    <li><a href="#certificate-chain-leaf">leaf</a><span>, in §3.3</span>
-   <li><a href="#matches-the-stored-request">matches the stored request</a><span>, in §4.12</span>
-   <li><a href="#new-read-buffer">new read buffer</a><span>, in §4.13.1</span>
+   <li><a href="#matches-the-stored-exchange">matches the stored exchange</a><span>, in §4.13</span>
+   <li><a href="#new-read-buffer">new read buffer</a><span>, in §4.14.1</span>
    <li><a href="#augmented-certificate-ocsp-response">OCSP response</a><span>, in §3.3</span>
-   <li><a href="#parsing-a-b2-signed-exchange">Parsing a b2 signed exchange</a><span>, in §4.3</span>
-   <li><a href="#parsing-cbor-headers">Parsing CBOR headers</a><span>, in §4.10</span>
+   <li><a href="#parsing-a-signed-exchange">Parsing a signed exchange</a><span>, in §4.3</span>
+   <li><a href="#parsing-b2-cbor-headers">Parsing b2 CBOR headers</a><span>, in §4.10</span>
+   <li><a href="#parsing-b3-cbor-headers">Parsing b3 CBOR headers</a><span>, in §4.11</span>
    <li><a href="#parsing-the-invariant-prefix">Parsing the invariant prefix</a><span>, in §4.4</span>
    <li><a href="#parsing-the-signature-header-field">Parsing the Signature header field</a><span>, in §4.5</span>
    <li><a href="#certificate-public-key">public key</a><span>, in §3.3</span>
-   <li><a href="#read-buffer-read">read</a><span>, in §4.13.3</span>
-   <li><a href="#reading-a-body">read a body</a><span>, in §4.11</span>
+   <li><a href="#read-buffer-read">read</a><span>, in §4.14.3</span>
+   <li><a href="#reading-a-body">read a body</a><span>, in §4.12</span>
    <li><a href="#read-buffer">Read buffer</a><span>, in §3.1</span>
    <li><a href="#read-buffer-reader">reader</a><span>, in §3.2</span>
-   <li><a href="#reading-a-body">reading a body</a><span>, in §4.11</span>
-   <li><a href="#read-buffer-reading-up-to">reading up to</a><span>, in §4.13.2</span>
-   <li><a href="#exchange-request">request</a><span>, in §3.1</span>
+   <li><a href="#reading-a-body">reading a body</a><span>, in §4.12</span>
+   <li><a href="#read-buffer-reading-up-to">reading up to</a><span>, in §4.14.2</span>
+   <li><a href="#exchange-request-url">request URL</a><span>, in §3.1</span>
    <li><a href="#exchange-response">response</a><span>, in §3.1</span>
    <li><a href="#augmented-certificate-sct">SCT</a><span>, in §3.3</span>
    <li><a href="#exchange-signature-signature">signature</a><span>, in §3.4</span>
    <li><a href="#signed-exchange-version">signed exchange version</a><span>, in §4.1</span>
+   <li><a href="#signed-message">signed message</a><span>, in §4.6</span>
    <li><a href="#request-stashed-exchange">stashed exchange</a><span>, in §2.1</span>
    <li><a href="#read-buffer-stream">stream</a><span>, in §3.2</span>
    <li><a href="#exchange-signature-validityurl">validityUrl</a><span>, in §3.4</span>
@@ -2670,16 +2758,28 @@ stop the UA from trusting it no more than 7 days later.</p>
     <li><a href="#ref-for-section-4.2①">4.5. Parsing a Signature Header Field</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-define">
-   <a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#define">https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#define</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-variant-key">
+   <a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variant-key">https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variant-key</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-define">4.12. Request matching</a>
+    <li><a href="#ref-for-variant-key">4.13. Request matching</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-cache">
+   <a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache">https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-cache">4.13. Request matching</a> <a href="#ref-for-cache①">(2)</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-variants">
+   <a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants">https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-variants">4.13. Request matching</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-section-2.2">
    <a href="https://tools.ietf.org/html/draft-thomson-http-mice-03#section-2.2">https://tools.ietf.org/html/draft-thomson-http-mice-03#section-2.2</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-section-2.2">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-section-2.2">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-seccons-off-path">
@@ -2691,13 +2791,7 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-stateful-headers">
    <a href="https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers">https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-stateful-headers">4.8. Cross-origin trust</a> <a href="#ref-for-stateful-headers①">(2)</a>
-   </ul>
-  </aside>
-  <aside class="dfn-panel" data-for="term-for-stateful-headers">
-   <a href="https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers">https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-stateful-headers">4.8. Cross-origin trust</a> <a href="#ref-for-stateful-headers①">(2)</a>
+    <li><a href="#ref-for-stateful-headers">4.8. Cross-origin trust</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-section-3.4">
@@ -2721,7 +2815,8 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-parse-known-length">
    <a href="https://wicg.github.io/webpackage/draft-yasskin-wpack-bundled-exchanges.html#parse-known-length">https://wicg.github.io/webpackage/draft-yasskin-wpack-bundled-exchanges.html#parse-known-length</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-parse-known-length">4.10. Parsing CBOR headers</a>
+    <li><a href="#ref-for-parse-known-length">4.10. Parsing b2 CBOR headers</a>
+    <li><a href="#ref-for-parse-known-length①">4.11. Parsing b3 CBOR headers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-utf-8-decode-without-bom-or-fail">
@@ -2745,16 +2840,16 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-header-list-append">
    <a href="https://fetch.spec.whatwg.org/#concept-header-list-append">https://fetch.spec.whatwg.org/#concept-header-list-append</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-header-list-append">4.10.1. Converting a map to a header list</a>
+    <li><a href="#ref-for-concept-header-list-append">4.11.1. Converting a map to a header list</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-response-body">
    <a href="https://fetch.spec.whatwg.org/#concept-response-body">https://fetch.spec.whatwg.org/#concept-response-body</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-concept-response-body">4.2. Extracting the fallback URL</a>
-    <li><a href="#ref-for-concept-response-body①">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-concept-response-body①">4.3. Parsing signed exchanges</a>
     <li><a href="#ref-for-concept-response-body②">4.5.1. Handling the certificate reference</a> <a href="#ref-for-concept-response-body③">(2)</a>
-    <li><a href="#ref-for-concept-response-body④">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-concept-response-body④">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-dom-request-cache">
@@ -2772,8 +2867,8 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-cancel-readablestream">
    <a href="https://fetch.spec.whatwg.org/#concept-cancel-readablestream">https://fetch.spec.whatwg.org/#concept-cancel-readablestream</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-cancel-readablestream">4.11. Creating the response stream.</a>
-    <li><a href="#ref-for-concept-cancel-readablestream①">4.13.4. Dump to another stream</a> <a href="#ref-for-concept-cancel-readablestream②">(2)</a>
+    <li><a href="#ref-for-concept-cancel-readablestream">4.12. Creating the response stream.</a>
+    <li><a href="#ref-for-concept-cancel-readablestream①">4.14.4. Dump to another stream</a> <a href="#ref-for-concept-cancel-readablestream②">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-request-client">
@@ -2798,31 +2893,39 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-readablestream-closed">
    <a href="https://fetch.spec.whatwg.org/#concept-readablestream-closed">https://fetch.spec.whatwg.org/#concept-readablestream-closed</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-readablestream-closed">4.13.4. Dump to another stream</a> <a href="#ref-for-concept-readablestream-closed①">(2)</a> <a href="#ref-for-concept-readablestream-closed②">(3)</a>
+    <li><a href="#ref-for-concept-readablestream-closed">4.14.4. Dump to another stream</a> <a href="#ref-for-concept-readablestream-closed①">(2)</a> <a href="#ref-for-concept-readablestream-closed②">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-construct-readablestream">
    <a href="https://fetch.spec.whatwg.org/#concept-construct-readablestream">https://fetch.spec.whatwg.org/#concept-construct-readablestream</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-construct-readablestream">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-concept-construct-readablestream">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-header-list-contains">
    <a href="https://fetch.spec.whatwg.org/#header-list-contains">https://fetch.spec.whatwg.org/#header-list-contains</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-header-list-contains">4.10.1. Converting a map to a header list</a>
+    <li><a href="#ref-for-header-list-contains">4.11.1. Converting a map to a header list</a>
+    <li><a href="#ref-for-header-list-contains①">4.13. Request matching</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-header-list-contains">
+   <a href="https://fetch.spec.whatwg.org/#header-list-contains">https://fetch.spec.whatwg.org/#header-list-contains</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-header-list-contains">4.11.1. Converting a map to a header list</a>
+    <li><a href="#ref-for-header-list-contains①">4.13. Request matching</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-enqueue-readablestream">
    <a href="https://fetch.spec.whatwg.org/#concept-enqueue-readablestream">https://fetch.spec.whatwg.org/#concept-enqueue-readablestream</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-enqueue-readablestream">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-concept-enqueue-readablestream">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-readablestream-errored">
    <a href="https://fetch.spec.whatwg.org/#concept-readablestream-errored">https://fetch.spec.whatwg.org/#concept-readablestream-errored</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-readablestream-errored">4.13.4. Dump to another stream</a> <a href="#ref-for-concept-readablestream-errored①">(2)</a> <a href="#ref-for-concept-readablestream-errored②">(3)</a> <a href="#ref-for-concept-readablestream-errored③">(4)</a>
+    <li><a href="#ref-for-concept-readablestream-errored">4.14.4. Dump to another stream</a> <a href="#ref-for-concept-readablestream-errored①">(2)</a> <a href="#ref-for-concept-readablestream-errored②">(3)</a> <a href="#ref-for-concept-readablestream-errored③">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-extract-header-list-values">
@@ -2846,26 +2949,26 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-header-list-get">
    <a href="https://fetch.spec.whatwg.org/#concept-header-list-get">https://fetch.spec.whatwg.org/#concept-header-list-get</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-header-list-get">4.12. Request matching</a>
+    <li><a href="#ref-for-concept-header-list-get">4.13. Request matching</a> <a href="#ref-for-concept-header-list-get①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-get-reader">
    <a href="https://fetch.spec.whatwg.org/#concept-get-reader">https://fetch.spec.whatwg.org/#concept-get-reader</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-concept-get-reader">4.5.1. Handling the certificate reference</a>
-    <li><a href="#ref-for-concept-get-reader①">4.13.1. Create a read buffer</a>
+    <li><a href="#ref-for-concept-get-reader①">4.14.1. Create a read buffer</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-header-list-get-decode-split">
    <a href="https://fetch.spec.whatwg.org/#concept-header-list-get-decode-split">https://fetch.spec.whatwg.org/#concept-header-list-get-decode-split</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-header-list-get-decode-split">4.11. Creating the response stream.</a> <a href="#ref-for-concept-header-list-get-decode-split①">(2)</a>
+    <li><a href="#ref-for-concept-header-list-get-decode-split">4.12. Creating the response stream.</a> <a href="#ref-for-concept-header-list-get-decode-split①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-handle-content-codings">
    <a href="https://fetch.spec.whatwg.org/#handle-content-codings">https://fetch.spec.whatwg.org/#handle-content-codings</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-handle-content-codings">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-handle-content-codings">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-response-header-list">
@@ -2873,8 +2976,10 @@ stop the UA from trusting it no more than 7 days later.</p>
    <ul>
     <li><a href="#ref-for-concept-response-header-list">2.3. Response date</a>
     <li><a href="#ref-for-concept-response-header-list①">4.8. Cross-origin trust</a>
-    <li><a href="#ref-for-concept-response-header-list②">4.10. Parsing CBOR headers</a>
-    <li><a href="#ref-for-concept-response-header-list③">4.11. Creating the response stream.</a> <a href="#ref-for-concept-response-header-list④">(2)</a>
+    <li><a href="#ref-for-concept-response-header-list②">4.10. Parsing b2 CBOR headers</a>
+    <li><a href="#ref-for-concept-response-header-list③">4.11. Parsing b3 CBOR headers</a>
+    <li><a href="#ref-for-concept-response-header-list④">4.12. Creating the response stream.</a> <a href="#ref-for-concept-response-header-list⑤">(2)</a>
+    <li><a href="#ref-for-concept-response-header-list⑥">4.13. Request matching</a> <a href="#ref-for-concept-response-header-list⑦">(2)</a> <a href="#ref-for-concept-response-header-list⑧">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-http-fetch">
@@ -2886,7 +2991,7 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-http-network-fetch">
    <a href="https://fetch.spec.whatwg.org/#concept-http-network-fetch">https://fetch.spec.whatwg.org/#concept-http-network-fetch</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-http-network-fetch">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-concept-http-network-fetch">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-http-network-or-cache-fetch">
@@ -2898,7 +3003,7 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-response-https-state">
    <a href="https://fetch.spec.whatwg.org/#concept-response-https-state">https://fetch.spec.whatwg.org/#concept-response-https-state</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-response-https-state">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-concept-response-https-state">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-request-initiator">
@@ -2916,13 +3021,13 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-header-name">
    <a href="https://fetch.spec.whatwg.org/#concept-header-name">https://fetch.spec.whatwg.org/#concept-header-name</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-header-name">4.10.1. Converting a map to a header list</a>
+    <li><a href="#ref-for-concept-header-name">4.11.1. Converting a map to a header list</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-readablestream-need-more-data">
    <a href="https://fetch.spec.whatwg.org/#concept-readablestream-need-more-data">https://fetch.spec.whatwg.org/#concept-readablestream-need-more-data</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-readablestream-need-more-data">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-concept-readablestream-need-more-data">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-network-error">
@@ -2935,8 +3040,8 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-read-chunk-from-readablestream">
    <a href="https://fetch.spec.whatwg.org/#concept-read-chunk-from-readablestream">https://fetch.spec.whatwg.org/#concept-read-chunk-from-readablestream</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-read-chunk-from-readablestream">4.13.2. Read up to bytes</a>
-    <li><a href="#ref-for-concept-read-chunk-from-readablestream①">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-concept-read-chunk-from-readablestream">4.14.2. Read up to bytes</a>
+    <li><a href="#ref-for-concept-read-chunk-from-readablestream①">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-read-all-bytes-from-readablestream">
@@ -2948,24 +3053,22 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-readablestream-readable">
    <a href="https://fetch.spec.whatwg.org/#concept-readablestream-readable">https://fetch.spec.whatwg.org/#concept-readablestream-readable</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-readablestream-readable">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-concept-readablestream-readable">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-redirect-status">
    <a href="https://fetch.spec.whatwg.org/#redirect-status">https://fetch.spec.whatwg.org/#redirect-status</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-redirect-status">2.4. Monkeypatch HTTP fetch</a>
-    <li><a href="#ref-for-redirect-status①">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-redirect-status①">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-request">
    <a href="https://fetch.spec.whatwg.org/#concept-request">https://fetch.spec.whatwg.org/#concept-request</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-concept-request">2.1. A request’s stashed exchange</a>
-    <li><a href="#ref-for-concept-request①">3.1. Exchange</a>
-    <li><a href="#ref-for-concept-request②">4.5.1. Handling the certificate reference</a>
-    <li><a href="#ref-for-concept-request③">4.10. Parsing CBOR headers</a>
-    <li><a href="#ref-for-concept-request④">4.12. Request matching</a>
+    <li><a href="#ref-for-concept-request①">4.5.1. Handling the certificate reference</a>
+    <li><a href="#ref-for-concept-request②">4.13. Request matching</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-response">
@@ -2975,9 +3078,10 @@ stop the UA from trusting it no more than 7 days later.</p>
     <li><a href="#ref-for-concept-response①">3.1. Exchange</a>
     <li><a href="#ref-for-concept-response②">4.1. Identifying signed exchanges</a>
     <li><a href="#ref-for-concept-response③">4.2. Extracting the fallback URL</a>
-    <li><a href="#ref-for-concept-response④">4.3. Parsing b2 signed exchanges</a>
-    <li><a href="#ref-for-concept-response⑤">4.10. Parsing CBOR headers</a>
-    <li><a href="#ref-for-concept-response⑥">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-concept-response④">4.3. Parsing signed exchanges</a>
+    <li><a href="#ref-for-concept-response⑤">4.10. Parsing b2 CBOR headers</a>
+    <li><a href="#ref-for-concept-response⑥">4.11. Parsing b3 CBOR headers</a>
+    <li><a href="#ref-for-concept-response⑦">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-request-service-workers-mode">
@@ -2996,36 +3100,37 @@ stop the UA from trusting it no more than 7 days later.</p>
    <a href="https://fetch.spec.whatwg.org/#concept-response-status">https://fetch.spec.whatwg.org/#concept-response-status</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-concept-response-status">2.4. Monkeypatch HTTP fetch</a>
-    <li><a href="#ref-for-concept-response-status①">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-concept-response-status①">4.3. Parsing signed exchanges</a>
     <li><a href="#ref-for-concept-response-status②">4.5.1. Handling the certificate reference</a>
-    <li><a href="#ref-for-concept-response-status③">4.10. Parsing CBOR headers</a>
+    <li><a href="#ref-for-concept-response-status③">4.10. Parsing b2 CBOR headers</a>
+    <li><a href="#ref-for-concept-response-status④">4.11. Parsing b3 CBOR headers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-body-stream">
    <a href="https://fetch.spec.whatwg.org/#concept-body-stream">https://fetch.spec.whatwg.org/#concept-body-stream</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-concept-body-stream">4.2. Extracting the fallback URL</a>
-    <li><a href="#ref-for-concept-body-stream①">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-concept-body-stream①">4.3. Parsing signed exchanges</a>
     <li><a href="#ref-for-concept-body-stream②">4.5.1. Handling the certificate reference</a> <a href="#ref-for-concept-body-stream③">(2)</a>
-    <li><a href="#ref-for-concept-body-stream④">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-concept-body-stream④">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-response-url">
    <a href="https://fetch.spec.whatwg.org/#concept-response-url">https://fetch.spec.whatwg.org/#concept-response-url</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-response-url">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-concept-response-url">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-header-value">
    <a href="https://fetch.spec.whatwg.org/#concept-header-value">https://fetch.spec.whatwg.org/#concept-header-value</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-header-value">4.10.1. Converting a map to a header list</a>
+    <li><a href="#ref-for-concept-header-value">4.11.1. Converting a map to a header list</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-environment-settings-object">
    <a href="https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object">https://html.spec.whatwg.org/multipage/webappapis.html#environment-settings-object</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-environment-settings-object">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-environment-settings-object">4.3. Parsing signed exchanges</a>
     <li><a href="#ref-for-environment-settings-object①">4.5. Parsing a Signature Header Field</a>
     <li><a href="#ref-for-environment-settings-object②">4.5.1. Handling the certificate reference</a>
    </ul>
@@ -3040,14 +3145,14 @@ stop the UA from trusting it no more than 7 days later.</p>
    <a href="https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel">https://html.spec.whatwg.org/multipage/infrastructure.html#in-parallel</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-in-parallel">4.2. Extracting the fallback URL</a>
-    <li><a href="#ref-for-in-parallel①">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-in-parallel①">4.3. Parsing signed exchanges</a>
     <li><a href="#ref-for-in-parallel②">4.4. Parsing the invariant prefix</a>
     <li><a href="#ref-for-in-parallel③">4.5. Parsing a Signature Header Field</a>
     <li><a href="#ref-for-in-parallel④">4.5.1. Handling the certificate reference</a>
-    <li><a href="#ref-for-in-parallel⑤">4.11. Creating the response stream.</a>
-    <li><a href="#ref-for-in-parallel⑥">4.13.2. Read up to bytes</a>
-    <li><a href="#ref-for-in-parallel⑦">4.13.3. Read bytes</a>
-    <li><a href="#ref-for-in-parallel⑧">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-in-parallel⑤">4.12. Creating the response stream.</a>
+    <li><a href="#ref-for-in-parallel⑥">4.14.2. Read up to bytes</a>
+    <li><a href="#ref-for-in-parallel⑦">4.14.3. Read bytes</a>
+    <li><a href="#ref-for-in-parallel⑧">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-origin">
@@ -3065,7 +3170,7 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-http-dig-alg-1">
    <a href="https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml#http-dig-alg-1">https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml#http-dig-alg-1</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-http-dig-alg-1">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-http-dig-alg-1">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-ascii-byte">
@@ -3090,7 +3195,7 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-ascii-upper-alpha">
    <a href="https://infra.spec.whatwg.org/#ascii-upper-alpha">https://infra.spec.whatwg.org/#ascii-upper-alpha</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-ascii-upper-alpha">4.10.1. Converting a map to a header list</a>
+    <li><a href="#ref-for-ascii-upper-alpha">4.11.1. Converting a map to a header list</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-byte-sequence">
@@ -3102,21 +3207,28 @@ stop the UA from trusting it no more than 7 days later.</p>
     <li><a href="#ref-for-byte-sequence⑧">4.4. Parsing the invariant prefix</a> <a href="#ref-for-byte-sequence⑨">(2)</a>
     <li><a href="#ref-for-byte-sequence①⓪">4.6. The signed message</a> <a href="#ref-for-byte-sequence①①">(2)</a>
     <li><a href="#ref-for-byte-sequence①②">4.7. Validating a signature</a>
-    <li><a href="#ref-for-byte-sequence①③">4.10. Parsing CBOR headers</a>
-    <li><a href="#ref-for-byte-sequence①④">4.13.1. Create a read buffer</a>
-    <li><a href="#ref-for-byte-sequence①⑤">4.13.2. Read up to bytes</a> <a href="#ref-for-byte-sequence①⑥">(2)</a> <a href="#ref-for-byte-sequence①⑦">(3)</a> <a href="#ref-for-byte-sequence①⑧">(4)</a>
+    <li><a href="#ref-for-byte-sequence①③">4.10. Parsing b2 CBOR headers</a>
+    <li><a href="#ref-for-byte-sequence①④">4.11. Parsing b3 CBOR headers</a>
+    <li><a href="#ref-for-byte-sequence①⑤">4.14.1. Create a read buffer</a>
+    <li><a href="#ref-for-byte-sequence①⑥">4.14.2. Read up to bytes</a> <a href="#ref-for-byte-sequence①⑦">(2)</a> <a href="#ref-for-byte-sequence①⑧">(3)</a> <a href="#ref-for-byte-sequence①⑨">(4)</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-list-iterate">
-   <a href="https://infra.spec.whatwg.org/#list-iterate">https://infra.spec.whatwg.org/#list-iterate</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-list-empty">
+   <a href="https://infra.spec.whatwg.org/#list-empty">https://infra.spec.whatwg.org/#list-empty</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-list-iterate">4.12. Request matching</a>
+    <li><a href="#ref-for-list-empty">4.13. Request matching</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-set-intersection">
+   <a href="https://infra.spec.whatwg.org/#set-intersection">https://infra.spec.whatwg.org/#set-intersection</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-set-intersection">4.13. Request matching</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-isomorphic-decode">
    <a href="https://infra.spec.whatwg.org/#isomorphic-decode">https://infra.spec.whatwg.org/#isomorphic-decode</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-isomorphic-decode">4.10.1. Converting a map to a header list</a>
+    <li><a href="#ref-for-isomorphic-decode">4.11.1. Converting a map to a header list</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-list-item">
@@ -3131,6 +3243,7 @@ stop the UA from trusting it no more than 7 days later.</p>
    <ul>
     <li><a href="#ref-for-list">3.3. Augmented Certificate</a>
     <li><a href="#ref-for-list①">3.4. Exchange Signature</a>
+    <li><a href="#ref-for-list②">4.13. Request matching</a> <a href="#ref-for-list③">(2)</a> <a href="#ref-for-list④">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-strictly-split">
@@ -3181,7 +3294,7 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-section-4.3.2">
    <a href="https://tools.ietf.org/html/rfc3230#section-4.3.2">https://tools.ietf.org/html/rfc3230#section-4.3.2</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-section-4.3.2">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-section-4.3.2">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-section-4.1.1.2">
@@ -3241,7 +3354,7 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-potentially-trustworthy-origin">
    <a href="https://w3c.github.io/webappsec-secure-contexts/#potentially-trustworthy-origin">https://w3c.github.io/webappsec-secure-contexts/#potentially-trustworthy-origin</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-potentially-trustworthy-origin">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-potentially-trustworthy-origin">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-fetchevent">
@@ -3279,9 +3392,9 @@ stop the UA from trusting it no more than 7 days later.</p>
    <a href="https://streams.spec.whatwg.org/#rs-class">https://streams.spec.whatwg.org/#rs-class</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-rs-class">3.2. Read buffer</a>
-    <li><a href="#ref-for-rs-class①">4.13. Stream algorithms</a>
-    <li><a href="#ref-for-rs-class②">4.13.1. Create a read buffer</a>
-    <li><a href="#ref-for-rs-class③">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-rs-class①">4.14. Stream algorithms</a>
+    <li><a href="#ref-for-rs-class②">4.14.1. Create a read buffer</a>
+    <li><a href="#ref-for-rs-class③">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-default-reader-class">
@@ -3293,7 +3406,7 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-url-equals">
    <a href="https://url.spec.whatwg.org/#concept-url-equals">https://url.spec.whatwg.org/#concept-url-equals</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-url-equals">4.12. Request matching</a>
+    <li><a href="#ref-for-concept-url-equals">4.13. Request matching</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-url-fragment">
@@ -3306,7 +3419,7 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-url-origin">
    <a href="https://url.spec.whatwg.org/#concept-url-origin">https://url.spec.whatwg.org/#concept-url-origin</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-url-origin">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-concept-url-origin">4.3. Parsing signed exchanges</a>
     <li><a href="#ref-for-concept-url-origin①">4.8. Cross-origin trust</a> <a href="#ref-for-concept-url-origin②">(2)</a> <a href="#ref-for-concept-url-origin③">(3)</a>
    </ul>
   </aside>
@@ -3320,8 +3433,9 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-concept-url">
    <a href="https://url.spec.whatwg.org/#concept-url">https://url.spec.whatwg.org/#concept-url</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-concept-url">3.4. Exchange Signature</a>
-    <li><a href="#ref-for-concept-url①">4.4. Parsing the invariant prefix</a>
+    <li><a href="#ref-for-concept-url">3.1. Exchange</a>
+    <li><a href="#ref-for-concept-url①">3.4. Exchange Signature</a>
+    <li><a href="#ref-for-concept-url②">4.4. Parsing the invariant prefix</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-concept-url-parser">
@@ -3340,14 +3454,14 @@ stop the UA from trusting it no more than 7 days later.</p>
   <aside class="dfn-panel" data-for="term-for-idl-ArrayBuffer">
    <a href="https://heycam.github.io/webidl/#idl-ArrayBuffer">https://heycam.github.io/webidl/#idl-ArrayBuffer</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-idl-ArrayBuffer">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-idl-ArrayBuffer">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-idl-Uint8Array">
    <a href="https://heycam.github.io/webidl/#idl-Uint8Array">https://heycam.github.io/webidl/#idl-Uint8Array</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-idl-Uint8Array">4.13.2. Read up to bytes</a> <a href="#ref-for-idl-Uint8Array①">(2)</a>
-    <li><a href="#ref-for-idl-Uint8Array②">4.13.4. Dump to another stream</a> <a href="#ref-for-idl-Uint8Array③">(2)</a>
+    <li><a href="#ref-for-idl-Uint8Array">4.14.2. Read up to bytes</a> <a href="#ref-for-idl-Uint8Array①">(2)</a>
+    <li><a href="#ref-for-idl-Uint8Array②">4.14.4. Dump to another stream</a> <a href="#ref-for-idl-Uint8Array③">(2)</a>
    </ul>
   </aside>
   <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
@@ -3360,7 +3474,9 @@ stop the UA from trusting it no more than 7 days later.</p>
    <li>
     <a data-link-type="biblio">[draft-ietf-httpbis-variants]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-define" style="color:initial">content negotiation mechanism specified to be usable with variants</span>
+     <li><span class="dfn-paneled" id="term-for-variant-key" style="color:initial">variant-key header field</span>
+     <li><span class="dfn-paneled" id="term-for-cache" style="color:initial">variants cache behavior</span>
+     <li><span class="dfn-paneled" id="term-for-variants" style="color:initial">variants header field</span>
     </ul>
    <li>
     <a data-link-type="biblio">[draft-thomson-http-mice]</a> defines the following terms:
@@ -3371,8 +3487,7 @@ stop the UA from trusting it no more than 7 days later.</p>
     <a data-link-type="biblio">[draft-yasskin-http-origin-signed-responses]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-seccons-off-path" style="color:initial">off-path attackers</span>
-     <li><span class="dfn-paneled" id="term-for-stateful-headers" style="color:initial">stateful request header</span>
-     <li><span class="dfn-paneled" id="term-for-stateful-headers①" style="color:initial">stateful response header</span>
+     <li><span class="dfn-paneled" id="term-for-stateful-headers" style="color:initial">stateful response header</span>
     </ul>
    <li>
     <a data-link-type="biblio">[draft-yasskin-httpbis-origin-signed-exchanges-impl-02]</a> defines the following terms:
@@ -3406,7 +3521,8 @@ stop the UA from trusting it no more than 7 days later.</p>
      <li><span class="dfn-paneled" id="term-for-dom-request-clone" style="color:initial">clone()</span>
      <li><span class="dfn-paneled" id="term-for-concept-readablestream-closed" style="color:initial">closed</span>
      <li><span class="dfn-paneled" id="term-for-concept-construct-readablestream" style="color:initial">construct a readablestream object</span>
-     <li><span class="dfn-paneled" id="term-for-header-list-contains" style="color:initial">does not contain</span>
+     <li><span class="dfn-paneled" id="term-for-header-list-contains" style="color:initial">contains</span>
+     <li><span class="dfn-paneled" id="term-for-header-list-contains①" style="color:initial">does not contain</span>
      <li><span class="dfn-paneled" id="term-for-concept-enqueue-readablestream" style="color:initial">enqueue</span>
      <li><span class="dfn-paneled" id="term-for-concept-readablestream-errored" style="color:initial">errored</span>
      <li><span class="dfn-paneled" id="term-for-extract-header-list-values" style="color:initial">extracting header list values</span>
@@ -3461,7 +3577,8 @@ stop the UA from trusting it no more than 7 days later.</p>
      <li><span class="dfn-paneled" id="term-for-ascii-encode" style="color:initial">ascii encode</span>
      <li><span class="dfn-paneled" id="term-for-ascii-upper-alpha" style="color:initial">ascii upper alpha</span>
      <li><span class="dfn-paneled" id="term-for-byte-sequence" style="color:initial">byte sequence</span>
-     <li><span class="dfn-paneled" id="term-for-list-iterate" style="color:initial">for each</span>
+     <li><span class="dfn-paneled" id="term-for-list-empty" style="color:initial">empty</span>
+     <li><span class="dfn-paneled" id="term-for-set-intersection" style="color:initial">intersection</span>
      <li><span class="dfn-paneled" id="term-for-isomorphic-decode" style="color:initial">isomorphic decode</span>
      <li><span class="dfn-paneled" id="term-for-list-item" style="color:initial">item</span>
      <li><span class="dfn-paneled" id="term-for-list" style="color:initial">list</span>
@@ -3607,6 +3724,8 @@ stop the UA from trusting it no more than 7 days later.</p>
   </dl>
   <h3 class="no-num no-ref heading settled" id="informative"><span class="content">Informative References</span><a class="self-link" href="#informative"></a></h3>
   <dl>
+   <dt id="biblio-draft-yasskin-httpbis-origin-signed-exchanges-impl-03">[DRAFT-YASSKIN-HTTPBIS-ORIGIN-SIGNED-EXCHANGES-IMPL-03]
+   <dd>Jeffrey Yasskin; Kouhei Ueno. <a href="https://tools.ietf.org/html/draft-yasskin-httpbis-origin-signed-exchanges-impl-03">Signed HTTP Exchanges Implementation Checkpoints</a>. ED. URL: <a href="https://tools.ietf.org/html/draft-yasskin-httpbis-origin-signed-exchanges-impl-03">https://tools.ietf.org/html/draft-yasskin-httpbis-origin-signed-exchanges-impl-03</a>
    <dt id="biblio-http-dig-alg">[HTTP-DIG-ALG]
    <dd><a href="https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml">Hypertext Transfer Protocol (HTTP) Digest Algorithm Values</a>. LS. URL: <a href="https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml">https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml</a>
    <dt id="biblio-rfc3230">[RFC3230]
@@ -3618,6 +3737,8 @@ stop the UA from trusting it no more than 7 days later.</p>
   <div style="counter-reset:issue">
    <div class="issue"> Our security reviewers aren’t sure we should
 allow UAs to take clock skew into account. <a href="https://github.com/WICG/webpackage/issues/141">&lt;https://github.com/WICG/webpackage/issues/141></a><a href="#issue-a7ea6416"> ↵ </a></div>
+   <div class="issue"> This depends on the <a data-link-type="dfn" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache">Variants Cache
+Behavior</a> returning a list of lists. <a href="https://github.com/httpwg/http-extensions/issues/744">&lt;https://github.com/httpwg/http-extensions/issues/744></a><a href="#issue-e1733bef"> ↵ </a></div>
    <div class="issue"> The algorithms in this section create and operate over
 ECMAScript objects like <code class="idl"><a data-link-type="idl" href="https://streams.spec.whatwg.org/#rs-class">ReadableStream</a></code> despite not having a Realm to attach
 them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github.com/whatwg/fetch/issues/730></a><a href="#issue-3ffca592"> ↵ </a></div>
@@ -3641,16 +3762,17 @@ them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github
    <ul>
     <li><a href="#ref-for-exchange">2.1. A request’s stashed exchange</a>
     <li><a href="#ref-for-exchange①">4.8. Cross-origin trust</a>
-    <li><a href="#ref-for-exchange②">4.10. Parsing CBOR headers</a> <a href="#ref-for-exchange③">(2)</a>
+    <li><a href="#ref-for-exchange②">4.10. Parsing b2 CBOR headers</a> <a href="#ref-for-exchange③">(2)</a>
+    <li><a href="#ref-for-exchange④">4.11. Parsing b3 CBOR headers</a> <a href="#ref-for-exchange⑤">(2)</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="exchange-request">
-   <b><a href="#exchange-request">#exchange-request</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="exchange-request-url">
+   <b><a href="#exchange-request-url">#exchange-request-url</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-exchange-request">2.2. Request clone</a> <a href="#ref-for-exchange-request①">(2)</a>
-    <li><a href="#ref-for-exchange-request②">2.4. Monkeypatch HTTP fetch</a>
-    <li><a href="#ref-for-exchange-request③">2.5. Monkeypatch HTTP-network-or-cache fetch</a>
-    <li><a href="#ref-for-exchange-request④">4.8. Cross-origin trust</a> <a href="#ref-for-exchange-request⑤">(2)</a>
+    <li><a href="#ref-for-exchange-request-url">2.2. Request clone</a> <a href="#ref-for-exchange-request-url①">(2)</a>
+    <li><a href="#ref-for-exchange-request-url②">2.4. Monkeypatch HTTP fetch</a>
+    <li><a href="#ref-for-exchange-request-url③">4.8. Cross-origin trust</a>
+    <li><a href="#ref-for-exchange-request-url④">4.13. Request matching</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="exchange-response">
@@ -3658,44 +3780,45 @@ them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github
    <ul>
     <li><a href="#ref-for-exchange-response">2.2. Request clone</a> <a href="#ref-for-exchange-response①">(2)</a>
     <li><a href="#ref-for-exchange-response②">2.5. Monkeypatch HTTP-network-or-cache fetch</a> <a href="#ref-for-exchange-response③">(2)</a>
-    <li><a href="#ref-for-exchange-response④">4.3. Parsing b2 signed exchanges</a> <a href="#ref-for-exchange-response⑤">(2)</a> <a href="#ref-for-exchange-response⑥">(3)</a> <a href="#ref-for-exchange-response⑦">(4)</a>
+    <li><a href="#ref-for-exchange-response④">4.3. Parsing signed exchanges</a> <a href="#ref-for-exchange-response⑤">(2)</a> <a href="#ref-for-exchange-response⑥">(3)</a> <a href="#ref-for-exchange-response⑦">(4)</a>
     <li><a href="#ref-for-exchange-response⑧">4.8. Cross-origin trust</a>
+    <li><a href="#ref-for-exchange-response⑨">4.13. Request matching</a> <a href="#ref-for-exchange-response①⓪">(2)</a> <a href="#ref-for-exchange-response①①">(3)</a> <a href="#ref-for-exchange-response①②">(4)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="read-buffer">
    <b><a href="#read-buffer">#read-buffer</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-read-buffer">4.4. Parsing the invariant prefix</a>
-    <li><a href="#ref-for-read-buffer①">4.11. Creating the response stream.</a>
-    <li><a href="#ref-for-read-buffer②">4.13.1. Create a read buffer</a>
-    <li><a href="#ref-for-read-buffer③">4.13.2. Read up to bytes</a>
-    <li><a href="#ref-for-read-buffer④">4.13.3. Read bytes</a>
-    <li><a href="#ref-for-read-buffer⑤">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-read-buffer①">4.12. Creating the response stream.</a>
+    <li><a href="#ref-for-read-buffer②">4.14.1. Create a read buffer</a>
+    <li><a href="#ref-for-read-buffer③">4.14.2. Read up to bytes</a>
+    <li><a href="#ref-for-read-buffer④">4.14.3. Read bytes</a>
+    <li><a href="#ref-for-read-buffer⑤">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="read-buffer-stream">
    <b><a href="#read-buffer-stream">#read-buffer-stream</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-read-buffer-stream">3.2. Read buffer</a> <a href="#ref-for-read-buffer-stream①">(2)</a>
-    <li><a href="#ref-for-read-buffer-stream②">4.11. Creating the response stream.</a>
-    <li><a href="#ref-for-read-buffer-stream③">4.13.1. Create a read buffer</a>
-    <li><a href="#ref-for-read-buffer-stream④">4.13.4. Dump to another stream</a> <a href="#ref-for-read-buffer-stream⑤">(2)</a> <a href="#ref-for-read-buffer-stream⑥">(3)</a>
+    <li><a href="#ref-for-read-buffer-stream②">4.12. Creating the response stream.</a>
+    <li><a href="#ref-for-read-buffer-stream③">4.14.1. Create a read buffer</a>
+    <li><a href="#ref-for-read-buffer-stream④">4.14.4. Dump to another stream</a> <a href="#ref-for-read-buffer-stream⑤">(2)</a> <a href="#ref-for-read-buffer-stream⑥">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="read-buffer-reader">
    <b><a href="#read-buffer-reader">#read-buffer-reader</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-read-buffer-reader">4.13.1. Create a read buffer</a>
-    <li><a href="#ref-for-read-buffer-reader①">4.13.2. Read up to bytes</a>
-    <li><a href="#ref-for-read-buffer-reader②">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-read-buffer-reader">4.14.1. Create a read buffer</a>
+    <li><a href="#ref-for-read-buffer-reader①">4.14.2. Read up to bytes</a>
+    <li><a href="#ref-for-read-buffer-reader②">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="read-buffer-bytes">
    <b><a href="#read-buffer-bytes">#read-buffer-bytes</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-read-buffer-bytes">4.13.1. Create a read buffer</a>
-    <li><a href="#ref-for-read-buffer-bytes①">4.13.2. Read up to bytes</a> <a href="#ref-for-read-buffer-bytes②">(2)</a> <a href="#ref-for-read-buffer-bytes③">(3)</a> <a href="#ref-for-read-buffer-bytes④">(4)</a> <a href="#ref-for-read-buffer-bytes⑤">(5)</a> <a href="#ref-for-read-buffer-bytes⑥">(6)</a>
-    <li><a href="#ref-for-read-buffer-bytes⑦">4.13.4. Dump to another stream</a>
+    <li><a href="#ref-for-read-buffer-bytes">4.14.1. Create a read buffer</a>
+    <li><a href="#ref-for-read-buffer-bytes①">4.14.2. Read up to bytes</a> <a href="#ref-for-read-buffer-bytes②">(2)</a> <a href="#ref-for-read-buffer-bytes③">(3)</a> <a href="#ref-for-read-buffer-bytes④">(4)</a> <a href="#ref-for-read-buffer-bytes⑤">(5)</a> <a href="#ref-for-read-buffer-bytes⑥">(6)</a>
+    <li><a href="#ref-for-read-buffer-bytes⑦">4.14.4. Dump to another stream</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="augmented-certificate">
@@ -3767,7 +3890,7 @@ them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github
     <li><a href="#ref-for-exchange-signature②">4.6. The signed message</a>
     <li><a href="#ref-for-exchange-signature③">4.7. Validating a signature</a>
     <li><a href="#ref-for-exchange-signature④">4.8. Cross-origin trust</a>
-    <li><a href="#ref-for-exchange-signature⑤">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-exchange-signature⑤">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="exchange-signature-signature">
@@ -3798,7 +3921,7 @@ them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github
    <b><a href="#exchange-signature-integrity-header">#exchange-signature-integrity-header</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-exchange-signature-integrity-header">4.5. Parsing a Signature Header Field</a>
-    <li><a href="#ref-for-exchange-signature-integrity-header①">4.11. Creating the response stream.</a> <a href="#ref-for-exchange-signature-integrity-header②">(2)</a>
+    <li><a href="#ref-for-exchange-signature-integrity-header①">4.12. Creating the response stream.</a> <a href="#ref-for-exchange-signature-integrity-header②">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="exchange-signature-validityurl">
@@ -3840,33 +3963,33 @@ them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github
    <ul>
     <li><a href="#ref-for-signed-exchange-version">2.4. Monkeypatch HTTP fetch</a>
     <li><a href="#ref-for-signed-exchange-version①">4.2. Extracting the fallback URL</a>
-    <li><a href="#ref-for-signed-exchange-version②">4.3. Parsing b2 signed exchanges</a> <a href="#ref-for-signed-exchange-version③">(2)</a>
+    <li><a href="#ref-for-signed-exchange-version②">4.3. Parsing signed exchanges</a> <a href="#ref-for-signed-exchange-version③">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="extracting-the-fallback-url">
    <b><a href="#extracting-the-fallback-url">#extracting-the-fallback-url</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-extracting-the-fallback-url">2.4. Monkeypatch HTTP fetch</a>
-    <li><a href="#ref-for-extracting-the-fallback-url①">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-extracting-the-fallback-url①">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="parsing-a-b2-signed-exchange">
-   <b><a href="#parsing-a-b2-signed-exchange">#parsing-a-b2-signed-exchange</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="parsing-a-signed-exchange">
+   <b><a href="#parsing-a-signed-exchange">#parsing-a-signed-exchange</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-parsing-a-b2-signed-exchange">2.4. Monkeypatch HTTP fetch</a>
+    <li><a href="#ref-for-parsing-a-signed-exchange">2.4. Monkeypatch HTTP fetch</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="parsing-the-invariant-prefix">
    <b><a href="#parsing-the-invariant-prefix">#parsing-the-invariant-prefix</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-parsing-the-invariant-prefix">4.2. Extracting the fallback URL</a>
-    <li><a href="#ref-for-parsing-the-invariant-prefix①">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-parsing-the-invariant-prefix①">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="parsing-the-signature-header-field">
    <b><a href="#parsing-the-signature-header-field">#parsing-the-signature-header-field</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-parsing-the-signature-header-field">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-parsing-the-signature-header-field">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="handling-the-certificate-reference">
@@ -3875,23 +3998,23 @@ them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github
     <li><a href="#ref-for-handling-the-certificate-reference">4.5. Parsing a Signature Header Field</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="b2-signed-message">
-   <b><a href="#b2-signed-message">#b2-signed-message</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="signed-message">
+   <b><a href="#signed-message">#signed-message</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-b2-signed-message">4.7. Validating a signature</a>
+    <li><a href="#ref-for-signed-message">4.7. Validating a signature</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="exchange-signature-is-valid">
    <b><a href="#exchange-signature-is-valid">#exchange-signature-is-valid</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-exchange-signature-is-valid">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-exchange-signature-is-valid">4.3. Parsing signed exchanges</a>
     <li><a href="#ref-for-exchange-signature-is-valid①">4.8. Cross-origin trust</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="exchange-signature-establishes-cross-origin-trust">
    <b><a href="#exchange-signature-establishes-cross-origin-trust">#exchange-signature-establishes-cross-origin-trust</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-exchange-signature-establishes-cross-origin-trust">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-exchange-signature-establishes-cross-origin-trust">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="certificate-chain-has-a-trusted-leaf">
@@ -3900,54 +4023,61 @@ them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github
     <li><a href="#ref-for-certificate-chain-has-a-trusted-leaf">4.8. Cross-origin trust</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="parsing-cbor-headers">
-   <b><a href="#parsing-cbor-headers">#parsing-cbor-headers</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="parsing-b2-cbor-headers">
+   <b><a href="#parsing-b2-cbor-headers">#parsing-b2-cbor-headers</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-parsing-cbor-headers">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-parsing-b2-cbor-headers">4.3. Parsing signed exchanges</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="parsing-b3-cbor-headers">
+   <b><a href="#parsing-b3-cbor-headers">#parsing-b3-cbor-headers</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-parsing-b3-cbor-headers">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="creating-a-header-list-from-the-cbor-map">
    <b><a href="#creating-a-header-list-from-the-cbor-map">#creating-a-header-list-from-the-cbor-map</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-creating-a-header-list-from-the-cbor-map">4.10. Parsing CBOR headers</a> <a href="#ref-for-creating-a-header-list-from-the-cbor-map①">(2)</a>
+    <li><a href="#ref-for-creating-a-header-list-from-the-cbor-map">4.10. Parsing b2 CBOR headers</a> <a href="#ref-for-creating-a-header-list-from-the-cbor-map①">(2)</a>
+    <li><a href="#ref-for-creating-a-header-list-from-the-cbor-map②">4.11. Parsing b3 CBOR headers</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="reading-a-body">
    <b><a href="#reading-a-body">#reading-a-body</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-reading-a-body">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-reading-a-body">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="matches-the-stored-request">
-   <b><a href="#matches-the-stored-request">#matches-the-stored-request</a></b><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="matches-the-stored-exchange">
+   <b><a href="#matches-the-stored-exchange">#matches-the-stored-exchange</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-matches-the-stored-request">2.5. Monkeypatch HTTP-network-or-cache fetch</a>
+    <li><a href="#ref-for-matches-the-stored-exchange">2.5. Monkeypatch HTTP-network-or-cache fetch</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="new-read-buffer">
    <b><a href="#new-read-buffer">#new-read-buffer</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-new-read-buffer">4.2. Extracting the fallback URL</a>
-    <li><a href="#ref-for-new-read-buffer①">4.3. Parsing b2 signed exchanges</a>
+    <li><a href="#ref-for-new-read-buffer①">4.3. Parsing signed exchanges</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="read-buffer-reading-up-to">
    <b><a href="#read-buffer-reading-up-to">#read-buffer-reading-up-to</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-read-buffer-reading-up-to">4.13.3. Read bytes</a>
+    <li><a href="#ref-for-read-buffer-reading-up-to">4.14.3. Read bytes</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="read-buffer-read">
    <b><a href="#read-buffer-read">#read-buffer-read</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-read-buffer-read">4.3. Parsing b2 signed exchanges</a> <a href="#ref-for-read-buffer-read①">(2)</a> <a href="#ref-for-read-buffer-read②">(3)</a> <a href="#ref-for-read-buffer-read③">(4)</a>
+    <li><a href="#ref-for-read-buffer-read">4.3. Parsing signed exchanges</a> <a href="#ref-for-read-buffer-read①">(2)</a> <a href="#ref-for-read-buffer-read②">(3)</a> <a href="#ref-for-read-buffer-read③">(4)</a>
     <li><a href="#ref-for-read-buffer-read④">4.4. Parsing the invariant prefix</a> <a href="#ref-for-read-buffer-read⑤">(2)</a> <a href="#ref-for-read-buffer-read⑥">(3)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="read-buffer-dump">
    <b><a href="#read-buffer-dump">#read-buffer-dump</a></b><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-read-buffer-dump">4.11. Creating the response stream.</a>
+    <li><a href="#ref-for-read-buffer-dump">4.12. Creating the response stream.</a>
    </ul>
   </aside>
 <script>/* script-var-click-highlighting */
