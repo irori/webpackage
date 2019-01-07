@@ -1214,7 +1214,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 6dcb46ba8cae3704b42c05bcd8578c92d239786a" name="generator">
   <link href="https://wicg.github.io/webpackage/loading.html" rel="canonical">
-  <meta content="1a81570ab4adddd0fb8786e9182ed8ae202e3581" name="document-revision">
+  <meta content="80005f09c1e52675b9279dc44a87c2887b63cf8d" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -2356,6 +2356,11 @@ splitting</a> <code>`content-encoding`</code> in <var>response</var>’s <a data
    <p>A <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request" id="ref-for-concept-request②">request</a> <var>browserRequest</var> <dfn class="dfn-paneled" data-dfn-type="dfn" data-noexport id="matches-the-stored-exchange">matches the stored exchange</dfn> <var>storedExchange</var> if the following steps return "match":</p>
    <ol>
     <li data-md>
+     <p>If <var>browserRequest</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-method" id="ref-for-concept-request-method">method</a> is not <code>`GET`</code> or <code>`HEAD`</code>,
+return "mismatch".</p>
+     <p class="note" role="note"><span>Note:</span> The <var>browserRequest</var>’s method can be something other than <code>`GET`</code> if a Service Worker intercepts the redirect and modifies the request before
+re-fetching it.</p>
+    <li data-md>
      <p>If <var>browserRequest</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-request-url" id="ref-for-concept-request-url①">url</a> is not <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-equals" id="ref-for-concept-url-equals">equal</a> to <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-request-url" id="ref-for-exchange-request-url④">request URL</a>, return "mismatch".</p>
     <li data-md>
      <p>If <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response⑨">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list⑥">header list</a> <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#header-list-contains" id="ref-for-header-list-contains①">contains</a>:</p>
@@ -3012,6 +3017,12 @@ stop the UA from trusting it no more than 7 days later.</p>
     <li><a href="#ref-for-concept-request-initiator">2.5. Monkeypatch HTTP-network-or-cache fetch</a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-concept-request-method">
+   <a href="https://fetch.spec.whatwg.org/#concept-request-method">https://fetch.spec.whatwg.org/#concept-request-method</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-concept-request-method">4.13. Request matching</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-concept-request-mode">
    <a href="https://fetch.spec.whatwg.org/#concept-request-mode">https://fetch.spec.whatwg.org/#concept-request-mode</a><b>Referenced in:</b>
    <ul>
@@ -3538,6 +3549,7 @@ stop the UA from trusting it no more than 7 days later.</p>
      <li><span class="dfn-paneled" id="term-for-concept-http-network-or-cache-fetch" style="color:initial">http-network-or-cache fetch</span>
      <li><span class="dfn-paneled" id="term-for-concept-response-https-state" style="color:initial">https state</span>
      <li><span class="dfn-paneled" id="term-for-concept-request-initiator" style="color:initial">initiator</span>
+     <li><span class="dfn-paneled" id="term-for-concept-request-method" style="color:initial">method</span>
      <li><span class="dfn-paneled" id="term-for-concept-request-mode" style="color:initial">mode</span>
      <li><span class="dfn-paneled" id="term-for-concept-header-name" style="color:initial">name</span>
      <li><span class="dfn-paneled" id="term-for-concept-readablestream-need-more-data" style="color:initial">need more data</span>
