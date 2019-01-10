@@ -103,7 +103,7 @@ Table of Contents
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  25
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  25
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  27
-     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  28
+     9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  29
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  29
    Appendix B.  Acknowledgements . . . . . . . . . . . . . . . . . .  31
 
@@ -818,7 +818,7 @@ Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
 3.7.1.  Integrity identifiers
 
    Identifiers starting with "digest/" indicate that the client supports
-   the "Digest" header field ({{!RFC3230) with the parameter from the
+   the "Digest" header field ([RFC3230]) with the parameter from the
    HTTP Digest Algorithm Values Registry [6] registry named in lower-
    case by the rest of the identifier.  For example, "digest/mi-blake2"
    indicates support for Merkle integrity with the as-yet-unspecified
@@ -1433,6 +1433,10 @@ Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
+   [RFC3230]  Mogul, J. and A. Van Hoff, "Instance Digests in HTTP",
+              RFC 3230, DOI 10.17487/RFC3230, January 2002,
+              <https://www.rfc-editor.org/info/rfc3230>.
+
    [RFC5234]  Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
               Specifications: ABNF", STD 68, RFC 5234,
               DOI 10.17487/RFC5234, January 2008,
@@ -1444,11 +1448,7 @@ Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
               (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
               <https://www.rfc-editor.org/info/rfc5280>.
 
-   [RFC6960]  Santesson, S., Myers, M., Ankney, R., Malpani, A.,
-              Galperin, S., and C. Adams, "X.509 Internet Public Key
-              Infrastructure Online Certificate Status Protocol - OCSP",
-              RFC 6960, DOI 10.17487/RFC6960, June 2013,
-              <https://www.rfc-editor.org/info/rfc6960>.
+
 
 
 
@@ -1457,6 +1457,12 @@ Yasskin & Ueno            Expires July 14, 2019                [Page 26]
 
 Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
 
+
+   [RFC6960]  Santesson, S., Myers, M., Ankney, R., Malpani, A.,
+              Galperin, S., and C. Adams, "X.509 Internet Public Key
+              Infrastructure Online Certificate Status Protocol - OCSP",
+              RFC 6960, DOI 10.17487/RFC6960, June 2013,
+              <https://www.rfc-editor.org/info/rfc6960>.
 
    [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
@@ -1500,12 +1506,6 @@ Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
               Encoding", draft-thomson-http-mice-03 (work in progress),
               August 2018.
 
-   [I-D.yasskin-http-origin-signed-responses-03]
-              Yasskin, J., "Signed HTTP Exchanges", draft-yasskin-http-
-              origin-signed-responses-03 (work in progress), March 2018,
-              <https://tools.ietf.org/html/
-              draft-yasskin-http-origin-signed-responses-03>.
-
 
 
 
@@ -1513,6 +1513,12 @@ Yasskin & Ueno            Expires July 14, 2019                [Page 27]
 
 Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
 
+
+   [I-D.yasskin-http-origin-signed-responses-03]
+              Yasskin, J., "Signed HTTP Exchanges", draft-yasskin-http-
+              origin-signed-responses-03 (work in progress), March 2018,
+              <https://tools.ietf.org/html/
+              draft-yasskin-http-origin-signed-responses-03>.
 
    [I-D.yasskin-http-origin-signed-responses-04]
               Yasskin, J., "Signed HTTP Exchanges", draft-yasskin-http-
@@ -1556,12 +1562,6 @@ Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
               M. Myers, "Implementation of OPS Over HTTP", W3C NOTE
               NOTE-OPS-OverHTTP, June 1997.
 
-9.3.  URIs
-
-   [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
-
-   [2] https://github.com/WICG/webpackage
-
 
 
 
@@ -1569,6 +1569,12 @@ Yasskin & Ueno            Expires July 14, 2019                [Page 28]
 
 Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
 
+
+9.3.  URIs
+
+   [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
+
+   [2] https://github.com/WICG/webpackage
 
    [3] https://url.spec.whatwg.org/#concept-url-parser
 
@@ -1612,12 +1618,6 @@ Appendix A.  Change Log
 
    draft-01
 
-   Vs.  [I-D.yasskin-http-origin-signed-responses-04]:
-
-   o  The MI header and mi-sha256 content-encoding are renamed to MI-
-      Draft2 and mi-sha256-draft2 in case [I-D.thomson-http-mice]
-      changes.
-
 
 
 
@@ -1625,6 +1625,12 @@ Yasskin & Ueno            Expires July 14, 2019                [Page 29]
 
 Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
 
+
+   Vs.  [I-D.yasskin-http-origin-signed-responses-04]:
+
+   o  The MI header and mi-sha256 content-encoding are renamed to MI-
+      Draft2 and mi-sha256-draft2 in case [I-D.thomson-http-mice]
+      changes.
 
    o  Signed exchanges cannot be transmitted using HTTP/2 Push.
 
@@ -1666,13 +1672,7 @@ Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
    o  The application/http-exchange+cbor format is replaced with a more
       specialized application/signed-exchange format.
 
-   o  Signed exchanges can only be transmitted using the application/
-      signed-exchange format, not HTTP/2 Push or plain HTTP request/
-      response pairs.
 
-   o  Only the MI payload-integrity header is supported.
-
-   o  The mi-sha256 encoding must have records <= 16kB.
 
 
 
@@ -1681,6 +1681,14 @@ Yasskin & Ueno            Expires July 14, 2019                [Page 30]
 
 Internet-DrafSigned HTTP Exchanges Implementation Checkpoin January 2019
 
+
+   o  Signed exchanges can only be transmitted using the application/
+      signed-exchange format, not HTTP/2 Push or plain HTTP request/
+      response pairs.
+
+   o  Only the MI payload-integrity header is supported.
+
+   o  The mi-sha256 encoding must have records <= 16kB.
 
    o  The Accept-Signature header isn't used.
 
@@ -1704,14 +1712,6 @@ Authors' Addresses
    Google
 
    Email: kouhei@chromium.org
-
-
-
-
-
-
-
-
 
 
 

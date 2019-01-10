@@ -788,7 +788,7 @@ Accept-Signature = sh-param-list
 <h1 id="rfc.section.3.7.1">
 <a href="#rfc.section.3.7.1">3.7.1.</a> <a href="#accept-signature-integrity" id="accept-signature-integrity">Integrity identifiers</a>
 </h1>
-<p id="rfc.section.3.7.1.p.1">Identifiers starting with &#8220;digest/&#8221; indicate that the client supports the <samp>Digest</samp> header field ({{!RFC3230) with the parameter from the <a href="https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml">HTTP Digest Algorithm Values Registry</a> registry named in lower-case by the rest of the identifier. For example, &#8220;digest/mi-blake2&#8221; indicates support for Merkle integrity with the as-yet-unspecified mi-blake2 parameter, and &#8220;-digest/mi-sha256&#8221; indicates non-support for Merkle integrity with the mi-sha256 content encoding.</p>
+<p id="rfc.section.3.7.1.p.1">Identifiers starting with &#8220;digest/&#8221; indicate that the client supports the <samp>Digest</samp> header field (<a href="#RFC3230" class="xref">[RFC3230]</a>) with the parameter from the <a href="https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml">HTTP Digest Algorithm Values Registry</a> registry named in lower-case by the rest of the identifier. For example, &#8220;digest/mi-blake2&#8221; indicates support for Merkle integrity with the as-yet-unspecified mi-blake2 parameter, and &#8220;-digest/mi-sha256&#8221; indicates non-support for Merkle integrity with the mi-sha256 content encoding.</p>
 <p id="rfc.section.3.7.1.p.2">If the <samp>Accept-Signature</samp> header field is present, servers SHOULD assume support for &#8220;digest/mi-sha256-03&#8221; unless the header field states otherwise.</p>
 <h1 id="rfc.section.3.7.2">
 <a href="#rfc.section.3.7.2">3.7.2.</a> <a href="#accept-signature-key-types" id="accept-signature-key-types">Key type identifiers</a>
@@ -1103,6 +1103,11 @@ following array&gt;sig1; sig=*...; integrity="digest/mi-sha256-03"; ...[
 <td class="reference"><b id="RFC2119">[RFC2119]</b></td>
 <td class="top">
 <a>Bradner, S.</a>, "<a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC3230">[RFC3230]</b></td>
+<td class="top">
+<a>Mogul, J.</a> and <a>A. Van Hoff</a>, "<a href="https://tools.ietf.org/html/rfc3230">Instance Digests in HTTP</a>", RFC 3230, DOI 10.17487/RFC3230, January 2002.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC5234">[RFC5234]</b></td>
