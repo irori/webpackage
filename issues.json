@@ -34,7 +34,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": {
       "login": "hajimehoshi",
@@ -101,8 +101,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-01-09T08:20:16Z",
-    "updated_at": "2019-01-09T10:00:31Z",
-    "closed_at": null,
+    "updated_at": "2019-01-10T09:42:25Z",
+    "closed_at": "2019-01-10T09:42:18Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/371",
@@ -254,7 +254,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -263,8 +263,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-01-09T02:28:34Z",
-    "updated_at": "2019-01-10T00:02:45Z",
-    "closed_at": null,
+    "updated_at": "2019-01-10T07:23:19Z",
+    "closed_at": "2019-01-10T07:23:19Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/368",
@@ -308,7 +308,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -317,8 +317,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-01-07T08:01:07Z",
-    "updated_at": "2019-01-09T09:59:39Z",
-    "closed_at": null,
+    "updated_at": "2019-01-10T01:20:38Z",
+    "closed_at": "2019-01-10T01:20:32Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/367",
@@ -414,9 +414,9 @@
       }
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-01-07T06:55:13Z",
-    "updated_at": "2019-01-07T06:55:13Z",
+    "updated_at": "2019-01-10T00:34:15Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "We need to update `dump-signedexchange` to support Variants header validation per #360 [change](https://github.com/WICG/webpackage/pull/360/files#diff-a2197f2cbc199dc1463dc10213fa40d9R957).\r\nThe [loading spec](https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/360.html#request-matching) may be easier to follow step-by-step.\r\n"
@@ -455,7 +455,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -464,8 +464,8 @@
     "milestone": null,
     "comments": 5,
     "created_at": "2019-01-07T04:38:30Z",
-    "updated_at": "2019-01-08T06:32:55Z",
-    "closed_at": null,
+    "updated_at": "2019-01-10T07:23:41Z",
+    "closed_at": "2019-01-10T07:23:41Z",
     "author_association": "COLLABORATOR",
     "body": "Found by @irori while implementing \"is complete check\" #363 #364 \r\n\r\nWe introduced \"is complete\" check in #326.\r\n\r\nhttps://tools.ietf.org/html/rfc7234#section-3.1 says \r\n> A response message is considered complete when all of the octets\r\n   indicated by the message framing ([RFC7230]) are received prior to\r\n   the connection being closed.\r\n\r\nThis check is tricky to implement for streaming clients (e.g. Chromium).\r\n\r\nIf the offset at mice stream EOS doesn't match \"Content-Length\", what should the UA do?\r\n- If C-L > actual EOS. The response payload may be already fully consumed by the client.\r\n- The UA may track the expected C-L while running mice streaming encoder to:\r\n  - emit error if the mice stream payload exceeded the expected C-L\r\n  - emit error on the last chunk if the payload stream length doesn't match the expected C-L.\r\n\r\nI think we have at least the following options:\r\n- Option A: Implement the complex check.\r\n  - Chromium may need this anyway if we add support for mice decoder in for non-SXG raw HTTP.\r\n- Option B: Remove \"is complete\" check and replace it with plain 206 check.\r\n  - This was @kinu's preference in #326.\r\n- Option B': Check 206 && if Content-Length is formatted correctly (\"the response has valid message framing\")\r\n  - Not sure how much this is worth doing.\r\n\r\n@jyasskin, @irori, @kinu : Your thoughts welcome.\r\n"
   },
@@ -1347,10 +1347,10 @@
     "milestone": null,
     "comments": 6,
     "created_at": "2018-12-13T04:19:05Z",
-    "updated_at": "2019-01-08T00:42:23Z",
+    "updated_at": "2019-01-10T04:16:50Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
-    "body": "We would like to prepare another implementation snapshot `b3` to incorporate the recent changes to the format.\r\nOur plan is to ship Chrome M73 with `b3` support.\r\n\r\n## Highlight of changes since `b2`\r\n\r\nof which we would definitely want to make it in `b3`:\r\n- [ ] `Variants` header-based request matching (post #285)\r\n  - [x] https://github.com/WICG/webpackage/pull/285\r\n  - [ ] https://github.com/WICG/webpackage/pull/360\r\n  - [x] https://github.com/httpwg/http-extensions/pull/735\r\n  - [ ] https://github.com/httpwg/http-extensions/issues/570\r\n- [ ] Header bans (#336, #340)\r\n- [x] Reject uncachable and incomplete responses (#326)\r\n- [x] UTF-8 decode the URL string (#346) "
+    "body": "We would like to prepare another implementation snapshot `b3` to incorporate the recent changes to the format.\r\nOur plan is to ship Chrome M73 with `b3` support.\r\n\r\n## Highlight of changes since `b2`\r\n\r\nof which we would definitely want to make it in `b3`:\r\n- [x] `Variants` header-based request matching (post #285)\r\n  - [x] https://github.com/WICG/webpackage/pull/285\r\n  - [x] https://github.com/WICG/webpackage/pull/360\r\n  - [x] https://github.com/httpwg/http-extensions/pull/735\r\n  - [x] https://github.com/httpwg/http-extensions/issues/570\r\n- [ ] Header bans (#336, #340)\r\n- [x] Reject uncachable and incomplete responses (#326)\r\n- [x] UTF-8 decode the URL string (#346) "
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/349",
@@ -1858,9 +1858,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 4,
     "created_at": "2018-11-14T18:22:08Z",
-    "updated_at": "2019-01-08T00:18:25Z",
+    "updated_at": "2019-01-10T07:22:39Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1869,7 +1869,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/339.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/339.patch"
     },
-    "body": "Addresses #336 "
+    "body": "Fixes #336 and fixes #340."
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/338",
