@@ -302,7 +302,8 @@ ul.toc li {
 <link href="#rfc.section.3.7.4" rel="Chapter" title="3.7.4 Examples">
 <link href="#rfc.section.3.7.5" rel="Chapter" title="3.7.5 Open Questions">
 <link href="#rfc.section.4" rel="Chapter" title="4 Cross-origin trust">
-<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Stateful header fields">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Uncached header fields">
+<link href="#rfc.section.4.1.1" rel="Chapter" title="4.1.1 Stateful header fields">
 <link href="#rfc.section.4.2" rel="Chapter" title="4.2 Certificate Requirements">
 <link href="#rfc.section.5" rel="Chapter" title="5 Transferring a signed exchange">
 <link href="#rfc.section.5.1" rel="Chapter" title="5.1 Same-origin response">
@@ -469,9 +470,11 @@ ul.toc li {
 </li>
 </ul></ul><li>4.   <a href="#rfc.section.4">Cross-origin trust</a>
 </li>
-<ul><li>4.1.   <a href="#rfc.section.4.1">Stateful header fields</a>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Uncached header fields</a>
 </li>
-<li>4.2.   <a href="#rfc.section.4.2">Certificate Requirements</a>
+<ul><li>4.1.1.   <a href="#rfc.section.4.1.1">Stateful header fields</a>
+</li>
+</ul><li>4.2.   <a href="#rfc.section.4.2">Certificate Requirements</a>
 </li>
 </ul><li>5.   <a href="#rfc.section.5">Transferring a signed exchange</a>
 </li>
@@ -1044,7 +1047,7 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 <li>Use <a href="#signature-validity" class="xref">Section 3.5</a> to determine the signature&#8217;s validity for <samp>requestUrl</samp>, <samp>responseHeaders</samp>, and <samp>payload</samp>, getting <samp>certificate-chain</samp> back. If this returned &#8220;invalid&#8221; or didn&#8217;t return a certificate chain, return &#8220;invalid&#8221;.</li>
 <li>Let <samp>response</samp> be the response metadata and headers parsed out of <samp>responseHeaders</samp>.</li>
 <li>If Section 3 of <a href="#RFC7234" class="xref">[RFC7234]</a> forbids a shared cache from storing <samp>response</samp>, return &#8220;invalid&#8221;.</li>
-<li>If <samp>response</samp>&#8217;s headers contain a stateful header field, as defined in <a href="#stateful-headers" class="xref">Section 4.1</a>, return &#8220;invalid&#8221;.</li>
+<li>If <samp>response</samp>&#8217;s headers contain an uncached header field, as defined in <a href="#uncached-headers" class="xref">Section 4.1</a>, return &#8220;invalid&#8221;.</li>
 <li>Let <samp>authority</samp> be the host component of <samp>requestUrl</samp>.</li>
 <li>Validate the <samp>certificate-chain</samp> using the following substeps. If any of them fail, re-run <a href="#signature-validity" class="xref">Section 3.5</a> once over the signature with the <samp>forceFetch</samp> flag set, and restart from step 2. If a substep fails again, return &#8220;invalid&#8221;.  <ol>
 <li>Use <samp>certificate-chain</samp> to validate that its first entry, <samp>main-certificate</samp> is trusted as <samp>authority</samp>&#8217;s server certificate (<a href="#RFC5280" class="xref">[RFC5280]</a> and other undocumented conventions). Let <samp>path</samp> be the path that was used from the <samp>main-certificate</samp> to a trusted root, including the <samp>main-certificate</samp> but excluding the root.</li>
@@ -1062,10 +1065,30 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 <li>Return &#8220;valid&#8221;.</li>
 </ol>
 <h1 id="rfc.section.4.1">
-<a href="#rfc.section.4.1">4.1.</a> <a href="#stateful-headers" id="stateful-headers">Stateful header fields</a>
+<a href="#rfc.section.4.1">4.1.</a> <a href="#uncached-headers" id="uncached-headers">Uncached header fields</a>
 </h1>
-<p id="rfc.section.4.1.p.1">As described in <a href="#seccons-over-signing" class="xref">Section 6.1</a>, a publisher can cause problems if they sign an exchange that includes private information. There&#8217;s no way for a client to be sure an exchange does or does not include private information, but header fields that store or convey stored state in the client are a good sign.</p>
-<p id="rfc.section.4.1.p.2">A stateful response header field modifies state, including authentication status, in the client. The HTTP cache is not considered part of this state.  These include but are not limited to:</p>
+<p id="rfc.section.4.1.p.1">Hop-by-hop and other uncached headers MUST NOT appear in a signed exchange.  These will eventually be listed in <a href="#I-D.ietf-httpbis-cache" class="xref">[I-D.ietf-httpbis-cache]</a>, but for now they&#8217;re listed here:</p>
+<p></p>
+
+<ul>
+<li>Hop-by-hop header fields listed in the Connection header field (Section 6.1 of <a href="#RFC7230" class="xref">[RFC7230]</a>).</li>
+<li>Header fields listed in the no-cache response directive in the Cache-Control header field (Section 5.2.2.2 of <a href="#RFC7234" class="xref">[RFC7234]</a>).</li>
+<li>Header fields defined as hop-by-hop: <ul>
+<li>Connection</li>
+<li>Keep-Alive</li>
+<li>Proxy-Connection</li>
+<li>Trailer</li>
+<li>Transfer-Encoding</li>
+<li>Upgrade</li>
+</ul>
+</li>
+<li>Stateful headers as defined below.</li>
+</ul>
+<h1 id="rfc.section.4.1.1">
+<a href="#rfc.section.4.1.1">4.1.1.</a> <a href="#stateful-headers" id="stateful-headers">Stateful header fields</a>
+</h1>
+<p id="rfc.section.4.1.1.p.1">As described in <a href="#seccons-over-signing" class="xref">Section 6.1</a>, a publisher can cause problems if they sign an exchange that includes private information. There&#8217;s no way for a client to be sure an exchange does or does not include private information, but header fields that store or convey stored state in the client are a good sign.</p>
+<p id="rfc.section.4.1.1.p.2">A stateful response header field modifies state, including authentication status, in the client. The HTTP cache is not considered part of this state.  These include but are not limited to:</p>
 <p></p>
 
 <ul>
@@ -1076,6 +1099,9 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 <samp>Authentication-Info</samp>, <a href="#RFC7615" class="xref">[RFC7615]</a>
 </li>
 <li>
+<samp>Clear-Site-Data</samp>, <a href="#W3C.WD-clear-site-data-20171130" class="xref">[W3C.WD-clear-site-data-20171130]</a>
+</li>
+<li>
 <samp>Optional-WWW-Authenticate</samp>, <a href="#RFC8053" class="xref">[RFC8053]</a>
 </li>
 <li>
@@ -1083,6 +1109,9 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 </li>
 <li>
 <samp>Proxy-Authentication-Info</samp>, <a href="#RFC7615" class="xref">[RFC7615]</a>
+</li>
+<li>
+<samp>Public-Key-Pins</samp>, <a href="#RFC7469" class="xref">[RFC7469]</a>
 </li>
 <li>
 <samp>Sec-WebSocket-Accept</samp>, <a href="#RFC6455" class="xref">[RFC6455]</a>
@@ -1095,6 +1124,9 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 </li>
 <li>
 <samp>SetProfile</samp>, <a href="#W3C.NOTE-OPS-OverHTTP" class="xref">[W3C.NOTE-OPS-OverHTTP]</a>
+</li>
+<li>
+<samp>Strict-Transport-Security</samp>, <a href="#RFC6797" class="xref">[RFC6797]</a>
 </li>
 <li>
 <samp>WWW-Authenticate</samp>, <a href="#RFC7235" class="xref">[RFC7235]</a>
@@ -1550,6 +1582,11 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <a>Cavage, M.</a> and <a>M. Sporny</a>, "<a href="https://tools.ietf.org/html/draft-cavage-http-signatures-10">Signing HTTP Messages</a>", Internet-Draft draft-cavage-http-signatures-10, May 2018.</td>
 </tr>
 <tr>
+<td class="reference"><b id="I-D.ietf-httpbis-cache">[I-D.ietf-httpbis-cache]</b></td>
+<td class="top">
+<a>Fielding, R.</a>, <a>Nottingham, M.</a> and <a>J. Reschke</a>, "<a href="https://tools.ietf.org/html/draft-ietf-httpbis-cache-03">HTTP Caching</a>", Internet-Draft draft-ietf-httpbis-cache-03, October 2018.</td>
+</tr>
+<tr>
 <td class="reference"><b id="I-D.ietf-httpbis-http2-secondary-certs">[I-D.ietf-httpbis-http2-secondary-certs]</b></td>
 <td class="top">
 <a>Bishop, M.</a>, <a>Sullivan, N.</a> and <a>M. Thomson</a>, "<a href="https://tools.ietf.org/html/draft-ietf-httpbis-http2-secondary-certs-03">Secondary Certificate Authentication in HTTP/2</a>", Internet-Draft draft-ietf-httpbis-http2-secondary-certs-03, October 2018.</td>
@@ -1595,9 +1632,19 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <a>Fette, I.</a> and <a>A. Melnikov</a>, "<a href="https://tools.ietf.org/html/rfc6455">The WebSocket Protocol</a>", RFC 6455, DOI 10.17487/RFC6455, December 2011.</td>
 </tr>
 <tr>
+<td class="reference"><b id="RFC6797">[RFC6797]</b></td>
+<td class="top">
+<a>Hodges, J.</a>, <a>Jackson, C.</a> and <a>A. Barth</a>, "<a href="https://tools.ietf.org/html/rfc6797">HTTP Strict Transport Security (HSTS)</a>", RFC 6797, DOI 10.17487/RFC6797, November 2012.</td>
+</tr>
+<tr>
 <td class="reference"><b id="RFC7235">[RFC7235]</b></td>
 <td class="top">
 <a>Fielding, R.</a> and <a>J. Reschke</a>, "<a href="https://tools.ietf.org/html/rfc7235">Hypertext Transfer Protocol (HTTP/1.1): Authentication</a>", RFC 7235, DOI 10.17487/RFC7235, June 2014.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC7469">[RFC7469]</b></td>
+<td class="top">
+<a>Evans, C.</a>, <a>Palmer, C.</a> and <a>R. Sleevi</a>, "<a href="https://tools.ietf.org/html/rfc7469">Public Key Pinning Extension for HTTP</a>", RFC 7469, DOI 10.17487/RFC7469, April 2015.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC7615">[RFC7615]</b></td>
@@ -1628,6 +1675,11 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <td class="reference"><b id="W3C.NOTE-OPS-OverHTTP">[W3C.NOTE-OPS-OverHTTP]</b></td>
 <td class="top">
 <a>Hensley, P.</a>, <a>Metral, M.</a>, <a>Shardanand, U.</a>, <a>Converse, D.</a> and <a>M. Myers</a>, "<a>Implementation of OPS Over HTTP</a>", W3C NOTE NOTE-OPS-OverHTTP, June 1997.</td>
+</tr>
+<tr>
+<td class="reference"><b id="W3C.WD-clear-site-data-20171130">[W3C.WD-clear-site-data-20171130]</b></td>
+<td class="top">
+<a>West, M.</a>, "<a href="https://www.w3.org/TR/2017/WD-clear-site-data-20171130">Clear Site Data</a>", World Wide Web Consortium WD WD-clear-site-data-20171130, November 2017.</td>
 </tr>
 </tbody></table>
 <h1 id="rfc.appendix.A">
@@ -1831,6 +1883,7 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <li>Remove the rest of the request headers from the signed data, in favor of representing content negotiation with the <samp>Variants</samp> response header.</li>
 <li>Make the signed message format a concatenation of byte sequences, which helps implementations avoid re-serializing the exchange&#8217;s request and response metadata and headers.</li>
 <li>Explicitly check the response payload&#8217;s integrity instead of assuming the client did it elsewhere in processing the response.</li>
+<li>Reject uncached header fields.</li>
 </ul>
 <p id="rfc.section.D.p.4">draft-04</p>
 <p></p>

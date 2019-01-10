@@ -1214,7 +1214,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 53d2305928d30790ebcc3b8ea611fb0709647013" name="generator">
   <link href="https://wicg.github.io/webpackage/loading.html" rel="canonical">
-  <meta content="a275d5ba604f7c591cfd33a651d037f701c47669" name="document-revision">
+  <meta content="9f212606eb9ca4b09c5edb2ab8772b4d8e761814" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -2150,7 +2150,7 @@ cross-origin trust" data-noexport id="exchange-signature-establishes-cross-origi
     <li data-md>
      <p>If <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-validityurl" id="ref-for-exchange-signature-validityurl②">validityUrl</a>'s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-origin" id="ref-for-concept-url-origin①">origin</a> is not <a data-link-type="dfn" href="https://html.spec.whatwg.org/multipage/origin.html#same-origin" id="ref-for-same-origin">same origin</a> with <var>requestUrl</var>’s <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url-origin" id="ref-for-concept-url-origin②">origin</a>, return "untrusted".</p>
     <li data-md>
-     <p>If <var>exchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response⑧">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list③">header list</a> includes a <a data-link-type="dfn" href="https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers" id="ref-for-stateful-headers">stateful response header</a>, return "untrusted".</p>
+     <p>If <var>exchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response⑧">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list③">header list</a> includes an <a data-link-type="dfn" href="https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#uncached-headers" id="ref-for-uncached-headers">uncached response header</a>, return "untrusted".</p>
     <li data-md>
      <p>If <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-expiration-time" id="ref-for-exchange-signature-expiration-time⑦">expiration time</a> is more than 604800
 seconds (7 days) after <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-date" id="ref-for-exchange-signature-date⑥">date</a>, return
@@ -2795,10 +2795,10 @@ stop the UA from trusting it no more than 7 days later.</p>
     <li><a href="#ref-for-seccons-off-path">5.1. Certificate Transparency</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-stateful-headers">
-   <a href="https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers">https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers</a><b>Referenced in:</b>
+  <aside class="dfn-panel" data-for="term-for-uncached-headers">
+   <a href="https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#uncached-headers">https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#uncached-headers</a><b>Referenced in:</b>
    <ul>
-    <li><a href="#ref-for-stateful-headers">4.8. Cross-origin trust</a>
+    <li><a href="#ref-for-uncached-headers">4.8. Cross-origin trust</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-section-3.4">
@@ -3503,7 +3503,7 @@ stop the UA from trusting it no more than 7 days later.</p>
     <a data-link-type="biblio">[draft-yasskin-http-origin-signed-responses]</a> defines the following terms:
     <ul>
      <li><span class="dfn-paneled" id="term-for-seccons-off-path" style="color:initial">off-path attackers</span>
-     <li><span class="dfn-paneled" id="term-for-stateful-headers" style="color:initial">stateful response header</span>
+     <li><span class="dfn-paneled" id="term-for-uncached-headers" style="color:initial">uncached response header</span>
     </ul>
    <li>
     <a data-link-type="biblio">[draft-yasskin-httpbis-origin-signed-exchanges-impl-02]</a> defines the following terms:
