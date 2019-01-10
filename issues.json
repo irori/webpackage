@@ -1,6 +1,172 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/371",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/371/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/371/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/371/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/371",
+    "id": 397257879,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQzMjQ1OTg5",
+    "number": 371,
+    "title": "go: Verify() shouldn't replace Payload",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": {
+      "login": "hajimehoshi",
+      "id": 16950,
+      "node_id": "MDQ6VXNlcjE2OTUw",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/16950?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hajimehoshi",
+      "html_url": "https://github.com/hajimehoshi",
+      "followers_url": "https://api.github.com/users/hajimehoshi/followers",
+      "following_url": "https://api.github.com/users/hajimehoshi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hajimehoshi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hajimehoshi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hajimehoshi/subscriptions",
+      "organizations_url": "https://api.github.com/users/hajimehoshi/orgs",
+      "repos_url": "https://api.github.com/users/hajimehoshi/repos",
+      "events_url": "https://api.github.com/users/hajimehoshi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hajimehoshi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "assignees": [
+      {
+        "login": "hajimehoshi",
+        "id": 16950,
+        "node_id": "MDQ6VXNlcjE2OTUw",
+        "avatar_url": "https://avatars2.githubusercontent.com/u/16950?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/hajimehoshi",
+        "html_url": "https://github.com/hajimehoshi",
+        "followers_url": "https://api.github.com/users/hajimehoshi/followers",
+        "following_url": "https://api.github.com/users/hajimehoshi/following{/other_user}",
+        "gists_url": "https://api.github.com/users/hajimehoshi/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/hajimehoshi/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/hajimehoshi/subscriptions",
+        "organizations_url": "https://api.github.com/users/hajimehoshi/orgs",
+        "repos_url": "https://api.github.com/users/hajimehoshi/repos",
+        "events_url": "https://api.github.com/users/hajimehoshi/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/hajimehoshi/received_events",
+        "type": "User",
+        "site_admin": false
+      },
+      {
+        "login": "nyaxt",
+        "id": 18355,
+        "node_id": "MDQ6VXNlcjE4MzU1",
+        "avatar_url": "https://avatars2.githubusercontent.com/u/18355?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/nyaxt",
+        "html_url": "https://github.com/nyaxt",
+        "followers_url": "https://api.github.com/users/nyaxt/followers",
+        "following_url": "https://api.github.com/users/nyaxt/following{/other_user}",
+        "gists_url": "https://api.github.com/users/nyaxt/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/nyaxt/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/nyaxt/subscriptions",
+        "organizations_url": "https://api.github.com/users/nyaxt/orgs",
+        "repos_url": "https://api.github.com/users/nyaxt/repos",
+        "events_url": "https://api.github.com/users/nyaxt/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/nyaxt/received_events",
+        "type": "User",
+        "site_admin": false
+      }
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-01-09T08:20:16Z",
+    "updated_at": "2019-01-09T10:00:31Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/371",
+      "html_url": "https://github.com/WICG/webpackage/pull/371",
+      "diff_url": "https://github.com/WICG/webpackage/pull/371.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/371.patch"
+    },
+    "body": "Before this patch, `e.Verify()` replaced `e.Payload` with mice-decoded\r\npayload bytes. It's unintuitive that `Verify()` mutates the `Exchange`, so\r\nthis patch lets `Verify()` return the decoded payload in addition to\r\nthe boolean result."
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/370",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/370/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/370/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/370/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/370",
+    "id": 397235135,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQzMjI5MDYx",
+    "number": 370,
+    "title": "gen-signedexchange: Verify generated exchange",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-01-09T06:53:09Z",
+    "updated_at": "2019-01-09T08:28:42Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/370",
+      "html_url": "https://github.com/WICG/webpackage/pull/370",
+      "diff_url": "https://github.com/WICG/webpackage/pull/370.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/370.patch"
+    },
+    "body": "This patch lets gen-signedexchange validate the generated exchange\r\nusing `Verify()`, when `-ignoreErrors` flag is not specified.\r\n\r\nBreaking change: Now `signedexchange.NewExchange` takes request URL as a\r\nstring (not a `*url.URL`), and does not return an error."
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/369",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/369/labels{/name}",
@@ -97,7 +263,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-01-09T02:28:34Z",
-    "updated_at": "2019-01-09T02:28:34Z",
+    "updated_at": "2019-01-10T00:02:45Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -149,9 +315,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-01-07T08:01:07Z",
-    "updated_at": "2019-01-08T03:51:22Z",
+    "updated_at": "2019-01-09T09:59:39Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -337,17 +503,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-01-07T03:37:44Z",
-    "updated_at": "2019-01-07T03:46:43Z",
-    "closed_at": null,
+    "updated_at": "2019-01-09T07:10:52Z",
+    "closed_at": "2019-01-09T07:10:52Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/364",
@@ -686,17 +852,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-01-02T19:06:58Z",
-    "updated_at": "2019-01-07T21:12:39Z",
-    "closed_at": null,
+    "updated_at": "2019-01-10T00:06:45Z",
+    "closed_at": "2019-01-10T00:06:41Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/359",
@@ -965,7 +1131,7 @@
     "milestone": null,
     "comments": 4,
     "created_at": "2018-12-20T00:43:47Z",
-    "updated_at": "2019-01-07T21:12:56Z",
+    "updated_at": "2019-01-10T00:08:22Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -974,7 +1140,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/354.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/354.patch"
     },
-    "body": "@annevk @molnarg This has the somewhat controversial requirement that SXGs are served with `X-Content-Type-Options: nosniff` from #348. @molnarg, if we want this, we should show a case where it actually prevents a plugin from sniffing an executable content type.\n\nI've also added the promised requirement that clients treat the contents as including that header, and a requirement we haven't discussed yet that the contents actually include a `Content-Type` header.\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/354.html\" title=\"Last updated on Jan 7, 2019, 9:12 PM UTC (e7d4391)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/354/80005f0...jyasskin:e7d4391.html\" title=\"Last updated on Jan 7, 2019, 9:12 PM UTC (e7d4391)\">Diff</a>"
+    "body": "@annevk @molnarg This has the somewhat controversial requirement that SXGs are served with `X-Content-Type-Options: nosniff` from #348. @molnarg, if we want this, we should show a case where it actually prevents a plugin from sniffing an executable content type.\n\nI've also added the promised requirement that clients treat the contents as including that header, and a requirement we haven't discussed yet that the contents actually include a `Content-Type` header.\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/354.html\" title=\"Last updated on Jan 10, 2019, 12:08 AM UTC (e09952b)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/354/8cf6f78...jyasskin:e09952b.html\" title=\"Last updated on Jan 10, 2019, 12:08 AM UTC (e09952b)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/353",
@@ -1599,7 +1765,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/341.patch"
     },
     "body": "This implements Step 3-5 of the \"Cross-origin trust\" algorithm\r\n([Section 4 of draft-yasskin-http-origin-signed-responses.html](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#rfc.section.4))."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/340",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1701,10 +1870,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/339.patch"
     },
     "body": "Addresses #336 "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/338",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3424,7 +3590,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/311.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/310",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3526,10 +3695,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/309.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/308",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4999,7 +5165,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/281.patch"
     },
     "body": "[Preview](https://jyasskin.github.io/webpackage/loading-spec/loading.html)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/280",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5107,10 +5276,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/279.patch"
     },
     "body": "To address #276 "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/278",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6636,7 +6802,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/251.patch"
     },
     "body": "This PR exposes all the members of `Exchange` for consistency."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/250",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6744,10 +6913,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/249.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/248",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8337,7 +8503,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "By using [data-url](https://fetch.spec.whatwg.org/#data-urls) in cert-url of [Signature Header](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#signature-header), the [certificate chain](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cert-chain-format) can be contained in a Signed HTTP Exchange. It is useful for offline loading.\r\n\r\nBut having the same certificate chain in multiple Signed HTTP Exchanges in a Bundled HTTP Exchange is not efficient. We should have a way to contain one certificate chain per one host name for multiple Signed HTTP Exchanges in a Bundled HTTP Exchange.\r\n\r\nI filed this issue from the discussion in https://crrev.com/c/1102281."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/220",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8445,10 +8614,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/219.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/218",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10015,7 +10181,10 @@
     "closed_at": "2018-05-24T23:19:19Z",
     "author_association": "COLLABORATOR",
     "body": "In the current spec draft, the magic string is allowed to be arbitrary length for implementation drafts.\r\n\r\n> Note: RFC EDITOR PLEASE DELETE THIS NOTE; The implementation of the final RFC MUST use this file signature, but implementations of drafts MUST NOT use it and MUST use another implementation-specific string beginning with “sxg1-“ and ending with a 0 byte instead.\r\n\r\nThis makes its streaming parsing non-trivial, since we need to scan for `\"\\0\"` to appear, rather than reading fixed length record.\r\n\r\nTwo proposals:\r\n- Allocate fixed length (8bytes?) for the magic string field, and pad the rest of the bytes `\"\\0\"` \r\n  - Will file a PR for this\r\n- Separate version field?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/190",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10123,10 +10292,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/189.patch"
     },
     "body": "Addresses #135 \r\nCorresponding spec change at f4ca17d1377bed966fdba85c03adbd798cfb5a96\r\n\r\n@jyasskin FYI"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/188",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11719,7 +11885,10 @@
     "closed_at": "2018-03-27T20:27:15Z",
     "author_association": "COLLABORATOR",
     "body": "CBOR representation of exchange headers must be canonically-serialized, which means maps must not have multiple entries with the same key.\r\n\r\nHowever, they still can have duplicated HTTP header fields with case differences. For example:\r\n```\r\n[\r\n  {\r\n    ':url': 'https://example.com/'\r\n    ':method': 'GET',\r\n  },\r\n  {\r\n    ':status': '200',\r\n    'Content-Type': ...\r\n    'content-type': ...\r\n  }\r\n]\r\n\r\n```\r\nShould the spec explicitly forbid such duplicated headers? Or specify that header names must be stored in lower-case?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/160",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11859,10 +12028,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/159.patch"
     },
     "body": "#152 \r\n\r\nPTAL"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/158",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13502,7 +13668,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/131.patch"
     },
     "body": "@KenjiBaheux @thinkpanzer, is this clear as an entry-point to the packaging specs? Have I missed anything folks will want to see?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/130",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13604,10 +13773,7 @@
     "closed_at": "2018-03-05T21:29:35Z",
     "author_association": "NONE",
     "body": "It's \"Chrome OS\", not \"ChromeOS\"."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/128",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15054,7 +15220,10 @@
     "closed_at": "2018-02-13T06:06:33Z",
     "author_association": "NONE",
     "body": "in ES modules, we need to fetch a lot of module files.\r\nincreasing requests cause a performance issue. ([10k 1kB load is 10 times slower than single 10MB load](https://docs.google.com/document/d/1ds9EEkcDGnt-iR8SAN-_7nsOfw7gsMfhZjzZ_QAIyjM/edit))\r\n\r\nh2 will reduce connection handshake/establish, but doesn't reduce request/response itself which browser handles inside.\r\n\r\nbut reducing files via bundling like webpack is less merit of es modules(ex caching etc). \r\n\r\nsame things happens for image. so we sometimes concatting them aka Sprite.\r\n\r\ncurrent spec seems packaging main-resource + sub-resource in 1 file.\r\nso if webpackage support or have candidate to package lot of resources into 1 package(not include main-resoruce) seems solve fetching performance problem.\r\nexpected behavior is fetching single response but unpackaging in browser and handling/caching like separated ESModules/ImageIcons/StyleSheets etc."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/100",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15156,10 +15325,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/99.patch"
     },
     "body": "Instead of arrays with alternating keys and values, which side-steps the\r\ndisagreement about CBOR canonical map ordering rules, I now specify one\r\nof the ordering rules and use maps where they make sense.\r\n\r\nThe one place I'm still not using a map is in the top level of the\r\nexchange representation, where the request/response/payload ordering\r\nseems useful and where we might someday want to add, for example, the\r\nrequest payload between the request and response.\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/use-maps/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://jyasskin.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/use-maps/draft-yasskin-http-origin-signed-responses.txt)\r\n\r\n@MikeBishop"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/98",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16699,7 +16865,10 @@
     "closed_at": "2017-08-14T23:58:02Z",
     "author_association": "COLLABORATOR",
     "body": "This supports the [IETF submission](https://mailarchive.ietf.org/arch/msg/dispatch/NQ0deHSsRvt4BL4alk_WYVnhhvo). It has to happen before they close the RFC database from July 3 until the [Prague meeting](http://ietf.org/meeting/99/index.html).\r\n\r\nWe can use https://github.com/cabo/kramdown-rfc2629 to author in markdown, and https://github.com/martinthomson/i-d-template to build with Travis CI."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/70",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16833,10 +17002,7 @@
     "closed_at": "2018-01-24T18:39:34Z",
     "author_association": "COLLABORATOR",
     "body": "For example, we might want to be able to start playing a large video file without hashing the whole thing.\r\n\r\nSee https://tools.ietf.org/html/draft-thomson-http-mice for one approach."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/68",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18288,7 +18454,10 @@
     "closed_at": "2017-05-11T00:02:03Z",
     "author_association": "COLLABORATOR",
     "body": "From @dimich-g's https://github.com/dimich-g/webpackage/pull/36#issuecomment-290316360:\r\n\r\nThe `resource-key` structure (which holds a URL and possibly a set of request headers) is used as the key for the index, manifest, and main content. URLs can be fairly long, so we may want to optimize or compress that redundancy.\r\n\r\nOne idea for avoiding this duplication: Add a section of abbreviations that assigns each resource-key an index, and use those indices as the keys in the other three sections.\r\n\r\n1. We could re-use the index as that section of abbreviations.\r\n2. We probably don't want to re-use the manifest as that section, so that aggregating packages can build their own abbreviations.\r\n3. The abbreviations need to be expanded before hashing or checking signatures.\r\n4. We could shorten the abbreviation section even more by:\r\n   1. Resolving each URL/resource-key relative to the previous one.\r\n   1. Using the array index of the URL as its abbreviation instead of making the section name an abbreviation.\r\n\r\nAnother possibility would be to use a shared brotli dictionary to compress all three sections. The main downside here is that shared brotli dictionaries don't exist yet, and when they do, we may want to use a URL to identify which shared dictionary to use, which we'd again want to compress."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/40",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18384,10 +18553,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "From @dimich-g's https://github.com/dimich-g/webpackage/pull/36#issuecomment-290316360:\r\n\r\nWithout a signed manifest, there's no structure to identify sub-packages.\r\n\r\nHowever, it might just work to lump all the resources together at the top level. Do we need to identify the sub-package structure?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/38",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -19809,7 +19975,10 @@
     "closed_at": "2018-01-22T19:29:08Z",
     "author_association": "NONE",
     "body": "However, because the header of the is document is text - most sniffers will consider this a text file and treat it accordingly (eg. screwing up line endings).  If this happens, then all byte offsets will be incorrect and the file will be unable to load.\r\n\r\nConsider finding a way to fool the sniffer or move to a binary format.\r\n\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/10",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -19905,10 +20074,7 @@
     "closed_at": "2017-01-24T02:07:46Z",
     "author_association": "NONE",
     "body": "As defined [in its IANA registration](https://www.iana.org/assignments/media-types/application/index), this is not a valid media type.  Instead, either a new sub-type should be defined and/or the appropriate format extension (eg. +json) should be added."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/8",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
