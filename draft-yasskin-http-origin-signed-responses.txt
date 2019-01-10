@@ -1154,22 +1154,22 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
    3.  Let "response" be the response metadata and headers parsed out of
        "responseHeaders".
 
-   4.  If "response" is not complete (Section 3.1 of [RFC7234]), return
-       "invalid".
-
-   5.  If Section 3 of [RFC7234] forbids a shared cache from storing
+   4.  If Section 3 of [RFC7234] forbids a shared cache from storing
        "response", return "invalid".
 
-   6.  If "response"'s headers contain a stateful header field, as
+   5.  If "response"'s headers contain a stateful header field, as
        defined in Section 4.1, return "invalid".
 
-   7.  Let "authority" be the host component of "requestUrl".
+   6.  Let "authority" be the host component of "requestUrl".
 
-   8.  Validate the "certificate-chain" using the following substeps.
+   7.  Validate the "certificate-chain" using the following substeps.
        If any of them fail, re-run Section 3.5 once over the signature
        with the "forceFetch" flag set, and restart from step 2.  If a
        substep fails again, return "invalid".
 
+       1.  Use "certificate-chain" to validate that its first entry,
+           "main-certificate" is trusted as "authority"'s server
+           certificate ([RFC5280] and other undocumented conventions).
 
 
 
@@ -1178,9 +1178,6 @@ Yasskin                   Expires July 14, 2019                [Page 21]
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
-       1.  Use "certificate-chain" to validate that its first entry,
-           "main-certificate" is trusted as "authority"'s server
-           certificate ([RFC5280] and other undocumented conventions).
            Let "path" be the path that was used from the "main-
            certificate" to a trusted root, including the "main-
            certificate" but excluding the root.
@@ -1209,7 +1206,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
            as described by Section 3.3 of [RFC6962].
 
-   9.  Return "valid".
+   8.  Return "valid".
 
 4.1.  Stateful header fields
 
@@ -1227,14 +1224,15 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
    o  "Authentication-Info", [RFC7615]
 
+   o  "Optional-WWW-Authenticate", [RFC8053]
+
+
 
 
 Yasskin                   Expires July 14, 2019                [Page 22]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
-
-   o  "Optional-WWW-Authenticate", [RFC8053]
 
    o  "Proxy-Authenticate", [RFC7235]
 
@@ -1283,14 +1281,14 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
    Clients MUST NOT accept certificates with this extension in TLS
    connections (Section 4.4.2.2 of [I-D.ietf-tls-tls13]).
 
+   RFC EDITOR PLEASE DELETE THE REST OF THE PARAGRAPHS IN THIS SECTION
+
 
 
 Yasskin                   Expires July 14, 2019                [Page 23]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
-
-   RFC EDITOR PLEASE DELETE THE REST OF THE PARAGRAPHS IN THIS SECTION
 
    id-ce-google OBJECT IDENTIFIER ::= { 1 3 6 1 4 1 11129 }
    id-ce-canSignHttpExchangesDraft OBJECT IDENTIFIER ::= { id-ce-google 2 1 22 }
@@ -1337,6 +1335,8 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
    appropriate representation for the request the client is trying to
    fulfil.  If the response is not an appropriate representation, the
    client MUST treat the signature as invalid.
+
+
 
 
 
@@ -2858,8 +2858,7 @@ Yasskin                   Expires July 14, 2019                [Page 51]
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
-   o  Require "exchange"'s response to be complete and cachable by a
-      shared cache.
+   o  Require "exchange"'s response to be cachable by a shared cache.
 
    o  Define the "integrity" field of the Signature header to include
       subfields of the main integrity-protecting header, including the
@@ -2906,6 +2905,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
    o  Include the version and draft number in the signature context
       string.
+
 
 
 

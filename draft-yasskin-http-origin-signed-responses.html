@@ -1043,7 +1043,6 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 <li>If the signature&#8217;s <a href="#signature-validityurl" class="xref">&#8220;validity-url&#8221; parameter</a> is not <a href="https://html.spec.whatwg.org/multipage/origin.html#same-origin">same-origin</a> with <samp>requestUrl</samp>, return &#8220;invalid&#8221;.</li>
 <li>Use <a href="#signature-validity" class="xref">Section 3.5</a> to determine the signature&#8217;s validity for <samp>requestUrl</samp>, <samp>responseHeaders</samp>, and <samp>payload</samp>, getting <samp>certificate-chain</samp> back. If this returned &#8220;invalid&#8221; or didn&#8217;t return a certificate chain, return &#8220;invalid&#8221;.</li>
 <li>Let <samp>response</samp> be the response metadata and headers parsed out of <samp>responseHeaders</samp>.</li>
-<li>If <samp>response</samp> is not complete (Section 3.1 of <a href="#RFC7234" class="xref">[RFC7234]</a>), return &#8220;invalid&#8221;.</li>
 <li>If Section 3 of <a href="#RFC7234" class="xref">[RFC7234]</a> forbids a shared cache from storing <samp>response</samp>, return &#8220;invalid&#8221;.</li>
 <li>If <samp>response</samp>&#8217;s headers contain a stateful header field, as defined in <a href="#stateful-headers" class="xref">Section 4.1</a>, return &#8220;invalid&#8221;.</li>
 <li>Let <samp>authority</samp> be the host component of <samp>requestUrl</samp>.</li>
@@ -1826,7 +1825,7 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <li>Fill in TBD size limits.</li>
 <li>Update to mice-03 including the Digest header.</li>
 <li>Refer to draft-yasskin-httpbis-origin-signed-exchanges-impl for draft version numbers.</li>
-<li>Require <samp>exchange</samp>&#8217;s response to be complete and cachable by a shared cache.</li>
+<li>Require <samp>exchange</samp>&#8217;s response to be cachable by a shared cache.</li>
 <li>Define the &#8220;integrity&#8221; field of the Signature header to include subfields of the main integrity-protecting header, including the digest algorithm.</li>
 <li>Put a fallback URL at the beginning of the <samp>application/signed-exchange</samp> format, which replaces the &#8216;:url&#8217; key from the CBOR representation of the exchange&#8217;s request and response metadata and headers.</li>
 <li>Remove the rest of the request headers from the signed data, in favor of representing content negotiation with the <samp>Variants</samp> response header.</li>
