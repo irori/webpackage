@@ -1,6 +1,152 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/375",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/375/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/375/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/375/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/375",
+    "id": 399205789,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQ0Njg3NTUw",
+    "number": 375,
+    "title": "Remove go/webpack",
+    "user": {
+      "login": "hajimehoshi",
+      "id": 16950,
+      "node_id": "MDQ6VXNlcjE2OTUw",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/16950?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/hajimehoshi",
+      "html_url": "https://github.com/hajimehoshi",
+      "followers_url": "https://api.github.com/users/hajimehoshi/followers",
+      "following_url": "https://api.github.com/users/hajimehoshi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/hajimehoshi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/hajimehoshi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/hajimehoshi/subscriptions",
+      "organizations_url": "https://api.github.com/users/hajimehoshi/orgs",
+      "repos_url": "https://api.github.com/users/hajimehoshi/repos",
+      "events_url": "https://api.github.com/users/hajimehoshi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/hajimehoshi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-01-15T06:30:55Z",
+    "updated_at": "2019-01-16T04:28:15Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/375",
+      "html_url": "https://github.com/WICG/webpackage/pull/375",
+      "diff_url": "https://github.com/WICG/webpackage/pull/375.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/375.patch"
+    },
+    "body": "PTAL"
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/374",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/374/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/374/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/374/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/374",
+    "id": 399157563,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQ0NjUyNDI2",
+    "number": 374,
+    "title": "Introduce signed exchange report for distributors",
+    "user": {
+      "login": "horo-t",
+      "id": 7216718,
+      "node_id": "MDQ6VXNlcjcyMTY3MTg=",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7216718?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/horo-t",
+      "html_url": "https://github.com/horo-t",
+      "followers_url": "https://api.github.com/users/horo-t/followers",
+      "following_url": "https://api.github.com/users/horo-t/following{/other_user}",
+      "gists_url": "https://api.github.com/users/horo-t/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/horo-t/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/horo-t/subscriptions",
+      "organizations_url": "https://api.github.com/users/horo-t/orgs",
+      "repos_url": "https://api.github.com/users/horo-t/repos",
+      "events_url": "https://api.github.com/users/horo-t/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/horo-t/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": {
+      "login": "jyasskin",
+      "id": 83420,
+      "node_id": "MDQ6VXNlcjgzNDIw",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/83420?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jyasskin",
+      "html_url": "https://github.com/jyasskin",
+      "followers_url": "https://api.github.com/users/jyasskin/followers",
+      "following_url": "https://api.github.com/users/jyasskin/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jyasskin/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jyasskin/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jyasskin/subscriptions",
+      "organizations_url": "https://api.github.com/users/jyasskin/orgs",
+      "repos_url": "https://api.github.com/users/jyasskin/repos",
+      "events_url": "https://api.github.com/users/jyasskin/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jyasskin/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "assignees": [
+      {
+        "login": "jyasskin",
+        "id": 83420,
+        "node_id": "MDQ6VXNlcjgzNDIw",
+        "avatar_url": "https://avatars1.githubusercontent.com/u/83420?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/jyasskin",
+        "html_url": "https://github.com/jyasskin",
+        "followers_url": "https://api.github.com/users/jyasskin/followers",
+        "following_url": "https://api.github.com/users/jyasskin/following{/other_user}",
+        "gists_url": "https://api.github.com/users/jyasskin/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/jyasskin/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/jyasskin/subscriptions",
+        "organizations_url": "https://api.github.com/users/jyasskin/orgs",
+        "repos_url": "https://api.github.com/users/jyasskin/repos",
+        "events_url": "https://api.github.com/users/jyasskin/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/jyasskin/received_events",
+        "type": "User",
+        "site_admin": false
+      }
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-01-15T02:06:37Z",
+    "updated_at": "2019-01-16T04:29:07Z",
+    "closed_at": null,
+    "author_association": "FIRST_TIME_CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/374",
+      "html_url": "https://github.com/WICG/webpackage/pull/374",
+      "diff_url": "https://github.com/WICG/webpackage/pull/374.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/374.patch"
+    },
+    "body": "This change introduces the signed exchange report for distributors discussed at https://github.com/w3c/network-error-logging/issues/99#issuecomment-453421388.\n\nExemple:\n```\n{\n  \"type\": \"network-error\",\n  \"url\": \"https://publisher.example/article.html\",\n  \"age\": 234,\n  \"user_agent\": \"Mozilla/5.0 (X11; Linux x86_64; rv:60.0) ...\",\n  \"body\": {\n    \"referrer\": \"https://aggregator.example/article.html\",\n    \"sampling_fraction\": 1,\n    \"server_ip\": \"123.122.121.120\",  // The IP address of distributor.example.\n    \"protocol\": \"http/1.1\",\n    \"method\": \"GET\",\n    \"status_code\": 200,\n    \"elapsed_time\": 1234,\n    \"phase\": \"sxg\",\n    \"type\": \"sxg.failed\",\n\n    \"outer_url\": \"https://distributor.example/publisher.example/article.html.sxg\",\n    \"inner_url\": \"https://publisher.example/article.html\",\n    \"cert_url\": \"https://distributor.example/publisher.example/cert\"\n  }\n}\n```\n\nThis spec change requires the new OPTIONAL `additional body` argument of the algorithm of \"Generate a network error report\" of Network Error Logging spec. https://github.com/w3c/network-error-logging/pull/100\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/horo-t/webpackage/pull/374.html\" title=\"Last updated on Jan 15, 2019, 2:34 AM UTC (6e4d8ec)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/374/595f72f...horo-t:6e4d8ec.html\" title=\"Last updated on Jan 15, 2019, 2:34 AM UTC (6e4d8ec)\">Diff</a>"
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/373",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/373/labels{/name}",
@@ -268,7 +414,7 @@
         "default": false
       }
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -277,8 +423,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-01-09T06:53:09Z",
-    "updated_at": "2019-01-11T04:23:34Z",
-    "closed_at": null,
+    "updated_at": "2019-01-11T06:05:48Z",
+    "closed_at": "2019-01-11T06:05:31Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/370",
@@ -688,7 +834,7 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-01-07T03:35:40Z",
-    "updated_at": "2019-01-11T01:40:17Z",
+    "updated_at": "2019-01-11T05:56:50Z",
     "closed_at": "2019-01-11T01:40:17Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -1244,7 +1390,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -1253,8 +1399,8 @@
     "milestone": null,
     "comments": 5,
     "created_at": "2018-12-20T00:43:47Z",
-    "updated_at": "2019-01-10T17:59:26Z",
-    "closed_at": null,
+    "updated_at": "2019-01-16T04:27:50Z",
+    "closed_at": "2019-01-16T04:27:47Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/354",
@@ -1262,7 +1408,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/354.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/354.patch"
     },
-    "body": "@annevk @molnarg This has the somewhat controversial requirement that SXGs are served with `X-Content-Type-Options: nosniff` from #348. @molnarg, if we want this, we should show a case where it actually prevents a plugin from sniffing an executable content type.\n\nI've also added the promised requirement that clients treat the contents as including that header, and a requirement we haven't discussed yet that the contents actually include a `Content-Type` header.\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/354.html\" title=\"Last updated on Jan 10, 2019, 5:52 PM UTC (93aca54)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/354/9f21260...jyasskin:93aca54.html\" title=\"Last updated on Jan 10, 2019, 5:52 PM UTC (93aca54)\">Diff</a>"
+    "body": "@annevk @molnarg This has the somewhat controversial requirement that SXGs are served with `X-Content-Type-Options: nosniff` from #348. @molnarg, if we want this, we should show a case where it actually prevents a plugin from sniffing an executable content type.\n\nI've also added the promised requirement that clients treat the contents as including that header, and a requirement we haven't discussed yet that the contents actually include a `Content-Type` header.\n\n[signed-responses preview](https://jyasskin.github.io/webpackage/nosniff-header/draft-yasskin-http-origin-signed-responses.html#seccons-content-sniffing)\n[bundled-exchanges preview](https://jyasskin.github.io/webpackage/nosniff-header/draft-yasskin-wpack-bundled-exchanges.html#seccons-content-sniffing)\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/354.html\" title=\"Last updated on Jan 14, 2019, 7:30 PM UTC (cf5f1b1)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/354/595f72f...jyasskin:cf5f1b1.html\" title=\"Last updated on Jan 14, 2019, 7:30 PM UTC (cf5f1b1)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/353",
@@ -1677,7 +1823,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/346.patch"
     },
     "body": "Bikeshed warned that I'd never defined |fallbackUrl|, but I missed it\nbefore going on parental leave. Do y'all see any problems with picking this conversion from bytes to a string?\n\n@irori, we ought to test this with a couple bad fallback URLs, say one starting with a BOM, and one with an invalid sequence that the UTF-8 decoder might convert to U+FFFD. Would you be willing to add those tests?\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/346.html\" title=\"Last updated on Dec 1, 2018, 12:31 AM GMT (121ecb1)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/346/2eddf31...jyasskin:121ecb1.html\" title=\"Last updated on Dec 1, 2018, 12:31 AM GMT (121ecb1)\">Diff</a>"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/344",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1785,10 +1934,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/343.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/342",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3464,7 +3610,10 @@
     "closed_at": "2018-10-25T08:03:50Z",
     "author_association": "NONE",
     "body": "I noticed there are some sample .wpk file sin https://github.com/WICG/webpackage/tree/master/examples . Do browsers open these files at this point? If not, how are they supposed to be opened by the end user?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/314",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3604,10 +3753,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/313.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/312",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4184,9 +4330,9 @@
 
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 7,
     "created_at": "2018-09-04T15:45:47Z",
-    "updated_at": "2019-01-11T04:23:53Z",
+    "updated_at": "2019-01-15T06:22:47Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -5078,7 +5224,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/285.patch"
     },
     "body": "See https://docs.google.com/document/d/1JdJkdY7cK2rD9JXbK75sSn069c0rhF9UnLQACBZ1OtY/edit for more analysis and options, but building on @mnot's Variants seems like a good plan here.\n\nIf we go this way, it probably makes sense to move away from storing arbitrary request headers in both signed exchanges and bundles, and toward storing something like the [Variants + Variant-Key headers](https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants) directly.\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/285.html\" title=\"Last updated on Dec 7, 2018, 11:35 PM GMT (d1d5c8c)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/285/f603e91...jyasskin:d1d5c8c.html\" title=\"Last updated on Dec 7, 2018, 11:35 PM GMT (d1d5c8c)\">Diff</a>"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/284",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5186,10 +5335,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/283.patch"
     },
     "body": "Now go/signedexchange/README.md would be more useful than Chromium's README."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/282",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6683,7 +6829,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/255.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/254",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6823,10 +6972,7 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "The Accept-Signature header (section 3.7) is defined as a sh-param-list. It also specifies that identifiers can be specified with a leading hyphen (\"-\") to denote a lack of support.\r\n\r\nHowever, the leading hyphen violates the ABNF for sh-param-list and identifier as defined in https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-07. Notably, sh-param-list has no provision to allow hyphens before the \"identifier\" (https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-07#section-3.3) and the identifier (https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-07#section-3.8) must begin with a lowercase letter."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/252",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8421,7 +8567,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/225.patch"
     },
     "body": "[Preview](https://jyasskin.github.io/webpackage/link-metadata/draft-yasskin-wpack-bundled-exchanges.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-wpack-bundled-exchanges.txt&url2=https://jyasskin.github.io/webpackage/link-metadata/draft-yasskin-wpack-bundled-exchanges.txt)\r\n\r\n@nyaxt How's this?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/224",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8529,10 +8678,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/223.patch"
     },
     "body": "exchange semantics"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/222",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10100,7 +10246,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/195.patch"
     },
     "body": "Thanks @sleevi for noticing the problem.\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/include-version-in-sig-context/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/include-version-in-sig-context/draft-yasskin-http-origin-signed-responses.txt)\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/194",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10208,10 +10357,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/193.patch"
     },
     "body": "This is a follow-up to #190.\r\n\r\n#178 also changed the key strings in the canonical CBOR map."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/192",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11810,7 +11956,10 @@
     "closed_at": "2018-04-11T05:38:27Z",
     "author_association": "COLLABORATOR",
     "body": "https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cert-chain-format"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/164",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11912,10 +12061,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/163.patch"
     },
     "body": "Thanks @irori. Please double-check that I fixed everywhere that failed to specify that HTTP headers are named in lowercase.\r\n\r\nSpec: [Preview](https://jyasskin.github.io/webpackage/lowercase-headers-in-cbor/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/lowercase-headers-in-cbor/draft-yasskin-http-origin-signed-responses.txt)\r\n\r\nImpl draft: [Preview](https://jyasskin.github.io/webpackage/lowercase-headers-in-cbor/draft-yasskin-httpbis-origin-signed-exchanges-impl.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.txt&url2=https://jyasskin.github.io/webpackage/lowercase-headers-in-cbor/draft-yasskin-httpbis-origin-signed-exchanges-impl.txt)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/162",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13581,7 +13727,10 @@
     "closed_at": "2018-04-04T22:51:53Z",
     "author_association": "COLLABORATOR",
     "body": "@davidben points out that it's hard to write streaming parsers, and that the most reliable protocols send a number of bytes to read, read that number of bytes, and then use a non-streaming parser to pull information out of that contiguous data. The format in https://tools.ietf.org/html/draft-yasskin-http-origin-signed-responses-03#section-5.3 doesn't accomplish this because CBOR items are prefixed by their length in items, not bytes.\r\n\r\nIn multi-process clients, we also want to allow the main/verification process to bound the amount of memory it uses. This implies (1) a length limit on the exchange header set, and (2) mandating use of the MI header instead of the Digest header to verify the payload authenticity, since MI has fixed-size records.\r\n\r\nFinally, it would be nice to be able to check signatures against the literal bytes in the http-exchange format instead of needing to reserialize. Reserialization still needs to be *possible* so that intermediates can receive a signature in a normal same-origin HTTP response and then produce the http-exchange format, but final clients shouldn't need to do it.\r\n\r\nThis probably means the format will move away from being a general http-exchange serialization format and toward being specific to signed exchanges. This has the extra benefit of not needing to say that request payloads and response trailers cause the signature not to verify."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/134",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13689,10 +13838,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/133.patch"
     },
     "body": "This builds on #132, so probably review that one first.\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/block-set-cookie/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/block-set-cookie/draft-yasskin-http-origin-signed-responses.txt)\r\n\r\n@davidben"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/132",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15157,7 +15303,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "While some packages need to be kept up to date, and expired when they become too old; there are also things that should never expire/change.\r\n\r\nFor example the content of a webpage a user wants to keep, a report or invoice created by a website, etc (this is instead of using a PDF or MS Word document).\r\n\r\nSo would it be possible to skip the Expires header, and have some way of marking the package as immutable?\r\n\r\nThat immutable flag could also instruct the browser to never download any resources, and for the JS `Date` object to return a date/time based on the Date header from the package (not the current date/time)... may be related to issue #104?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/104",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15253,10 +15402,7 @@
     "closed_at": "2018-01-09T21:57:43Z",
     "author_association": "NONE",
     "body": "Several days ago, the [W3C Publishing WG published three working drafts][Publishing WG announcement], including [Packaged Web Publications][] (WPub/PWP), which defines a packaging format for combining collections of resources into a single portable WPUB file.\r\n\r\nThis WPub standard seem to be quite similar to this WICG–IETF Web Packages (WPK) standard. But the relationship between the two is unclear.\r\n\r\nI could find some references to the Publishing WG here. [Web Packaging Format’s use-cases note has a “Packaged Web Publications”][] in its “Nice-to-have” section; it refers to the Publishing WG and discusses several abstract use cases provided by the WG, without actual reference to WPub as a specification. Several issues here (#3 “Relationship to DPUB”, #32 “Document Adobe’s use cases”, #37 “Add a list of goals and non-goals”, #71 “Start an internet-draft”) also refer to the Publishing WG. Some Publishing WG members (@lrosenthol, @iherman, @dauwhe)  have participated in these issues.\r\n\r\nNone of these references talk about WPub as a separate specification, and none of them elaborate on its relationship with Web Packaging Format. Neither the [Web Packaging specification itself][] nor the [obsolete TAG Packaging on the Web draft](https://w3ctag.github.io/packaging-on-the-web/) make any mention of WPub either.\r\n\r\nThis is triply confusing. There is clear overlap between the two specifications’ use cases. For instance, both initiatives appear to desire addressing Google AMP’s use cases. Even their names are confusingly similar (WPK vs. PWP). Both are being actively developed—there were even announcements regarding both on this same week (the [WPub public-draft announcement][Publishing WG announcement] and the [Google AMP Project’s announcement on its transition to WPK][WPK for Google AMP]). And some of the same people have participated in both discussions on one standard and discussions on the other.\r\n\r\nFor readers of both specifications, it would be useful if their authors clarified this uncertainty. “What is the relationship between the two standards?” “Why are there two separate standards?” “How are their use cases and file formats similar and different?” Further active collaboration between the two specs’ authors might also be worth pursuing. Though it might be too late for unification, it would be a shame if there was fragmentation of the same goal into two formats. Browser vendors are probably less likely to implement two formats than just one. On the other hand, if their use cases are irreconcilable, then that should be made explicit in the specifications.\r\n\r\n(Also cf. https://github.com/w3c/wpub/issues/5#issuecomment-314265230, https://github.com/w3c/wpub/issues/5#issuecomment-315076651 by @HadrienGardeur; as well as w3c/wpub#10, w3c/wpub#90, and w3c/wpub#111.)\r\n\r\n[Publishing WG announcement]: https://www.w3.org/blog/news/archives/6756\r\n\r\n[Packaged Web Publications]: https://www.w3.org/TR/2018/WD-pwpub-20180104\r\n\r\n[Web Packaging Format’s use-cases note has a “Packaged Web Publications”]: https://wicg.github.io/webpackage/draft-yasskin-webpackage-use-cases.html#rfc.section.2.2.1\r\n\r\n[Web Packaging specification itself]: https://wicg.github.io/webpackage/draft-yasskin-dispatch-web-packaging.html\r\n\r\n[obsolete TAG Packaging on the Web draft]: https://w3ctag.github.io/packaging-on-the-web/\r\n\r\n[WPK for Google AMP]: https://amphtml.wordpress.com/2018/01/09/improving-urls-for-amp-pages/amp/\r\n  "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/102",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16726,7 +16872,10 @@
     "closed_at": "2018-01-24T18:35:26Z",
     "author_association": "NONE",
     "body": "I saw this in your slides and that abbreviation is already quite commonly used for Progressive Web Apps."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/74",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16822,10 +16971,7 @@
     "closed_at": "2017-08-09T14:45:56Z",
     "author_association": "NONE",
     "body": "Hello, is it within the scope to define (or speculate) on how a person might load a webpackage in an HTML document, and what the browser should do when it unpacks a package?\r\n\r\nOr is the idea that a document might request `GET /app.js` (from a script tag) and the server would reply with a webpackage, making any other resources that are later requested come from that package?\r\n\r\nThanks!"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/72",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18379,13 +18525,16 @@
 
     ],
     "milestone": null,
-    "comments": 4,
+    "comments": 5,
     "created_at": "2017-04-12T00:16:56Z",
-    "updated_at": "2017-12-12T21:54:08Z",
+    "updated_at": "2019-01-15T20:22:46Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "We have some hints in https://w3ctag.github.io/packaging-on-the-web/#intro, but it's not complete, and it needs to appear in the local explainer, not something remote.\r\n\r\nOther considerations against zip:\r\n* We've seen vulnerabilities caused by validating one copy of a resource but using a different one. #41 will avoid this for the CBOR-based format.\r\n* Zip resources are identified by filename, which isn't the primary key of web resources.\r\n* Zip resources don't include response headers.\r\n* Lots of details in the [format](https://www.iana.org/assignments/media-types/application/zip) are archaic and wouldn't be used.\r\n\r\nWe should probably also list reasons in favor of re-using zip so that proponents know we've considered their arguments:\r\n* A huge number of other formats are based on zip, so we're unlikely to run into something we can't express.\r\n* Existing tools would be able to extract packages."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/44",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18487,10 +18636,7 @@
     "closed_at": "2018-05-08T22:55:37Z",
     "author_association": "COLLABORATOR",
     "body": "With the switch to CBOR, we no longer need urn:uuid URLs for special parts.  Some of the example sections still refer to that type of URL."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/42",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -19912,7 +20058,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "In the [discussion on signing](https://github.com/dimich-g/webpackage#use-case-signed-package-one-origin), it says\r\n> The inclusion of certificate makes it possible to validate the package offline (certificate revocation aside, this can be done out-of-band when device is actually online).\r\n\r\nThis is only true in very few cases as you need to build an entire trust chain from that cert up to the root.  Most processors will not have local access to every cert - in which case, it will need to fetch them."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/14",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20008,10 +20157,7 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "As described in [Mandate M/460](http://www.e-signatures-standards.eu/activities), only certain signature format and standards can be legally used in the EU - and this proposal does not comply with any.  It would be better to align with at least one of them - most likely CAdES.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/12",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
