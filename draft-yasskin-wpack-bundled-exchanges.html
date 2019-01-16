@@ -291,18 +291,19 @@ ul.toc li {
 <link href="#rfc.section.2.3" rel="Chapter" title="2.3 Load a response from a bundle">
 <link href="#rfc.section.3" rel="Chapter" title="3 Format">
 <link href="#rfc.section.3.1" rel="Chapter" title="3.1 Top-level structure">
-<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Load a bundle&#8217;s metadata">
-<link href="#rfc.section.3.2.1" rel="Chapter" title="3.2.1 Parsing the index section">
-<link href="#rfc.section.3.2.2" rel="Chapter" title="3.2.2 Parsing the manifest section">
-<link href="#rfc.section.3.2.3" rel="Chapter" title="3.2.3 Parsing the critical section">
-<link href="#rfc.section.3.2.4" rel="Chapter" title="3.2.4 The responses section">
-<link href="#rfc.section.3.2.5" rel="Chapter" title="3.2.5 Starting from the end">
-<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Load a response from a bundle">
-<link href="#rfc.section.3.4" rel="Chapter" title="3.4 Parsing CBOR items">
-<link href="#rfc.section.3.4.1" rel="Chapter" title="3.4.1 Parse a known-length item">
-<link href="#rfc.section.3.4.2" rel="Chapter" title="3.4.2 Parsing variable-length data from a bytestring">
-<link href="#rfc.section.3.4.3" rel="Chapter" title="3.4.3 Parsing the type and argument of a CBOR item">
-<link href="#rfc.section.3.5" rel="Chapter" title="3.5 Interpreting CBOR HTTP headers">
+<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Serving constraints">
+<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Load a bundle&#8217;s metadata">
+<link href="#rfc.section.3.3.1" rel="Chapter" title="3.3.1 Parsing the index section">
+<link href="#rfc.section.3.3.2" rel="Chapter" title="3.3.2 Parsing the manifest section">
+<link href="#rfc.section.3.3.3" rel="Chapter" title="3.3.3 Parsing the critical section">
+<link href="#rfc.section.3.3.4" rel="Chapter" title="3.3.4 The responses section">
+<link href="#rfc.section.3.3.5" rel="Chapter" title="3.3.5 Starting from the end">
+<link href="#rfc.section.3.4" rel="Chapter" title="3.4 Load a response from a bundle">
+<link href="#rfc.section.3.5" rel="Chapter" title="3.5 Parsing CBOR items">
+<link href="#rfc.section.3.5.1" rel="Chapter" title="3.5.1 Parse a known-length item">
+<link href="#rfc.section.3.5.2" rel="Chapter" title="3.5.2 Parsing variable-length data from a bytestring">
+<link href="#rfc.section.3.5.3" rel="Chapter" title="3.5.3 Parsing the type and argument of a CBOR item">
+<link href="#rfc.section.3.6" rel="Chapter" title="3.6 Interpreting CBOR HTTP headers">
 <link href="#rfc.section.4" rel="Chapter" title="4 Guidelines for bundle authors">
 <link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations">
 <link href="#rfc.section.5.1" rel="Chapter" title="5.1 Version skew">
@@ -318,12 +319,12 @@ ul.toc li {
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.16.2 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.16.3 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Yasskin, J." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-yasskin-wpack-bundled-exchanges-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-01-11" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-01-16" />
   <meta name="dct.abstract" content="Bundled exchanges provide a way to bundle up groups of HTTP request+response pairs to transmit or store them together. They can include multiple top-level resources with one identified as the default by a manifest, provide random access to their component exchanges, and efficiently store 8-bit resources." />
   <meta name="description" content="Bundled exchanges provide a way to bundle up groups of HTTP request+response pairs to transmit or store them together. They can include multiple top-level resources with one identified as the default by a manifest, provide random access to their component exchanges, and efficiently store 8-bit resources." />
 
@@ -344,10 +345,10 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left">Intended status: Standards Track</td>
-<td class="right">January 11, 2019</td>
+<td class="right">January 16, 2019</td>
 </tr>
 <tr>
-<td class="left">Expires: July 15, 2019</td>
+<td class="left">Expires: July 20, 2019</td>
 <td class="right"></td>
 </tr>
 
@@ -367,7 +368,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 15, 2019.</p>
+<p>This Internet-Draft will expire on July 20, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -397,29 +398,31 @@ ul.toc li {
 </li>
 <ul><li>3.1.   <a href="#rfc.section.3.1">Top-level structure</a>
 </li>
-<li>3.2.   <a href="#rfc.section.3.2">Load a bundle&#8217;s metadata</a>
+<li>3.2.   <a href="#rfc.section.3.2">Serving constraints</a>
 </li>
-<ul><li>3.2.1.   <a href="#rfc.section.3.2.1">Parsing the index section</a>
+<li>3.3.   <a href="#rfc.section.3.3">Load a bundle&#8217;s metadata</a>
 </li>
-<li>3.2.2.   <a href="#rfc.section.3.2.2">Parsing the manifest section</a>
+<ul><li>3.3.1.   <a href="#rfc.section.3.3.1">Parsing the index section</a>
 </li>
-<li>3.2.3.   <a href="#rfc.section.3.2.3">Parsing the critical section</a>
+<li>3.3.2.   <a href="#rfc.section.3.3.2">Parsing the manifest section</a>
 </li>
-<li>3.2.4.   <a href="#rfc.section.3.2.4">The responses section</a>
+<li>3.3.3.   <a href="#rfc.section.3.3.3">Parsing the critical section</a>
 </li>
-<li>3.2.5.   <a href="#rfc.section.3.2.5">Starting from the end</a>
+<li>3.3.4.   <a href="#rfc.section.3.3.4">The responses section</a>
 </li>
-</ul><li>3.3.   <a href="#rfc.section.3.3">Load a response from a bundle</a>
+<li>3.3.5.   <a href="#rfc.section.3.3.5">Starting from the end</a>
 </li>
-<li>3.4.   <a href="#rfc.section.3.4">Parsing CBOR items</a>
+</ul><li>3.4.   <a href="#rfc.section.3.4">Load a response from a bundle</a>
 </li>
-<ul><li>3.4.1.   <a href="#rfc.section.3.4.1">Parse a known-length item</a>
+<li>3.5.   <a href="#rfc.section.3.5">Parsing CBOR items</a>
 </li>
-<li>3.4.2.   <a href="#rfc.section.3.4.2">Parsing variable-length data from a bytestring</a>
+<ul><li>3.5.1.   <a href="#rfc.section.3.5.1">Parse a known-length item</a>
 </li>
-<li>3.4.3.   <a href="#rfc.section.3.4.3">Parsing the type and argument of a CBOR item</a>
+<li>3.5.2.   <a href="#rfc.section.3.5.2">Parsing variable-length data from a bytestring</a>
 </li>
-</ul><li>3.5.   <a href="#rfc.section.3.5">Interpreting CBOR HTTP headers</a>
+<li>3.5.3.   <a href="#rfc.section.3.5.3">Parsing the type and argument of a CBOR item</a>
+</li>
+</ul><li>3.6.   <a href="#rfc.section.3.6">Interpreting CBOR HTTP headers</a>
 </li>
 </ul><li>4.   <a href="#rfc.section.4">Guidelines for bundle authors</a>
 </li>
@@ -504,19 +507,19 @@ ul.toc li {
 </dl>
 <p id="rfc.section.2.2.p.3">The map may include other items added by sections defined in the <a href="#section-name-registry" class="xref">Web Bundle Section Name Registry</a>.</p>
 <p id="rfc.section.2.2.p.4">This operation only waits for a prefix of the stream that, if the bundle is encoded with the &#8220;responses&#8221; section last, ends before the first response.</p>
-<p id="rfc.section.2.2.p.5">This operation&#8217;s implementation is in <a href="#load-metadata" class="xref">Section 3.2</a>.</p>
+<p id="rfc.section.2.2.p.5">This operation&#8217;s implementation is in <a href="#load-metadata" class="xref">Section 3.3</a>.</p>
 <h1 id="rfc.section.2.2.1">
 <a href="#rfc.section.2.2.1">2.2.1.</a> <a href="#semantics-load-metadata-from-end" id="semantics-load-metadata-from-end">Load a bundle&#8217;s metadata from the end</a>
 </h1>
 <p id="rfc.section.2.2.1.p.1">If a bundle&#8217;s bytes are embedded in a longer sequence rather than being streamed, a parser can also load them starting from a pointer to the last byte of the bundle. This returns the same data as <a href="#semantics-load-metadata" class="xref">Section 2.2</a>.</p>
-<p id="rfc.section.2.2.1.p.2">This operation&#8217;s implementation is in <a href="#from-end" class="xref">Section 3.2.5</a>.</p>
+<p id="rfc.section.2.2.1.p.2">This operation&#8217;s implementation is in <a href="#from-end" class="xref">Section 3.3.5</a>.</p>
 <h1 id="rfc.section.2.3">
 <a href="#rfc.section.2.3">2.3.</a> <a href="#semantics-load-response" id="semantics-load-response">Load a response from a bundle</a>
 </h1>
 <p id="rfc.section.2.3.p.1">This takes the sequence of bytes representing the bundle and one request returned from <a href="#semantics-load-metadata" class="xref">Section 2.2</a> with its metadata, and returns the response (<a href="#FETCH" class="xref">[FETCH]</a>) matching that request.</p>
 <p id="rfc.section.2.3.p.2">This operation can be completed without inspecting bytes other than those that make up the loaded response, although higher-level operations like proving that an exchange is correctly signed (<a href="#I-D.yasskin-http-origin-signed-responses" class="xref">[I-D.yasskin-http-origin-signed-responses]</a>) may need to load other responses.</p>
 <p id="rfc.section.2.3.p.3">Note that this operation uses the metadata for a particular request returned by <a href="#semantics-load-metadata" class="xref">Section 2.2</a>, while a client will generally want to load the response for a request that the client generated. TODO: Specify how a client determines the best available bundled response, if any, for that client-generated request, in this or another document.</p>
-<p id="rfc.section.2.3.p.4">This operation&#8217;s implementation is in <a href="#load-response" class="xref">Section 3.3</a>.</p>
+<p id="rfc.section.2.3.p.4">This operation&#8217;s implementation is in <a href="#load-response" class="xref">Section 3.4</a>.</p>
 <h1 id="rfc.section.3">
 <a href="#rfc.section.3">3.</a> <a href="#format" id="format">Format</a>
 </h1>
@@ -524,8 +527,8 @@ ul.toc li {
 <a href="#rfc.section.3.1">3.1.</a> <a href="#top-level" id="top-level">Top-level structure</a>
 </h1>
 <p><em>This section is non-normative.</em></p>
-<p id="rfc.section.3.1.p.2">A bundle holds a series of named sections. The beginning of the bundle maps section names to the range of bytes holding that section. The most important section is the &#8220;index&#8221; (<a href="#index-section" class="xref">Section 3.2.1</a>), which similarly maps serialized HTTP requests to the range of bytes holding that request&#8217;s serialized response. Byte ranges are represented using an offset from some point in the bundle <em>after</em> the encoding of the range itself, to reduce the amount of work needed to use the shortest possible encoding of the range.</p>
-<p id="rfc.section.3.1.p.3">Future specifications can define new sections with extra data, and if necessary, these sections can be marked &#8220;critical&#8221; (<a href="#critical-section" class="xref">Section 3.2.3</a>) to prevent older parsers from using the rest of the bundle incorrectly.</p>
+<p id="rfc.section.3.1.p.2">A bundle holds a series of named sections. The beginning of the bundle maps section names to the range of bytes holding that section. The most important section is the &#8220;index&#8221; (<a href="#index-section" class="xref">Section 3.3.1</a>), which similarly maps serialized HTTP requests to the range of bytes holding that request&#8217;s serialized response. Byte ranges are represented using an offset from some point in the bundle <em>after</em> the encoding of the range itself, to reduce the amount of work needed to use the shortest possible encoding of the range.</p>
+<p id="rfc.section.3.1.p.3">Future specifications can define new sections with extra data, and if necessary, these sections can be marked &#8220;critical&#8221; (<a href="#critical-section" class="xref">Section 3.3.3</a>) to prevent older parsers from using the rest of the bundle incorrectly.</p>
 <p id="rfc.section.3.1.p.4">The bundle is a CBOR item (<a href="#I-D.ietf-cbor-7049bis" class="xref">[I-D.ietf-cbor-7049bis]</a>) with the following CDDL (<a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>) schema:</p>
 <pre>
 webbundle = [
@@ -544,23 +547,33 @@ responses = [*response]
 
 </pre>
 <h1 id="rfc.section.3.2">
-<a href="#rfc.section.3.2">3.2.</a> <a href="#load-metadata" id="load-metadata">Load a bundle&#8217;s metadata</a>
+<a href="#rfc.section.3.2">3.2.</a> <a href="#serving-constraints" id="serving-constraints">Serving constraints</a>
 </h1>
-<p id="rfc.section.3.2.p.1">A bundle holds a series of sections, which can be accessed randomly using the information in the <samp>section-lengths</samp> CBOR item, which holds a list of alternating section names and section lengths:</p>
+<p id="rfc.section.3.2.p.1">When served over HTTP, a response containing an <samp>application/webbundle</samp> payload MUST include at least the following response header fields, to reduce content sniffing vulnerabilities (<a href="#seccons-content-sniffing" class="xref">Section 5.2</a>):</p>
+<p></p>
+
+<ul>
+<li>Content-Type: application/webbundle</li>
+<li>X-Content-Type-Options: nosniff</li>
+</ul>
+<h1 id="rfc.section.3.3">
+<a href="#rfc.section.3.3">3.3.</a> <a href="#load-metadata" id="load-metadata">Load a bundle&#8217;s metadata</a>
+</h1>
+<p id="rfc.section.3.3.p.1">A bundle holds a series of sections, which can be accessed randomly using the information in the <samp>section-lengths</samp> CBOR item, which holds a list of alternating section names and section lengths:</p>
 <pre>
 section-lengths = [* (section-name: tstr, length: uint) ],
 </pre>
-<p id="rfc.section.3.2.p.2">To implement <a href="#semantics-load-metadata" class="xref">Section 2.2</a>, the parser MUST run the following steps, taking the <samp>stream</samp> as input.</p>
+<p id="rfc.section.3.3.p.2">To implement <a href="#semantics-load-metadata" class="xref">Section 2.2</a>, the parser MUST run the following steps, taking the <samp>stream</samp> as input.</p>
 <p></p>
 
 <ol>
 <li>Seek to offset 0 in <samp>stream</samp>. Assert: this operation doesn&#8217;t fail.</li>
 <li>If reading 10 bytes from <samp>stream</samp> returns an error or doesn&#8217;t return the bytes with hex encoding &#8220;84 48 F0 9F 8C 90 F0 9F 93 A6&#8221; (the CBOR encoding of the 4-item array initial byte and 8-byte bytestring initial byte, followed by &#127760;&#128230; in UTF-8), return an error.</li>
-<li>Let <samp>sectionLengthsLength</samp> be the result of getting the length of the CBOR bytestring header from <samp>stream</samp> (<a href="#parse-bytestring" class="xref">Section 3.4.2</a>). If this is an error, return that error.</li>
+<li>Let <samp>sectionLengthsLength</samp> be the result of getting the length of the CBOR bytestring header from <samp>stream</samp> (<a href="#parse-bytestring" class="xref">Section 3.5.2</a>). If this is an error, return that error.</li>
 <li>If <samp>sectionLengthsLength</samp> is 8192 (8*1024) or greater, return an error.</li>
 <li>Let <samp>sectionLengthsBytes</samp> be the result of reading <samp>sectionLengthsLength</samp> bytes from <samp>stream</samp>. If <samp>sectionLengthsBytes</samp> is an error, return that error.</li>
-<li>Let <samp>sectionLengths</samp> be the result of parsing one CBOR item (<a href="#parse-cbor" class="xref">Section 3.4</a>) from <samp>sectionLengthsBytes</samp>, matching the section-lengths rule in the CDDL (<a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>) above. If <samp>sectionLengths</samp> is an error, return an error.</li>
-<li>Let (<samp>sectionsType</samp>, <samp>numSections</samp>) be the result of parsing the type and argument of a CBOR item from <samp>stream</samp> (<a href="#parse-type-argument" class="xref">Section 3.4.3</a>).</li>
+<li>Let <samp>sectionLengths</samp> be the result of parsing one CBOR item (<a href="#parse-cbor" class="xref">Section 3.5</a>) from <samp>sectionLengthsBytes</samp>, matching the section-lengths rule in the CDDL (<a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>) above. If <samp>sectionLengths</samp> is an error, return an error.</li>
+<li>Let (<samp>sectionsType</samp>, <samp>numSections</samp>) be the result of parsing the type and argument of a CBOR item from <samp>stream</samp> (<a href="#parse-type-argument" class="xref">Section 3.5.3</a>).</li>
 <li>If <samp>sectionsType</samp> is not <samp>4</samp> (a CBOR array) or <samp>numSections</samp> is not half of the length of <samp>sectionLengths</samp>, return an error.</li>
 <li>Let <samp>sectionsStart</samp> be the current offset within <samp>stream</samp>.  <br><br> For example, if <samp>sectionLengthsLength</samp> were 52 and <samp>sectionLengths</samp> contained 4 items (2 sections), <samp>sectionsStart</samp> would be 65 (10 initial bytes + a 2-byte bytestring header to describe a 52-byte bytestring + 52 bytes of section lengths + a 1-byte array header for the 2 sections).</li>
 <li>Let <samp>knownSections</samp> be the subset of the <a href="#section-name-registry" class="xref">Section 6.2</a> that this client has implemented.</li>
@@ -588,28 +601,28 @@ section-lengths = [* (section-name: tstr, length: uint) ],
 <li>If <samp>metadata</samp> doesn&#8217;t have entries with keys &#8220;requests&#8221; and &#8220;manifest&#8221;, return an error.</li>
 <li>Return <samp>metadata</samp>.</li>
 </ol>
-<h1 id="rfc.section.3.2.1">
-<a href="#rfc.section.3.2.1">3.2.1.</a> <a href="#index-section" id="index-section">Parsing the index section</a>
+<h1 id="rfc.section.3.3.1">
+<a href="#rfc.section.3.3.1">3.3.1.</a> <a href="#index-section" id="index-section">Parsing the index section</a>
 </h1>
-<p id="rfc.section.3.2.1.p.1">The &#8220;index&#8221; section defines the set of HTTP requests in the bundle and identifies their locations in the &#8220;responses&#8221; section. It consists of a sequence of alternating request headers and response lengths:</p>
+<p id="rfc.section.3.3.1.p.1">The &#8220;index&#8221; section defines the set of HTTP requests in the bundle and identifies their locations in the &#8220;responses&#8221; section. It consists of a sequence of alternating request headers and response lengths:</p>
 <pre>
 index = [* (headers, length: uint) ]
 </pre>
-<p id="rfc.section.3.2.1.p.2">To parse the index section, given its <samp>sectionContents</samp>, the <samp>sectionOffsets</samp> map, and the <samp>metadata</samp> map to fill in, the parser MUST do the following:</p>
+<p id="rfc.section.3.3.1.p.2">To parse the index section, given its <samp>sectionContents</samp>, the <samp>sectionOffsets</samp> map, and the <samp>metadata</samp> map to fill in, the parser MUST do the following:</p>
 <p></p>
 
 <ol>
-<li>Let <samp>index</samp> be the result of parsing <samp>sectionContents</samp> as a CBOR item matching the <samp>index</samp> rule in the above CDDL (<a href="#parse-cbor" class="xref">Section 3.4</a>). If <samp>index</samp> is an error, return an error.</li>
+<li>Let <samp>index</samp> be the result of parsing <samp>sectionContents</samp> as a CBOR item matching the <samp>index</samp> rule in the above CDDL (<a href="#parse-cbor" class="xref">Section 3.5</a>). If <samp>index</samp> is an error, return an error.</li>
 <li>Check that the responses array has the right number of items: <ol>
 <li>Seek to offset <samp>sectionOffsets["responses"].offset</samp> in <samp>stream</samp>. If this fails, return an error.</li>
-<li>Let (<samp>responsesType</samp>, <samp>numResponses</samp>) be the result of parsing the type and argument of a CBOR item from the stream (<a href="#parse-type-argument" class="xref">Section 3.4.3</a>). If this returns an error, return that error.</li>
+<li>Let (<samp>responsesType</samp>, <samp>numResponses</samp>) be the result of parsing the type and argument of a CBOR item from the stream (<a href="#parse-type-argument" class="xref">Section 3.5.3</a>). If this returns an error, return that error.</li>
 <li>If <samp>responsesType</samp> is not <samp>4</samp> (a CBOR array) or <samp>numResponses</samp> is not half of the length of <samp>index</samp>, return an error.</li>
 </ol>
 </li>
 <li>Let <samp>currentOffset</samp> be the current offset within <samp>stream</samp> minus <samp>sectionOffsets["responses"].offset</samp>. That is, the length of the array header for the responses array. This will track the offset of the current response relative to the start of the responses array.</li>
 <li>Let <samp>requests</samp> be an initially-empty map (<a href="#INFRA" class="xref">[INFRA]</a>) from HTTP requests (<a href="#FETCH" class="xref">[FETCH]</a>) to structs (<a href="#INFRA" class="xref">[INFRA]</a>) with items named &#8220;offset&#8221; and &#8220;length&#8221;.</li>
 <li>For each (<samp>cbor-http-request</samp>, <samp>length</samp>) pair of adjacent elements in <samp>index</samp>: <ol>
-<li>Let (<samp>headers</samp>, <samp>pseudos</samp>) be the result of converting <samp>cbor-http-request</samp> to a header list and pseudoheaders using the algorithm in <a href="#cbor-headers" class="xref">Section 3.5</a>. If this returns an error, return that error.</li>
+<li>Let (<samp>headers</samp>, <samp>pseudos</samp>) be the result of converting <samp>cbor-http-request</samp> to a header list and pseudoheaders using the algorithm in <a href="#cbor-headers" class="xref">Section 3.6</a>. If this returns an error, return that error.</li>
 <li>If <samp>pseudos</samp> does not have keys named &#8216;:method&#8217; and &#8216;:url&#8217;, or its size isn&#8217;t 2, return an error.</li>
 <li>If <samp>pseudos[':method']</samp> is not &#8216;GET&#8217;, return an error.      <br><br> Note: This could probably support any cacheable (Section 4.2.3) of <a href="#RFC7231" class="xref">[RFC7231]</a>) and safe (Section 4.2.1 of <a href="#RFC7231" class="xref">[RFC7231]</a>) method, matching PUSH_PROMISE (Section 8.2 of <a href="#RFC7540" class="xref">[RFC7540]</a>), but today that&#8217;s only HEAD and GET, and HEAD can be served as a transformation of GET, so this version of the specification keeps the method simple.</li>
 <li>Let <samp>parsedUrl</samp> be the result of parsing (<a href="#URL" class="xref">[URL]</a>) <samp>pseudos[':url']</samp> with no base URL.</li>
@@ -630,46 +643,46 @@ index = [* (headers, length: uint) ]
 </li>
 <li>Set <samp>metadata["requests"]</samp> to <samp>requests</samp>.</li>
 </ol>
-<h1 id="rfc.section.3.2.2">
-<a href="#rfc.section.3.2.2">3.2.2.</a> <a href="#manifest-section" id="manifest-section">Parsing the manifest section</a>
+<h1 id="rfc.section.3.3.2">
+<a href="#rfc.section.3.3.2">3.3.2.</a> <a href="#manifest-section" id="manifest-section">Parsing the manifest section</a>
 </h1>
-<p id="rfc.section.3.2.2.p.1">The &#8220;manifest&#8221; section records a single URL identifying the manifest of the bundle. The URL MUST refer to the one or more response(s) contained in the bundle itself.</p>
-<p id="rfc.section.3.2.2.p.2">The bundle can contain multiple resources at this URL, and the client is expected to content-negotiate for the best one. For example, a client might select the one with an <samp>accept</samp> header of <samp>application/manifest+json</samp> (<a href="#appmanifest" class="xref">[appmanifest]</a>) and an <samp>accept-language</samp> header of <samp>es-419</samp>.</p>
+<p id="rfc.section.3.3.2.p.1">The &#8220;manifest&#8221; section records a single URL identifying the manifest of the bundle. The URL MUST refer to the one or more response(s) contained in the bundle itself.</p>
+<p id="rfc.section.3.3.2.p.2">The bundle can contain multiple resources at this URL, and the client is expected to content-negotiate for the best one. For example, a client might select the one with an <samp>accept</samp> header of <samp>application/manifest+json</samp> (<a href="#appmanifest" class="xref">[appmanifest]</a>) and an <samp>accept-language</samp> header of <samp>es-419</samp>.</p>
 <pre>
 manifest = text
 </pre>
-<p id="rfc.section.3.2.2.p.3">To parse the manifest section, given its <samp>sectionContents</samp> and the <samp>metadata</samp> map to fill in, the parser MUST do the following:</p>
+<p id="rfc.section.3.3.2.p.3">To parse the manifest section, given its <samp>sectionContents</samp> and the <samp>metadata</samp> map to fill in, the parser MUST do the following:</p>
 <p></p>
 
 <ol>
-<li>Let <samp>urlString</samp> be the result of parsing <samp>sectionContents</samp> as a CBOR item matching the above <samp>manifest</samp> rule (<a href="#parse-cbor" class="xref">Section 3.4</a>. If <samp>urlString</samp> is an error, return that error.</li>
+<li>Let <samp>urlString</samp> be the result of parsing <samp>sectionContents</samp> as a CBOR item matching the above <samp>manifest</samp> rule (<a href="#parse-cbor" class="xref">Section 3.5</a>. If <samp>urlString</samp> is an error, return that error.</li>
 <li>Let <samp>url</samp> be the result of parsing (<a href="#URL" class="xref">[URL]</a>) <samp>urlString</samp> with no base URL.</li>
 <li>If <samp>url</samp> is a failure, its fragment is not null, or it includes credentials, return an error.</li>
 <li>Set <samp>metadata["manifest"]</samp> to <samp>url</samp>.</li>
 </ol>
-<h1 id="rfc.section.3.2.3">
-<a href="#rfc.section.3.2.3">3.2.3.</a> <a href="#critical-section" id="critical-section">Parsing the critical section</a>
+<h1 id="rfc.section.3.3.3">
+<a href="#rfc.section.3.3.3">3.3.3.</a> <a href="#critical-section" id="critical-section">Parsing the critical section</a>
 </h1>
-<p id="rfc.section.3.2.3.p.1">The &#8220;critical&#8221; section lists sections of the bundle that the client needs to understand in order to load the bundle correctly. Other sections are assumed to be optional.</p>
+<p id="rfc.section.3.3.3.p.1">The &#8220;critical&#8221; section lists sections of the bundle that the client needs to understand in order to load the bundle correctly. Other sections are assumed to be optional.</p>
 <pre>
 critical = [*tstr]
 </pre>
-<p id="rfc.section.3.2.3.p.2">To parse the critical section, given its <samp>sectionContents</samp> and the <samp>metadata</samp> map to fill in, the parser MUST do the following:</p>
+<p id="rfc.section.3.3.3.p.2">To parse the critical section, given its <samp>sectionContents</samp> and the <samp>metadata</samp> map to fill in, the parser MUST do the following:</p>
 <p></p>
 
 <ol>
-<li>Let <samp>critical</samp> be the result of parsing <samp>sectionContents</samp> as a CBOR item matching the above <samp>critical</samp> rule (<a href="#parse-cbor" class="xref">Section 3.4</a>). If <samp>critical</samp> is an error, return that error.</li>
+<li>Let <samp>critical</samp> be the result of parsing <samp>sectionContents</samp> as a CBOR item matching the above <samp>critical</samp> rule (<a href="#parse-cbor" class="xref">Section 3.5</a>). If <samp>critical</samp> is an error, return that error.</li>
 <li>For each value <samp>sectionName</samp> in the <samp>critical</samp> list, if the client has not implemented sections named <samp>sectionName</samp>, return an error.</li>
 </ol>
-<p id="rfc.section.3.2.3.p.4">This section does not modify the returned metadata.</p>
-<h1 id="rfc.section.3.2.4">
-<a href="#rfc.section.3.2.4">3.2.4.</a> <a href="#responses-section" id="responses-section">The responses section</a>
+<p id="rfc.section.3.3.3.p.4">This section does not modify the returned metadata.</p>
+<h1 id="rfc.section.3.3.4">
+<a href="#rfc.section.3.3.4">3.3.4.</a> <a href="#responses-section" id="responses-section">The responses section</a>
 </h1>
-<p id="rfc.section.3.2.4.p.1">The responses section does not add any items to the bundle metadata map.  Instead, its offset and length are used in processing the index section (<a href="#index-section" class="xref">Section 3.2.1</a>).</p>
-<h1 id="rfc.section.3.2.5">
-<a href="#rfc.section.3.2.5">3.2.5.</a> <a href="#from-end" id="from-end">Starting from the end</a>
+<p id="rfc.section.3.3.4.p.1">The responses section does not add any items to the bundle metadata map.  Instead, its offset and length are used in processing the index section (<a href="#index-section" class="xref">Section 3.3.1</a>).</p>
+<h1 id="rfc.section.3.3.5">
+<a href="#rfc.section.3.3.5">3.3.5.</a> <a href="#from-end" id="from-end">Starting from the end</a>
 </h1>
-<p id="rfc.section.3.2.5.p.1">The length of a bundle is encoded as a big-endian integer inside a CBOR byte string at the end of the bundle.</p>
+<p id="rfc.section.3.3.5.p.1">The length of a bundle is encoded as a big-endian integer inside a CBOR byte string at the end of the bundle.</p>
 <div id="rfc.figure.1"></div>
 <div id="example-trailing-bytes"></div>
 <pre>
@@ -680,8 +693,8 @@ critical = [*tstr]
        0xBC614E-10=12345668 omitted bytes
 </pre>
 <p class="figure">Figure 1: Example trailing bytes</p>
-<p id="rfc.section.3.2.5.p.2">Parsing from the end allows the bundle to be appended to another format such as a self-extracting executable.</p>
-<p id="rfc.section.3.2.5.p.3">To implement <a href="#semantics-load-metadata-from-end" class="xref">Section 2.2.1</a>, taking a sequence of bytes <samp>bytes</samp>, the client MUST:</p>
+<p id="rfc.section.3.3.5.p.2">Parsing from the end allows the bundle to be appended to another format such as a self-extracting executable.</p>
+<p id="rfc.section.3.3.5.p.3">To implement <a href="#semantics-load-metadata-from-end" class="xref">Section 2.2.1</a>, taking a sequence of bytes <samp>bytes</samp>, the client MUST:</p>
 <p></p>
 
 <ol>
@@ -695,28 +708,29 @@ critical = [*tstr]
 <li>The seek to offset N and read N bytes operations succeed immediately if <samp>currentOffset + N &lt;= bundleLength</samp> and fail otherwise.</li>
 </ul>
 </li>
-<li>Return the result of running <a href="#load-metadata" class="xref">Section 3.2</a> with <samp>stream</samp> as input.</li>
+<li>Return the result of running <a href="#load-metadata" class="xref">Section 3.3</a> with <samp>stream</samp> as input.</li>
 </ol>
-<h1 id="rfc.section.3.3">
-<a href="#rfc.section.3.3">3.3.</a> <a href="#load-response" id="load-response">Load a response from a bundle</a>
+<h1 id="rfc.section.3.4">
+<a href="#rfc.section.3.4">3.4.</a> <a href="#load-response" id="load-response">Load a response from a bundle</a>
 </h1>
-<p id="rfc.section.3.3.p.1">The result of <a href="#load-metadata" class="xref">Load a bundle&#8217;s metadata</a> maps each request to a response, which consists of headers and a payload. The headers can be loaded from the bundle&#8217;s stream before waiting for the payload, and similarly the payload can be streamed to downstream consumers.</p>
+<p id="rfc.section.3.4.p.1">The result of <a href="#load-metadata" class="xref">Load a bundle&#8217;s metadata</a> maps each request to a response, which consists of headers and a payload. The headers can be loaded from the bundle&#8217;s stream before waiting for the payload, and similarly the payload can be streamed to downstream consumers.</p>
 <pre>
 response = [headers: bstr .cbor headers, payload: bstr]
 </pre>
-<p id="rfc.section.3.3.p.2">To implement <a href="#semantics-load-response" class="xref">Section 2.3</a>, the parser MUST run the following steps, taking the bundle&#8217;s <samp>stream</samp> and one <samp>request</samp> and its <samp>requestMetadata</samp> as returned by <a href="#semantics-load-metadata" class="xref">Section 2.2</a>.</p>
+<p id="rfc.section.3.4.p.2">To implement <a href="#semantics-load-response" class="xref">Section 2.3</a>, the parser MUST run the following steps, taking the bundle&#8217;s <samp>stream</samp> and one <samp>request</samp> and its <samp>requestMetadata</samp> as returned by <a href="#semantics-load-metadata" class="xref">Section 2.2</a>.</p>
 <p></p>
 
 <ol>
 <li>Seek to offset <samp>requestMetadata.offset</samp> in <samp>stream</samp>. If this fails, return an error.</li>
 <li>Read 1 byte from <samp>stream</samp>. If this is an error or isn&#8217;t <samp>0x82</samp>, return an error.</li>
-<li>Let <samp>headerLength</samp> be the result of getting the length of a CBOR bytestring header from <samp>stream</samp> (<a href="#parse-bytestring" class="xref">Section 3.4.2</a>). If <samp>headerLength</samp> is an error, return that error.</li>
+<li>Let <samp>headerLength</samp> be the result of getting the length of a CBOR bytestring header from <samp>stream</samp> (<a href="#parse-bytestring" class="xref">Section 3.5.2</a>). If <samp>headerLength</samp> is an error, return that error.</li>
 <li>If <samp>headerLength</samp> is 524288 (512*1024) or greater, return an error.</li>
 <li>Let <samp>headerCbor</samp> be the result of reading <samp>headerLength</samp> bytes from <samp>stream</samp> and parsing a CBOR item from them matching the <samp>headers</samp> CDDL rule. If either the read or parse returns an error, return that error.</li>
-<li>Let (<samp>headers</samp>, <samp>pseudos</samp>) be the result of converting <samp>headerCbor</samp> to a header list and pseudoheaders using the algorithm in <a href="#cbor-headers" class="xref">Section 3.5</a>. If this returns an error, return that error.</li>
+<li>Let (<samp>headers</samp>, <samp>pseudos</samp>) be the result of converting <samp>headerCbor</samp> to a header list and pseudoheaders using the algorithm in <a href="#cbor-headers" class="xref">Section 3.6</a>. If this returns an error, return that error.</li>
 <li>If <samp>pseudos</samp> does not have a key named &#8216;:status&#8217; or its size isn&#8217;t 1, return an error.</li>
 <li>If <samp>pseudos[':status']</samp> isn&#8217;t exactly 3 ASCII decimal digits, return an error.</li>
-<li>Let <samp>payloadLength</samp> be the result of getting the length of a CBOR bytestring header from <samp>stream</samp> (<a href="#parse-bytestring" class="xref">Section 3.4.2</a>). If <samp>payloadLength</samp> is an error, return that error.</li>
+<li>If <samp>headers</samp> does not contain a <samp>Content-Type</samp> header, return an error.  <br><br> The client MUST interpret the following payload as this specified media type instead of trying to sniff a media type from the bytes of the payload, for example by appending an artificial <samp>X-Content-Type-Options: nosniff</samp> header field (<a href="#FETCH" class="xref">[FETCH]</a>) to <samp>headers</samp>.</li>
+<li>Let <samp>payloadLength</samp> be the result of getting the length of a CBOR bytestring header from <samp>stream</samp> (<a href="#parse-bytestring" class="xref">Section 3.5.2</a>). If <samp>payloadLength</samp> is an error, return that error.</li>
 <li>If <samp>stream.currentOffset + payloadLength != requestMetadata.offset + requestMetadata.length</samp>, return an error.</li>
 <li>Let <samp>body</samp> be a new body (<a href="#FETCH" class="xref">[FETCH]</a>) whose stream is a tee&#8217;d copy of <samp>stream</samp> starting at the current offset and ending after <samp>payloadLength</samp> bytes.  <br><br> TODO: Add the rest of the details of creating a <samp>ReadableStream</samp> object.</li>
 <li>Let <samp>response</samp> be a new response (<a href="#FETCH" class="xref">[FETCH]</a>) whose: <ul>
@@ -728,14 +742,14 @@ response = [headers: bstr .cbor headers, payload: bstr]
 </li>
 <li>Return <samp>response</samp>.</li>
 </ol>
-<h1 id="rfc.section.3.4">
-<a href="#rfc.section.3.4">3.4.</a> <a href="#parse-cbor" id="parse-cbor">Parsing CBOR items</a>
+<h1 id="rfc.section.3.5">
+<a href="#rfc.section.3.5">3.5.</a> <a href="#parse-cbor" id="parse-cbor">Parsing CBOR items</a>
 </h1>
-<p id="rfc.section.3.4.p.1">Parsing a bundle involves parsing many CBOR items. All of these items need to be canonically encoded.</p>
-<h1 id="rfc.section.3.4.1">
-<a href="#rfc.section.3.4.1">3.4.1.</a> <a href="#parse-known-length" id="parse-known-length">Parse a known-length item</a>
+<p id="rfc.section.3.5.p.1">Parsing a bundle involves parsing many CBOR items. All of these items need to be canonically encoded.</p>
+<h1 id="rfc.section.3.5.1">
+<a href="#rfc.section.3.5.1">3.5.1.</a> <a href="#parse-known-length" id="parse-known-length">Parse a known-length item</a>
 </h1>
-<p id="rfc.section.3.4.1.p.1">To parse a CBOR item (<a href="#I-D.ietf-cbor-7049bis" class="xref">[I-D.ietf-cbor-7049bis]</a>), optionally matching a CDDL rule (<a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>), from a sequence of bytes, <samp>bytes</samp>, the parser MUST do the following:</p>
+<p id="rfc.section.3.5.1.p.1">To parse a CBOR item (<a href="#I-D.ietf-cbor-7049bis" class="xref">[I-D.ietf-cbor-7049bis]</a>), optionally matching a CDDL rule (<a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>), from a sequence of bytes, <samp>bytes</samp>, the parser MUST do the following:</p>
 <p></p>
 
 <ol>
@@ -746,22 +760,22 @@ response = [headers: bstr .cbor headers, payload: bstr]
 <li>If a CDDL rule was specified, but <samp>item</samp> does not match it, return an error.</li>
 <li>Return <samp>item</samp>.</li>
 </ol>
-<h1 id="rfc.section.3.4.2">
-<a href="#rfc.section.3.4.2">3.4.2.</a> <a href="#parse-bytestring" id="parse-bytestring">Parsing variable-length data from a bytestring</a>
+<h1 id="rfc.section.3.5.2">
+<a href="#rfc.section.3.5.2">3.5.2.</a> <a href="#parse-bytestring" id="parse-bytestring">Parsing variable-length data from a bytestring</a>
 </h1>
-<p id="rfc.section.3.4.2.p.1">Bundles encode variable-length data in CBOR bytestrings, which are prefixed with their length. This algorithm returns the number of bytes in the variable-length item and sets the stream&#8217;s current offset to  the first byte of the contents.</p>
-<p id="rfc.section.3.4.2.p.2">To get the length of a CBOR bytestring header from a bundle&#8217;s stream, the parser MUST do the following:</p>
+<p id="rfc.section.3.5.2.p.1">Bundles encode variable-length data in CBOR bytestrings, which are prefixed with their length. This algorithm returns the number of bytes in the variable-length item and sets the stream&#8217;s current offset to  the first byte of the contents.</p>
+<p id="rfc.section.3.5.2.p.2">To get the length of a CBOR bytestring header from a bundle&#8217;s stream, the parser MUST do the following:</p>
 <p></p>
 
 <ol>
-<li>Let (<samp>type</samp>, <samp>argument</samp>) be the result of parsing the type and argument of a CBOR item from the stream (<a href="#parse-type-argument" class="xref">Section 3.4.3</a>). If this returns an error, return that error.</li>
+<li>Let (<samp>type</samp>, <samp>argument</samp>) be the result of parsing the type and argument of a CBOR item from the stream (<a href="#parse-type-argument" class="xref">Section 3.5.3</a>). If this returns an error, return that error.</li>
 <li>If <samp>type</samp> is not <samp>2</samp>, the item is not a bytestring. Return an error.</li>
 <li>Return <samp>argument</samp>.</li>
 </ol>
-<h1 id="rfc.section.3.4.3">
-<a href="#rfc.section.3.4.3">3.4.3.</a> <a href="#parse-type-argument" id="parse-type-argument">Parsing the type and argument of a CBOR item</a>
+<h1 id="rfc.section.3.5.3">
+<a href="#rfc.section.3.5.3">3.5.3.</a> <a href="#parse-type-argument" id="parse-type-argument">Parsing the type and argument of a CBOR item</a>
 </h1>
-<p id="rfc.section.3.4.3.p.1">To parse the type and argument of a CBOR item from a bundle&#8217;s stream, the parser MUST do the following. This algorithm returns a pair of the CBOR major type 0&#8211;7 inclusive, and a 64-bit integral argument for the CBOR item:</p>
+<p id="rfc.section.3.5.3.p.1">To parse the type and argument of a CBOR item from a bundle&#8217;s stream, the parser MUST do the following. This algorithm returns a pair of the CBOR major type 0&#8211;7 inclusive, and a 64-bit integral argument for the CBOR item:</p>
 <p></p>
 
 <ol>
@@ -785,15 +799,15 @@ response = [headers: bstr .cbor headers, payload: bstr]
 <li>Let <samp>argument</samp> be the big-endian integer encoded in <samp>content</samp>.</li>
 <li>Return (<samp>type</samp>, <samp>argument</samp>).</li>
 </ol>
-<h1 id="rfc.section.3.5">
-<a href="#rfc.section.3.5">3.5.</a> <a href="#cbor-headers" id="cbor-headers">Interpreting CBOR HTTP headers</a>
+<h1 id="rfc.section.3.6">
+<a href="#rfc.section.3.6">3.6.</a> <a href="#cbor-headers" id="cbor-headers">Interpreting CBOR HTTP headers</a>
 </h1>
-<p id="rfc.section.3.5.p.1">Bundles represent HTTP requests and responses as a list of headers, matching the following CDDL (<a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>):</p>
+<p id="rfc.section.3.6.p.1">Bundles represent HTTP requests and responses as a list of headers, matching the following CDDL (<a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>):</p>
 <pre>
 headers = {* bstr =&gt; bstr}
 </pre>
-<p id="rfc.section.3.5.p.2">Pseudo-headers starting with a <samp>:</samp> provide the non-header information needed to create a request or response as appropriate</p>
-<p id="rfc.section.3.5.p.3">To convert a CBOR item <samp>item</samp> into a <a href="#FETCH" class="xref">[FETCH]</a> header list and pseudoheaders, parsers MUST do the following:</p>
+<p id="rfc.section.3.6.p.2">Pseudo-headers starting with a <samp>:</samp> provide the non-header information needed to create a request or response as appropriate</p>
+<p id="rfc.section.3.6.p.3">To convert a CBOR item <samp>item</samp> into a <a href="#FETCH" class="xref">[FETCH]</a> header list and pseudoheaders, parsers MUST do the following:</p>
 <p></p>
 
 <ol>
@@ -818,7 +832,7 @@ headers = {* bstr =&gt; bstr}
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#authoring-guidelines" id="authoring-guidelines">Guidelines for bundle authors</a>
 </h1>
-<p id="rfc.section.4.p.1">Bundles SHOULD consist of a single CBOR item satisfying the core canonicalization requirements (<a href="#parse-cbor" class="xref">Section 3.4</a>) and matching the <samp>webbundle</samp> CDDL rule in <a href="#top-level" class="xref">Section 3.1</a>.</p>
+<p id="rfc.section.4.p.1">Bundles SHOULD consist of a single CBOR item satisfying the core canonicalization requirements (<a href="#parse-cbor" class="xref">Section 3.5</a>) and matching the <samp>webbundle</samp> CDDL rule in <a href="#top-level" class="xref">Section 3.1</a>.</p>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#security" id="security">Security Considerations</a>
 </h1>
@@ -831,7 +845,7 @@ headers = {* bstr =&gt; bstr}
 </h1>
 <p id="rfc.section.5.2.p.1">While modern browsers tend to trust the <samp>Content-Type</samp> header sent with a resource, especially when accompanied by <samp>X-Content-Type-Options: nosniff</samp>, plugins will sometimes search for executable content buried inside a resource and execute it in the context of the origin that served the resource, leading to XSS vulnerabilities. For example, some PDF reader plugins look for <samp>%PDF</samp> anywhere in the first 1kB and execute the code that follows it.</p>
 <p id="rfc.section.5.2.p.2">The <samp>application/webbundle</samp> format defined above includes URLs and request headers early in the format, which an attacker could use to cause these plugins to sniff a bad content type.</p>
-<p id="rfc.section.5.2.p.3">To avoid vulnerabilities, servers are advised to only serve an <samp>application/webbundle</samp> resource from a domain if it would also be safe for that domain to serve the bundle&#8217;s content directly, and to follow at least one of the following strategies:</p>
+<p id="rfc.section.5.2.p.3">To avoid vulnerabilities, in addition to the response header requirements in <a href="#serving-constraints" class="xref">Section 3.2</a>, servers are advised to only serve an <samp>application/webbundle</samp> resource from a domain if it would also be safe for that domain to serve the bundle&#8217;s content directly, and to follow at least one of the following strategies:</p>
 <p></p>
 
 <ol>
@@ -846,6 +860,7 @@ headers = {* bstr =&gt; bstr}
 </li>
 </ol>
 <p id="rfc.section.5.2.p.5">If the server serves responses that are written by a potential attacker but then escaped, the <samp>application/webbundle</samp> format allows the attacker to use the length of the response to control a few bytes before the start of the response.  Any existing mechanisms that prevent polyglot documents probably keep working in the face of this new attack, but we don&#8217;t have a guarantee of that.</p>
+<p id="rfc.section.5.2.p.6">To encourage servers to include the <samp>X-Content-Type-Options: nosniff</samp> header field, clients SHOULD reject bundles served without it.</p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#iana-considerations" id="iana-considerations">IANA considerations</a>
 </h1>
@@ -897,22 +912,22 @@ headers = {* bstr =&gt; bstr}
 <tbody>
 <tr>
 <td class="left">&#8220;index&#8221;</td>
-<td class="left"><a href="#index-section" class="xref">Section 3.2.1</a></td>
+<td class="left"><a href="#index-section" class="xref">Section 3.3.1</a></td>
 <td class="left">Yes</td>
 </tr>
 <tr>
 <td class="left">&#8220;manifest&#8221;</td>
-<td class="left"><a href="#manifest-section" class="xref">Section 3.2.2</a></td>
+<td class="left"><a href="#manifest-section" class="xref">Section 3.3.2</a></td>
 <td class="left">Yes</td>
 </tr>
 <tr>
 <td class="left">&#8220;critical&#8221;</td>
-<td class="left"><a href="#critical-section" class="xref">Section 3.2.3</a></td>
+<td class="left"><a href="#critical-section" class="xref">Section 3.3.3</a></td>
 <td class="left">Yes</td>
 </tr>
 <tr>
 <td class="left">&#8220;responses&#8221;</td>
-<td class="left"><a href="#responses-section" class="xref">Section 3.2.4</a></td>
+<td class="left"><a href="#responses-section" class="xref">Section 3.3.4</a></td>
 <td class="left">No</td>
 </tr>
 </tbody>
@@ -920,7 +935,7 @@ headers = {* bstr =&gt; bstr}
 <p id="rfc.section.6.2.p.5">Requirements on new assignments:</p>
 <p id="rfc.section.6.2.p.6">Section Names MUST be encoded in UTF-8.</p>
 <p id="rfc.section.6.2.p.7">Assignments must specify whether the section is parsed during <a href="#load-metadata" class="xref">Load a bundle&#8217;s metadata</a> (Metadata=Yes) or not (Metadata=No).</p>
-<p id="rfc.section.6.2.p.8">The section&#8217;s specification can use the bytes making up the section, the bundle&#8217;s stream (<a href="#stream-operations" class="xref">Section 2.1</a>), and the <samp>sectionOffsets</samp> map (<a href="#load-metadata" class="xref">Section 3.2</a>), as input, and MUST say if an error is returned, and otherwise what items, if any, are added to the map that <a href="#load-metadata" class="xref">Section 3.2</a> returns. A section&#8217;s specification MAY say that, if it is present, another section is not processed.</p>
+<p id="rfc.section.6.2.p.8">The section&#8217;s specification can use the bytes making up the section, the bundle&#8217;s stream (<a href="#stream-operations" class="xref">Section 2.1</a>), and the <samp>sectionOffsets</samp> map (<a href="#load-metadata" class="xref">Section 3.3</a>), as input, and MUST say if an error is returned, and otherwise what items, if any, are added to the map that <a href="#load-metadata" class="xref">Section 3.3</a> returns. A section&#8217;s specification MAY say that, if it is present, another section is not processed.</p>
 <h1 id="rfc.references">
 <a href="#rfc.references">7.</a> References</h1>
 <h1 id="rfc.references.1">
@@ -939,7 +954,7 @@ headers = {* bstr =&gt; bstr}
 <tr>
 <td class="reference"><b id="I-D.ietf-cbor-7049bis">[I-D.ietf-cbor-7049bis]</b></td>
 <td class="top">
-<a>Bormann, C.</a> and <a>P. Hoffman</a>, "<a href="https://tools.ietf.org/html/draft-ietf-cbor-7049bis-04">Concise Binary Object Representation (CBOR)</a>", Internet-Draft draft-ietf-cbor-7049bis-04, October 2018.</td>
+<a>Bormann, C.</a> and <a>P. Hoffman</a>, "<a href="https://tools.ietf.org/html/draft-ietf-cbor-7049bis-05">Concise Binary Object Representation (CBOR)</a>", Internet-Draft draft-ietf-cbor-7049bis-05, January 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="I-D.ietf-cbor-cddl">[I-D.ietf-cbor-cddl]</b></td>

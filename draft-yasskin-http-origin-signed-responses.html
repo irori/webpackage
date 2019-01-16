@@ -368,12 +368,12 @@ ul.toc li {
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.16.2 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.16.3 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Yasskin, J." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-yasskin-http-origin-signed-responses-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-01-11" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-01-16" />
   <meta name="dct.abstract" content="This document specifies how a server can send an HTTP exchange&#8212;a request URL, content negotiation information, and a response&#8212;with signatures that vouch for that exchange&#8217;s authenticity. These signatures can be verified against an origin&#8217;s certificate to establish that the exchange is authoritative for an origin even if it was transferred over a connection that isn&#8217;t. The signatures can also be used in other ways described in the appendices.These signatures contain countermeasures against downgrade and protocol-confusion attacks." />
   <meta name="description" content="This document specifies how a server can send an HTTP exchange&#8212;a request URL, content negotiation information, and a response&#8212;with signatures that vouch for that exchange&#8217;s authenticity. These signatures can be verified against an origin&#8217;s certificate to establish that the exchange is authoritative for an origin even if it was transferred over a connection that isn&#8217;t. The signatures can also be used in other ways described in the appendices.These signatures contain countermeasures against downgrade and protocol-confusion attacks." />
 
@@ -394,10 +394,10 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left">Intended status: Standards Track</td>
-<td class="right">January 11, 2019</td>
+<td class="right">January 16, 2019</td>
 </tr>
 <tr>
-<td class="left">Expires: July 15, 2019</td>
+<td class="left">Expires: July 20, 2019</td>
 <td class="right"></td>
 </tr>
 
@@ -418,7 +418,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 15, 2019.</p>
+<p>This Internet-Draft will expire on July 20, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -881,6 +881,7 @@ cert-chain = [
 </li>
 <li>If <samp>cert-url</samp> is present and the SHA-256 hash of <samp>main-certificate</samp>&#8217;s <samp>cert_data</samp> is not equal to <samp>cert-sha256</samp> (whose presence was checked when the <samp>Signature</samp> header field was parsed), return &#8220;invalid&#8221;.  <br><br> Note that this intentionally differs from TLS 1.3, which signs the entire certificate chain in its Certificate Verify (Section 4.4.3 of <a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a>), in order to allow updating the stapled OCSP response without updating signatures at the same time.</li>
 <li>If <samp>signature</samp> is not a valid signature of <samp>message</samp> by <samp>publicKey</samp> using <samp>signing-alg</samp>, return &#8220;invalid&#8221;.</li>
+<li>If <samp>headers</samp>, interpreted according to <a href="#cbor-representation" class="xref">Section 3.2</a>, does not contain a <samp>Content-Type</samp> response header field (Section 3.1.1.5 of <a href="#RFC7231" class="xref">[RFC7231]</a>), return &#8220;invalid&#8221;.  <br><br> Clients MUST interpret the signed payload as this specified media type instead of trying to sniff a media type from the bytes of the payload, for example by attaching an <samp>X-Content-Type-Options: nosniff</samp> header field (<a href="#FETCH" class="xref">[FETCH]</a>) to the extracted response.</li>
 <li>If <samp>integrity</samp> names a header field and parameter that is not present in <samp>responseHeaders</samp> or which the client cannot use to check the integrity of <samp>payload</samp> (for example, the header field is new and hasn&#8217;t been implemented yet), then return &#8220;invalid&#8221;. If the selected header field provides integrity guarantees weaker than SHA-256, return &#8220;invalid&#8221;. If validating integrity using the selected header field requires the client to process records larger than 16384 bytes, return &#8220;invalid&#8221;. Clients MUST implement at least the <samp>Digest</samp> header field with its <samp>mi-sha256</samp> digest algorithm (Section 3 of <a href="#I-D.thomson-http-mice" class="xref">[I-D.thomson-http-mice]</a>).  <br><br> Note: RFC EDITOR PLEASE DELETE THIS NOTE; Implementations of drafts of this RFC MUST recognize the draft spelling of the content encoding and digest algorithm specified by <a href="#I-D.thomson-http-mice" class="xref">[I-D.thomson-http-mice]</a> until that draft is published as an RFC. For example, implementations of draft-thomson-http-mice-03 would use <samp>mi-sha256-03</samp> and MUST NOT use <samp>mi-sha256</samp> itself. This ensures that final implementations don&#8217;t need to handle compatibility with implementations of early drafts of that content encoding.  <br><br> If <samp>payload</samp> doesn&#8217;t match the integrity information in the header described by <samp>integrity</samp>, return &#8220;invalid&#8221;.</li>
 <li>Return &#8220;potentially-valid&#8221; with whichever is present of <samp>certificate-chain</samp> or <samp>ed25519key</samp>.</li>
 </ol>
@@ -1237,7 +1238,15 @@ Signed-Headers = sh-list
 <a href="#rfc.section.5.3">5.3.</a> <a href="#application-signed-exchange" id="application-signed-exchange">application/signed-exchange format</a>
 </h1>
 <p id="rfc.section.5.3.p.1">To allow signed exchanges to be the targets of <samp>&lt;link rel=prefetch&gt;</samp> tags, we define the  <samp>application/signed-exchange</samp> content type that represents a signed HTTP exchange, including a request URL, response metadata and header fields, and a response payload.</p>
-<p id="rfc.section.5.3.p.2">This content type consists of the concatenation of the following items:</p>
+<p id="rfc.section.5.3.p.2">When served over HTTP, a response containing an <samp>application/signed-exchange</samp> payload MUST include at least the following response header fields, to reduce content sniffing vulnerabilities (<a href="#seccons-content-sniffing" class="xref">Section 6.8</a>):</p>
+<p></p>
+
+<ul>
+<li>Content-Type: application/signed-exchange;v=<em>version</em>
+</li>
+<li>X-Content-Type-Options: nosniff</li>
+</ul>
+<p id="rfc.section.5.3.p.4">This content type consists of the concatenation of the following items:</p>
 <p></p>
 
 <ol>
@@ -1336,7 +1345,7 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 </h1>
 <p id="rfc.section.6.8.p.1">While modern browsers tend to trust the <samp>Content-Type</samp> header sent with a resource, especially when accompanied by <samp>X-Content-Type-Options: nosniff</samp>, plugins will sometimes search for executable content buried inside a resource and execute it in the context of the origin that served the resource, leading to XSS vulnerabilities. For example, some PDF reader plugins look for <samp>%PDF</samp> anywhere in the first 1kB and execute the code that follows it.</p>
 <p id="rfc.section.6.8.p.2">The <samp>application/signed-exchange</samp> format (<a href="#application-signed-exchange" class="xref">Section 5.3</a>) includes a URL and response headers early in the format, which an attacker could use to cause these plugins to sniff a bad content type.</p>
-<p id="rfc.section.6.8.p.3">To avoid vulnerabilities, servers are advised to only serve an <samp>application/signed-exchange</samp> resource (SXG) from a domain if it would also be safe for that domain to serve the SXG&#8217;s content directly, and to follow at least one of the following strategies:</p>
+<p id="rfc.section.6.8.p.3">To avoid vulnerabilities, in addition to the response header requirements in <a href="#application-signed-exchange" class="xref">Section 5.3</a>, servers are advised to only serve an <samp>application/signed-exchange</samp> resource (SXG) from a domain if it would also be safe for that domain to serve the SXG&#8217;s content directly, and to follow at least one of the following strategies:</p>
 <p></p>
 
 <ol>
@@ -1349,6 +1358,7 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 </li>
 </ol>
 <p id="rfc.section.6.8.p.5">There are still a few binary length fields that an attacker may influence to contain sensitive bytes, but they&#8217;re always followed by lowercase alphabetic strings from a small set of possibilities, which reduces the chance that a client will sniff them as indicating a particular content type.</p>
+<p id="rfc.section.6.8.p.6">To encourage servers to include the <samp>X-Content-Type-Options: nosniff</samp> header field, clients SHOULD reject signed exchanges served without it.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#privacy-considerations" id="privacy-considerations">Privacy considerations</a>
 </h1>
