@@ -368,12 +368,12 @@ ul.toc li {
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.16.3 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.17.1 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Yasskin, J." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-yasskin-http-origin-signed-responses-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-01-21" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-01-23" />
   <meta name="dct.abstract" content="This document specifies how a server can send an HTTP exchange&#8212;a request URL, content negotiation information, and a response&#8212;with signatures that vouch for that exchange&#8217;s authenticity. These signatures can be verified against an origin&#8217;s certificate to establish that the exchange is authoritative for an origin even if it was transferred over a connection that isn&#8217;t. The signatures can also be used in other ways described in the appendices.These signatures contain countermeasures against downgrade and protocol-confusion attacks." />
   <meta name="description" content="This document specifies how a server can send an HTTP exchange&#8212;a request URL, content negotiation information, and a response&#8212;with signatures that vouch for that exchange&#8217;s authenticity. These signatures can be verified against an origin&#8217;s certificate to establish that the exchange is authoritative for an origin even if it was transferred over a connection that isn&#8217;t. The signatures can also be used in other ways described in the appendices.These signatures contain countermeasures against downgrade and protocol-confusion attacks." />
 
@@ -394,10 +394,10 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left">Intended status: Standards Track</td>
-<td class="right">January 21, 2019</td>
+<td class="right">January 23, 2019</td>
 </tr>
 <tr>
-<td class="left">Expires: July 25, 2019</td>
+<td class="left">Expires: July 27, 2019</td>
 <td class="right"></td>
 </tr>
 
@@ -418,7 +418,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 25, 2019.</p>
+<p>This Internet-Draft will expire on July 27, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -646,7 +646,7 @@ ul.toc li {
 <a href="#rfc.section.3.1">3.1.</a> <a href="#signature-header" id="signature-header">The Signature Header</a>
 </h1>
 <p id="rfc.section.3.1.p.1">The <samp>Signature</samp> header field conveys a list of signatures for an exchange, each one accompanied by information about how to determine the authority of and refresh that signature. Each signature directly signs the exchange&#8217;s URL and response headers and identifies one of those headers that enforces the integrity of the exchange&#8217;s payload.</p>
-<p id="rfc.section.3.1.p.2">The <samp>Signature</samp> header is a Structured Header as defined by <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>. Its value MUST be a parameterised list (Section 3.3 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>). Its ABNF is:</p>
+<p id="rfc.section.3.1.p.2">The <samp>Signature</samp> header is a Structured Header as defined by <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>. Its value MUST be a parameterised list (Section 3.4 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>). Its ABNF is:</p>
 <pre>
 Signature = sh-param-list
 </pre>
@@ -655,20 +655,20 @@ Signature = sh-param-list
 
 <dl>
 <dt>&#8220;sig&#8221;</dt>
-<dd style="margin-left: 8">Binary content (Section 3.9 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) holding the signature of most of these parameters and the exchange&#8217;s URL and response headers.</dd>
+<dd style="margin-left: 8">Byte sequence (Section 3.10 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) holding the signature of most of these parameters and the exchange&#8217;s URL and response headers.</dd>
 <dt>&#8220;integrity&#8221;</dt>
-<dd style="margin-left: 8">A string (Section 3.7 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) containing a &#8220;/&#8221;-separated sequence of names starting with the lowercase name of the response header field that guards the response payload&#8217;s integrity. The meaning of subsequent names depends on the response header field, but for the &#8220;digest&#8221; header field, the single following name is the name of the digest algorithm that guards the payload&#8217;s integrity.</dd>
+<dd style="margin-left: 8">A string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) containing a &#8220;/&#8221;-separated sequence of names starting with the lowercase name of the response header field that guards the response payload&#8217;s integrity. The meaning of subsequent names depends on the response header field, but for the &#8220;digest&#8221; header field, the single following name is the name of the digest algorithm that guards the payload&#8217;s integrity.</dd>
 <dt>&#8220;cert-url&#8221;</dt>
-<dd style="margin-left: 8">A string (Section 3.7 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) containing an absolute URL (<a href="#terminology" class="xref">Section 2</a>) with a scheme of &#8220;https&#8221; or &#8220;data&#8221;.</dd>
+<dd style="margin-left: 8">A string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) containing an absolute URL (<a href="#terminology" class="xref">Section 2</a>) with a scheme of &#8220;https&#8221; or &#8220;data&#8221;.</dd>
 <dt>&#8220;cert-sha256&#8221;</dt>
-<dd style="margin-left: 8">Binary content (Section 3.9 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) holding the SHA-256 hash of the first certificate found at &#8220;cert-url&#8221;.</dd>
+<dd style="margin-left: 8">Byte sequence (Section 3.10 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) holding the SHA-256 hash of the first certificate found at &#8220;cert-url&#8221;.</dd>
 <dt>&#8220;ed25519key&#8221;</dt>
-<dd style="margin-left: 8">Binary content (Section 3.9 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) holding an Ed25519 public key (<a href="#RFC8032" class="xref">[RFC8032]</a>).</dd>
+<dd style="margin-left: 8">Byte sequence (Section 3.10 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) holding an Ed25519 public key (<a href="#RFC8032" class="xref">[RFC8032]</a>).</dd>
 <dt>&#8220;validity-url&#8221;</dt>
 <dd style="margin-left: 8">
-<a name="signature-validityurl"></a>A string (Section 3.7 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) containing an absolute URL (<a href="#terminology" class="xref">Section 2</a>) with a scheme of &#8220;https&#8221;.</dd>
+<a name="signature-validityurl"></a>A string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) containing an absolute URL (<a href="#terminology" class="xref">Section 2</a>) with a scheme of &#8220;https&#8221;.</dd>
 <dt>&#8220;date&#8221; and &#8220;expires&#8221;</dt>
-<dd style="margin-left: 8">An integer (Section 3.5 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) representing a Unix time.</dd>
+<dd style="margin-left: 8">An integer (Section 3.6 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) representing a Unix time.</dd>
 </dl>
 <p id="rfc.section.3.1.p.5">The &#8220;cert-url&#8221; parameter is <em>not</em> signed, so intermediates can update it with a pointer to a cached version.</p>
 <h1 id="rfc.section.3.1.1">
@@ -714,7 +714,7 @@ Signature:
 <h1 id="rfc.section.3.1.2">
 <a href="#rfc.section.3.1.2">3.1.2.</a> <a href="#oq-signature-header" id="oq-signature-header">Open Questions</a>
 </h1>
-<p><a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a> provides a way to parameterise identifiers but not other supported types like binary content. If the <samp>Signature</samp> header field is notionally a list of parameterised signatures, maybe we should add a &#8220;parameterised binary content&#8221; type.</p>
+<p><a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a> provides a way to parameterise identifiers but not other supported types like byte sequences. If the <samp>Signature</samp> header field is notionally a list of parameterised signatures, maybe we should add a &#8220;parameterised byte sequence&#8221; type.</p>
 <p id="rfc.section.3.1.2.p.2">Should the cert-url and validity-url be lists so that intermediates can offer a cache without losing the original URLs? Putting lists in dictionary fields is more complex than <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a> allows, so they&#8217;re single items for now.</p>
 <h1 id="rfc.section.3.2">
 <a href="#rfc.section.3.2">3.2.</a> <a href="#cbor-representation" id="cbor-representation">CBOR representation of exchange response headers</a>
@@ -809,7 +809,7 @@ cert-chain = [
 <h1 id="rfc.section.3.5">
 <a href="#rfc.section.3.5">3.5.</a> <a href="#signature-validity" id="signature-validity">Signature validity</a>
 </h1>
-<p id="rfc.section.3.5.p.1">The client MUST parse the <samp>Signature</samp> header field as the parameterised list (Section 4.2.3 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) described in <a href="#signature-header" class="xref">Section 3.1</a>. If an error is thrown during this parsing or any of the requirements described there aren&#8217;t satisfied, the exchange has no valid signatures. Otherwise, each member of this list represents a signature with parameters.</p>
+<p id="rfc.section.3.5.p.1">The client MUST parse the <samp>Signature</samp> header field as the parameterised list (Section 4.2.5 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) described in <a href="#signature-header" class="xref">Section 3.1</a>. If an error is thrown during this parsing or any of the requirements described there aren&#8217;t satisfied, the exchange has no valid signatures. Otherwise, each member of this list represents a signature with parameters.</p>
 <p id="rfc.section.3.5.p.2">The client MUST use the following algorithm to determine whether each signature with parameters is invalid or potentially-valid for an exchange&#8217;s</p>
 <p></p>
 
@@ -834,7 +834,7 @@ cert-chain = [
 <ol>
 <li>Let: <ul>
 <li>
-<samp>signature</samp> be the signature (binary content in the parameterised identifier&#8217;s &#8220;sig&#8221; parameter).</li>
+<samp>signature</samp> be the signature (byte sequence in the parameterised identifier&#8217;s &#8220;sig&#8221; parameter).</li>
 <li>
 <samp>integrity</samp> be the signature&#8217;s &#8220;integrity&#8221; parameter.</li>
 <li>
@@ -906,7 +906,7 @@ validity = {
   }
 ]
 </pre>
-<p id="rfc.section.3.6.p.6">The elements of the <samp>signatures</samp> array are parameterised identifiers (Section 4.2.4 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) meant to replace the signatures within the <samp>Signature</samp> header field pointing to this validity data. If the signed exchange contains a bug severe enough that clients need to stop using the content, the <samp>signatures</samp> array MUST NOT be present.</p>
+<p id="rfc.section.3.6.p.6">The elements of the <samp>signatures</samp> array are parameterised identifiers (Section 4.2.6 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) meant to replace the signatures within the <samp>Signature</samp> header field pointing to this validity data. If the signed exchange contains a bug severe enough that clients need to stop using the content, the <samp>signatures</samp> array MUST NOT be present.</p>
 <p id="rfc.section.3.6.p.7">If the the <samp>update</samp> map is present, that indicates that a new version of the signed exchange is available at its effective request URI (Section 5.5 of <a href="#RFC7230" class="xref">[RFC7230]</a>) and can give an estimate of the size of the updated exchange (<samp>update.size</samp>). If the signed exchange is currently the most recent version, the <samp>update</samp> SHOULD NOT be present.</p>
 <p id="rfc.section.3.6.p.8">If both the <samp>signatures</samp> and <samp>update</samp> fields are present, clients can use the estimated size to decide whether to update the whole resource or just its signatures.</p>
 <h1 id="rfc.section.3.6.1">
@@ -973,7 +973,7 @@ Signature:
 </h1>
 <p><samp>Signature</samp> header fields cost on the order of 300 bytes for ECDSA signatures, so servers might prefer to avoid sending them to clients that don&#8217;t intend to use them. A client can send the <samp>Accept-Signature</samp> header field to indicate that it does intend to take advantage of any available signatures and to indicate what kinds of signatures it supports.</p>
 <p id="rfc.section.3.7.p.2">When a server receives an <samp>Accept-Signature</samp> header field in a client request, it SHOULD reply with any available <samp>Signature</samp> header fields for its response that the <samp>Accept-Signature</samp> header field indicates the client supports. However, if the <samp>Accept-Signature</samp> value violates a requirement in this section, the server MUST behave as if it hadn&#8217;t received any <samp>Accept-Signature</samp> header at all.</p>
-<p id="rfc.section.3.7.p.3">The <samp>Accept-Signature</samp> header field is a Structured Header as defined by <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>. Its value MUST be a parameterised list (Section 3.3 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>). Its ABNF is:</p>
+<p id="rfc.section.3.7.p.3">The <samp>Accept-Signature</samp> header field is a Structured Header as defined by <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>. Its value MUST be a parameterised list (Section 3.4 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>). Its ABNF is:</p>
 <pre>
 Accept-Signature = sh-param-list
 </pre>
@@ -992,7 +992,7 @@ Accept-Signature = sh-param-list
 <h1 id="rfc.section.3.7.3">
 <a href="#rfc.section.3.7.3">3.7.3.</a> <a href="#accept-signature-key-values" id="accept-signature-key-values">Key value identifiers</a>
 </h1>
-<p id="rfc.section.3.7.3.p.1">The &#8220;ed25519key&#8221; identifier has parameters indicating the public keys that will be used to validate the returned signature. Each parameter&#8217;s name is re-interpreted as binary content (Section 3.9 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) encoding a prefix of the public key. For example, if the client will validate signatures using the public key whose base64 encoding is <samp>11qYAYKxCrfVS/7TyWQHOg7hcvPapiMlrwIaaPcHURo=</samp>, valid <samp>Accept-Signature</samp> header fields include:</p>
+<p id="rfc.section.3.7.3.p.1">The &#8220;ed25519key&#8221; identifier has parameters indicating the public keys that will be used to validate the returned signature. Each parameter&#8217;s name is re-interpreted as a byte sequence (Section 3.10 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) encoding a prefix of the public key. For example, if the client will validate signatures using the public key whose base64 encoding is <samp>11qYAYKxCrfVS/7TyWQHOg7hcvPapiMlrwIaaPcHURo=</samp>, valid <samp>Accept-Signature</samp> header fields include:</p>
 <pre>
 Accept-Signature: ..., ed25519key; *11qYAYKxCrfVS/7TyWQHOg7hcvPapiMlrwIaaPcHURo=*
 Accept-Signature: ..., ed25519key; *11qYAYKxCrfVS/7TyWQHOg==*
@@ -1007,7 +1007,7 @@ Accept-Signature: ..., ed25519key; *11qYA===*
 <pre>
 Accept-Signature: ..., ed25519key; 11qYAQ
 </pre>
-<p id="rfc.section.3.7.3.p.4">because it doesn&#8217;t start or end with the <samp>*</samp>s that indicate binary content.</p>
+<p id="rfc.section.3.7.3.p.4">because it doesn&#8217;t start or end with the <samp>*</samp>s that indicate a byte sequence.</p>
 <p id="rfc.section.3.7.3.p.5">Note that <samp>ed25519key; **</samp> is an empty prefix, which matches all public keys, so it&#8217;s useful in subresource integrity (<a href="#uc-sri" class="xref">Appendix A.3</a>) cases like <samp>&lt;link rel=preload as=script href="..."&gt;</samp> where the public key isn&#8217;t known until the matching <samp>&lt;script src="..." integrity="..."&gt;</samp> tag.</p>
 <h1 id="rfc.section.3.7.4">
 <a href="#rfc.section.3.7.4">3.7.4.</a> <a href="#accept-signature-examples" id="accept-signature-examples">Examples</a>
@@ -1190,7 +1190,7 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 <pre>
 Signed-Headers = sh-list
 </pre>
-<p id="rfc.section.5.1.2.p.4">Each element of the <samp>Signed-Headers</samp> list must be a lowercase string (Section 3.7 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) naming an HTTP response header field. Pseudo-header field names (Section 8.1.2.1 of <a href="#RFC7540" class="xref">[RFC7540]</a>) MUST NOT appear in this list.</p>
+<p id="rfc.section.5.1.2.p.4">Each element of the <samp>Signed-Headers</samp> list must be a lowercase string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) naming an HTTP response header field. Pseudo-header field names (Section 8.1.2.1 of <a href="#RFC7540" class="xref">[RFC7540]</a>) MUST NOT appear in this list.</p>
 <p id="rfc.section.5.1.2.p.5">Higher-level protocols SHOULD place requirements on the minimum set of headers to include in the <samp>Signed-Headers</samp> header field.</p>
 <h1 id="rfc.section.5.2">
 <a href="#rfc.section.5.2">5.2.</a> <a href="#cross-origin-push" id="cross-origin-push">HTTP/2 extension for cross-origin Server Push</a>
@@ -1894,6 +1894,7 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <li>Make the signed message format a concatenation of byte sequences, which helps implementations avoid re-serializing the exchange&#8217;s request and response metadata and headers.</li>
 <li>Explicitly check the response payload&#8217;s integrity instead of assuming the client did it elsewhere in processing the response.</li>
 <li>Reject uncached header fields.</li>
+<li>Update to draft-ietf-httpbis-header-structure-09.</li>
 </ul>
 <p id="rfc.section.D.p.4">draft-04</p>
 <p></p>

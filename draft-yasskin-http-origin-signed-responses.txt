@@ -4,8 +4,8 @@
 
 Network Working Group                                         J. Yasskin
 Internet-Draft                                                    Google
-Intended status: Standards Track                        January 21, 2019
-Expires: July 25, 2019
+Intended status: Standards Track                        January 23, 2019
+Expires: July 27, 2019
 
 
                          Signed HTTP Exchanges
@@ -48,12 +48,12 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 25, 2019.
+   This Internet-Draft will expire on July 27, 2019.
 
 
 
 
-Yasskin                   Expires July 25, 2019                 [Page 1]
+Yasskin                   Expires July 27, 2019                 [Page 1]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Yasskin                   Expires July 25, 2019                 [Page 2]
+Yasskin                   Expires July 27, 2019                 [Page 2]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -165,7 +165,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                 [Page 3]
+Yasskin                   Expires July 27, 2019                 [Page 3]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -221,7 +221,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                 [Page 4]
+Yasskin                   Expires July 27, 2019                 [Page 4]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -277,7 +277,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                 [Page 5]
+Yasskin                   Expires July 27, 2019                 [Page 5]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -296,7 +296,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
    The "Signature" header is a Structured Header as defined by
    [I-D.ietf-httpbis-header-structure].  Its value MUST be a
-   parameterised list (Section 3.3 of
+   parameterised list (Section 3.4 of
    [I-D.ietf-httpbis-header-structure]).  Its ABNF is:
 
    Signature = sh-param-list
@@ -310,11 +310,11 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
    Section 3.1.2, Paragraph 1).  The present parameters MUST have the
    following values:
 
-   "sig"  Binary content (Section 3.9 of
+   "sig"  Byte sequence (Section 3.10 of
       [I-D.ietf-httpbis-header-structure]) holding the signature of most
       of these parameters and the exchange's URL and response headers.
 
-   "integrity"  A string (Section 3.7 of
+   "integrity"  A string (Section 3.8 of
       [I-D.ietf-httpbis-header-structure]) containing a "/"-separated
       sequence of names starting with the lowercase name of the response
       header field that guards the response payload's integrity.  The
@@ -323,30 +323,30 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
       the name of the digest algorithm that guards the payload's
       integrity.
 
-   "cert-url"  A string (Section 3.7 of
+   "cert-url"  A string (Section 3.8 of
       [I-D.ietf-httpbis-header-structure]) containing an absolute URL
       (Section 2) with a scheme of "https" or "data".
 
-   "cert-sha256"  Binary content (Section 3.9 of
+   "cert-sha256"  Byte sequence (Section 3.10 of
       [I-D.ietf-httpbis-header-structure]) holding the SHA-256 hash of
       the first certificate found at "cert-url".
 
 
 
-Yasskin                   Expires July 25, 2019                 [Page 6]
+Yasskin                   Expires July 27, 2019                 [Page 6]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
-   "ed25519key"  Binary content (Section 3.9 of
+   "ed25519key"  Byte sequence (Section 3.10 of
       [I-D.ietf-httpbis-header-structure]) holding an Ed25519 public key
       ([RFC8032]).
 
-   "validity-url"  A string (Section 3.7 of
+   "validity-url"  A string (Section 3.8 of
       [I-D.ietf-httpbis-header-structure]) containing an absolute URL
       (Section 2) with a scheme of "https".
 
-   "date" and "expires"  An integer (Section 3.5 of
+   "date" and "expires"  An integer (Section 3.6 of
       [I-D.ietf-httpbis-header-structure]) representing a Unix time.
 
    The "cert-url" parameter is _not_ signed, so intermediates can update
@@ -389,7 +389,7 @@ Signature:
 
 
 
-Yasskin                   Expires July 25, 2019                 [Page 7]
+Yasskin                   Expires July 27, 2019                 [Page 7]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -429,10 +429,9 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 3.1.2.  Open Questions
 
    [I-D.ietf-httpbis-header-structure] provides a way to parameterise
-   identifiers but not other supported types like binary content.  If
+   identifiers but not other supported types like byte sequences.  If
    the "Signature" header field is notionally a list of parameterised
-   signatures, maybe we should add a "parameterised binary content"
-   type.
+   signatures, maybe we should add a "parameterised byte sequence" type.
 
    Should the cert-url and validity-url be lists so that intermediates
    can offer a cache without losing the original URLs?  Putting lists in
@@ -445,7 +444,8 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                 [Page 8]
+
+Yasskin                   Expires July 27, 2019                 [Page 8]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -501,7 +501,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                 [Page 9]
+Yasskin                   Expires July 27, 2019                 [Page 9]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -557,7 +557,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 10]
+Yasskin                   Expires July 27, 2019                [Page 10]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -602,7 +602,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 3.5.  Signature validity
 
    The client MUST parse the "Signature" header field as the
-   parameterised list (Section 4.2.3 of
+   parameterised list (Section 4.2.5 of
    [I-D.ietf-httpbis-header-structure]) described in Section 3.1.  If an
    error is thrown during this parsing or any of the requirements
    described there aren't satisfied, the exchange has no valid
@@ -613,7 +613,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 11]
+Yasskin                   Expires July 27, 2019                [Page 11]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -649,7 +649,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
    1.   Let:
 
-        *  "signature" be the signature (binary content in the
+        *  "signature" be the signature (byte sequence in the
            parameterised identifier's "sig" parameter).
 
         *  "integrity" be the signature's "integrity" parameter.
@@ -669,7 +669,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 12]
+Yasskin                   Expires July 27, 2019                [Page 12]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -725,7 +725,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 13]
+Yasskin                   Expires July 27, 2019                [Page 13]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -781,7 +781,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 14]
+Yasskin                   Expires July 27, 2019                [Page 14]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -837,7 +837,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 15]
+Yasskin                   Expires July 27, 2019                [Page 15]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -877,7 +877,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
    ]
 
    The elements of the "signatures" array are parameterised identifiers
-   (Section 4.2.4 of [I-D.ietf-httpbis-header-structure]) meant to
+   (Section 4.2.6 of [I-D.ietf-httpbis-header-structure]) meant to
    replace the signatures within the "Signature" header field pointing
    to this validity data.  If the signed exchange contains a bug severe
    enough that clients need to stop using the content, the "signatures"
@@ -893,7 +893,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 16]
+Yasskin                   Expires July 27, 2019                [Page 16]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -949,7 +949,7 @@ Signature:
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 17]
+Yasskin                   Expires July 27, 2019                [Page 17]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1005,7 +1005,7 @@ Signature:
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 18]
+Yasskin                   Expires July 27, 2019                [Page 18]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1022,7 +1022,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
    The "Accept-Signature" header field is a Structured Header as defined
    by [I-D.ietf-httpbis-header-structure].  Its value MUST be a
-   parameterised list (Section 3.3 of
+   parameterised list (Section 3.4 of
    [I-D.ietf-httpbis-header-structure]).  Its ABNF is:
 
    Accept-Signature = sh-param-list
@@ -1061,7 +1061,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 19]
+Yasskin                   Expires July 27, 2019                [Page 19]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1074,10 +1074,10 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
    The "ed25519key" identifier has parameters indicating the public keys
    that will be used to validate the returned signature.  Each
-   parameter's name is re-interpreted as binary content (Section 3.9 of
-   [I-D.ietf-httpbis-header-structure]) encoding a prefix of the public
-   key.  For example, if the client will validate signatures using the
-   public key whose base64 encoding is
+   parameter's name is re-interpreted as a byte sequence (Section 3.10
+   of [I-D.ietf-httpbis-header-structure]) encoding a prefix of the
+   public key.  For example, if the client will validate signatures
+   using the public key whose base64 encoding is
    "11qYAYKxCrfVS/7TyWQHOg7hcvPapiMlrwIaaPcHURo=", valid "Accept-
    Signature" header fields include:
 
@@ -1094,8 +1094,8 @@ Accept-Signature: ..., ed25519key; **
 
    Accept-Signature: ..., ed25519key; 11qYAQ
 
-   because it doesn't start or end with the "*"s that indicate binary
-   content.
+   because it doesn't start or end with the "*"s that indicate a byte
+   sequence.
 
    Note that "ed25519key; **" is an empty prefix, which matches all
    public keys, so it's useful in subresource integrity (Appendix A.3)
@@ -1117,7 +1117,7 @@ Accept-Signature: ..., ed25519key; **
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 20]
+Yasskin                   Expires July 27, 2019                [Page 20]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1173,7 +1173,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 21]
+Yasskin                   Expires July 27, 2019                [Page 21]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1229,7 +1229,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 22]
+Yasskin                   Expires July 27, 2019                [Page 22]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1285,7 +1285,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 23]
+Yasskin                   Expires July 27, 2019                [Page 23]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1341,7 +1341,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 24]
+Yasskin                   Expires July 27, 2019                [Page 24]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1397,7 +1397,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 25]
+Yasskin                   Expires July 27, 2019                [Page 25]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1453,13 +1453,13 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 26]
+Yasskin                   Expires July 27, 2019                [Page 26]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
    Each element of the "Signed-Headers" list must be a lowercase string
-   (Section 3.7 of [I-D.ietf-httpbis-header-structure]) naming an HTTP
+   (Section 3.8 of [I-D.ietf-httpbis-header-structure]) naming an HTTP
    response header field.  Pseudo-header field names (Section 8.1.2.1 of
    [RFC7540]) MUST NOT appear in this list.
 
@@ -1509,7 +1509,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 27]
+Yasskin                   Expires July 27, 2019                [Page 27]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1565,7 +1565,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 28]
+Yasskin                   Expires July 27, 2019                [Page 28]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1621,7 +1621,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 29]
+Yasskin                   Expires July 27, 2019                [Page 29]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1677,7 +1677,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 30]
+Yasskin                   Expires July 27, 2019                [Page 30]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1733,7 +1733,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 31]
+Yasskin                   Expires July 27, 2019                [Page 31]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1789,7 +1789,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 32]
+Yasskin                   Expires July 27, 2019                [Page 32]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1845,7 +1845,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 33]
+Yasskin                   Expires July 27, 2019                [Page 33]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1901,7 +1901,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 34]
+Yasskin                   Expires July 27, 2019                [Page 34]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -1957,7 +1957,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 35]
+Yasskin                   Expires July 27, 2019                [Page 35]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2013,7 +2013,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 36]
+Yasskin                   Expires July 27, 2019                [Page 36]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2069,7 +2069,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 37]
+Yasskin                   Expires July 27, 2019                [Page 37]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2125,7 +2125,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 38]
+Yasskin                   Expires July 27, 2019                [Page 38]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2181,7 +2181,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 39]
+Yasskin                   Expires July 27, 2019                [Page 39]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2237,7 +2237,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 40]
+Yasskin                   Expires July 27, 2019                [Page 40]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2293,7 +2293,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 41]
+Yasskin                   Expires July 27, 2019                [Page 41]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2349,7 +2349,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 42]
+Yasskin                   Expires July 27, 2019                [Page 42]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2405,7 +2405,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 43]
+Yasskin                   Expires July 27, 2019                [Page 43]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2461,7 +2461,7 @@ A.1.  PUSHed subresources
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 44]
+Yasskin                   Expires July 27, 2019                [Page 44]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2517,7 +2517,7 @@ A.2.  Explicit use of a content distributor for subresources
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 45]
+Yasskin                   Expires July 27, 2019                [Page 45]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2573,7 +2573,7 @@ A.5.  Static Analysis
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 46]
+Yasskin                   Expires July 27, 2019                [Page 46]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2629,7 +2629,7 @@ B.1.2.  Signature constraints
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 47]
+Yasskin                   Expires July 27, 2019                [Page 47]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2685,7 +2685,7 @@ B.2.  How much to sign
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 48]
+Yasskin                   Expires July 27, 2019                [Page 48]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2741,7 +2741,7 @@ B.3.  Response lifespan
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 49]
+Yasskin                   Expires July 27, 2019                [Page 49]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2797,7 +2797,7 @@ B.3.2.  Response downgrade attacks
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 50]
+Yasskin                   Expires July 27, 2019                [Page 50]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2853,7 +2853,7 @@ Appendix C.  Determining validity using cache control
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 51]
+Yasskin                   Expires July 27, 2019                [Page 51]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2909,7 +2909,7 @@ C.1.  Example of updating cache control
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 52]
+Yasskin                   Expires July 27, 2019                [Page 52]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2965,7 +2965,7 @@ Appendix D.  Change Log
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 53]
+Yasskin                   Expires July 27, 2019                [Page 53]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -2974,6 +2974,8 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
       assuming the client did it elsewhere in processing the response.
 
    o  Reject uncached header fields.
+
+   o  Update to draft-ietf-httpbis-header-structure-09.
 
    draft-04
 
@@ -3019,9 +3021,7 @@ Internet-Draft            Signed HTTP Exchanges             January 2019
 
 
 
-
-
-Yasskin                   Expires July 25, 2019                [Page 54]
+Yasskin                   Expires July 27, 2019                [Page 54]
 
 Internet-Draft            Signed HTTP Exchanges             January 2019
 
@@ -3077,4 +3077,4 @@ Author's Address
 
 
 
-Yasskin                   Expires July 25, 2019                [Page 55]
+Yasskin                   Expires July 27, 2019                [Page 55]
