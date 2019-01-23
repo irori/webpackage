@@ -857,8 +857,8 @@ cert-chain = [
 <li>Let <samp>main-certificate</samp> be the first certificate in <samp>certificate-chain</samp>.</li>
 <li>Set <samp>publicKey</samp> to <samp>main-certificate</samp>&#8217;s public key.</li>
 <li>If <samp>publicKey</samp> is an RSA key, return &#8220;invalid&#8221;.</li>
-<li>If <samp>publicKey</samp> is a key using the secp256r1 elliptic curve, set <samp>signing-alg</samp> to ecdsa_secp256r1_sha256 as defined in Section 4.2.3 of <a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a>.</li>
-<li>Otherwise, either return &#8220;invalid&#8221; or set <samp>signing-alg</samp> to a non-legacy signing algorithm defined by TLS 1.3 or later (<a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a>). This choice MUST depend only on <samp>publicKey</samp>&#8217;s type and not on any other context.</li>
+<li>If <samp>publicKey</samp> is a key using the secp256r1 elliptic curve, set <samp>signing-alg</samp> to ecdsa_secp256r1_sha256 as defined in Section 4.2.3 of <a href="#RFC8446" class="xref">[RFC8446]</a>.</li>
+<li>Otherwise, either return &#8220;invalid&#8221; or set <samp>signing-alg</samp> to a non-legacy signing algorithm defined by TLS 1.3 or later (<a href="#RFC8446" class="xref">[RFC8446]</a>). This choice MUST depend only on <samp>publicKey</samp>&#8217;s type and not on any other context.</li>
 </ol>
 </li>
 <li>If <samp>ed25519key</samp> is present, set <samp>publicKey</samp> to <samp>ed25519key</samp> and <samp>signing-alg</samp> to ed25519, as defined by <a href="#RFC8032" class="xref">[RFC8032]</a>
@@ -867,7 +867,7 @@ cert-chain = [
 </li>
 <li>If <samp>expires</samp> is more than 7 days (604800 seconds) after <samp>date</samp>, return &#8220;invalid&#8221;.</li>
 <li>If the current time is before <samp>date</samp> or after <samp>expires</samp>, return &#8220;invalid&#8221;.</li>
-<li>Let <samp>message</samp> be the concatenation of the following byte strings. This matches the <a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a> format to avoid cross-protocol attacks if anyone uses the same key in a TLS certificate and an exchange-signing certificate.  <ol>
+<li>Let <samp>message</samp> be the concatenation of the following byte strings. This matches the <a href="#RFC8446" class="xref">[RFC8446]</a> format to avoid cross-protocol attacks if anyone uses the same key in a TLS certificate and an exchange-signing certificate.  <ol>
 <li>A string that consists of octet 32 (0x20) repeated 64 times.</li>
 <li>A context string: the ASCII encoding of &#8220;HTTP Exchange 1&#8221;.      <br><br> Note: RFC EDITOR PLEASE DELETE THIS NOTE; The implementation of the final RFC MUST use this context string, but implementations of drafts MUST NOT use it and MUST use another draft-specific string beginning with &#8220;HTTP Exchange 1 &#8221; instead. This ensures that signers can predict how their signatures will be used.</li>
 <li>A single 0 byte which serves as a separator.</li>
@@ -879,7 +879,7 @@ cert-chain = [
 <li>The 8-byte big-endian encoding of the length in bytes of <samp>responseHeaders</samp>, followed by the bytes of <samp>responseHeaders</samp>.</li>
 </ol>
 </li>
-<li>If <samp>cert-url</samp> is present and the SHA-256 hash of <samp>main-certificate</samp>&#8217;s <samp>cert_data</samp> is not equal to <samp>cert-sha256</samp> (whose presence was checked when the <samp>Signature</samp> header field was parsed), return &#8220;invalid&#8221;.  <br><br> Note that this intentionally differs from TLS 1.3, which signs the entire certificate chain in its Certificate Verify (Section 4.4.3 of <a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a>), in order to allow updating the stapled OCSP response without updating signatures at the same time.</li>
+<li>If <samp>cert-url</samp> is present and the SHA-256 hash of <samp>main-certificate</samp>&#8217;s <samp>cert_data</samp> is not equal to <samp>cert-sha256</samp> (whose presence was checked when the <samp>Signature</samp> header field was parsed), return &#8220;invalid&#8221;.  <br><br> Note that this intentionally differs from TLS 1.3, which signs the entire certificate chain in its Certificate Verify (Section 4.4.3 of <a href="#RFC8446" class="xref">[RFC8446]</a>), in order to allow updating the stapled OCSP response without updating signatures at the same time.</li>
 <li>If <samp>signature</samp> is not a valid signature of <samp>message</samp> by <samp>publicKey</samp> using <samp>signing-alg</samp>, return &#8220;invalid&#8221;.</li>
 <li>If <samp>headers</samp>, interpreted according to <a href="#cbor-representation" class="xref">Section 3.2</a>, does not contain a <samp>Content-Type</samp> response header field (Section 3.1.1.5 of <a href="#RFC7231" class="xref">[RFC7231]</a>), return &#8220;invalid&#8221;.  <br><br> Clients MUST interpret the signed payload as this specified media type instead of trying to sniff a media type from the bytes of the payload, for example by attaching an <samp>X-Content-Type-Options: nosniff</samp> header field (<a href="#FETCH" class="xref">[FETCH]</a>) to the extracted response.</li>
 <li>If <samp>integrity</samp> names a header field and parameter that is not present in <samp>responseHeaders</samp> or which the client cannot use to check the integrity of <samp>payload</samp> (for example, the header field is new and hasn&#8217;t been implemented yet), then return &#8220;invalid&#8221;. If the selected header field provides integrity guarantees weaker than SHA-256, return &#8220;invalid&#8221;. If validating integrity using the selected header field requires the client to process records larger than 16384 bytes, return &#8220;invalid&#8221;. Clients MUST implement at least the <samp>Digest</samp> header field with its <samp>mi-sha256</samp> digest algorithm (Section 3 of <a href="#I-D.thomson-http-mice" class="xref">[I-D.thomson-http-mice]</a>).  <br><br> Note: RFC EDITOR PLEASE DELETE THIS NOTE; Implementations of drafts of this RFC MUST recognize the draft spelling of the content encoding and digest algorithm specified by <a href="#I-D.thomson-http-mice" class="xref">[I-D.thomson-http-mice]</a> until that draft is published as an RFC. For example, implementations of draft-thomson-http-mice-03 would use <samp>mi-sha256-03</samp> and MUST NOT use <samp>mi-sha256</samp> itself. This ensures that final implementations don&#8217;t need to handle compatibility with implementations of early drafts of that content encoding.  <br><br> If <samp>payload</samp> doesn&#8217;t match the integrity information in the header described by <samp>integrity</samp>, return &#8220;invalid&#8221;.</li>
@@ -1147,7 +1147,7 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 <p id="rfc.section.4.2.p.4">CA certificates, by contrast, need to be revoked if an unauthorized entity is able to make even one unauthorized signature.</p>
 <p id="rfc.section.4.2.p.5">Certificates with this extension MUST be revoked if an unauthorized entity is able to make even one unauthorized signature.</p>
 <p id="rfc.section.4.2.p.6">Conforming CAs MUST NOT mark this extension as critical.</p>
-<p id="rfc.section.4.2.p.7">Clients MUST NOT accept certificates with this extension in TLS connections (Section 4.4.2.2 of <a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a>).</p>
+<p id="rfc.section.4.2.p.7">Clients MUST NOT accept certificates with this extension in TLS connections (Section 4.4.2.2 of <a href="#RFC8446" class="xref">[RFC8446]</a>).</p>
 <p id="rfc.section.4.2.p.8">RFC EDITOR PLEASE DELETE THE REST OF THE PARAGRAPHS IN THIS SECTION</p>
 <pre>
    id-ce-google OBJECT IDENTIFIER ::= { 1 3 6 1 4 1 11129 }
@@ -1365,7 +1365,7 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <p id="rfc.section.7.p.1">Normally, when a client fetches <samp>https://o1.com/resource.js</samp>, <samp>o1.com</samp> learns that the client is interested in the resource. If <samp>o1.com</samp> signs <samp>resource.js</samp>, <samp>o2.com</samp> serves it as <samp>https://o2.com/o1resource.js</samp>, and the client fetches it from there, then <samp>o2.com</samp> learns that the client is interested, and if the client executes the Javascript, that could also report the client&#8217;s interest back to <samp>o1.com</samp>.</p>
 <p id="rfc.section.7.p.2">Often, <samp>o2.com</samp> already knew about the client&#8217;s interest, because it&#8217;s the entity that directed the client to <samp>o1resource.js</samp>, but there may be cases where this leaks extra information.</p>
 <p id="rfc.section.7.p.3">For non-executable resource types, a signed response can improve the privacy situation by hiding the client&#8217;s interest from the original publisher.</p>
-<p id="rfc.section.7.p.4">To prevent network operators other than <samp>o1.com</samp> or <samp>o2.com</samp> from learning which exchanges were read, clients SHOULD only load exchanges fetched over a transport that&#8217;s protected from eavesdroppers. This can be difficult to determine when the exchange is being loaded from local disk, but when the client itself requested the exchange over a network it SHOULD require TLS (<a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a>) or a successor transport layer, and MUST NOT accept exchanges transferred over plain HTTP without TLS.</p>
+<p id="rfc.section.7.p.4">To prevent network operators other than <samp>o1.com</samp> or <samp>o2.com</samp> from learning which exchanges were read, clients SHOULD only load exchanges fetched over a transport that&#8217;s protected from eavesdroppers. This can be difficult to determine when the exchange is being loaded from local disk, but when the client itself requested the exchange over a network it SHOULD require TLS (<a href="#RFC8446" class="xref">[RFC8446]</a>) or a successor transport layer, and MUST NOT accept exchanges transferred over plain HTTP without TLS.</p>
 <h1 id="rfc.section.8">
 <a href="#rfc.section.8">8.</a> <a href="#iana-considerations" id="iana-considerations">IANA considerations</a>
 </h1>
@@ -1488,11 +1488,6 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <a>Nottingham, M.</a>, "<a href="https://tools.ietf.org/html/draft-ietf-httpbis-variants-04">HTTP Representation Variants</a>", Internet-Draft draft-ietf-httpbis-variants-04, October 2018.</td>
 </tr>
 <tr>
-<td class="reference"><b id="I-D.ietf-tls-tls13">[I-D.ietf-tls-tls13]</b></td>
-<td class="top">
-<a>Rescorla, E.</a>, "<a href="https://tools.ietf.org/html/draft-ietf-tls-tls13-28">The Transport Layer Security (TLS) Protocol Version 1.3</a>", Internet-Draft draft-ietf-tls-tls13-28, March 2018.</td>
-</tr>
-<tr>
 <td class="reference"><b id="I-D.thomson-http-mice">[I-D.thomson-http-mice]</b></td>
 <td class="top">
 <a>Thomson, M.</a> and <a>J. Yasskin</a>, "<a href="https://tools.ietf.org/html/draft-thomson-http-mice-03">Merkle Integrity Content Encoding</a>", Internet-Draft draft-thomson-http-mice-03, August 2018.</td>
@@ -1571,6 +1566,11 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <td class="reference"><b id="RFC8174">[RFC8174]</b></td>
 <td class="top">
 <a>Leiba, B.</a>, "<a href="https://tools.ietf.org/html/rfc8174">Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</a>", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC8446">[RFC8446]</b></td>
+<td class="top">
+<a>Rescorla, E.</a>, "<a href="https://tools.ietf.org/html/rfc8446">The Transport Layer Security (TLS) Protocol Version 1.3</a>", RFC 8446, DOI 10.17487/RFC8446, August 2018.</td>
 </tr>
 <tr>
 <td class="reference"><b id="URL">[URL]</b></td>
@@ -1766,7 +1766,7 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 
 <ol>
 <li>Avoid key types that are used for non-TLS protocols whose output could be confused with a signature. That may be just the <samp>rsaEncryption</samp> OID from <a href="#RFC8017" class="xref">[RFC8017]</a>.</li>
-<li>Use the same format as TLS&#8217;s signatures, specified in Section 4.4.3 of <a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a>, with a context string that&#8217;s specific to this use.</li>
+<li>Use the same format as TLS&#8217;s signatures, specified in Section 4.4.3 of <a href="#RFC8446" class="xref">[RFC8446]</a>, with a context string that&#8217;s specific to this use.</li>
 </ol>
 <p id="rfc.section.B.1.2.p.3">The specification also needs to define which signing algorithm to use. It currently specifies that as a function from the key type, instead of allowing attacker-controlled data to specify it.</p>
 <h1 id="rfc.appendix.B.1.3">
@@ -1774,7 +1774,7 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 </h1>
 <p id="rfc.section.B.1.3.p.1">The client needs to be able to find the certificate vouching for the signing key, a chain from that certificate to a trusted root, and possibly other trust information like SCTs (<a href="#RFC6962" class="xref">[RFC6962]</a>). One approach would be to include the certificate and its chain in the signature metadata itself, but this wastes bytes when the same certificate is used for multiple HTTP responses. If we decide to put the signature in an HTTP header, certificates are also unusually large for that context.</p>
 <p id="rfc.section.B.1.3.p.2">Another option is to pass a URL that the client can fetch to retrieve the certificate and chain. To avoid extra round trips in fetching that URL, it could be <a href="#uc-offline-websites" class="xref">bundled</a> with the signed content or <a href="#uc-pushed-subresources" class="xref">PUSHed</a> with it. The risks from the <samp>client_certificate_url</samp> extension (Section 11.3 of <a href="#RFC6066" class="xref">[RFC6066]</a>) don&#8217;t seem to apply here, since an attacker who can get a client to load an exchange and fetch the certificates it references, can also get the client to perform those fetches by loading other HTML.</p>
-<p id="rfc.section.B.1.3.p.3">To avoid using an unintended certificate with the same public key as the intended one, the content of the leaf certificate or the chain should be included in the signed data, like TLS does (Section 4.4.3 of <a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a>).</p>
+<p id="rfc.section.B.1.3.p.3">To avoid using an unintended certificate with the same public key as the intended one, the content of the leaf certificate or the chain should be included in the signed data, like TLS does (Section 4.4.3 of <a href="#RFC8446" class="xref">[RFC8446]</a>).</p>
 <h1 id="rfc.appendix.B.2">
 <a href="#rfc.appendix.B.2">B.2.</a> <a href="#how-much-to-sign" id="how-much-to-sign">How much to sign</a>
 </h1>
@@ -1895,6 +1895,7 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <li>Explicitly check the response payload&#8217;s integrity instead of assuming the client did it elsewhere in processing the response.</li>
 <li>Reject uncached header fields.</li>
 <li>Update to draft-ietf-httpbis-header-structure-09.</li>
+<li>Update to the final TLS 1.3 RFC.</li>
 </ul>
 <p id="rfc.section.D.p.4">draft-04</p>
 <p></p>
