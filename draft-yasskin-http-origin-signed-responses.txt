@@ -2931,6 +2931,8 @@ Appendix D.  Change Log
 
    RFC EDITOR PLEASE DELETE THIS SECTION.
 
+   draft-06
+
    draft-05
 
    o  Define absolute URLs, and limit the schemes each instance can use.
@@ -2960,8 +2962,6 @@ Appendix D.  Change Log
    o  Make the signed message format a concatenation of byte sequences,
       which helps implementations avoid re-serializing the exchange's
       request and response metadata and headers.
-
-
 
 
 
