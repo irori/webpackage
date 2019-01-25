@@ -1,6 +1,222 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/385",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/385/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/385/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/385/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/385",
+    "id": 402619399,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQ3MjU5ODIy",
+    "number": 385,
+    "title": "go: Add helper functions for verifier test",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-01-24T09:40:28Z",
+    "updated_at": "2019-01-24T10:18:08Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/385",
+      "html_url": "https://github.com/WICG/webpackage/pull/385",
+      "diff_url": "https://github.com/WICG/webpackage/pull/385.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/385.patch"
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/384",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/384/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/384/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/384/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/384",
+    "id": 402584110,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQ3MjMzMzgw",
+    "number": 384,
+    "title": "go: Update verifier to b3 spec",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-01-24T07:59:06Z",
+    "updated_at": "2019-01-25T01:40:12Z",
+    "closed_at": "2019-01-25T01:39:39Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/384",
+      "html_url": "https://github.com/WICG/webpackage/pull/384",
+      "diff_url": "https://github.com/WICG/webpackage/pull/384.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/384.patch"
+    },
+    "body": "- Update spec comments\r\n- Headers must contain `Content-Type` (#354)\r\n- Check request method only for b1 and b2"
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/383",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/383/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/383/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/383/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/383",
+    "id": 402459545,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQ3MTM5Mjk1",
+    "number": 383,
+    "title": "Bound validity periods to 90 days.",
+    "user": {
+      "login": "jyasskin",
+      "id": 83420,
+      "node_id": "MDQ6VXNlcjgzNDIw",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/83420?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jyasskin",
+      "html_url": "https://github.com/jyasskin",
+      "followers_url": "https://api.github.com/users/jyasskin/followers",
+      "following_url": "https://api.github.com/users/jyasskin/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jyasskin/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jyasskin/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jyasskin/subscriptions",
+      "organizations_url": "https://api.github.com/users/jyasskin/orgs",
+      "repos_url": "https://api.github.com/users/jyasskin/repos",
+      "events_url": "https://api.github.com/users/jyasskin/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jyasskin/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 2,
+    "created_at": "2019-01-23T22:32:15Z",
+    "updated_at": "2019-01-25T01:24:10Z",
+    "closed_at": null,
+    "author_association": "MEMBER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/383",
+      "html_url": "https://github.com/WICG/webpackage/pull/383",
+      "diff_url": "https://github.com/WICG/webpackage/pull/383.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/383.patch"
+    },
+    "body": "This is not necessarily the limit we'll want in the long run, but it\r\nhelps ensure that any future changes can go into effect reasonably\r\nquickly.\r\n\r\nI won't submit this until I have some indication that the folks who have already started experimenting with signed exchanges can handle 90-day certificates.\r\n\r\n@clintwilson, I want to make sure this doesn't cause any problems for you, since I believe Digicert has been issuing certificates with validity periods longer than 90 days. I don't intend to declare that any of your existing certificates are out of bounds.\r\n\r\n@AGWA, this isn't intended to stop discussion on #378, just to put _some_ limit in place while we figure out what the right limit is."
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/382",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/382/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/382/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/382/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/382",
+    "id": 402393035,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjQ3MDg3MjA3",
+    "number": 382,
+    "title": "Update the TLS reference to the final RFC.",
+    "user": {
+      "login": "jyasskin",
+      "id": 83420,
+      "node_id": "MDQ6VXNlcjgzNDIw",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/83420?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jyasskin",
+      "html_url": "https://github.com/jyasskin",
+      "followers_url": "https://api.github.com/users/jyasskin/followers",
+      "following_url": "https://api.github.com/users/jyasskin/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jyasskin/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jyasskin/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jyasskin/subscriptions",
+      "organizations_url": "https://api.github.com/users/jyasskin/orgs",
+      "repos_url": "https://api.github.com/users/jyasskin/repos",
+      "events_url": "https://api.github.com/users/jyasskin/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jyasskin/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-01-23T19:24:02Z",
+    "updated_at": "2019-01-23T19:54:19Z",
+    "closed_at": "2019-01-23T19:54:16Z",
+    "author_association": "MEMBER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/382",
+      "html_url": "https://github.com/WICG/webpackage/pull/382",
+      "diff_url": "https://github.com/WICG/webpackage/pull/382.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/382.patch"
+    },
+    "body": "idnits caught that I'd forgotten to do this when TLS was published."
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/381",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/381/labels{/name}",
@@ -43,16 +259,16 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-01-23T18:16:05Z",
-    "updated_at": "2019-01-23T18:33:04Z",
+    "updated_at": "2019-01-23T20:06:02Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/381",
       "html_url": "https://github.com/WICG/webpackage/pull/381",
       "diff_url": "https://github.com/WICG/webpackage/pull/381.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/381.patch"
     },
-    "body": "Thanks to Youenn Fablet for describing this risk.\r\n\r\nPreview at https://jyasskin.github.io/webpackage/watermarking/draft-yasskin-http-origin-signed-responses.html#priv-watermarking."
+    "body": "Thanks to @youennf for describing this risk.\r\n\r\nPreview at https://jyasskin.github.io/webpackage/watermarking/draft-yasskin-http-origin-signed-responses.html#priv-watermarking."
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/380",
@@ -99,7 +315,7 @@
     "created_at": "2019-01-23T17:27:54Z",
     "updated_at": "2019-01-23T18:49:41Z",
     "closed_at": "2019-01-23T18:49:36Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/380",
       "html_url": "https://github.com/WICG/webpackage/pull/380",
@@ -151,7 +367,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-01-23T12:56:24Z",
-    "updated_at": "2019-01-23T12:56:24Z",
+    "updated_at": "2019-01-24T07:09:57Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -203,11 +419,11 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-01-18T23:17:47Z",
-    "updated_at": "2019-01-18T23:17:47Z",
+    "updated_at": "2019-01-23T23:46:09Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "In [the blink-dev Intent-to-Ship thread](https://groups.google.com/a/chromium.org/d/msg/blink-dev/gPH_BcOBEtc/WXRzifVlDQAJ), @agwa suggests \r\n\r\n> It may also be a good idea to limit the lifetime of certificates used in SXG, to reduce the amount of time that an illegitimate certificate can be used, in case an attacker exploits a CA vulnerability to obtain future-dated good OCSP responses.\r\n\r\n* @agwa [suggests 7-14 days](https://groups.google.com/a/chromium.org/d/msg/blink-dev/gPH_BcOBEtc/eL5q1f-rDQAJ).\r\n* @clintwilson says [\"Something around 7-10 days would be a nice target IMO, but even restricting to 30-90 days would be a substantial improvement.\"](https://groups.google.com/a/chromium.org/d/msg/blink-dev/gPH_BcOBEtc/mfxmsbZ3DQAJ)\r\n* If we go to 7 days, we can probably get rid of any mention of OCSP responses. What's the longest certificate lifetime where folks would be comfortable dropping our requirement for OCSP stapling?\r\n* A very-short lifetime will be a problem if a CA has to temporarily disable issuance, for example after security weaknesses in certain domain validation methods are discovered. \r\n* Even a 90-day limit probably requires automated certificate rotation, a'la ACME. Shorter certainly does.\r\n* Should we say anything about re-using an old public key in a new certificate?\r\n\r\nThese requirements may well wind up in the [BRs](https://cabforum.org/baseline-requirements-documents/) instead of this repository's specs, but this issue will track getting them where they need to go."
   },
   {
@@ -253,9 +469,9 @@
     "milestone": null,
     "comments": 3,
     "created_at": "2019-01-18T00:45:27Z",
-    "updated_at": "2019-01-22T22:18:50Z",
+    "updated_at": "2019-01-23T20:04:48Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/377",
       "html_url": "https://github.com/WICG/webpackage/pull/377",
@@ -1283,9 +1499,9 @@
       }
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-01-07T02:14:35Z",
-    "updated_at": "2019-01-18T03:32:06Z",
+    "updated_at": "2019-01-24T08:00:44Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "This issue tracks progress of implementation of [the b3 snapshot](https://github.com/WICG/webpackage/issues/350) in both gen-signedexchange and Chromium.\r\n\r\n| Task | [Go](https://github.com/WICG/webpackage/tree/master/go/signedexchange) | Chromium |\r\n|---|---|---|\r\n| New magic bytes \"1b3\" | #353 | https://crbug.com/919417 |\r\n| #360 CBOR no longer have request map | #357 | https://crbug.com/919420  |\r\n| ~~\"Response is complete\"~~ | #363 |  |\r\n| #360 shared cache cachable | #367 | [CL](https://chromium-review.googlesource.com/c/chromium/src/+/1400422) |\r\n| #339 Reject uncached headers | #373 |  https://crbug.com/920897  |\r\n| #360 Use Variants | #366 | https://crbug.com/923229  |\r\n"
@@ -1335,7 +1551,7 @@
     "created_at": "2019-01-03T21:28:02Z",
     "updated_at": "2019-01-07T21:11:31Z",
     "closed_at": "2019-01-07T21:11:28Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/361",
       "html_url": "https://github.com/WICG/webpackage/pull/361",
@@ -1389,7 +1605,7 @@
     "created_at": "2019-01-03T01:03:04Z",
     "updated_at": "2019-01-07T21:10:37Z",
     "closed_at": "2019-01-07T21:10:32Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/360",
       "html_url": "https://github.com/WICG/webpackage/pull/360",
@@ -1443,7 +1659,7 @@
     "created_at": "2019-01-02T19:06:58Z",
     "updated_at": "2019-01-10T00:06:45Z",
     "closed_at": "2019-01-10T00:06:41Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/359",
       "html_url": "https://github.com/WICG/webpackage/pull/359",
@@ -1613,7 +1829,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/356.patch"
     },
     "body": "This patch turns all existing tests in signedexchange_test.go\r\ninto grouped tests parameterized by format version."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/355",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1713,7 +1932,7 @@
     "created_at": "2018-12-20T00:43:47Z",
     "updated_at": "2019-01-16T04:27:50Z",
     "closed_at": "2019-01-16T04:27:47Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/354",
       "html_url": "https://github.com/WICG/webpackage/pull/354",
@@ -1821,7 +2040,7 @@
     "created_at": "2018-12-17T17:44:01Z",
     "updated_at": "2018-12-17T23:59:23Z",
     "closed_at": "2018-12-17T23:59:19Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/352",
       "html_url": "https://github.com/WICG/webpackage/pull/352",
@@ -1829,10 +2048,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/352.patch"
     },
     "body": "See also some discussion in https://crbug.com/915576.\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/352.html\" title=\"Last updated on Dec 17, 2018, 5:44 PM UTC (579eac9)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/352/d335219...jyasskin:579eac9.html\" title=\"Last updated on Dec 17, 2018, 5:44 PM UTC (579eac9)\">Diff</a>"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/351",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -2028,7 +2244,7 @@
     "created_at": "2018-12-08T00:55:45Z",
     "updated_at": "2018-12-19T22:43:38Z",
     "closed_at": "2018-12-19T22:43:35Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/348",
       "html_url": "https://github.com/WICG/webpackage/pull/348",
@@ -2130,7 +2346,7 @@
     "created_at": "2018-11-30T23:19:28Z",
     "updated_at": "2018-12-20T08:44:08Z",
     "closed_at": "2018-12-05T15:37:48Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/346",
       "html_url": "https://github.com/WICG/webpackage/pull/346",
@@ -2292,7 +2508,7 @@
     "created_at": "2018-11-20T20:10:38Z",
     "updated_at": "2018-11-27T06:54:43Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "#326 leaves the loading spec more restrictive than the RFC draft in terms of which status codes are allowed. We should figure out how browsers implement https://httpwg.org/http-core/draft-ietf-httpbis-cache-latest.html#response.cacheability and refer to that from the loading spec instead of blindly requiring only status 200, or we should tighten the RFC draft to require just that status."
   },
   {
@@ -2394,7 +2610,7 @@
     "created_at": "2018-11-17T00:10:08Z",
     "updated_at": "2019-01-10T17:31:58Z",
     "closed_at": "2019-01-10T17:31:58Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "In https://github.com/WICG/webpackage/issues/336#issuecomment-439560219, @sleevi suggests that we add the contents of [`kSecurityStateHeaders`](https://cs.chromium.org/chromium/src/net/http/http_response_headers.cc?l=77) to https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#stateful-headers.\r\n\r\n@sleevi, you're worried about attackers targeting sites that use a set of HSTS domains as an authentication cookie?\r\n\r\nHTTP will define some set of headers that shared caches don't store, and I'd like to just blindly ban that list in signed exchanges, but I do see an argument to be a bit stricter in signed exchanges, since with signed exchanges the attacker doesn't have to be the first to visit the cache.\r\n\r\nOn the other hand, to be vulnerable to this attack, a site has to be using HSTS in a user-hostile way."
   },
   {
@@ -3226,7 +3442,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/325.patch"
     },
     "body": "So that the package can be used independently from Signed Exchange."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/324",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3540,10 +3759,7 @@
     "closed_at": "2018-12-19T22:43:35Z",
     "author_association": "NONE",
     "body": "When a server returns a web package in the application/signed-exchange format, it'll embed the request URL in the returned binary blob in the fallbackUrl field. Depending on the server implementation, the encoding of bytes of the URL might vary. Some implementation might choose the easiest solution, which is to just reflect whatever representation the client sends.\r\n\r\nThis is problematic, because this gives attackers an easy injection point within the first few bytes of the file, which can be turned into code running in the victim origin using content sniffing. The Adobe PDF parser for example ignores the unknown prefix bytes if it finds a valid PDF signature within the first 1kb of the file.\r\n\r\nThe \"x-content-type-options: nosniff\" header instruct browsers to not do content sniffing, but plugins can choose to (and in many cases do) ignore them. Because of this, the usual suggestion is to host partially user controlled binary files only on sandbox domains (when it's not possible to sufficiently escape the user controlled parts, which is usually not the case).\r\n\r\nThis demo page is not vulnerable to this, because it requires a special Accept request header: https://azei-package-test.com/ Clients that can't interpret the web package format will never send this header, so they'll never see the signed exchange file format.\r\n\r\nOne solution would be to use some kind of encoding for all reflected values (e.g. base64) to avoid introducing a valuable injection point in the first place."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/320",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5008,7 +5224,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Recommend that if the user hits the \"reload\" button in their browser, the browser will contact the logical origin (i.e. the URL that is visible in the browser's URL bar) to determine freshness.\r\n\r\n(Currently not specified, but seem to be the expected behaviour, see e.g. [1](https://github.com/WICG/webpackage/issues/149#issuecomment-374011263), [2](https://github.com/WICG/webpackage/issues/293#issuecomment-415102090).) "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/294",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5218,10 +5437,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/291.patch"
     },
     "body": "This PR introduces `Version` type to represent spec versions. This is needed to be a new package since this is referenced from multiple packages not only `signedexchange` but also `mice`."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/290",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5369,7 +5585,7 @@
     "created_at": "2018-08-14T23:52:48Z",
     "updated_at": "2018-08-20T21:41:49Z",
     "closed_at": "2018-08-20T07:21:22Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/288",
       "html_url": "https://github.com/WICG/webpackage/pull/288",
@@ -5423,7 +5639,7 @@
     "created_at": "2018-08-14T21:07:45Z",
     "updated_at": "2018-08-20T21:41:01Z",
     "closed_at": "2018-08-17T05:42:04Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/287",
       "html_url": "https://github.com/WICG/webpackage/pull/287",
@@ -5477,7 +5693,7 @@
     "created_at": "2018-08-13T18:32:31Z",
     "updated_at": "2018-08-14T18:25:31Z",
     "closed_at": "2018-08-14T18:25:27Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/286",
       "html_url": "https://github.com/WICG/webpackage/pull/286",
@@ -5531,7 +5747,7 @@
     "created_at": "2018-08-08T22:22:19Z",
     "updated_at": "2018-12-08T00:01:28Z",
     "closed_at": "2018-12-08T00:01:24Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/285",
       "html_url": "https://github.com/WICG/webpackage/pull/285",
@@ -5585,7 +5801,7 @@
     "created_at": "2018-08-08T21:16:30Z",
     "updated_at": "2018-08-20T21:41:30Z",
     "closed_at": "2018-08-20T07:10:10Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/284",
       "html_url": "https://github.com/WICG/webpackage/pull/284",
@@ -5747,7 +5963,7 @@
     "created_at": "2018-08-06T21:26:25Z",
     "updated_at": "2018-08-20T21:42:03Z",
     "closed_at": "2018-08-20T07:09:32Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/281",
       "html_url": "https://github.com/WICG/webpackage/pull/281",
@@ -6383,7 +6599,7 @@
     "created_at": "2018-07-20T22:03:48Z",
     "updated_at": "2018-07-20T22:12:07Z",
     "closed_at": "2018-07-20T22:11:45Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/269",
       "html_url": "https://github.com/WICG/webpackage/pull/269",
@@ -6601,7 +6817,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/265.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/264",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6809,7 +7028,7 @@
     "created_at": "2018-07-18T23:25:43Z",
     "updated_at": "2018-07-20T16:57:00Z",
     "closed_at": "2018-07-19T15:35:52Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/261",
       "html_url": "https://github.com/WICG/webpackage/pull/261",
@@ -6817,10 +7036,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/261.patch"
     },
     "body": "This is twice Chromium's limit for the request or response headers,\r\nsince both are included in the signed exchange headers block."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/260",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -7594,7 +7810,7 @@
     "created_at": "2018-07-06T23:54:04Z",
     "updated_at": "2018-07-18T15:49:10Z",
     "closed_at": "2018-07-18T15:49:04Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/247",
       "html_url": "https://github.com/WICG/webpackage/pull/247",
@@ -7648,7 +7864,7 @@
     "created_at": "2018-07-06T21:08:16Z",
     "updated_at": "2018-07-10T03:38:37Z",
     "closed_at": "2018-07-10T03:38:33Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/246",
       "html_url": "https://github.com/WICG/webpackage/pull/246",
@@ -7975,7 +8191,7 @@
     "created_at": "2018-07-03T16:12:13Z",
     "updated_at": "2018-08-20T07:21:21Z",
     "closed_at": "2018-08-20T07:21:21Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "Chromium would like to be able to ship these formats and then continue evolving them as they make their way through the standards process. QUIC attempts something like this by defining [\"invariants\"](https://tools.ietf.org/html/draft-ietf-quic-invariants-01), \"properties of the QUIC transport protocol that are expected to remain unchanged over time as new versions of the protocol are developed.\" To try the same thing in these specifications, it might make sense to put a fallback URL in a fixed place in both the signed exchange and bundles formats.\r\n\r\nFor signed exchanges, this would be the request URL that's currently encoded as the `:url` field in the [request headers](https://tools.ietf.org/html/draft-yasskin-http-origin-signed-responses-04#section-3.2). For bundles, it would be the [`start_url`](https://www.w3.org/TR/appmanifest/#start_url-member) that's expected to be in the bundle's [manifest](https://tools.ietf.org/html/draft-yasskin-wpack-bundled-exchanges-00#section-3.2.2). In both cases, the value would be moved instead of copied to the new location, to avoid the possibility of inconsistencies.\r\n\r\nWhen the client receives an unknown version of the format (either too old or too new), it would redirect to the fallback URL. Offline users would be out of luck, but online ones would still be able to get the content.\r\n\r\nThis could also be accomplished using content negotiation on the `Accept` header, but that's a [joint that might rust shut](https://www.imperialviolet.org/2016/05/16/agility.html), so we should try to make things work even if it's rusty, if possible.\r\n\r\nThoughts?"
   },
   {
@@ -8281,7 +8497,7 @@
     "created_at": "2018-06-28T21:06:38Z",
     "updated_at": "2018-06-28T21:06:38Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "@slightlyoff mentioned that we might want to have [third-party security reviewers](https://tools.ietf.org/html/draft-yasskin-webpackage-use-cases-01#section-2.2.3) check more or less stringently depending on which permissions an app uses. To do that, they'll need to be able to sign over the permissions they've checked for."
   },
   {
@@ -8337,7 +8553,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/235.patch"
     },
     "body": "The examples show a mi-sha256 hexdigest instead of bas64 encoding,\r\n\r\nsee https://github.com/martinthomson/http-mice/blob/master/draft-thomson-http-mice.md"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/234",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8485,7 +8704,7 @@
     "created_at": "2018-06-23T00:04:28Z",
     "updated_at": "2018-07-09T18:41:40Z",
     "closed_at": "2018-07-09T18:41:36Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/232",
       "html_url": "https://github.com/WICG/webpackage/pull/232",
@@ -8539,7 +8758,7 @@
     "created_at": "2018-06-22T16:19:05Z",
     "updated_at": "2018-12-01T00:34:29Z",
     "closed_at": "2018-06-25T01:47:11Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/231",
       "html_url": "https://github.com/WICG/webpackage/pull/231",
@@ -8547,10 +8766,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/231.patch"
     },
     "body": "Per @sleevi's suggestion.\r\n\r\nFixes #229.\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/rename-test-oid/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/rename-test-oid/draft-yasskin-http-origin-signed-responses.txt)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/230",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8698,7 +8914,7 @@
     "created_at": "2018-06-21T00:14:30Z",
     "updated_at": "2018-06-21T04:03:14Z",
     "closed_at": "2018-06-21T02:30:43Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/228",
       "html_url": "https://github.com/WICG/webpackage/pull/228",
@@ -8813,7 +9029,7 @@
     "created_at": "2018-06-20T00:08:17Z",
     "updated_at": "2018-06-22T19:33:29Z",
     "closed_at": "2018-06-22T18:51:37Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/226",
       "html_url": "https://github.com/WICG/webpackage/pull/226",
@@ -8874,7 +9090,7 @@
     "created_at": "2018-06-18T23:35:40Z",
     "updated_at": "2018-06-19T05:50:50Z",
     "closed_at": "2018-06-19T05:50:46Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/225",
       "html_url": "https://github.com/WICG/webpackage/pull/225",
@@ -8928,7 +9144,7 @@
     "created_at": "2018-06-18T23:31:18Z",
     "updated_at": "2018-06-19T05:50:59Z",
     "closed_at": "2018-06-19T05:50:31Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/224",
       "html_url": "https://github.com/WICG/webpackage/pull/224",
@@ -9355,7 +9571,7 @@
     "created_at": "2018-06-13T23:51:33Z",
     "updated_at": "2018-06-14T03:10:21Z",
     "closed_at": "2018-06-14T03:10:17Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/216",
       "html_url": "https://github.com/WICG/webpackage/pull/216",
@@ -9409,7 +9625,7 @@
     "created_at": "2018-06-13T23:45:31Z",
     "updated_at": "2018-06-14T03:09:52Z",
     "closed_at": "2018-06-14T03:09:48Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/215",
       "html_url": "https://github.com/WICG/webpackage/pull/215",
@@ -9463,7 +9679,7 @@
     "created_at": "2018-06-13T17:18:55Z",
     "updated_at": "2018-12-06T07:13:49Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "This should use http://wicg.github.io/reporting/."
   },
   {
@@ -9953,7 +10169,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/205.patch"
     },
     "body": "HTTP Header names are case-insensitive."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/204",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -9999,7 +10218,7 @@
     "created_at": "2018-06-06T21:23:03Z",
     "updated_at": "2018-06-08T11:54:32Z",
     "closed_at": "2018-06-08T11:54:24Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/204",
       "html_url": "https://github.com/WICG/webpackage/pull/204",
@@ -10238,12 +10457,9 @@
     "created_at": "2018-06-01T23:19:53Z",
     "updated_at": "2018-06-01T23:19:53Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "https://wicg.github.io/webpackage/draft-yasskin-dispatch-bundled-exchanges.html currently doesn't specify how a client decides which bundled request to use in any particular context. We need to define that.\r\n\r\nhttps://docs.google.com/document/d/1JdJkdY7cK2rD9JXbK75sSn069c0rhF9UnLQACBZ1OtY/edit# starts exploring the space but doesn't come to a conclusion yet."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/200",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10553,7 +10769,7 @@
     "created_at": "2018-05-23T16:15:34Z",
     "updated_at": "2018-05-24T20:38:13Z",
     "closed_at": "2018-05-24T20:38:10Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/195",
       "html_url": "https://github.com/WICG/webpackage/pull/195",
@@ -10607,7 +10823,7 @@
     "created_at": "2018-05-22T23:37:49Z",
     "updated_at": "2018-05-25T03:22:08Z",
     "closed_at": "2018-05-25T03:22:05Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/194",
       "html_url": "https://github.com/WICG/webpackage/pull/194",
@@ -11295,7 +11511,7 @@
     "created_at": "2018-04-18T15:16:40Z",
     "updated_at": "2018-05-01T23:45:23Z",
     "closed_at": "2018-05-01T23:45:19Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/182",
       "html_url": "https://github.com/WICG/webpackage/pull/182",
@@ -11349,7 +11565,7 @@
     "created_at": "2018-04-18T15:06:24Z",
     "updated_at": "2018-05-09T19:47:17Z",
     "closed_at": "2018-05-09T19:45:07Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/181",
       "html_url": "https://github.com/WICG/webpackage/pull/181",
@@ -11403,7 +11619,7 @@
     "created_at": "2018-04-13T19:45:07Z",
     "updated_at": "2018-04-16T18:14:04Z",
     "closed_at": "2018-04-16T18:14:01Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/180",
       "html_url": "https://github.com/WICG/webpackage/pull/180",
@@ -11457,7 +11673,7 @@
     "created_at": "2018-04-12T00:30:47Z",
     "updated_at": "2018-11-14T21:44:05Z",
     "closed_at": "2018-05-09T19:53:56Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/179",
       "html_url": "https://github.com/WICG/webpackage/pull/179",
@@ -11511,7 +11727,7 @@
     "created_at": "2018-04-11T20:58:31Z",
     "updated_at": "2018-04-13T19:52:46Z",
     "closed_at": "2018-04-13T19:52:37Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/178",
       "html_url": "https://github.com/WICG/webpackage/pull/178",
@@ -11701,7 +11917,10 @@
     "closed_at": "2018-07-10T06:34:41Z",
     "author_association": "COLLABORATOR",
     "body": "https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cert-chain-format\r\n\r\n> 2. The first certificate’s ocsp value *if any* MUST be a complete, DER-encoded OCSP response for that certificate\r\n\r\nThis reads main certificate's ocsp property is optional, but actually it's required in the step 6.3 of [Cross-origin trust](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cross-origin-trust)?\r\n\r\n> 3. Each certificate’s sct value MUST be a SignedCertificateTimestampList for that certificate\r\n\r\n- Add \"if any\" since SCTs may be embedded in the `cert` or `ocsp`? (#171)\r\n- The step 6.4 of [Cross-origin trust](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cross-origin-trust) uses only SCTs for main certificate. If `sct` is to provide a channel to supply SCTs instead of the TLS extension, should the spec say that subsequent certificates MUST NOT have a `sct` value?\r\n\r\n@jyasskin @hajimehoshi @nyaxt "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/174",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11801,7 +12020,7 @@
     "created_at": "2018-04-09T22:01:03Z",
     "updated_at": "2018-05-08T22:00:47Z",
     "closed_at": "2018-05-08T22:00:39Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/173",
       "html_url": "https://github.com/WICG/webpackage/pull/173",
@@ -11903,7 +12122,7 @@
     "created_at": "2018-04-06T21:38:01Z",
     "updated_at": "2018-04-09T18:19:21Z",
     "closed_at": "2018-04-09T18:19:18Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/171",
       "html_url": "https://github.com/WICG/webpackage/pull/171",
@@ -11911,10 +12130,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/171.patch"
     },
     "body": "Thanks @irori.\r\n\r\n@davidben @sleevi, is this the right thing to do? Or should I match [RFC6962](https://tools.ietf.org/html/rfc6962#section-3.3) by requiring clients to look in all three places?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/170",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11960,7 +12176,7 @@
     "created_at": "2018-04-05T19:30:07Z",
     "updated_at": "2018-04-09T01:38:55Z",
     "closed_at": "2018-04-06T17:34:07Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/170",
       "html_url": "https://github.com/WICG/webpackage/pull/170",
@@ -12062,7 +12278,7 @@
     "created_at": "2018-04-03T17:18:25Z",
     "updated_at": "2018-04-05T03:26:03Z",
     "closed_at": "2018-04-05T03:26:00Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/168",
       "html_url": "https://github.com/WICG/webpackage/pull/168",
@@ -12170,7 +12386,7 @@
     "created_at": "2018-03-24T17:49:18Z",
     "updated_at": "2018-03-27T20:18:51Z",
     "closed_at": "2018-03-27T20:18:47Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/166",
       "html_url": "https://github.com/WICG/webpackage/pull/166",
@@ -12365,7 +12581,7 @@
     "created_at": "2018-03-21T14:26:12Z",
     "updated_at": "2018-03-27T20:27:17Z",
     "closed_at": "2018-03-27T20:27:14Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/163",
       "html_url": "https://github.com/WICG/webpackage/pull/163",
@@ -12817,7 +13033,7 @@
     "created_at": "2018-03-18T04:44:28Z",
     "updated_at": "2018-04-10T23:22:01Z",
     "closed_at": "2018-04-10T23:21:58Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/155",
       "html_url": "https://github.com/WICG/webpackage/pull/155",
@@ -12871,7 +13087,7 @@
     "created_at": "2018-03-18T04:24:21Z",
     "updated_at": "2018-05-08T22:41:28Z",
     "closed_at": "2018-05-08T22:41:28Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "The signature's expiry limits when you can receive the exchange. The HTTP cache control headers limit when you can use the exchange after it's successfully received.\r\n\r\nIt's not obvious what the policy should be, but a simple policy is to say that the resource expires from the cache at the earlier time of the signature expiration and the cache expiration.\r\n\r\nWe also need to specify how the resource is revalidated after it expires.\r\n1. The first use needs to be similar to [`<link rel=preload>`](https://w3c.github.io/preload/#link-type-preload) so that it's not revalidated during that first use.\r\n1. Subsequent uses can either [update signature validity](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#updating-validity) if the signature's expired, or use a conditional request if the cache information's expired. Once the signature's expired, remember that the etag isn't trustworthy."
   },
   {
@@ -12919,7 +13135,7 @@
     "created_at": "2018-03-16T18:41:42Z",
     "updated_at": "2018-03-17T08:04:58Z",
     "closed_at": "2018-03-17T08:04:55Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/153",
       "html_url": "https://github.com/WICG/webpackage/pull/153",
@@ -13269,7 +13485,7 @@
     "created_at": "2018-03-15T05:53:41Z",
     "updated_at": "2018-04-04T22:51:56Z",
     "closed_at": "2018-04-04T22:51:53Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/148",
       "html_url": "https://github.com/WICG/webpackage/pull/148",
@@ -13323,7 +13539,7 @@
     "created_at": "2018-03-14T21:06:18Z",
     "updated_at": "2018-04-06T17:34:09Z",
     "closed_at": "2018-04-06T17:34:09Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "H/T @twifkak for noticing that these are underspecified and underthought."
   },
   {
@@ -13433,7 +13649,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/145.patch"
     },
     "body": "PTAL"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/144",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13687,12 +13906,9 @@
     "created_at": "2018-03-07T19:15:23Z",
     "updated_at": "2018-03-07T19:15:23Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "Our strictness in enforcing being within the 7-day signature validity period interacts badly with skewed clocks. Do we want to encourage signers to pre-date the signature's timestamp by X hours, or require clients to trust signatures that start being valid in X hours, or something else?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/140",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13792,7 +14008,7 @@
     "created_at": "2018-03-07T18:25:53Z",
     "updated_at": "2018-03-18T04:41:50Z",
     "closed_at": "2018-03-18T04:41:46Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/139",
       "html_url": "https://github.com/WICG/webpackage/pull/139",
@@ -13894,7 +14110,7 @@
     "created_at": "2018-03-05T22:57:15Z",
     "updated_at": "2018-03-06T20:57:42Z",
     "closed_at": "2018-03-05T23:28:11Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/137",
       "html_url": "https://github.com/WICG/webpackage/pull/137",
@@ -13948,7 +14164,7 @@
     "created_at": "2018-03-05T22:37:52Z",
     "updated_at": "2018-03-05T23:48:47Z",
     "closed_at": "2018-03-05T23:27:19Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/136",
       "html_url": "https://github.com/WICG/webpackage/pull/136",
@@ -14040,7 +14256,7 @@
     "created_at": "2018-03-05T21:46:20Z",
     "updated_at": "2018-04-04T22:51:53Z",
     "closed_at": "2018-04-04T22:51:53Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "@davidben points out that it's hard to write streaming parsers, and that the most reliable protocols send a number of bytes to read, read that number of bytes, and then use a non-streaming parser to pull information out of that contiguous data. The format in https://tools.ietf.org/html/draft-yasskin-http-origin-signed-responses-03#section-5.3 doesn't accomplish this because CBOR items are prefixed by their length in items, not bytes.\r\n\r\nIn multi-process clients, we also want to allow the main/verification process to bound the amount of memory it uses. This implies (1) a length limit on the exchange header set, and (2) mandating use of the MI header instead of the Digest header to verify the payload authenticity, since MI has fixed-size records.\r\n\r\nFinally, it would be nice to be able to check signatures against the literal bytes in the http-exchange format instead of needing to reserialize. Reserialization still needs to be *possible* so that intermediates can receive a signature in a normal same-origin HTTP response and then produce the http-exchange format, but final clients shouldn't need to do it.\r\n\r\nThis probably means the format will move away from being a general http-exchange serialization format and toward being specific to signed exchanges. This has the extra benefit of not needing to say that request payloads and response trailers cause the signature not to verify."
   },
   {
@@ -14088,7 +14304,7 @@
     "created_at": "2018-03-03T00:43:08Z",
     "updated_at": "2018-03-05T20:58:02Z",
     "closed_at": "2018-03-05T20:57:51Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/134",
       "html_url": "https://github.com/WICG/webpackage/pull/134",
@@ -14142,7 +14358,7 @@
     "created_at": "2018-03-02T23:04:31Z",
     "updated_at": "2018-03-05T20:45:11Z",
     "closed_at": "2018-03-05T20:45:01Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/133",
       "html_url": "https://github.com/WICG/webpackage/pull/133",
@@ -14196,7 +14412,7 @@
     "created_at": "2018-03-02T22:20:23Z",
     "updated_at": "2018-03-05T20:37:42Z",
     "closed_at": "2018-03-05T20:37:39Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/132",
       "html_url": "https://github.com/WICG/webpackage/pull/132",
@@ -14250,7 +14466,7 @@
     "created_at": "2018-02-28T20:16:24Z",
     "updated_at": "2018-03-02T01:14:35Z",
     "closed_at": "2018-03-02T01:14:31Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/131",
       "html_url": "https://github.com/WICG/webpackage/pull/131",
@@ -14725,7 +14941,7 @@
     "created_at": "2018-02-09T22:00:44Z",
     "updated_at": "2018-03-02T18:24:14Z",
     "closed_at": "2018-02-28T23:16:46Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/122",
       "html_url": "https://github.com/WICG/webpackage/pull/122",
@@ -14779,7 +14995,7 @@
     "created_at": "2018-02-07T22:49:20Z",
     "updated_at": "2018-08-20T06:19:55Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/121",
       "html_url": "https://github.com/WICG/webpackage/pull/121",
@@ -14833,7 +15049,7 @@
     "created_at": "2018-02-07T19:55:55Z",
     "updated_at": "2018-03-05T20:31:02Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/120",
       "html_url": "https://github.com/WICG/webpackage/pull/120",
@@ -14941,7 +15157,7 @@
     "created_at": "2018-01-29T20:50:21Z",
     "updated_at": "2018-01-30T00:46:22Z",
     "closed_at": "2018-01-30T00:46:19Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/118",
       "html_url": "https://github.com/WICG/webpackage/pull/118",
@@ -14995,7 +15211,7 @@
     "created_at": "2018-01-26T23:53:10Z",
     "updated_at": "2018-01-27T00:07:59Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "People with expensive data plans may run out of data early in a month, and not come back online until the next month. The 7-day validity limit in https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#signature-validity is good or even too long while online, but not enough while offline. We need to figure out if we can give clients permission to use expired signatures under certain circumstances, and if so, how to specify that."
   },
   {
@@ -15043,7 +15259,7 @@
     "created_at": "2018-01-26T22:41:52Z",
     "updated_at": "2018-02-28T22:07:35Z",
     "closed_at": "2018-02-28T22:07:31Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/116",
       "html_url": "https://github.com/WICG/webpackage/pull/116",
@@ -15099,7 +15315,10 @@
     "closed_at": "2018-01-30T00:46:19Z",
     "author_association": "NONE",
     "body": "The README suggests loading will be done at the W3C, which made me wonder. Shouldn't loading be integrated into Fetch somehow?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/114",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15241,7 +15460,7 @@
     "created_at": "2018-01-24T00:18:37Z",
     "updated_at": "2018-01-26T23:45:34Z",
     "closed_at": "2018-01-26T23:45:27Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/112",
       "html_url": "https://github.com/WICG/webpackage/pull/112",
@@ -15295,7 +15514,7 @@
     "created_at": "2018-01-23T16:57:33Z",
     "updated_at": "2018-01-26T20:44:49Z",
     "closed_at": "2018-01-26T20:44:45Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/111",
       "html_url": "https://github.com/WICG/webpackage/pull/111",
@@ -15303,10 +15522,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/111.patch"
     },
     "body": "@sleevi, how's this look?\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/sleevi-comments/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/sleevi-comments/draft-yasskin-http-origin-signed-responses.txt)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/110",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15352,7 +15568,7 @@
     "created_at": "2018-01-20T00:41:32Z",
     "updated_at": "2018-01-26T21:26:51Z",
     "closed_at": "2018-01-26T21:26:48Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/110",
       "html_url": "https://github.com/WICG/webpackage/pull/110",
@@ -15406,7 +15622,7 @@
     "created_at": "2018-01-19T21:30:23Z",
     "updated_at": "2018-01-30T17:05:38Z",
     "closed_at": "2018-01-26T21:14:28Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/109",
       "html_url": "https://github.com/WICG/webpackage/pull/109",
@@ -15460,7 +15676,7 @@
     "created_at": "2018-01-17T01:00:05Z",
     "updated_at": "2018-01-19T18:29:28Z",
     "closed_at": "2018-01-19T18:29:25Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/108",
       "html_url": "https://github.com/WICG/webpackage/pull/108",
@@ -15904,7 +16120,7 @@
     "created_at": "2017-12-22T18:03:58Z",
     "updated_at": "2018-01-16T22:28:15Z",
     "closed_at": "2018-01-16T22:28:12Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/99",
       "html_url": "https://github.com/WICG/webpackage/pull/99",
@@ -15958,7 +16174,7 @@
     "created_at": "2017-12-21T00:58:41Z",
     "updated_at": "2018-12-01T00:34:31Z",
     "closed_at": "2018-05-29T21:00:12Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/98",
       "html_url": "https://github.com/WICG/webpackage/pull/98",
@@ -16012,7 +16228,7 @@
     "created_at": "2017-12-15T23:03:42Z",
     "updated_at": "2018-01-16T22:11:48Z",
     "closed_at": "2018-01-16T22:11:45Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/97",
       "html_url": "https://github.com/WICG/webpackage/pull/97",
@@ -16066,7 +16282,7 @@
     "created_at": "2017-12-11T22:30:05Z",
     "updated_at": "2017-12-12T00:00:41Z",
     "closed_at": "2017-12-12T00:00:40Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/96",
       "html_url": "https://github.com/WICG/webpackage/pull/96",
@@ -16174,7 +16390,7 @@
     "created_at": "2017-12-09T00:31:48Z",
     "updated_at": "2017-12-15T19:35:56Z",
     "closed_at": "2017-12-15T19:35:47Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/94",
       "html_url": "https://github.com/WICG/webpackage/pull/94",
@@ -16228,7 +16444,7 @@
     "created_at": "2017-12-06T23:57:16Z",
     "updated_at": "2017-12-15T19:22:29Z",
     "closed_at": "2017-12-15T19:22:12Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/93",
       "html_url": "https://github.com/WICG/webpackage/pull/93",
@@ -16282,7 +16498,7 @@
     "created_at": "2017-12-06T22:00:38Z",
     "updated_at": "2017-12-11T21:17:53Z",
     "closed_at": "2017-12-11T21:10:00Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/92",
       "html_url": "https://github.com/WICG/webpackage/pull/92",
@@ -16336,7 +16552,7 @@
     "created_at": "2017-12-06T00:30:22Z",
     "updated_at": "2017-12-11T21:00:43Z",
     "closed_at": "2017-12-11T21:00:41Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/91",
       "html_url": "https://github.com/WICG/webpackage/pull/91",
@@ -16390,7 +16606,7 @@
     "created_at": "2017-11-22T20:25:23Z",
     "updated_at": "2017-12-01T00:18:39Z",
     "closed_at": "2017-12-01T00:18:36Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/90",
       "html_url": "https://github.com/WICG/webpackage/pull/90",
@@ -16444,7 +16660,7 @@
     "created_at": "2017-11-22T19:42:13Z",
     "updated_at": "2017-11-23T19:09:24Z",
     "closed_at": "2017-11-23T19:09:21Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/89",
       "html_url": "https://github.com/WICG/webpackage/pull/89",
@@ -16498,7 +16714,7 @@
     "created_at": "2017-11-21T23:22:49Z",
     "updated_at": "2017-12-05T19:32:25Z",
     "closed_at": "2017-12-05T19:32:21Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/88",
       "html_url": "https://github.com/WICG/webpackage/pull/88",
@@ -16552,7 +16768,7 @@
     "created_at": "2017-11-17T22:48:27Z",
     "updated_at": "2017-11-20T17:17:06Z",
     "closed_at": "2017-11-20T17:08:39Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/87",
       "html_url": "https://github.com/WICG/webpackage/pull/87",
@@ -16654,7 +16870,7 @@
     "created_at": "2017-09-08T23:57:57Z",
     "updated_at": "2017-09-11T15:56:55Z",
     "closed_at": "2017-09-11T15:56:52Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/85",
       "html_url": "https://github.com/WICG/webpackage/pull/85",
@@ -16662,7 +16878,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/85.patch"
     },
     "body": "I hope this'll make it a little easier to follow along as things move into formal standards bodies."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/84",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16708,7 +16927,7 @@
     "created_at": "2017-09-06T18:43:46Z",
     "updated_at": "2017-11-22T17:23:10Z",
     "closed_at": "2017-11-17T19:40:38Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/84",
       "html_url": "https://github.com/WICG/webpackage/pull/84",
@@ -16762,7 +16981,7 @@
     "created_at": "2017-08-28T20:38:14Z",
     "updated_at": "2017-08-30T20:55:48Z",
     "closed_at": "2017-08-30T20:55:46Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/83",
       "html_url": "https://github.com/WICG/webpackage/pull/83",
@@ -16816,7 +17035,7 @@
     "created_at": "2017-08-28T20:36:47Z",
     "updated_at": "2017-08-30T20:50:42Z",
     "closed_at": "2017-08-30T20:50:39Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/82",
       "html_url": "https://github.com/WICG/webpackage/pull/82",
@@ -16870,7 +17089,7 @@
     "created_at": "2017-08-23T23:22:22Z",
     "updated_at": "2017-08-31T19:40:29Z",
     "closed_at": "2017-08-31T19:40:26Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/81",
       "html_url": "https://github.com/WICG/webpackage/pull/81",
@@ -16878,10 +17097,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/81.patch"
     },
     "body": "Preview at https://jyasskin.github.io/webpackage/draft-yasskin-origin-signed-responses/draft-yasskin-http-origin-signed-responses.html\r\n\r\nThis doesn't yet have a design, just some use cases and constraints on the design. I also haven't yet worked out how this would fit into a bundling proposal. It's possible that it doesn't.\r\n\r\n@nyaxt @KenjiBaheux @mnot @mikewest"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/80",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16927,7 +17143,7 @@
     "created_at": "2017-08-15T19:09:33Z",
     "updated_at": "2017-08-25T23:35:58Z",
     "closed_at": "2017-08-25T23:35:55Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/80",
       "html_url": "https://github.com/WICG/webpackage/pull/80",
@@ -17029,7 +17245,7 @@
     "created_at": "2017-07-05T17:11:00Z",
     "updated_at": "2017-07-05T17:11:00Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "In response to https://tools.ietf.org/html/draft-yasskin-dispatch-web-packaging-00, [Paul Hoffman](https://icannwiki.org/Paul_Hoffman) suggested, if I'm understanding his email correctly, that we replace the [signed-manifest item](https://tools.ietf.org/html/draft-yasskin-dispatch-web-packaging-00#section-2.4) that wraps the manifest, with a CMS or possibly S/MIME document that wraps the manifest.\r\n\r\nBecause CMS is an ASN.1 format, I think we'd want to accept #47, switching the overall format to DER-encoded ASN.1, first.\r\n\r\n[CMS](https://tools.ietf.org/html/rfc5652#section-5) is fairly complicated, so Adam Langley suggests that we pick a precise subset and mandate that in the packaging format, rather than allowing all the flexibility in the original standard. For example, instead of allowing arbitrary `RevocationInfoChoice`s, we might specify that the `SignedData.crls` field be filled with exactly one OCSP response. The result could still be parsed with CMS tools, but it could also be parsed with much simpler package-specific tools.\r\n\r\nI suspect we'll run into some trouble around the `SignerInfo.*algorithm` fields: the current format specifies exactly one digest+signature algorithm for each possible certificate type, and doesn't encode that algorithm into the serialized bytes. CMS appears to allow the attacker to select the algorithms, just like [JOSE](https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/). A package-specific parser would enforce the restriction, but a generic CMS tool wouldn't, and so would be vulnerable to the same attacks as JOSE. That's a reason to use a non-CMS format, to disallow generic tools from parsing package signatures."
   },
   {
@@ -17077,7 +17293,7 @@
     "created_at": "2017-06-30T23:41:37Z",
     "updated_at": "2017-07-31T15:31:50Z",
     "closed_at": "2017-07-28T23:52:36Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/77",
       "html_url": "https://github.com/WICG/webpackage/pull/77",
@@ -17131,7 +17347,7 @@
     "created_at": "2017-06-30T23:07:58Z",
     "updated_at": "2017-08-14T23:58:07Z",
     "closed_at": "2017-08-14T23:58:02Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/76",
       "html_url": "https://github.com/WICG/webpackage/pull/76",
@@ -17233,7 +17449,7 @@
     "created_at": "2017-06-26T04:43:18Z",
     "updated_at": "2018-01-24T18:36:30Z",
     "closed_at": "2018-01-24T18:36:30Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "The link to https://w3ctag.github.io/packaging-on-the-web/ at the beginning of the explainer needs to say clearly that it's been superseded."
   },
   {
@@ -17367,7 +17583,7 @@
     "created_at": "2017-06-14T03:56:27Z",
     "updated_at": "2017-06-14T04:38:41Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "[example.com.key](https://github.com/WICG/webpackage/tree/master/go/webpack/testdata/pki/example.com.key) is currently a secp256r1 key, but we should also test creating packages for each of:\r\n* RSA <= 3072 bits\r\n* RSA with 3073-7680 bits (probably 4096)\r\n* secp384r1\r\n* secp521r1\r\n\r\nI'll probably create the keys for `rsa2048.example.com`, `secp521r1.example.com`, etc."
   },
   {
@@ -17453,7 +17669,7 @@
     "created_at": "2017-06-13T22:16:28Z",
     "updated_at": "2017-08-14T23:58:02Z",
     "closed_at": "2017-08-14T23:58:02Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "This supports the [IETF submission](https://mailarchive.ietf.org/arch/msg/dispatch/NQ0deHSsRvt4BL4alk_WYVnhhvo). It has to happen before they close the RFC database from July 3 until the [Prague meeting](http://ietf.org/meeting/99/index.html).\r\n\r\nWe can use https://github.com/cabo/kramdown-rfc2629 to author in markdown, and https://github.com/martinthomson/i-d-template to build with Travis CI."
   },
   {
@@ -17539,7 +17755,7 @@
     "created_at": "2017-06-10T05:27:22Z",
     "updated_at": "2019-01-18T21:20:32Z",
     "closed_at": "2019-01-18T21:20:32Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "https://github.com/WICG/webpackage/pull/60#discussion_r121227994 points out that we might not want to store the [`:method` header](http://httpwg.org/specs/rfc7540.html#HttpRequest) in requests. We only know of uses of `GET` requests, and having the ability to code other methods might cause bugs."
   },
   {
@@ -17587,7 +17803,7 @@
     "created_at": "2017-06-10T05:26:16Z",
     "updated_at": "2018-01-24T18:39:54Z",
     "closed_at": "2018-01-24T18:39:34Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "For example, we might want to be able to start playing a large video file without hashing the whole thing.\r\n\r\nSee https://tools.ietf.org/html/draft-thomson-http-mice for one approach."
   },
   {
@@ -17635,7 +17851,7 @@
     "created_at": "2017-06-07T23:50:29Z",
     "updated_at": "2017-06-26T16:23:04Z",
     "closed_at": "2017-06-08T23:46:43Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/68",
       "html_url": "https://github.com/WICG/webpackage/pull/68",
@@ -17689,7 +17905,7 @@
     "created_at": "2017-06-07T23:49:55Z",
     "updated_at": "2018-04-10T23:26:01Z",
     "closed_at": "2018-04-10T23:26:01Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/67",
       "html_url": "https://github.com/WICG/webpackage/pull/67",
@@ -17743,7 +17959,7 @@
     "created_at": "2017-06-07T19:26:32Z",
     "updated_at": "2017-06-14T16:59:27Z",
     "closed_at": "2017-06-14T16:59:24Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/66",
       "html_url": "https://github.com/WICG/webpackage/pull/66",
@@ -17797,7 +18013,7 @@
     "created_at": "2017-06-07T19:13:11Z",
     "updated_at": "2017-06-14T15:58:32Z",
     "closed_at": "2017-06-14T15:58:29Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/65",
       "html_url": "https://github.com/WICG/webpackage/pull/65",
@@ -17851,7 +18067,7 @@
     "created_at": "2017-06-07T18:43:49Z",
     "updated_at": "2017-06-17T04:31:34Z",
     "closed_at": "2017-06-17T04:31:31Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/64",
       "html_url": "https://github.com/WICG/webpackage/pull/64",
@@ -17905,7 +18121,7 @@
     "created_at": "2017-06-07T18:35:11Z",
     "updated_at": "2017-06-14T03:33:42Z",
     "closed_at": "2017-06-14T03:33:39Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/63",
       "html_url": "https://github.com/WICG/webpackage/pull/63",
@@ -17959,7 +18175,7 @@
     "created_at": "2017-06-03T00:16:13Z",
     "updated_at": "2018-04-10T23:25:50Z",
     "closed_at": "2018-04-10T23:25:50Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/62",
       "html_url": "https://github.com/WICG/webpackage/pull/62",
@@ -18013,7 +18229,7 @@
     "created_at": "2017-06-02T23:55:40Z",
     "updated_at": "2017-06-14T03:31:44Z",
     "closed_at": "2017-06-14T03:31:41Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/61",
       "html_url": "https://github.com/WICG/webpackage/pull/61",
@@ -18067,7 +18283,7 @@
     "created_at": "2017-06-02T22:49:44Z",
     "updated_at": "2017-06-26T16:10:57Z",
     "closed_at": "2017-06-26T16:10:54Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/60",
       "html_url": "https://github.com/WICG/webpackage/pull/60",
@@ -18121,7 +18337,7 @@
     "created_at": "2017-05-26T18:25:20Z",
     "updated_at": "2018-01-26T23:53:37Z",
     "closed_at": "2018-01-26T23:53:37Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "The sketch, which I've run by @sleevi, is:\r\n1. Check the manifest's signature and that the signing certificate is for the package's claimed origin and that it chains to a trusted root, using intermediate certificates included in the package.\r\n2. Each package also has an accompanying set of OCSP responses and anti-downgrade information.\r\n3. The UA checks that the OCSP responses are signed by the certificate's signer and were generated less than 7 days ago.\r\n4. The UA checks that the anti-downgrade information is signed by a certificate trusted for package's origin (potentially taking advantage of the package's intermediate certs), hasn't expired yet and was signed less than 7 days ago, and says that the package's date is sufficiently recent.\r\n5. If any of this isn't recent enough, the package identifies a URL from which to fetch newer validity information. This validity information is small (<1kb?), so it should be cheap enough to fetch even when full packages are too expensive.\r\n\r\nThere's some evidence that we'll still have a significant number of UAs that are fully offline and won't be able to fetch new validity information every week. Depending on the existing HTTP cache's behavior, maybe we don't need to revalidate once we've opened a package once. Maybe it's ok to trust older validations as long as the package doesn't make any network requests, and have revalidation block the package's first network request when the UA gets back online. We'll need to decide what to do about local storage if that validation fails.\r\n\r\nI need to add this to the main explainer."
   },
   {
@@ -18169,7 +18385,7 @@
     "created_at": "2017-05-26T16:08:27Z",
     "updated_at": "2017-06-17T04:31:32Z",
     "closed_at": "2017-06-17T04:31:32Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "Options:\r\n1. [TLS 1.3 SignatureScheme](https://tlswg.github.io/tls13-spec/#rfc.section.4.2.3) codes.\r\n2. <strike>[JWS algorithm names](https://www.iana.org/assignments/jose/jose.xhtml#web-signature-encryption-algorithms).</strike> (I have advice to avoid these.)\r\n3. RFC5280's [AlgorithmIdentifier](https://tools.ietf.org/html/rfc5280#section-4.1.1.2) used in certificates.\r\n4. Define a mapping from the certificate's public key to a signature algorithm. This is easy for ECDSA and EdDSA keys, but would need work for RSA keys. Straw man: <=3072 bits gets rsa_pss_sha256, and >=3073 gets rsa_pss_sha384.\r\n\r\nIn some cases, like TLS' [ecdsa_secp256r1_sha256](https://tlswg.github.io/tls13-spec/#rfc.section.4.2.3) vs JWS' [ES256](https://tools.ietf.org/html/rfc7518#section-3.4), even though the algorithm is the same, the signature appears in different formats.\r\n\r\nAny of these options is sufficient to let us sign with any TLS certificate, but TLS doesn't yet have identifiers for post-quantum signature schemes that counter-signatures might want to use.\r\n\r\n"
   },
   {
@@ -18265,7 +18481,7 @@
     "created_at": "2017-05-24T00:09:34Z",
     "updated_at": "2017-06-02T22:50:30Z",
     "closed_at": "2017-06-02T22:50:26Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/56",
       "html_url": "https://github.com/WICG/webpackage/pull/56",
@@ -18319,7 +18535,7 @@
     "created_at": "2017-05-19T21:42:51Z",
     "updated_at": "2017-06-26T15:47:04Z",
     "closed_at": "2017-06-26T15:47:01Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/55",
       "html_url": "https://github.com/WICG/webpackage/pull/55",
@@ -18327,7 +18543,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/55.patch"
     },
     "body": "There's no support yet for serializing the text format including manifest data, or serializing and signing the CBOR format."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/54",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18373,7 +18592,7 @@
     "created_at": "2017-05-11T19:12:44Z",
     "updated_at": "2017-05-24T00:11:47Z",
     "closed_at": "2017-05-24T00:11:44Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/54",
       "html_url": "https://github.com/WICG/webpackage/pull/54",
@@ -18427,7 +18646,7 @@
     "created_at": "2017-05-11T00:06:12Z",
     "updated_at": "2017-05-23T23:44:46Z",
     "closed_at": "2017-05-23T23:44:44Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/53",
       "html_url": "https://github.com/WICG/webpackage/pull/53",
@@ -18481,7 +18700,7 @@
     "created_at": "2017-05-10T20:55:44Z",
     "updated_at": "2017-05-26T15:37:57Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "https://research.google.com/pubs/pub41892.html describes a way to grant capabilities in a way the receiver can attenuate and pass on. We're thinking of having authorities counter-sign packages in order to say, for example, that FooCorp trusts this package to `fetch()` from internal systems. Maybe macaroons are a better way to express this."
   },
   {
@@ -18529,7 +18748,7 @@
     "created_at": "2017-05-08T21:44:44Z",
     "updated_at": "2017-05-24T00:16:03Z",
     "closed_at": "2017-05-24T00:16:01Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/51",
       "html_url": "https://github.com/WICG/webpackage/pull/51",
@@ -18537,10 +18756,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/51.patch"
     },
     "body": "Is there a more official link to the Chrome MHTML work than http://www.techgainer.com/enable-single-file-mhtml-support-chrome/?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/50",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18586,7 +18802,7 @@
     "created_at": "2017-05-02T00:01:38Z",
     "updated_at": "2017-05-17T18:50:39Z",
     "closed_at": "2017-05-17T18:50:35Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/50",
       "html_url": "https://github.com/WICG/webpackage/pull/50",
@@ -18640,7 +18856,7 @@
     "created_at": "2017-05-01T23:16:13Z",
     "updated_at": "2017-05-11T00:04:29Z",
     "closed_at": "2017-05-11T00:04:26Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/49",
       "html_url": "https://github.com/WICG/webpackage/pull/49",
@@ -18694,7 +18910,7 @@
     "created_at": "2017-04-17T22:14:56Z",
     "updated_at": "2017-04-17T22:14:56Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "In whatever mechanism we use to offer a package to a browser, we should think about allowing browsers to choose optimized packages for their situations. There could be a fully-general package that includes many sizes of images that'll appear optimally on any device, but also a small-screen version of the same package that omits the high-resolution images entirely. There could also be other axes than screen size, along the lines of https://github.com/spanicker/device-ram.\r\n\r\nThis introduces some complications around having multiple different resources signed for the same URL. Normally, we could resolve such conflicts by just using the latest such resource, but it's possible that's one optimized for smaller screens than the current device.\r\n\r\nThis is not a v1 consideration."
   },
   {
@@ -18742,7 +18958,7 @@
     "created_at": "2017-04-13T05:09:55Z",
     "updated_at": "2018-01-30T07:40:50Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "I received feedback from some of our security people that [DER](https://www.itu.int/ITU-T/studygroups/com17/languages/X.690-0207.pdf) is easier to parse securely than [CBOR](https://tools.ietf.org/html/rfc7049). I'm not 100% sure that's the right choice yet, so here are some pros and cons.\r\n\r\nDER Pro's:\r\n1. Much older, with security-hardened implementations in many languages. e.g. BoringSSL includes a library for memory-safe DER parsing. CBOR has [many implementations](http://cbor.io/impls.html), but they aren't hardened.\r\n1. Prefixing with the length in bytes makes it easier to skip unneeded items. CBOR can work around this by embedding things into bytestrings.\r\n1. Generic parsing has only 2 cases: Primitive, where the interpretation of the bytes depends on the tag, and Constructed, where the content bytes encode a sequence of items. CBOR has 8 cases: integer, string, array, map, tag, simple value, simple value in next byte, and float. This is primarily used to skip unknown fields in structures.\r\n\r\nCBOR Pro's:\r\n1. ~8 primitive types instead of 30+. We can subset ASN.1 to only use INTEGER, OCTET STRING, UTF8String, and SEQUENCE, but we can also subset CBOR to use integers, byte strings, text strings, arrays, and maps.\r\n1. Extensibility based on maps from strings to values is easier to understand and possibly to manage than ASN.1's extensibility based on appending to sequences. However, it's possible I've missed a better way to extend structures in ASN.1.\r\n1. It's easy to find the latest specification.\r\n1. Combining the length into the type saves a byte for smaller items.\r\n1. Serializing canonical CBOR, which is needed for signature checking, is significantly easier to implement.\r\n1. All DER integers and floats have to deal with the complexity of encoding bignums. For our purposes, where bignums aren't needed, CBOR's 8,16,32, and 64-bit integers are simpler. Even if bignums were needed, it's likely that a fixed length would be simpler to specify and implement than DER's variable-length encoding.\r\n\r\n\r\nIf we stick with CBOR, we'll mandate [Canonical CBOR](https://tools.ietf.org/html/rfc7049#section-3.9), which includes minimal integer encodings. That means offsets will need to measure a range that doesn't include the offset itself, but that's doable for both the section list and the resource index.\r\n\r\nI'll update this list as more considerations come up."
   },
   {
@@ -18790,7 +19006,7 @@
     "created_at": "2017-04-12T22:04:30Z",
     "updated_at": "2017-05-11T00:02:11Z",
     "closed_at": "2017-05-11T00:02:03Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/46",
       "html_url": "https://github.com/WICG/webpackage/pull/46",
@@ -18844,7 +19060,7 @@
     "created_at": "2017-04-12T00:16:56Z",
     "updated_at": "2019-01-15T20:22:46Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "We have some hints in https://w3ctag.github.io/packaging-on-the-web/#intro, but it's not complete, and it needs to appear in the local explainer, not something remote.\r\n\r\nOther considerations against zip:\r\n* We've seen vulnerabilities caused by validating one copy of a resource but using a different one. #41 will avoid this for the CBOR-based format.\r\n* Zip resources are identified by filename, which isn't the primary key of web resources.\r\n* Zip resources don't include response headers.\r\n* Lots of details in the [format](https://www.iana.org/assignments/media-types/application/zip) are archaic and wouldn't be used.\r\n\r\nWe should probably also list reasons in favor of re-using zip so that proponents know we've considered their arguments:\r\n* A huge number of other formats are based on zip, so we're unlikely to run into something we can't express.\r\n* Existing tools would be able to extract packages."
   },
   {
@@ -18892,7 +19108,7 @@
     "created_at": "2017-04-06T19:03:12Z",
     "updated_at": "2017-05-04T16:27:33Z",
     "closed_at": "2017-05-03T19:53:50Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/44",
       "html_url": "https://github.com/WICG/webpackage/pull/44",
@@ -18994,7 +19210,7 @@
     "created_at": "2017-04-03T17:12:55Z",
     "updated_at": "2017-06-07T19:23:27Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "https://github.com/dimich-g/webpackage#use-cases has lots of examples that use an old version of the design."
   },
   {
@@ -19042,7 +19258,7 @@
     "created_at": "2017-04-03T17:11:58Z",
     "updated_at": "2017-05-11T00:02:03Z",
     "closed_at": "2017-05-11T00:02:03Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "From @dimich-g's https://github.com/dimich-g/webpackage/pull/36#issuecomment-290316360:\r\n\r\nThe `resource-key` structure (which holds a URL and possibly a set of request headers) is used as the key for the index, manifest, and main content. URLs can be fairly long, so we may want to optimize or compress that redundancy.\r\n\r\nOne idea for avoiding this duplication: Add a section of abbreviations that assigns each resource-key an index, and use those indices as the keys in the other three sections.\r\n\r\n1. We could re-use the index as that section of abbreviations.\r\n2. We probably don't want to re-use the manifest as that section, so that aggregating packages can build their own abbreviations.\r\n3. The abbreviations need to be expanded before hashing or checking signatures.\r\n4. We could shorten the abbreviation section even more by:\r\n   1. Resolving each URL/resource-key relative to the previous one.\r\n   1. Using the array index of the URL as its abbreviation instead of making the section name an abbreviation.\r\n\r\nAnother possibility would be to use a shared brotli dictionary to compress all three sections. The main downside here is that shared brotli dictionaries don't exist yet, and when they do, we may want to use a URL to identify which shared dictionary to use, which we'd again want to compress."
   },
   {
@@ -19090,7 +19306,7 @@
     "created_at": "2017-04-03T16:56:18Z",
     "updated_at": "2017-04-03T16:56:18Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "From @dimich-g's https://github.com/dimich-g/webpackage/pull/36#issuecomment-290316360:\r\n\r\nHaving external sub-packages could be useful to tell the UA that it's likely to need some files, without incurring an extra download cost when the UA happens to already have that package."
   },
   {
@@ -19138,7 +19354,7 @@
     "created_at": "2017-04-03T13:59:48Z",
     "updated_at": "2017-04-12T03:56:48Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "From @dimich-g's https://github.com/dimich-g/webpackage/pull/36#issuecomment-290316360:\r\n\r\nWithout a signed manifest, there's no structure to identify sub-packages.\r\n\r\nHowever, it might just work to lump all the resources together at the top level. Do we need to identify the sub-package structure?"
   },
   {
@@ -19234,7 +19450,7 @@
     "created_at": "2017-02-08T19:47:21Z",
     "updated_at": "2017-05-19T21:58:24Z",
     "closed_at": "2017-03-30T03:10:43Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/37",
       "html_url": "https://github.com/WICG/webpackage/pull/37",
@@ -19288,7 +19504,7 @@
     "created_at": "2017-02-07T21:28:52Z",
     "updated_at": "2017-03-30T17:49:01Z",
     "closed_at": "2017-03-30T06:34:10Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/36",
       "html_url": "https://github.com/WICG/webpackage/pull/36",
@@ -19390,7 +19606,7 @@
     "created_at": "2017-02-03T19:34:39Z",
     "updated_at": "2017-04-07T17:41:54Z",
     "closed_at": "2017-04-07T17:41:51Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/34",
       "html_url": "https://github.com/WICG/webpackage/pull/34",
@@ -19444,7 +19660,7 @@
     "created_at": "2017-01-26T22:45:48Z",
     "updated_at": "2017-03-30T19:23:21Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "@bmeck, could you describe the use cases you're interested in for the packaging format, either in this issue or as a PR against the [`README.md`](https://github.com/dimich-g/webpackage/blob/master/README.md)?"
   },
   {
@@ -19492,7 +19708,7 @@
     "created_at": "2017-01-26T22:45:10Z",
     "updated_at": "2017-01-29T20:11:02Z",
     "closed_at": null,
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "body": "@lrosenthol, could you describe the use cases you're interested in for the packaging format, either in this issue or as a PR against the [`README.md`](https://github.com/dimich-g/webpackage/blob/master/README.md)?"
   },
   {
@@ -19540,7 +19756,7 @@
     "created_at": "2017-01-26T21:32:47Z",
     "updated_at": "2017-06-08T18:34:00Z",
     "closed_at": "2017-06-08T00:08:13Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/31",
       "html_url": "https://github.com/WICG/webpackage/pull/31",
@@ -19690,7 +19906,7 @@
     "created_at": "2017-01-24T01:06:12Z",
     "updated_at": "2017-01-26T00:55:57Z",
     "closed_at": "2017-01-26T00:55:36Z",
-    "author_association": "COLLABORATOR",
+    "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/28",
       "html_url": "https://github.com/WICG/webpackage/pull/28",
@@ -19854,7 +20070,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/25.patch"
     },
     "body": "fixes https://github.com/dimich-g/webpackage/issues/9 by using a sub tree of `application/package.index`"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/24",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20070,10 +20289,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/21.patch"
     },
     "body": "Just explicit bound checking."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/20",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
