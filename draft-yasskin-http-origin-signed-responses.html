@@ -305,6 +305,7 @@ ul.toc li {
 <link href="#rfc.section.4.1" rel="Chapter" title="4.1 Uncached header fields">
 <link href="#rfc.section.4.1.1" rel="Chapter" title="4.1.1 Stateful header fields">
 <link href="#rfc.section.4.2" rel="Chapter" title="4.2 Certificate Requirements">
+<link href="#rfc.section.4.2.1" rel="Chapter" title="4.2.1 Extensions to the CAA Record: cansignhttpexchanges Parameter">
 <link href="#rfc.section.5" rel="Chapter" title="5 Transferring a signed exchange">
 <link href="#rfc.section.5.1" rel="Chapter" title="5.1 Same-origin response">
 <link href="#rfc.section.5.1.1" rel="Chapter" title="5.1.1 Serialized headers for a same-origin response">
@@ -339,6 +340,7 @@ ul.toc li {
 <link href="#rfc.section.8.5" rel="Chapter" title="8.5 HTTP/2 Error code">
 <link href="#rfc.section.8.6" rel="Chapter" title="8.6 Internet Media Type application/signed-exchange">
 <link href="#rfc.section.8.7" rel="Chapter" title="8.7 Internet Media Type application/cert-chain+cbor">
+<link href="#rfc.section.8.8" rel="Chapter" title="8.8 The cansignhttpexchanges CAA Parameter">
 <link href="#rfc.references" rel="Chapter" title="9 References">
 <link href="#rfc.references.1" rel="Chapter" title="9.1 Normative References">
 <link href="#rfc.references.2" rel="Chapter" title="9.2 Informative References">
@@ -478,7 +480,9 @@ ul.toc li {
 </li>
 </ul><li>4.2.   <a href="#rfc.section.4.2">Certificate Requirements</a>
 </li>
-</ul><li>5.   <a href="#rfc.section.5">Transferring a signed exchange</a>
+<ul><li>4.2.1.   <a href="#rfc.section.4.2.1">Extensions to the CAA Record: cansignhttpexchanges Parameter</a>
+</li>
+</ul></ul><li>5.   <a href="#rfc.section.5">Transferring a signed exchange</a>
 </li>
 <ul><li>5.1.   <a href="#rfc.section.5.1">Same-origin response</a>
 </li>
@@ -545,6 +549,8 @@ ul.toc li {
 <li>8.6.   <a href="#rfc.section.8.6">Internet Media Type application/signed-exchange</a>
 </li>
 <li>8.7.   <a href="#rfc.section.8.7">Internet Media Type application/cert-chain+cbor</a>
+</li>
+<li>8.8.   <a href="#rfc.section.8.8">The cansignhttpexchanges CAA Parameter</a>
 </li>
 </ul><li>9.   <a href="#rfc.references">References</a>
 </li>
@@ -1153,13 +1159,24 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 <p id="rfc.section.4.2.p.4">CA certificates, by contrast, need to be revoked if an unauthorized entity is able to make even one unauthorized signature.</p>
 <p id="rfc.section.4.2.p.5">Certificates with this extension MUST be revoked if an unauthorized entity is able to make even one unauthorized signature.</p>
 <p id="rfc.section.4.2.p.6">Conforming CAs MUST NOT mark this extension as critical.</p>
-<p id="rfc.section.4.2.p.7">Clients MUST NOT accept certificates with this extension in TLS connections (Section 4.4.2.2 of <a href="#RFC8446" class="xref">[RFC8446]</a>).</p>
-<p id="rfc.section.4.2.p.8">RFC EDITOR PLEASE DELETE THE REST OF THE PARAGRAPHS IN THIS SECTION</p>
+<p id="rfc.section.4.2.p.7">A conforming CA MUST NOT issue certificates with this extension unless, for each dNSName in the subjectAltName extension of the certificate to be issued:</p>
+<p></p>
+
+<ol>
+<li>An &#8220;issue&#8221; or &#8220;issuewild&#8221; CAA property (<a href="#RFC6844" class="xref">[RFC6844]</a>) exists that authorizes the CA to issue the certificate; and</li>
+<li>The &#8220;cansignhttpexchanges&#8221; parameter (<a href="#caa-cansignhttpexchanges" class="xref">Section 4.2.1</a>) is present on the property and is equal to &#8220;yes&#8221;</li>
+</ol>
+<p id="rfc.section.4.2.p.9">Clients MUST NOT accept certificates with this extension in TLS connections (Section 4.4.2.2 of <a href="#RFC8446" class="xref">[RFC8446]</a>).</p>
+<p id="rfc.section.4.2.p.10">RFC EDITOR PLEASE DELETE THE REST OF THE PARAGRAPHS IN THIS SECTION</p>
 <pre>
    id-ce-google OBJECT IDENTIFIER ::= { 1 3 6 1 4 1 11129 }
    id-ce-canSignHttpExchangesDraft OBJECT IDENTIFIER ::= { id-ce-google 2 1 22 }
 </pre>
-<p id="rfc.section.4.2.p.9">Implementations of drafts of this specification MAY recognize the <samp>id-ce-canSignHttpExchangesDraft</samp> OID as identifying the CanSignHttpExchanges extension. This OID might or might not be used as the final OID for the extension, so certificates including it might need to be reissued once the final RFC is published.</p>
+<p id="rfc.section.4.2.p.11">Implementations of drafts of this specification MAY recognize the <samp>id-ce-canSignHttpExchangesDraft</samp> OID as identifying the CanSignHttpExchanges extension. This OID might or might not be used as the final OID for the extension, so certificates including it might need to be reissued once the final RFC is published.</p>
+<h1 id="rfc.section.4.2.1">
+<a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#caa-cansignhttpexchanges" id="caa-cansignhttpexchanges">Extensions to the CAA Record: cansignhttpexchanges Parameter</a>
+</h1>
+<p id="rfc.section.4.2.1.p.1">A CAA parameter &#8220;cansignhttpexchanges&#8221; is defined for the &#8220;issue&#8221; and &#8220;issuewild&#8221; properties defined by <a href="#RFC6844" class="xref">[RFC6844]</a>.  The value of this parameter, if specified, MUST be &#8220;yes&#8221;.</p>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#transfer" id="transfer">Transferring a signed exchange</a>
 </h1>
@@ -1482,6 +1499,10 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <p id="rfc.section.8.7.p.18">Restrictions on usage:  N/A</p>
 <p id="rfc.section.8.7.p.19">Author:  See Authors&#8217; Addresses section.</p>
 <p id="rfc.section.8.7.p.20">Change controller:  IESG</p>
+<h1 id="rfc.section.8.8">
+<a href="#rfc.section.8.8">8.8.</a> <a href="#iana-caa-cansignhttpexchanges" id="iana-caa-cansignhttpexchanges">The cansignhttpexchanges CAA Parameter</a>
+</h1>
+<p id="rfc.section.8.8.p.1">There are no IANA considerations for this parameter.</p>
 <h1 id="rfc.references">
 <a href="#rfc.references">9.</a> References</h1>
 <h1 id="rfc.references.1">
@@ -1541,6 +1562,11 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <td class="reference"><b id="RFC5280">[RFC5280]</b></td>
 <td class="top">
 <a>Cooper, D.</a>, <a>Santesson, S.</a>, <a>Farrell, S.</a>, <a>Boeyen, S.</a>, <a>Housley, R.</a> and <a>W. Polk</a>, "<a href="https://tools.ietf.org/html/rfc5280">Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</a>", RFC 5280, DOI 10.17487/RFC5280, May 2008.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC6844">[RFC6844]</b></td>
+<td class="top">
+<a>Hallam-Baker, P.</a> and <a>R. Stradling</a>, "<a href="https://tools.ietf.org/html/rfc6844">DNS Certification Authority Authorization (CAA) Resource Record</a>", RFC 6844, DOI 10.17487/RFC6844, January 2013.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC6960">[RFC6960]</b></td>
@@ -1927,7 +1953,10 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <p id="rfc.section.D.p.2">draft-06</p>
 <p></p>
 
-<ul><li>Add a security consideration for future-dated OCSP responses and for stolen private keys.</li></ul>
+<ul>
+<li>Add a security consideration for future-dated OCSP responses and for stolen private keys.</li>
+<li>Define a CAA parameter to opt into certificate issuance.</li>
+</ul>
 <p id="rfc.section.D.p.4">draft-05</p>
 <p></p>
 
@@ -1991,7 +2020,7 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <h1 id="rfc.appendix.E">
 <a href="#rfc.appendix.E">Appendix E.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a>
 </h1>
-<p id="rfc.section.E.p.1">Thanks to Devin Mullins, Ilari Liusvaara, Justin Schuh, Mark Nottingham, Mike Bishop, Ryan Sleevi, and Yoav Weiss for comments that improved this draft.</p>
+<p id="rfc.section.E.p.1">Thanks to Andrew Ayer, Devin Mullins, Ilari Liusvaara, Justin Schuh, Mark Nottingham, Mike Bishop, Ryan Sleevi, and Yoav Weiss for comments that improved this draft.</p>
 <h1 id="rfc.authors"><a href="#rfc.authors">Author's Address</a></h1>
 <div class="avoidbreak">
   <address class="vcard">
