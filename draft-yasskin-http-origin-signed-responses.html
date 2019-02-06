@@ -322,6 +322,8 @@ ul.toc li {
 <link href="#rfc.section.6.1.1" rel="Chapter" title="6.1.1 Session fixation">
 <link href="#rfc.section.6.1.2" rel="Chapter" title="6.1.2 Misleading content">
 <link href="#rfc.section.6.2" rel="Chapter" title="6.2 Off-path attackers">
+<link href="#rfc.section.6.2.1" rel="Chapter" title="6.2.1 Mis-issued certificates">
+<link href="#rfc.section.6.2.2" rel="Chapter" title="6.2.2 Stolen private keys">
 <link href="#rfc.section.6.3" rel="Chapter" title="6.3 Downgrades">
 <link href="#rfc.section.6.4" rel="Chapter" title="6.4 Signing oracles are permanent">
 <link href="#rfc.section.6.5" rel="Chapter" title="6.5 Unsigned headers">
@@ -368,12 +370,12 @@ ul.toc li {
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.17.1 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.17.2 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Yasskin, J." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-yasskin-http-origin-signed-responses-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-01-25" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-02-06" />
   <meta name="dct.abstract" content="This document specifies how a server can send an HTTP exchange&#8212;a request URL, content negotiation information, and a response&#8212;with signatures that vouch for that exchange&#8217;s authenticity. These signatures can be verified against an origin&#8217;s certificate to establish that the exchange is authoritative for an origin even if it was transferred over a connection that isn&#8217;t. The signatures can also be used in other ways described in the appendices.These signatures contain countermeasures against downgrade and protocol-confusion attacks." />
   <meta name="description" content="This document specifies how a server can send an HTTP exchange&#8212;a request URL, content negotiation information, and a response&#8212;with signatures that vouch for that exchange&#8217;s authenticity. These signatures can be verified against an origin&#8217;s certificate to establish that the exchange is authoritative for an origin even if it was transferred over a connection that isn&#8217;t. The signatures can also be used in other ways described in the appendices.These signatures contain countermeasures against downgrade and protocol-confusion attacks." />
 
@@ -394,10 +396,10 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left">Intended status: Standards Track</td>
-<td class="right">January 25, 2019</td>
+<td class="right">February 06, 2019</td>
 </tr>
 <tr>
-<td class="left">Expires: July 29, 2019</td>
+<td class="left">Expires: August 10, 2019</td>
 <td class="right"></td>
 </tr>
 
@@ -418,7 +420,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 29, 2019.</p>
+<p>This Internet-Draft will expire on August 10, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -510,7 +512,11 @@ ul.toc li {
 </li>
 </ul><li>6.2.   <a href="#rfc.section.6.2">Off-path attackers</a>
 </li>
-<li>6.3.   <a href="#rfc.section.6.3">Downgrades</a>
+<ul><li>6.2.1.   <a href="#rfc.section.6.2.1">Mis-issued certificates</a>
+</li>
+<li>6.2.2.   <a href="#rfc.section.6.2.2">Stolen private keys</a>
+</li>
+</ul><li>6.3.   <a href="#rfc.section.6.3">Downgrades</a>
 </li>
 <li>6.4.   <a href="#rfc.section.6.4">Signing oracles are permanent</a>
 </li>
@@ -1311,7 +1317,21 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <h1 id="rfc.section.6.2">
 <a href="#rfc.section.6.2">6.2.</a> <a href="#seccons-off-path" id="seccons-off-path">Off-path attackers</a>
 </h1>
-<p id="rfc.section.6.2.p.1">Relaxing the requirement to consult DNS when determining authority for an origin means that an attacker who possesses a valid certificate no longer needs to be on-path to redirect traffic to them; instead of modifying DNS, they need only convince the user to visit another Web site in order to serve responses signed as the target. This consideration and mitigations for it are shared by the combination of <a href="#RFC8336" class="xref">[RFC8336]</a> and <a href="#I-D.ietf-httpbis-http2-secondary-certs" class="xref">[I-D.ietf-httpbis-http2-secondary-certs]</a>.</p>
+<p id="rfc.section.6.2.p.1">Relaxing the requirement to consult DNS when determining authority for an origin means that an attacker who possesses a valid certificate no longer needs to be on-path to redirect traffic to them; instead of modifying DNS or IP routing, they need only convince the user to visit another Web site in order to serve responses signed as the target. This consideration and mitigations for it are shared by the combination of <a href="#RFC8336" class="xref">[RFC8336]</a> and <a href="#I-D.ietf-httpbis-http2-secondary-certs" class="xref">[I-D.ietf-httpbis-http2-secondary-certs]</a>, and are discussed further in <a href="#I-D.bishop-httpbis-origin-fed-up" class="xref">[I-D.bishop-httpbis-origin-fed-up]</a>.</p>
+<h1 id="rfc.section.6.2.1">
+<a href="#rfc.section.6.2.1">6.2.1.</a> <a href="#mis-issued-certificates" id="mis-issued-certificates">Mis-issued certificates</a>
+</h1>
+<p id="rfc.section.6.2.1.p.1">If a CA mis-issues a certificate for a domain, this specification provides a way to detect the mis-issuance and mitigate harm within approximately two weeks.  Specifically, because all signed exchanges must include a <samp>SignedCertificateTimestampList</samp> (<a href="#RFC6962" class="xref">[RFC6962]</a>, a CT log has promised to publish the mis-issued certificate within that log&#8217;s Maximum Merge Delay, 1 day for many logs. The domain owner can then detect the mis-issued certificate and notify the CA to revoke it, which the <a href="#BRs" class="xref">[BRs]</a>, section 4.9.1.1, say they must do within another 5 days.</p>
+<p id="rfc.section.6.2.1.p.2">Once the mis-issued certificate is revoked, existing OCSP responses begin to expire. The <a href="#BRs" class="xref">[BRs]</a>, section 4.9.10, require that OCSP responses have a maximum expiration time of 10 days, after which they can&#8217;t be used to validate a certificate chain (<a href="#cert-chain-format" class="xref">Section 3.3</a>). This leads to a total compromised time of 16 days after a mis-issuance.</p>
+<p id="rfc.section.6.2.1.p.3">However, CAs might future-date their OCSP responses, in which case the mitigation doesn&#8217;t work.</p>
+<p id="rfc.section.6.2.1.p.4">CAs are forbidden from future-dating their OCSP responses by the <a href="#BRs" class="xref">[BRs]</a> section 4.9.9, &#8220;OCSP responses MUST conform to RFC6960 and/or RFC5019.&#8221; <a href="#RFC6960" class="xref">[RFC6960]</a> includes, &#8220;The time at which the status was known to be correct SHALL be reflected in the thisUpdate field of the response.&#8221;, and <a href="#RFC5019" class="xref">[RFC5019]</a> includes, &#8220;When pre-producing OCSPResponse messages, the responder MUST set the thisUpdate, nextUpdate, and producedAt times as follows: thisUpdate: The time at which the status being indicated is known to be correct.&#8221;</p>
+<p id="rfc.section.6.2.1.p.5">However, if a CA violates the <a href="#BRs" class="xref">[BRs]</a> to sign future-dated OCSP responses, attempts to keep the nonconformant OCSP responses private, but then leaks them, it could cause clients to trust a hostile signed exchange long after its certificate has been revoked.</p>
+<p id="rfc.section.6.2.1.p.6">Clients could use systems like <a href="#CRLSets" class="xref">[CRLSets]</a> and <a href="#OneCrl" class="xref">[OneCrl]</a> to revoke the intermediate certificate that signed the future-dated OCSP responses.</p>
+<h1 id="rfc.section.6.2.2">
+<a href="#rfc.section.6.2.2">6.2.2.</a> <a href="#stolen-private-keys" id="stolen-private-keys">Stolen private keys</a>
+</h1>
+<p id="rfc.section.6.2.2.p.1">If the private key for a CanSignHttpExchanges certificate is stolen, it can be used at scale until the certificate expires or is revoked, and unlike for a stolen key for a normal TLS-terminating certificate, the rightful owner can&#8217;t detect the problem by watching for attacks on the DNS or routing infrastructure.</p>
+<p id="rfc.section.6.2.2.p.2">This specification does not currently propose a way for the rightful owner to detect that their keys are being used by an attacker, after they&#8217;ve opted into the risk by requesting a CanSignHttpExchanges certificate in the first place.  Clients can fetch a signature&#8217;s &#8220;validity-url&#8221; (<a href="#signature-header" class="xref">Section 3.1</a>) to help owners detect key compromise, but that compromises some of the privacy properties of this specification.</p>
 <h1 id="rfc.section.6.3">
 <a href="#rfc.section.6.3">6.3.</a> <a href="#seccons-downgrades" id="seccons-downgrades">Downgrades</a>
 </h1>
@@ -1470,7 +1490,7 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <tr>
 <td class="reference"><b id="FETCH">[FETCH]</b></td>
 <td class="top">
-<a>WHATWG</a>, "<a href="https://fetch.spec.whatwg.org/">Fetch</a>", January 2019.</td>
+<a>WHATWG</a>, "<a href="https://fetch.spec.whatwg.org/">Fetch</a>", February 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="I-D.ietf-cbor-cddl">[I-D.ietf-cbor-cddl]</b></td>
@@ -1575,12 +1595,27 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <tr>
 <td class="reference"><b id="URL">[URL]</b></td>
 <td class="top">
-<a>WHATWG</a>, "<a href="https://url.spec.whatwg.org/">URL</a>", January 2019.</td>
+<a>WHATWG</a>, "<a href="https://url.spec.whatwg.org/">URL</a>", February 2019.</td>
 </tr>
 </tbody></table>
 <h1 id="rfc.references.2">
 <a href="#rfc.references.2">9.2.</a> Informative References</h1>
 <table><tbody>
+<tr>
+<td class="reference"><b id="BRs">[BRs]</b></td>
+<td class="top">
+<a>CA/Browser Forum</a>, "<a href="https://cabforum.org/baseline-requirements-documents/">Baseline Requirements for the Issuance and Management of Publicly-Trusted Certificates</a>", December 2018.</td>
+</tr>
+<tr>
+<td class="reference"><b id="CRLSets">[CRLSets]</b></td>
+<td class="top">
+<a title="Chromium">Langley, A.</a>, "<a href="https://www.imperialviolet.org/2012/02/05/crlsets.html">Revocation checking and Chrome's CRL</a>", February 2012.</td>
+</tr>
+<tr>
+<td class="reference"><b id="I-D.bishop-httpbis-origin-fed-up">[I-D.bishop-httpbis-origin-fed-up]</b></td>
+<td class="top">
+<a>Bishop, M.</a> and <a>E. Nygren</a>, "<a href="https://tools.ietf.org/html/draft-bishop-httpbis-origin-fed-up-00">DNS Security with HTTP/2 ORIGIN</a>", Internet-Draft draft-bishop-httpbis-origin-fed-up-00, January 2019.</td>
+</tr>
 <tr>
 <td class="reference"><b id="I-D.burke-content-signature">[I-D.burke-content-signature]</b></td>
 <td class="top">
@@ -1617,9 +1652,19 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <a>Yasskin, J.</a>, "<a href="https://tools.ietf.org/html/draft-yasskin-webpackage-use-cases-01">Use Cases and Requirements for Web Packages</a>", Internet-Draft draft-yasskin-webpackage-use-cases-01, March 2018.</td>
 </tr>
 <tr>
+<td class="reference"><b id="OneCrl">[OneCrl]</b></td>
+<td class="top">
+<a title="Mozilla">Goodwin, M.</a>, "<a href="https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/">Revoking Intermediate Certificates: Introducing OneCRL</a>", March 2015.</td>
+</tr>
+<tr>
 <td class="reference"><b id="RFC2965">[RFC2965]</b></td>
 <td class="top">
 <a>Kristol, D.</a> and <a>L. Montulli</a>, "<a href="https://tools.ietf.org/html/rfc2965">HTTP State Management Mechanism</a>", RFC 2965, DOI 10.17487/RFC2965, October 2000.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC5019">[RFC5019]</b></td>
+<td class="top">
+<a>Deacon, A.</a> and <a>R. Hurst</a>, "<a href="https://tools.ietf.org/html/rfc5019">The Lightweight Online Certificate Status Protocol (OCSP) Profile for High-Volume Environments</a>", RFC 5019, DOI 10.17487/RFC5019, September 2007.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC6066">[RFC6066]</b></td>
@@ -1880,7 +1925,10 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 </h1>
 <p id="rfc.section.D.p.1">RFC EDITOR PLEASE DELETE THIS SECTION.</p>
 <p id="rfc.section.D.p.2">draft-06</p>
-<p id="rfc.section.D.p.3">draft-05</p>
+<p></p>
+
+<ul><li>Add a security consideration for future-dated OCSP responses and for stolen private keys.</li></ul>
+<p id="rfc.section.D.p.4">draft-05</p>
 <p></p>
 
 <ul>
@@ -1898,7 +1946,7 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <li>Update to draft-ietf-httpbis-header-structure-09.</li>
 <li>Update to the final TLS 1.3 RFC.</li>
 </ul>
-<p id="rfc.section.D.p.5">draft-04</p>
+<p id="rfc.section.D.p.6">draft-04</p>
 <p></p>
 
 <ul>
@@ -1918,7 +1966,7 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <li>Forbid RSA keys, and only require clients to support secp256r1 keys.</li>
 <li>Add a test OID for the CanSignHttpExchanges X.509 extension.</li>
 </ul>
-<p id="rfc.section.D.p.7">draft-03</p>
+<p id="rfc.section.D.p.8">draft-03</p>
 <p></p>
 
 <ul>
@@ -1927,7 +1975,7 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <li>Define a CBOR structure to hold the certificate chain instead of re-using the TLS1.3 message. The TLS 1.3 parser fails on unexpected extensions while this format should ignore them, and apparently TLS implementations don&#8217;t expose their message parsers enough to allow passing a message to a certificate verifier.</li>
 <li>Require an X.509 extension for the signing certificate.</li>
 </ul>
-<p id="rfc.section.D.p.9">draft-02</p>
+<p id="rfc.section.D.p.10">draft-02</p>
 <p></p>
 
 <ul>
