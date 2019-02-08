@@ -1158,21 +1158,29 @@ Accept-Signature: -ecdsa/secp256r1, ecdsa/secp384r1
 <p id="rfc.section.4.2.p.3">Leaf certificates without this extension need to be revoked if the private key is exposed to an unauthorized entity, but they generally don&#8217;t need to be revoked if a signing oracle is exposed and then removed.</p>
 <p id="rfc.section.4.2.p.4">CA certificates, by contrast, need to be revoked if an unauthorized entity is able to make even one unauthorized signature.</p>
 <p id="rfc.section.4.2.p.5">Certificates with this extension MUST be revoked if an unauthorized entity is able to make even one unauthorized signature.</p>
-<p id="rfc.section.4.2.p.6">Conforming CAs MUST NOT mark this extension as critical.</p>
-<p id="rfc.section.4.2.p.7">A conforming CA MUST NOT issue certificates with this extension unless, for each dNSName in the subjectAltName extension of the certificate to be issued:</p>
+<p id="rfc.section.4.2.p.6">Certificates with this extension MUST have a Validity Period no greater than 90 days.</p>
+<p id="rfc.section.4.2.p.7">Conforming CAs MUST NOT mark this extension as critical.</p>
+<p id="rfc.section.4.2.p.8">A conforming CA MUST NOT issue certificates with this extension unless, for each dNSName in the subjectAltName extension of the certificate to be issued:</p>
 <p></p>
 
 <ol>
 <li>An &#8220;issue&#8221; or &#8220;issuewild&#8221; CAA property (<a href="#RFC6844" class="xref">[RFC6844]</a>) exists that authorizes the CA to issue the certificate; and</li>
 <li>The &#8220;cansignhttpexchanges&#8221; parameter (<a href="#caa-cansignhttpexchanges" class="xref">Section 4.2.1</a>) is present on the property and is equal to &#8220;yes&#8221;</li>
 </ol>
-<p id="rfc.section.4.2.p.9">Clients MUST NOT accept certificates with this extension in TLS connections (Section 4.4.2.2 of <a href="#RFC8446" class="xref">[RFC8446]</a>).</p>
-<p id="rfc.section.4.2.p.10">RFC EDITOR PLEASE DELETE THE REST OF THE PARAGRAPHS IN THIS SECTION</p>
+<p id="rfc.section.4.2.p.10">Clients MUST NOT accept certificates with this extension in TLS connections (Section 4.4.2.2 of <a href="#RFC8446" class="xref">[RFC8446]</a>).</p>
+<p id="rfc.section.4.2.p.11">RFC EDITOR PLEASE DELETE THE REST OF THE PARAGRAPHS IN THIS SECTION</p>
 <pre>
    id-ce-google OBJECT IDENTIFIER ::= { 1 3 6 1 4 1 11129 }
    id-ce-canSignHttpExchangesDraft OBJECT IDENTIFIER ::= { id-ce-google 2 1 22 }
 </pre>
-<p id="rfc.section.4.2.p.11">Implementations of drafts of this specification MAY recognize the <samp>id-ce-canSignHttpExchangesDraft</samp> OID as identifying the CanSignHttpExchanges extension. This OID might or might not be used as the final OID for the extension, so certificates including it might need to be reissued once the final RFC is published.</p>
+<p id="rfc.section.4.2.p.12">Implementations of drafts of this specification MAY recognize the <samp>id-ce-canSignHttpExchangesDraft</samp> OID as identifying the CanSignHttpExchanges extension. This OID might or might not be used as the final OID for the extension, so certificates including it might need to be reissued once the final RFC is published.</p>
+<p id="rfc.section.4.2.p.13">Some certificates have already been issued with this extension and with validity periods longer than 90 days. These certificates will not immediately be treated as invalid. Instead:</p>
+<p></p>
+
+<ul>
+<li>Clients MUST reject certificates with this extension that were issued after 2019-05-01 and have a Validity Period longer than 90 days.</li>
+<li>After 2019-08-01, clients MUST reject all certificates with this extension that have a Validity Period longer than 90 days.</li>
+</ul>
 <h1 id="rfc.section.4.2.1">
 <a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#caa-cansignhttpexchanges" id="caa-cansignhttpexchanges">Extensions to the CAA Record: cansignhttpexchanges Parameter</a>
 </h1>
@@ -1956,6 +1964,7 @@ Date: Sat, 25 Nov 2017 10:00:00 UTC
 <ul>
 <li>Add a security consideration for future-dated OCSP responses and for stolen private keys.</li>
 <li>Define a CAA parameter to opt into certificate issuance.</li>
+<li>Limit certificate lifetimes to 90 days.</li>
 </ul>
 <p id="rfc.section.D.p.4">draft-05</p>
 <p></p>
