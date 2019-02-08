@@ -1214,7 +1214,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version d76ab51ece93be5af3a1621c820b89fd4f9cc432" name="generator">
   <link href="https://wicg.github.io/webpackage/loading.html" rel="canonical">
-  <meta content="b9d939eb47d1568dc82e859f3f89ae6e597c8227" name="document-revision">
+  <meta content="afa06efbde35745e4190de022fa3fe31e52cb41f" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1743,8 +1743,8 @@ which the first <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#lis
      <p>A <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#byte-sequence" id="ref-for-byte-sequence⑦">byte sequence</a> holding the <a data-link-type="dfn" href="http://csrc.nist.gov/publications/fips/fips180-4/fips-180-4.pdf#" id="termref-for-">SHA-256</a> hash that verified the <a data-link-type="dfn" href="#exchange-signature-certificate-chain" id="ref-for-exchange-signature-certificate-chain">certificate chain</a>'s <a data-link-type="dfn" href="#certificate-chain-leaf" id="ref-for-certificate-chain-leaf②">leaf</a>.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-for="exchange signature" data-dfn-type="dfn" data-noexport id="exchange-signature-integrity-header">integrity header</dfn>
     <dd data-md>
-     <p>A <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list①">list</a> that describes the response header and any of its parameters that
-guard the integrity of the response payload.</p>
+     <p>A <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list①">list</a> of <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#ascii-string" id="ref-for-ascii-string">ASCII strings</a> that describes the response header and any of
+its parameters that guard the integrity of the response payload.</p>
     <dt data-md><dfn class="dfn-paneled" data-dfn-for="exchange signature" data-dfn-type="dfn" data-noexport id="exchange-signature-validityurl">validityUrl</dfn>
     <dd data-md>
      <p>A <a data-link-type="dfn" href="https://url.spec.whatwg.org/#concept-url" id="ref-for-concept-url①">URL</a> describing where to update this signature.</p>
@@ -2318,13 +2318,11 @@ alpha</a>, return a failure.</p>
    <p>To <dfn class="dfn-paneled" data-dfn-type="dfn" data-lt="reading a body|read a body" data-noexport id="reading-a-body">read a body</dfn> from a <a data-link-type="dfn" href="#read-buffer" id="ref-for-read-buffer①">read buffer</a> <var>stream</var> into a <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response" id="ref-for-concept-response⑦">response</a> <var>response</var> using an <a data-link-type="dfn" href="#exchange-signature" id="ref-for-exchange-signature⑤">exchange signature</a> <var>signature</var> to check its integrity, the UA MUST:</p>
    <ol>
     <li data-md>
-     <p>If <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-integrity-header" id="ref-for-exchange-signature-integrity-header①">integrity header</a>'s first item is:</p>
+     <p>If <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-integrity-header" id="ref-for-exchange-signature-integrity-header①">integrity header</a> is:</p>
      <dl class="switch">
-      <dt data-md>"digest/mi-sha256-03"
+      <dt data-md>«"<code>digest</code>", "<code>mi-sha256-03</code>"»
       <dd data-md>
        <ol>
-        <li data-md>
-         <p>If the length of <var>signature</var>’s <a data-link-type="dfn" href="#exchange-signature-integrity-header" id="ref-for-exchange-signature-integrity-header②">integrity header</a> isn’t 1, return a failure.</p>
         <li data-md>
          <p>Let <var>instance-digests</var> be the result of <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-get-decode-split" id="ref-for-concept-header-list-get-decode-split">getting,
 decoding, and splitting</a> <code>`digest`</code> from <var>response</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list⑦">header list</a>.</p>
@@ -3234,6 +3232,12 @@ stop the UA from trusting it no more than 7 days later.</p>
     <li><a href="#ref-for-ascii-encode①">4.5. Parsing a Signature Header Field</a>
    </ul>
   </aside>
+  <aside class="dfn-panel" data-for="term-for-ascii-string">
+   <a href="https://infra.spec.whatwg.org/#ascii-string">https://infra.spec.whatwg.org/#ascii-string</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-ascii-string">3.4. Exchange Signature</a>
+   </ul>
+  </aside>
   <aside class="dfn-panel" data-for="term-for-ascii-upper-alpha">
    <a href="https://infra.spec.whatwg.org/#ascii-upper-alpha">https://infra.spec.whatwg.org/#ascii-upper-alpha</a><b>Referenced in:</b>
    <ul>
@@ -3614,6 +3618,7 @@ stop the UA from trusting it no more than 7 days later.</p>
      <li><span class="dfn-paneled" id="term-for-ascii-byte" style="color:initial">ascii byte</span>
      <li><span class="dfn-paneled" id="term-for-ascii-decode" style="color:initial">ascii decode</span>
      <li><span class="dfn-paneled" id="term-for-ascii-encode" style="color:initial">ascii encode</span>
+     <li><span class="dfn-paneled" id="term-for-ascii-string" style="color:initial">ascii string</span>
      <li><span class="dfn-paneled" id="term-for-ascii-upper-alpha" style="color:initial">ascii upper alpha</span>
      <li><span class="dfn-paneled" id="term-for-byte-sequence" style="color:initial">byte sequence</span>
      <li><span class="dfn-paneled" id="term-for-list-empty" style="color:initial">empty</span>
@@ -3959,7 +3964,7 @@ them to. <a href="https://github.com/whatwg/fetch/issues/730">&lt;https://github
    <b><a href="#exchange-signature-integrity-header">#exchange-signature-integrity-header</a></b><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-exchange-signature-integrity-header">4.5. Parsing a Signature Header Field</a>
-    <li><a href="#ref-for-exchange-signature-integrity-header①">4.12. Creating the response stream.</a> <a href="#ref-for-exchange-signature-integrity-header②">(2)</a>
+    <li><a href="#ref-for-exchange-signature-integrity-header①">4.12. Creating the response stream.</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="exchange-signature-validityurl">
