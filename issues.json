@@ -1,6 +1,108 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/394",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/394/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/394/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/394/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/394",
+    "id": 407932454,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjUxMjk2NzYw",
+    "number": 394,
+    "title": "Fix #393: Use the right type for the integrity header.",
+    "user": {
+      "login": "jyasskin",
+      "id": 83420,
+      "node_id": "MDQ6VXNlcjgzNDIw",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/83420?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jyasskin",
+      "html_url": "https://github.com/jyasskin",
+      "followers_url": "https://api.github.com/users/jyasskin/followers",
+      "following_url": "https://api.github.com/users/jyasskin/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jyasskin/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jyasskin/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jyasskin/subscriptions",
+      "organizations_url": "https://api.github.com/users/jyasskin/orgs",
+      "repos_url": "https://api.github.com/users/jyasskin/repos",
+      "events_url": "https://api.github.com/users/jyasskin/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jyasskin/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-02-07T22:47:56Z",
+    "updated_at": "2019-02-08T01:01:55Z",
+    "closed_at": null,
+    "author_association": "MEMBER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/394",
+      "html_url": "https://github.com/WICG/webpackage/pull/394",
+      "diff_url": "https://github.com/WICG/webpackage/pull/394.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/394.patch"
+    },
+    "body": "\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n#exchange-signature-integrity-header, #read-a-body\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/394.html\" title=\"Last updated on Feb 7, 2019, 10:49 PM UTC (d8b73dd)\">Preview</a> (<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/394.html#exchange-signature-integrity-header\" title=\"#exchange-signature-integrity-header\">#exchange-signature-…</a>) (<a href=\"https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/394.html#read-a-body\" title=\"#read-a-body\">#read-a-body</a>) | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/394/3997c75...jyasskin:d8b73dd.html\" title=\"Last updated on Feb 7, 2019, 10:49 PM UTC (d8b73dd)\">Diff</a>"
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/393",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/393/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/393/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/393/events",
+    "html_url": "https://github.com/WICG/webpackage/issues/393",
+    "id": 407577558,
+    "node_id": "MDU6SXNzdWU0MDc1Nzc1NTg=",
+    "number": 393,
+    "title": "\"integrity header\" handling in loading spec",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-02-07T07:53:22Z",
+    "updated_at": "2019-02-07T19:17:10Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "The loading spec defines [integrity header](https://wicg.github.io/webpackage/loading.html#exchange-signature-integrity-header) as a list whose value is the result of splitting the `integrity` signature parameter on `/`.\r\n\r\nhttps://wicg.github.io/webpackage/loading.html#parsing-signature\r\n\r\n> 8. Set result’s integrity header to the result of strictly splitting the \"integrity\" parameter of parsed[0] on U+002F (/).\r\n\r\nBut,\r\n\r\nhttps://wicg.github.io/webpackage/loading.html#read-a-body\r\n\r\n> 1. If signature’s integrity header's first item is:\r\n>   ↪ \"digest/mi-sha256-03\"\r\n\r\nThis can't be true. It should check if signature’s integrity header is a two-elements list [\"digest\", \"mi-sha256-03\"]. Or maybe just let _integrity header_ a byte sequence, not a list?\r\n"
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/392",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/392/labels{/name}",
@@ -34,7 +136,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -43,8 +145,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-02-06T05:01:01Z",
-    "updated_at": "2019-02-06T05:01:01Z",
-    "closed_at": null,
+    "updated_at": "2019-02-08T01:26:09Z",
+    "closed_at": "2019-02-08T01:25:58Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/392",
@@ -239,9 +341,9 @@
 
     ],
     "milestone": null,
-    "comments": 10,
+    "comments": 11,
     "created_at": "2019-01-30T00:03:37Z",
-    "updated_at": "2019-02-05T17:23:22Z",
+    "updated_at": "2019-02-07T02:48:59Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "Say that liveness checks as described in https://github.com/WICG/webpackage/issues/376 are implemented and passing for a given SXG. It seems that the current document could be granted SecureContext.\r\n\r\nLet's say that liveness checks are not passing.\r\nIt seems that the level of security is not as high, which would mean that SecureContext should not be granted. Such variation may actually break content so it might be better to not render content to the user, and render the content fetched from the actual web site instead.\r\n\r\nA consequence is that while the liveness checks can be done in parallel to processing of the SXG (subresource loading, parsing...), the liveness checks should be validated before the first page rendering and any JavaScript execution.\r\n\r\nFor privacy/security purposes, even subresource loading should probably be postponed until these checks are done."
@@ -499,7 +601,7 @@
     "milestone": null,
     "comments": 5,
     "created_at": "2019-01-23T22:32:15Z",
-    "updated_at": "2019-01-31T00:08:57Z",
+    "updated_at": "2019-02-06T20:27:57Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "pull_request": {
@@ -607,7 +709,7 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-01-23T18:16:05Z",
-    "updated_at": "2019-01-31T04:43:54Z",
+    "updated_at": "2019-02-06T20:46:41Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "pull_request": {
@@ -808,7 +910,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -817,8 +919,8 @@
     "milestone": null,
     "comments": 4,
     "created_at": "2019-01-18T00:45:27Z",
-    "updated_at": "2019-02-06T19:16:32Z",
-    "closed_at": null,
+    "updated_at": "2019-02-06T19:35:52Z",
+    "closed_at": "2019-02-06T19:35:49Z",
     "author_association": "MEMBER",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/377",
@@ -1009,9 +1111,9 @@
       }
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-01-15T02:06:37Z",
-    "updated_at": "2019-02-04T14:56:12Z",
+    "updated_at": "2019-02-07T23:38:03Z",
     "closed_at": null,
     "author_association": "FIRST_TIME_CONTRIBUTOR",
     "pull_request": {
@@ -1020,7 +1122,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/374.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/374.patch"
     },
-    "body": "This change introduces the signed exchange report for distributors discussed at https://github.com/w3c/network-error-logging/issues/99#issuecomment-453421388.\n\nExemple:\n```\n{\n  \"type\": \"network-error\",\n  \"url\": \"https://publisher.example/article.html\",\n  \"age\": 234,\n  \"user_agent\": \"Mozilla/5.0 (X11; Linux x86_64; rv:60.0) ...\",\n  \"body\": {\n    \"referrer\": \"https://aggregator.example/article.html\",\n    \"sampling_fraction\": 1,\n    \"server_ip\": \"123.122.121.120\",  // The IP address of distributor.example.\n    \"protocol\": \"http/1.1\",\n    \"method\": \"GET\",\n    \"status_code\": 200,\n    \"elapsed_time\": 1234,\n    \"phase\": \"sxg\",\n    \"type\": \"sxg.failed\",\n\n    \"outer_url\": \"https://distributor.example/publisher.example/article.html.sxg\",\n    \"inner_url\": \"https://publisher.example/article.html\",\n    \"cert_url\": \"https://distributor.example/publisher.example/cert\"\n  }\n}\n```\n\nThis spec change requires the new OPTIONAL `additional body` argument of the algorithm of \"Generate a network error report\" of Network Error Logging spec. https://github.com/w3c/network-error-logging/pull/100\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/horo-t/webpackage/pull/374.html\" title=\"Last updated on Jan 30, 2019, 2:25 AM UTC (5ef3228)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/374/0623de4...horo-t:5ef3228.html\" title=\"Last updated on Jan 30, 2019, 2:25 AM UTC (5ef3228)\">Diff</a>"
+    "body": "This change introduces the signed exchange report for distributors discussed at https://github.com/w3c/network-error-logging/issues/99#issuecomment-453421388.\n\nExemple:\n```\n{\n  \"type\": \"network-error\",\n  \"url\": \"https://publisher.example/article.html\",\n  \"age\": 234,\n  \"user_agent\": \"Mozilla/5.0 (X11; Linux x86_64; rv:60.0) ...\",\n  \"body\": {\n    \"referrer\": \"https://aggregator.example/article.html\",\n    \"sampling_fraction\": 1,\n    \"server_ip\": \"123.122.121.120\",  // The IP address of distributor.example.\n    \"protocol\": \"http/1.1\",\n    \"method\": \"GET\",\n    \"status_code\": 200,\n    \"elapsed_time\": 1234,\n    \"phase\": \"sxg\",\n    \"type\": \"sxg.failed\",\n\n    \"sxg\": {\n      \"outer_url\": \"https://distributor.example/publisher.example/article.html.sxg\",\n      \"inner_url\": \"https://publisher.example/article.html\",\n      \"cert_url\": \"https://distributor.example/publisher.example/cert\"\n    },\n  }\n}\n```\n\nThis spec change requires the new OPTIONAL `additional body` argument of the algorithm of \"Generate a network error report\" of Network Error Logging spec. https://github.com/w3c/network-error-logging/pull/100\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/horo-t/webpackage/pull/374.html\" title=\"Last updated on Feb 7, 2019, 1:46 AM UTC (5ef3228)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/374/0623de4...horo-t:5ef3228.html\" title=\"Last updated on Feb 7, 2019, 1:46 AM UTC (5ef3228)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/373",
@@ -1612,7 +1714,10 @@
     "closed_at": "2019-01-10T07:23:41Z",
     "author_association": "COLLABORATOR",
     "body": "Found by @irori while implementing \"is complete check\" #363 #364 \r\n\r\nWe introduced \"is complete\" check in #326.\r\n\r\nhttps://tools.ietf.org/html/rfc7234#section-3.1 says \r\n> A response message is considered complete when all of the octets\r\n   indicated by the message framing ([RFC7230]) are received prior to\r\n   the connection being closed.\r\n\r\nThis check is tricky to implement for streaming clients (e.g. Chromium).\r\n\r\nIf the offset at mice stream EOS doesn't match \"Content-Length\", what should the UA do?\r\n- If C-L > actual EOS. The response payload may be already fully consumed by the client.\r\n- The UA may track the expected C-L while running mice streaming encoder to:\r\n  - emit error if the mice stream payload exceeded the expected C-L\r\n  - emit error on the last chunk if the payload stream length doesn't match the expected C-L.\r\n\r\nI think we have at least the following options:\r\n- Option A: Implement the complex check.\r\n  - Chromium may need this anyway if we add support for mice decoder in for non-SXG raw HTTP.\r\n- Option B: Remove \"is complete\" check and replace it with plain 206 check.\r\n  - This was @kinu's preference in #326.\r\n- Option B': Check 206 && if Content-Length is formatted correctly (\"the response has valid message framing\")\r\n  - Not sure how much this is worth doing.\r\n\r\n@jyasskin, @irori, @kinu : Your thoughts welcome.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/364",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1720,10 +1825,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/363.patch"
     },
     "body": "This is part of #362."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/362",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -2642,9 +2744,9 @@
 
     ],
     "milestone": null,
-    "comments": 24,
+    "comments": 25,
     "created_at": "2018-12-07T08:10:30Z",
-    "updated_at": "2019-02-05T01:45:32Z",
+    "updated_at": "2019-02-07T00:45:16Z",
     "closed_at": null,
     "author_association": "NONE",
     "body": "I want to introduce two new fields in application/signed-exchange format.\r\n - Alternative-Signed-Exchange-Subresources map in unsigned field.\r\n - Allowed-Alternative-Signed-Exchange-Subresources list in signed field.\r\n \r\n## Problem\r\nCurrently content publishers can sign their HTML contents using their own private keys. User Agents (UAs) can trust the signed contents as if the contents are served from the publisher’s origins even if they are served from other distributors’ origins. The signed contents can be served from any distributors’ origins. But if the publisher wants to serve subresources such as scripts and images from the distributors’ origin, the publisher needs to change the subresource URLs in the HTML to point to each distributors’ URL and need to sign for each distributor. The proposed two fields can solve this problem.\r\n\r\n**Alternative-Signed-Exchange-Subresources map:**\r\nA map from the original subresource requests to the SXG URLs. This field is not signed. So the distributor can change this field to point to their URLs.\r\n\r\n**Allowed-Alternative-Signed-Exchange-Subresources list:**\r\nThe subresource URL list which can be served using SXG instead of fetching the original URL. This field is signed by the publisher. So the distributor can’t change this field.\r\n\r\n## Example\r\n**Publisher:** https://publisher.example/article_1.html\r\n```\r\n  <script src=\"framework.js\"></script>\r\n  <img src=\"article_1.jpg>\r\n```\r\n\r\n**SXG in Publisher:** https://publisher.example/article_1.html.sxg\r\n```\r\n[\r\n  // URL\r\n  'https://publisher.example/article_1.html',\r\n  // Signature\r\n  'sig1: sig=*...; integrity=\"digest/mi-sha256\";cert-url=\"https://publisher.example/cert\"',\r\n  // [New field] Alternative-Signed-Exchange-Subresources\r\n  // The key of the mapping may need Accept headers info in order to enable content\r\n  // negotiation (e.g. for WebP).\r\n  [\r\n    [{':url': 'https://publisher.example/framework.js', 'accept': '*/*'},\r\n     'https://publisher.example/framework.js.sxg'],\r\n    [{':url': 'https://publisher.example/article_1.jpg', 'accept': '*/*'},\r\n     'https://publisher.example/article_1.jpg.sxg']\r\n  ],\r\n  // Signed headers\r\n  [\r\n    { ':method': 'GET', 'accept': '*/*' },\r\n    {\r\n      ':status': '200',\r\n      // [New field]\r\n      ':allowed-alternative-signed-exchange-subresources':\r\n          '\"https://publisher.example/framework.js\",'\r\n          '\"https://publisher.example/article_1.jpg\"',\r\n      'content-encoding': 'mi-sha256-03',\r\n      'content-type': 'text/html; charset=utf-8',\r\n      'digest': 'mi-sha256-03=....'\r\n    },\r\n  ],\r\n  // Payload body\r\n  '<html><body>...'\r\n]\r\n```\r\n\r\n**SXG in Distributor:** https://distributor.example/article_1.html.sxg\r\n```\r\n[\r\n  // URL\r\n  'https://publisher.example/article_1.html',\r\n  // Signature\r\n  'sig1: sig=*...; integrity=\"digest/mi-sha256\";cert-url=\"https://distributor.example/publisher.example/cert\"',\r\n  // [New field] Alternative-Signed-Exchange-Subresources\r\n  [\r\n    [{':url': 'https://publisher.example/framework.js', 'accept': '*/*'},\r\n     'https://distributor.example/publisher.example/framework.js.sxg'],\r\n    [{':url': 'https://publisher.example/article_1.jpg', 'accept': '*/*'},\r\n     'https://distributor.example/publisher.example/article_1.jpg.sxg']\r\n  ],\r\n  // Signed headers (Same as the SXG in Publisher)\r\n  [\r\n    { ':method': 'GET', 'accept': '*/*' },\r\n    {\r\n      ':status': '200',\r\n      // [New field]\r\n      ':allowed-alternative-signed-exchange-subresources':\r\n          '\"https://publisher.example/framework.js\",'\r\n          '\"https://publisher.example/article_1.jpg\"',\r\n      'content-encoding': 'mi-sha256-03',\r\n      'content-type': 'text/html; charset=utf-8',\r\n      'digest': 'mi-sha256-03=....'\r\n    },\r\n  ],\r\n  // Payload body (Same as the SXG in Publisher)\r\n  '<html><body>...'\r\n]\r\n```\r\n\r\n## How UAs should work\r\n- When the user opens the SXG in the distributor, the UA must check the signature using the certificate in https://distributor.example/publisher.example/cert. (This is the existing behavior)\r\n- The UA processes the script tag and the img tag and decides to fetch the \"framework.js\" and the image \"article_1_small.jpg\".\r\n- Instead of fetching the original URL in publisher.example, UA should fetch the SXG files in distributor.example after checking the `Alternative-Signed-Exchange-Subresources` field and the `Allowed-Alternative-Signed-Exchange-Subresources` field.\r\n- If the original URL is not in the `Allowed-Alternative-Signed-Exchange-Subresources` field, the UA must fetch the original URL. This is intended to avoid the subresource monitoring attack.\r\n- If the original URL’s origin is not same as the signed origin of the main SXG (publisher.example), the UA must fetch the original URL. This restriction is intended to avoid providing a way of tracking.\r\n- UAs should handle the preload link header in the signed response header in the same way. (ex: `link: <https://example.com/framework.js>;rel=\"preload\";as=\"script\"`)\r\n\r\n## Subresource monitoring attack\r\nWe need the signed `Allowed-Alternative-Signed-Exchange-Subresources` to avoid the subresource monitoring attack like this:\r\n- A publisher generates a SXG of a html which shows the user's icon using JS. `icon.src = USER_ID + '.png';`\r\n- An attacker sets the mapping info like this: `{ 'example.com/a.png': 'attacker.com/a.png.sxg', 'example.com/b.png': 'attacker.com/b.png.sxg', ....}`\r\n- If UA fetches the SXG of png when the image tag is added, the attacker can know the USER_ID. Even if UA only uses the prefetched SXG, the attacker distributor can intentionally delay returning the SXGs one by one to see when the load actually finishes by monitoring the onload event, therefore can know the USER_ID.\r\n\r\n## Tracking using subresource SXG\r\nWe need to prohibit the SXG loading for cross-origin subresources to avoid the user tracking like this:\r\n- A publisher sets one subresource to the `Allowed-Alternative-Signed-Exchange-Subresources` field (https://tracking.example/id.js)\r\n- The distributor server can let the publishers’ site know about the user’s ID (ABCD1234) by changing the `Alternative-Signed-Exchange-Subresources` field.\r\n - tracking.example/id.js points to tracking.example/ABCD1234.sxg (body is `const id='ABCD1234';)\r\n\r\nTracking is still possible even if we prohibit cross-origin subresources using the following logic. But this is more difficult.\r\n- A publisher sets 30 subresources to the `Allowed-Alternative-Signed-Exchange-Subresources` field (https://publisher.example/00, 01, ... 29)\r\n- The publisher prepares 60 files, 00_0.sxg (body is 0), 00_1.sxg (body is 1),  01_0.sxg (body is 0), 01_1.sxg (body is 1)...\r\n- The distributor server can let the publishers’ site know about the user’s ID in binary digits by changing the `Alternative-Signed-Exchange-Subresources` field.\r\n  - publisher.example/00 points to 00_0.sxg or 00_1.sxg\r\n  - publisher.example/01 points to 01_0.sxg or 01_1.sxg\r\n  - ....\r\n- This logic provides a way of user tracking of 2^30 users.\r\n"
@@ -3304,7 +3406,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/334.patch"
     },
     "body": "...mentioning about `dump-exchange`'s `-verify` option.\r\n\r\nThis is part of #319."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/333",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3412,10 +3517,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/332.patch"
     },
     "body": "It was a method of Signer, but will be used by verifier too.\r\n\r\nThis is part of #319."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/331",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5109,7 +5211,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/304.patch"
     },
     "body": "- Add OCSP and SCT to the test input\r\n- Remove an unused function"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/303",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5218,10 +5323,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/302.patch"
     },
     "body": "Add `go.mod` and `go.sum` so that the dependent library versions are specified explicitly. This affects Go 1.11 module usages (without $GOPATH), and should not affect the current usual usage (with $GOPATH).\r\n\r\nThis is a preparation for Go modules which will be officially introduced at Go 1.12.\r\n\r\nNote: you can test this by:\r\n\r\n1. Checking out https://github.com/WICG/webpackage at your local machine, not under `$GOPATH/src`\r\n2. Run `GO111MODULE=on go test ./...`\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/301",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6691,7 +6793,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/274.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/273",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6799,10 +6904,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/272.patch"
     },
     "body": "Use `.sxg` and `.wbn` instead of `.htxg` and `.webbundle`."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/271",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8380,7 +8482,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/244.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/243",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8541,10 +8646,7 @@
     "closed_at": "2018-08-20T07:21:21Z",
     "author_association": "MEMBER",
     "body": "Chromium would like to be able to ship these formats and then continue evolving them as they make their way through the standards process. QUIC attempts something like this by defining [\"invariants\"](https://tools.ietf.org/html/draft-ietf-quic-invariants-01), \"properties of the QUIC transport protocol that are expected to remain unchanged over time as new versions of the protocol are developed.\" To try the same thing in these specifications, it might make sense to put a fallback URL in a fixed place in both the signed exchange and bundles formats.\r\n\r\nFor signed exchanges, this would be the request URL that's currently encoded as the `:url` field in the [request headers](https://tools.ietf.org/html/draft-yasskin-http-origin-signed-responses-04#section-3.2). For bundles, it would be the [`start_url`](https://www.w3.org/TR/appmanifest/#start_url-member) that's expected to be in the bundle's [manifest](https://tools.ietf.org/html/draft-yasskin-wpack-bundled-exchanges-00#section-3.2.2). In both cases, the value would be moved instead of copied to the new location, to avoid the possibility of inconsistencies.\r\n\r\nWhen the client receives an unknown version of the format (either too old or too new), it would redirect to the fallback URL. Offline users would be out of luck, but online ones would still be able to get the content.\r\n\r\nThis could also be accomplished using content negotiation on the `Accept` header, but that's a [joint that might rust shut](https://www.imperialviolet.org/2016/05/16/agility.html), so we should try to make things work even if it's rusty, if possible.\r\n\r\nThoughts?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/241",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10029,7 +10131,10 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "This should use http://wicg.github.io/reporting/."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/213",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10138,10 +10243,7 @@
     "closed_at": "2018-06-22T18:51:37Z",
     "author_association": "COLLABORATOR",
     "body": "# Goal\r\n- Easier streaming consumption of large bundles.\r\n- Easier non-streaming consumption of the small bundles.\r\n\r\n# Background\r\nIn the current bundle spec, the structure of the responses section is allowed to be very flexible and not required to be a CBOR construct.\r\n\r\n## Streaming loading algorithm for current format\r\nWhen loading a bundle in a streamed fashion, currently the parser will:\r\n1. Consume the index section\r\n1. Sort the exchanges by their response range offset\r\n1. Consume the other sections up till the responses section\r\n1. Discard the bytes until it reaches the first exchange in the sorted list\r\n1. Buffer the bytes until it reaches the end of the the first exchange\r\n1. The first exchange becomes ready for its use:\r\n  1. Parse its responses header CBOR map\r\n  1. Read its payload\r\n1. Append bytes to the buffer until it reaches the end of the next item.\r\n1. The second exchange becomes ready for its use.\r\n1. ...\r\n\r\nSince there may be overlap in the response exchange, we need to keep around the original responses section in the buffer (which probably will reside on memory), since they may theoretically be used more than 1 time in a different CBOR interpretation. It is non-trivial to compute the \"done\" part of the responses section which are not referenced in later exchanges to partially free the original responses bytes buffer.\r\n\r\n## Non-streaming consumption of the small bundles\r\nIf the entire bundle is guaranteed to be a valid CBOR, it will become very easy to consume small packages which will easily fit in memory. If efficiency is not an issue, you can feed the entire package to CBOR parser, and consume the exchanges without implementing the full parsing algorithm.\r\n\r\nFor example, @irori created [a live web demo of unbundler](\r\nhttps://bundle-load-test.surge.sh/) which assumes that the bundler output a CBOR array as response section.\r\n\r\n# Proposals\r\n- Specify the structure of the responses section\r\n  - A valid CBOR array? \r\n- An index section entry references the response via array index, not offset\r\n  - Enforces the start of the response is aligned to the start of the item in the responses CBOR array\r\n  - Can save an alignment assert in the parser\r\n- Require the responses section to be always after the index section"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/211",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11765,7 +11867,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/184.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/183",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11867,10 +11972,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/182.patch"
     },
     "body": "Digests require buffering the whole response body before determining that it's\r\nvalid, which unnecessarily increases the complexity in the verifier.\r\n\r\nThis change also puts a bound on the MI record size, also to limit the needed buffering.\r\n\r\n@davidben, have I explained the right reasons for doing this?\r\n\r\nFixes #138\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/remove-digest/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/remove-digest/draft-yasskin-http-origin-signed-responses.txt)\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/181",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13437,7 +13539,10 @@
     "closed_at": "2018-05-08T22:41:28Z",
     "author_association": "MEMBER",
     "body": "The signature's expiry limits when you can receive the exchange. The HTTP cache control headers limit when you can use the exchange after it's successfully received.\r\n\r\nIt's not obvious what the policy should be, but a simple policy is to say that the resource expires from the cache at the earlier time of the signature expiration and the cache expiration.\r\n\r\nWe also need to specify how the resource is revalidated after it expires.\r\n1. The first use needs to be similar to [`<link rel=preload>`](https://w3c.github.io/preload/#link-type-preload) so that it's not revalidated during that first use.\r\n1. Subsequent uses can either [update signature validity](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#updating-validity) if the signature's expired, or use a conditional request if the cache information's expired. Once the signature's expired, remember that the etag isn't trustworthy."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/153",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13577,10 +13682,7 @@
     "closed_at": "2018-03-20T07:00:37Z",
     "author_association": "COLLABORATOR",
     "body": "That would be useful for generating test htxg.\r\n\r\ncc: @hajimehoshi "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/151",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15189,7 +15291,10 @@
     "closed_at": "2018-03-01T17:29:55Z",
     "author_association": "COLLABORATOR",
     "body": "Originally requested by @kinu.\r\n\r\nWe should be able to set arbitrary request/response HTTP headers to be captured in the generated signed exchange.\r\n```\r\n$ ./gen-signedexchange \\\r\n    -requestHeader \"Accept-Language: en\" \\\r\n    -responseHeader \"Server: Nginx\" \\\r\n    -responseHeader \"X-Frame-Options: Deny\"\r\n```\r\n\r\n@hajimehoshi Would you work on this?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/123",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15297,10 +15402,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/122.patch"
     },
     "body": "Use a custom CBOR certificate chain format instead.\r\n\r\nAlso register this format with IANA.\r\n\r\n@sleevi, better?\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/avoid-tls-messages/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/avoid-tls-messages/draft-yasskin-http-origin-signed-responses.txt)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/121",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16746,7 +16848,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/94.patch"
     },
     "body": "[Preview](https://jyasskin.github.io/webpackage/http-extension/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://jyasskin.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/http-extension/draft-yasskin-http-origin-signed-responses.txt)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/93",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16854,10 +16959,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/92.patch"
     },
     "body": "In the hopes of getting deep links.\r\n\r\nPointed out in https://lists.w3.org/Archives/Public/ietf-http-wg/2017OctDec/0399.html.\r\n\r\nHowever, https://tools.ietf.org/html/draft-ietf-httpbis-origin-frame-04#section-1 does have a deep link to <a href=\"./rfc7540#section-9.1.2\">[RFC7540], Section&nbsp;9.1.2</a>, so I don't think this ordering is the fundamental problem.\r\n\r\nI can't get any of these syntaxes to result in deep links from https://xml2rfc.tools.ietf.org/, so I'm not sure what the ietf-httpbis drafts are doing to get them. The httpsbis editors' drafts do *not* have deep links: http://httpwg.org/http-extensions/expect-ct.html#response-header-field-syntax\r\n\r\n@MikeBishop, halp! 😺"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/91",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18423,7 +18525,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/64.patch"
     },
     "body": "And add some Go code to sign a message into a byte string."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/63",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18531,10 +18636,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/62.patch"
     },
     "body": "This sits on top of #55, #60, #61, #63, #64, #65, and #66. Sorry that it's so long again."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/61",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -19962,7 +20064,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/34.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/33",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20058,10 +20163,7 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "@lrosenthol, could you describe the use cases you're interested in for the packaging format, either in this issue or as a PR against the [`README.md`](https://github.com/dimich-g/webpackage/blob/master/README.md)?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/31",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -21477,7 +21579,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/4.patch"
     },
     "body": "s/subresourcves/resources/"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/3",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -21573,10 +21678,7 @@
     "closed_at": "2017-01-09T16:38:05Z",
     "author_association": "NONE",
     "body": "Something unclear reading through the current proposal is how a developer would hint that some resources in a web package have a higher priority to fetch (e.g via resource hints) than others - the entire package would be fetched with a single priority. If I want to prefetch or preload certain assets, I'm unsure how those systems interface with packages.\r\n\r\nAre there any thoughts about this?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/1",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
