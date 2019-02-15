@@ -1,6 +1,108 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/397",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/397/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/397/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/397/events",
+    "html_url": "https://github.com/WICG/webpackage/issues/397",
+    "id": 409627412,
+    "node_id": "MDU6SXNzdWU0MDk2Mjc0MTI=",
+    "number": 397,
+    "title": "When to fallback redirect?",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-02-13T04:57:55Z",
+    "updated_at": "2019-02-13T05:01:16Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "body": "In the current loading spec, redirect to the fallback URL happens only when [the signed exchange version is not supported](https://wicg.github.io/webpackage/loading.html#mp-http-fetch).\r\n\r\nHowever, Chromium implementation performs fallback redirect in the following cases (corresponding to the error codes [here](https://chromium.googlesource.com/chromium/src/+/HEAD/content/browser/web_package/signed_exchange_error.h)):\r\n\r\n- SXG was served from non-secure origin.\r\n- Unsupported version of SXG (could extract fallback URL).\r\n- SXG parse error (could extract fallback URL).\r\n- Network error occurred while loading SXG header.\r\n- Failed to fetch certificate chain.\r\n- Failed to parse certificate chain.\r\n- Signature verification failed.\r\n- Cert verification failed.\r\n- CT verification failed.\r\n- OCSP check failed.\r\n- Certificate Requirements aren't met.\r\n- SXG was served without `X-Content-Type-Options: nosniff` header.\r\n\r\nChromium doesn't fallbeck on the following errors:\r\n\r\n- SXG parse error (couldn't extract fallback URL).\r\n- Merkle integrity error.\r\n\r\nWe should clarify that which error should cause a fallback redirect, and spec them.\r\n"
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/396",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/396/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/396/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/396/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/396",
+    "id": 408300592,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjUxNTc5NjA5",
+    "number": 396,
+    "title": "Don't require CAs to cap lifetime or check CAA until May 1.",
+    "user": {
+      "login": "jyasskin",
+      "id": 83420,
+      "node_id": "MDQ6VXNlcjgzNDIw",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/83420?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/jyasskin",
+      "html_url": "https://github.com/jyasskin",
+      "followers_url": "https://api.github.com/users/jyasskin/followers",
+      "following_url": "https://api.github.com/users/jyasskin/following{/other_user}",
+      "gists_url": "https://api.github.com/users/jyasskin/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/jyasskin/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/jyasskin/subscriptions",
+      "organizations_url": "https://api.github.com/users/jyasskin/orgs",
+      "repos_url": "https://api.github.com/users/jyasskin/repos",
+      "events_url": "https://api.github.com/users/jyasskin/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/jyasskin/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-02-08T19:53:35Z",
+    "updated_at": "2019-02-08T20:09:57Z",
+    "closed_at": null,
+    "author_association": "MEMBER",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/396",
+      "html_url": "https://github.com/WICG/webpackage/pull/396",
+      "diff_url": "https://github.com/WICG/webpackage/pull/396.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/396.patch"
+    },
+    "body": "This makes it clear that existing CAs aren't breaking any rules just because I changed the draft."
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/395",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/395/labels{/name}",
@@ -34,7 +136,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -43,8 +145,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-02-08T06:17:32Z",
-    "updated_at": "2019-02-08T06:17:33Z",
-    "closed_at": null,
+    "updated_at": "2019-02-15T01:39:51Z",
+    "closed_at": "2019-02-15T01:39:26Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/395",
@@ -251,9 +353,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-02-06T00:40:47Z",
-    "updated_at": "2019-02-06T00:40:47Z",
+    "updated_at": "2019-02-13T03:40:45Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "The chromium implementation doesn't support any inner content-encodings other than `mi-sha256-03`.\r\n\r\n1. Should the implementation snapshot document this upper bound? (And, AFAICT, it's also a lower bound via [signature validity](https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#signature-validity) step 9.)\r\n\r\n2. Should the draft spec place any limits or suggestion on inner content-encoding? I don't suppose it could specify an allowed list of content encodings because that would preclude future integrity specs. But perhaps it could ban br, deflate, and gzip (unless there's a good reason to specify those on inner rather than outer). Perhaps it could mandate a maximum of one, but maybe that would preclude some future `Digest` header that requires nested encodings."
@@ -299,9 +401,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 1,
     "created_at": "2019-02-05T07:56:57Z",
-    "updated_at": "2019-02-05T07:56:57Z",
+    "updated_at": "2019-02-09T00:33:59Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "When fetching a Signed Exchange, Chromium sets `Accept-Encoding` request header to `gzip, deflate, br`. However, actually Chromium accepts differnt set of content encodings for Signed Exchange's outer and inner responses. `gzip`, `deflate`, and `br` are supported for outer responses, and only `mi-sha256-03` is supported for inner responses.\r\n\r\nThis is problematic when performing the [Request Matching](https://wicg.github.io/webpackage/loading.html#request-matching). For example if exchange has:\r\n```\r\n Variants: Accept-Encoding;mi-sha256-03\r\n Variant-Key: mi-sha256-03\r\n```\r\nIt will not match the `browserRequest` which has `Accept-Encoding: gzip, deflate, br`.\r\n\r\nWhat should we do?\r\n\r\nIdeas:\r\n- When making a redirect to the inner response, overwrite the request's `Accept-Encoding` header to `mi-sha256-03`.\r\n- Or, specify that Cache Behavior for Request Matching does not support Accept-Encoding content negotiation, because it makes little sense for signed exchange's inner responses (?)\r\n"
@@ -869,9 +971,9 @@
 
     ],
     "milestone": null,
-    "comments": 2,
+    "comments": 3,
     "created_at": "2019-01-23T12:56:24Z",
-    "updated_at": "2019-01-29T04:16:07Z",
+    "updated_at": "2019-02-14T10:50:33Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "pull_request": {
@@ -916,17 +1018,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 6,
+    "comments": 7,
     "created_at": "2019-01-18T23:17:47Z",
-    "updated_at": "2019-02-08T19:20:37Z",
-    "closed_at": null,
+    "updated_at": "2019-02-08T19:52:19Z",
+    "closed_at": "2019-02-08T19:52:19Z",
     "author_association": "MEMBER",
     "body": "In [the blink-dev Intent-to-Ship thread](https://groups.google.com/a/chromium.org/d/msg/blink-dev/gPH_BcOBEtc/WXRzifVlDQAJ), @agwa suggests \r\n\r\n> It may also be a good idea to limit the lifetime of certificates used in SXG, to reduce the amount of time that an illegitimate certificate can be used, in case an attacker exploits a CA vulnerability to obtain future-dated good OCSP responses.\r\n\r\n* @agwa [suggests 7-14 days](https://groups.google.com/a/chromium.org/d/msg/blink-dev/gPH_BcOBEtc/eL5q1f-rDQAJ).\r\n* @clintwilson says [\"Something around 7-10 days would be a nice target IMO, but even restricting to 30-90 days would be a substantial improvement.\"](https://groups.google.com/a/chromium.org/d/msg/blink-dev/gPH_BcOBEtc/mfxmsbZ3DQAJ)\r\n* If we go to 7 days, we can probably get rid of any mention of OCSP responses. What's the longest certificate lifetime where folks would be comfortable dropping our requirement for OCSP stapling?\r\n* A very-short lifetime will be a problem if a CA has to temporarily disable issuance, for example after security weaknesses in certain domain validation methods are discovered. \r\n* Even a 90-day limit probably requires automated certificate rotation, a'la ACME. Shorter certainly does.\r\n* Should we say anything about re-using an old public key in a new certificate?\r\n\r\nThese requirements may well wind up in the [BRs](https://cabforum.org/baseline-requirements-documents/) instead of this repository's specs, but this issue will track getting them where they need to go."
   },
@@ -1165,9 +1267,9 @@
       }
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-01-15T02:06:37Z",
-    "updated_at": "2019-02-08T09:06:59Z",
+    "updated_at": "2019-02-14T01:32:18Z",
     "closed_at": null,
     "author_association": "FIRST_TIME_CONTRIBUTOR",
     "pull_request": {
@@ -1176,7 +1278,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/374.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/374.patch"
     },
-    "body": "This change introduces the signed exchange report for distributors discussed at https://github.com/w3c/network-error-logging/issues/99#issuecomment-453421388.\n\nExemple:\n```\n{\n  \"type\": \"network-error\",\n  \"url\": \"https://publisher.example/article.html\",\n  \"age\": 234,\n  \"user_agent\": \"Mozilla/5.0 (X11; Linux x86_64; rv:60.0) ...\",\n  \"body\": {\n    \"referrer\": \"https://aggregator.example/article.html\",\n    \"sampling_fraction\": 1,\n    \"server_ip\": \"123.122.121.120\",  // The IP address of distributor.example.\n    \"protocol\": \"http/1.1\",\n    \"method\": \"GET\",\n    \"status_code\": 200,\n    \"elapsed_time\": 1234,\n    \"phase\": \"sxg\",\n    \"type\": \"sxg.failed\",\n\n    \"sxg\": {\n      \"outer_url\": \"https://distributor.example/publisher.example/article.html.sxg\",\n      \"inner_url\": \"https://publisher.example/article.html\",\n      \"cert_url\": \"https://distributor.example/publisher.example/cert\"\n    },\n  }\n}\n```\n\nThis spec change requires the new OPTIONAL `additional body` argument of the algorithm of \"Generate a network error report\" of Network Error Logging spec. https://github.com/w3c/network-error-logging/pull/100\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/horo-t/webpackage/pull/374.html\" title=\"Last updated on Feb 8, 2019, 9:00 AM UTC (fc5e25e)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/374/0623de4...horo-t:fc5e25e.html\" title=\"Last updated on Feb 8, 2019, 9:00 AM UTC (fc5e25e)\">Diff</a>"
+    "body": "This change introduces the signed exchange report for distributors discussed at https://github.com/w3c/network-error-logging/issues/99#issuecomment-453421388.\n\nExemple:\n```\n{\n  \"type\": \"network-error\",\n  \"url\": \"https://publisher.example/article.html\",\n  \"age\": 234,\n  \"user_agent\": \"Mozilla/5.0 (X11; Linux x86_64; rv:60.0) ...\",\n  \"body\": {\n    \"referrer\": \"https://aggregator.example/article.html\",\n    \"sampling_fraction\": 1,\n    \"server_ip\": \"123.122.121.120\",  // The IP address of distributor.example.\n    \"protocol\": \"http/1.1\",\n    \"method\": \"GET\",\n    \"status_code\": 200,\n    \"elapsed_time\": 1234,\n    \"phase\": \"sxg\",\n    \"type\": \"sxg.failed\",\n\n    \"sxg\": {\n      \"outer_url\": \"https://distributor.example/publisher.example/article.html.sxg\",\n      \"inner_url\": \"https://publisher.example/article.html\",\n      \"cert_url\": \"https://distributor.example/publisher.example/cert\"\n    },\n  }\n}\n```\n\nThis spec change requires the new OPTIONAL `additional body` argument of the algorithm of \"Generate a network error report\" of Network Error Logging spec. https://github.com/w3c/network-error-logging/pull/100\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/horo-t/webpackage/pull/374.html\" title=\"Last updated on Feb 14, 2019, 1:32 AM UTC (7365813)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/374/aa31685...horo-t:7365813.html\" title=\"Last updated on Feb 14, 2019, 1:32 AM UTC (7365813)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/373",
@@ -1573,7 +1675,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/368.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/367",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1720,10 +1825,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "We need to update `dump-signedexchange` to support Variants header validation per #360 [change](https://github.com/WICG/webpackage/pull/360/files#diff-a2197f2cbc199dc1463dc10213fa40d9R957).\r\nThe [loading spec](https://pr-preview.s3.amazonaws.com/jyasskin/webpackage/pull/360.html#request-matching) may be easier to follow step-by-step.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/365",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3272,7 +3374,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/337.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/336",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3406,10 +3511,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "I don't see it in https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#application-signed-exchange or https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#cbor-representation or https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#canonical-cbor. (Ditto for latest draft.)\r\n\r\nBut AFAICT this is required by chromium, and IIRC it was in a previous version of this spec."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/334",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5103,7 +5205,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/307.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/306",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5211,10 +5316,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/305.patch"
     },
     "body": "- Add `CertChain` type and replace `CreateCertChainCBOR()` with `CertChain.Write()`\r\n- Rename `parse.go` to `cert_chain.go`\r\n\r\n`adc920e` is just file renaming, so you might want to look at [`bbfbcfa`](https://github.com/WICG/webpackage/commit/bbfbcfaf0f479f1391395fd2dd8a64fa39e802d2) to see the diff."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/304",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6691,7 +6793,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/277.patch"
     },
     "body": "… debugging"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/276",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6793,10 +6898,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/275.patch"
     },
     "body": "Fixes #268"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/274",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8322,7 +8424,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/247.patch"
     },
     "body": "But warn servers away from using it in TLS servers.\r\n\r\nFixes #238.\r\n\r\n@sleevi and any CA folks who see this, do you think I'm right to say \"Conforming CAs MUST NOT mark this extension as critical.\", or should I leave them without a requirement here?\r\n\r\nSpec: [Preview](https://jyasskin.github.io/webpackage/non-critical-extension/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/non-critical-extension/draft-yasskin-http-origin-signed-responses.txt)\r\n\r\nImpl draft: [Preview](https://jyasskin.github.io/webpackage/non-critical-extension/draft-yasskin-httpbis-origin-signed-exchanges-impl.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.txt&url2=https://jyasskin.github.io/webpackage/non-critical-extension/draft-yasskin-httpbis-origin-signed-exchanges-impl.txt)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/246",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8482,10 +8587,7 @@
     "closed_at": "2018-07-23T16:21:01Z",
     "author_association": "COLLABORATOR",
     "body": "@davidben @irori, would you take a look at self-signed cert generation instructions at https://github.com/WICG/webpackage/tree/master/go/signedexchange#creating-our-first-signed-exchange ?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/244",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10029,7 +10131,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/217.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/216",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10137,10 +10242,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/215.patch"
     },
     "body": "I believe this is just updates to section numbers, and the addition of ABNF for the headers.\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/update-structured-headers/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/update-structured-headers/draft-yasskin-http-origin-signed-responses.txt)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/214",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11733,7 +11835,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "It seems worth adding a \"desired version(s)\" to the Accept-Signature, so intermediaries can signal which version of the Signature header they are capable of consuming. Otherwise, I guess they would have to sniff, based on the names of the parameters, or add a non-standard request header for this purpose."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/186",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11867,10 +11972,7 @@
     "closed_at": "2018-05-10T21:25:59Z",
     "author_association": "COLLABORATOR",
     "body": "If A prefetches sxg_0, which includes a preload for sxg_1, which includes a preload for sxg_2, ... This could lead to unbounded prefetches. Perhaps include a limit like https://fetch.spec.whatwg.org/#ref-for-concept-request-redirect-count%E2%91%A0."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/184",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13443,7 +13545,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/157.patch"
     },
     "body": "Fixes #151\r\n\r\nCC @twifkak \r\n\r\nPTAL"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/156",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13545,10 +13650,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/155.patch"
     },
     "body": "[Preview](https://jyasskin.github.io/webpackage/draft-mice/draft-yasskin-httpbis-origin-signed-exchanges-impl.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.txt&url2=https://jyasskin.github.io/webpackage/draft-mice/draft-yasskin-httpbis-origin-signed-exchanges-impl.txt)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/154",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15182,7 +15284,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/127.patch"
     },
     "body": "PTAL @nyaxt "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/126",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15290,10 +15395,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/125.patch"
     },
     "body": "#124 \r\n\r\nThis is WIP: I have no idea how to treat the passed request headers."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/124",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16740,7 +16842,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/97.patch"
     },
     "body": "@yoavweiss"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/96",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16848,10 +16953,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/95.patch"
     },
     "body": "(for instance, this is not a work item of the HTTP working group)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/94",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18417,7 +18519,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/67.patch"
     },
     "body": "This depends on #62."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/66",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18525,10 +18630,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/65.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/64",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -19962,7 +20064,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/37.patch"
     },
     "body": "It's a fairly long list. Did I miss anything?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/36",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20064,10 +20169,7 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Hi all, I saw some of you at Blink On, and I promised to come up with a few user stories. Rather than trying help shape the implementation, I thought I could just outline why electron is looking at this format. Here's my first pass at some user stories.\r\n\r\n## App Installer Story\r\n\r\nDeveloper Kim builds a new electron app, and wants to host it on her site. She wants to make the install as easy as possible, and a new hot installation tool some people have downloaded knows how to take a web package, and install it like a desktop app. Right now, every electron app comes with its own chromium. A web package format distribution could link out to the required chromium, which may already be installed on the users desktop.\r\n\r\nThe end-user downloads the `.electron` bundle, double-clicks it, and the installer installs a new app.\r\n\r\nBoth the installer, and the operating system should be validating the package and checking code signatures. (Open question if the dynamic installer messes up the signature story)\r\n\r\nA new icon is placed wherever there operating system installs applications, and double-clicking it opens the app.\r\n\r\n## Lifecycle with _shared_ resources\r\n\r\nKim is at it again, but this time her users have demanded an even slimmer after install experience. Kim builds the next web package bundle, but instead of including everything in `node_modules` the web package simply links out to indicate that a requires these and PM modules at specific versions. To complicate matters, some of these modules require compilation.\r\n\r\nKim knows that not all of her users have developer tools installed, but also doesn't want to set up CI on numerous different platforms. That's okay, we have your back. The top 100 electron modules that require compilation have been precompiled on common platforms packaged into a web package format.\r\n\r\nUser Angela downloads Kim's latest web package, which only includes the core app code. The installer understands the outbound links in the web package, and first attempts to satisfy them with a local cache on disk. One of the compiled dependencies is missing however, and the installer has to downloaded fresh. Instead of pulling from npm directly, the installer is able to resolve the location of a precompiled version and use that.\r\n\r\n## BigCorp\r\n\r\nBig Corp once control over every last bit of their installed application. They want to block every last piece down. They want a self-contained packaging format, where everything gets shipped altogether.\r\n\r\nThis is the situation we have now, which is why it's worth putting down.\r\n\r\n## BigCrop Internal\r\n\r\nInternally at big Corp, they have a lot of internal tools developers that wish to distribute quick one-off applications. Because everything is running behind their firewall, they only want vetted code. Developers love the hotlinking that the web package can do, but all links should resolve to an internal npm mirror and an internal blob store for precompiled modules."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/34",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -21477,7 +21579,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "While there is a good discussion about the need to handle separate (and unique) origins [here](https://github.com/dimich-g/webpackage#use-case-a-web-page-with-a-resources-from-the-other-origin), it's not clear whether such content should be loaded in a secure (https-like) or insecure (http) context - and whether it being signed influences that choice."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/6",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -21579,10 +21684,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/5.patch"
     },
     "body": "s/tot he/to the/"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/4",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
