@@ -4,8 +4,8 @@
 
 Network Working Group                                         J. Yasskin
 Internet-Draft                                                    Google
-Intended status: Standards Track                       February 27, 2019
-Expires: August 31, 2019
+Intended status: Standards Track                          March 01, 2019
+Expires: September 2, 2019
 
 
                          Bundled HTTP Exchanges
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on August 31, 2019.
+   This Internet-Draft will expire on September 2, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Yasskin                  Expires August 31, 2019                [Page 1]
+Yasskin                 Expires September 2, 2019               [Page 1]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Yasskin                  Expires August 31, 2019                [Page 2]
+Yasskin                 Expires September 2, 2019               [Page 2]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .  23
@@ -165,9 +165,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019                [Page 3]
+Yasskin                 Expires September 2, 2019               [Page 3]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    Bundle parsers support two operations, Load a bundle's metadata
@@ -221,9 +221,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019                [Page 4]
+Yasskin                 Expires September 2, 2019               [Page 4]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    The map may include other items added by sections defined in the
@@ -277,9 +277,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019                [Page 5]
+Yasskin                 Expires September 2, 2019               [Page 5]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    that request's serialized response.  Byte ranges are represented
@@ -333,9 +333,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019                [Page 6]
+Yasskin                 Expires September 2, 2019               [Page 6]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    1.   Seek to offset 0 in "stream".  Assert: this operation doesn't
@@ -389,9 +389,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019                [Page 7]
+Yasskin                 Expires September 2, 2019               [Page 7]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    13.  Let "currentOffset" be "sectionsStart".
@@ -445,9 +445,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019                [Page 8]
+Yasskin                 Expires September 2, 2019               [Page 8]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
             "sectionOffsets", and "metadata".  If this returns an error,
@@ -501,9 +501,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019                [Page 9]
+Yasskin                 Expires September 2, 2019               [Page 9]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    5.  For each ("cbor-http-request", "length") pair of adjacent
@@ -557,9 +557,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 10]
+Yasskin                 Expires September 2, 2019              [Page 10]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
        10.  Set "requests"["http-request"] to a struct whose "offset"
@@ -613,9 +613,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 11]
+Yasskin                 Expires September 2, 2019              [Page 11]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    1.  Let "critical" be the result of parsing "sectionContents" as a
@@ -669,9 +669,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 12]
+Yasskin                 Expires September 2, 2019              [Page 12]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
        *  Available bytes are "[bytes[bytes.length - bundleLength],
@@ -725,9 +725,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 13]
+Yasskin                 Expires September 2, 2019              [Page 13]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    7.   If "pseudos" does not have a key named ':status' or its size
@@ -781,9 +781,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 14]
+Yasskin                 Expires September 2, 2019              [Page 14]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
 3.5.1.  Parse a known-length item
@@ -837,9 +837,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 15]
+Yasskin                 Expires September 2, 2019              [Page 15]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    the CBOR major type 0-7 inclusive, and a 64-bit integral argument for
@@ -893,9 +893,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 16]
+Yasskin                 Expires September 2, 2019              [Page 16]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    1.  If "item" doesn't match the "headers" rule in the above CDDL,
@@ -949,9 +949,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 17]
+Yasskin                 Expires September 2, 2019              [Page 17]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
 5.1.  Version skew
@@ -1005,9 +1005,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 18]
+Yasskin                 Expires September 2, 2019              [Page 18]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
        2.  Similarly, if the request headers for any contained resource
@@ -1061,9 +1061,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 19]
+Yasskin                 Expires September 2, 2019              [Page 19]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    o  Applications that use this media type: None yet, but it is
@@ -1117,9 +1117,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 20]
+Yasskin                 Expires September 2, 2019              [Page 20]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
                 +--------------+---------------+----------+
@@ -1158,7 +1158,7 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
               Wide Web Consortium WD WD-appmanifest-20180523, May 2018,
               <https://www.w3.org/TR/2018/WD-appmanifest-20180523>.
 
-   [FETCH]    WHATWG, "Fetch", February 2019,
+   [FETCH]    WHATWG, "Fetch", March 2019,
               <https://fetch.spec.whatwg.org/>.
 
    [I-D.ietf-cbor-7049bis]
@@ -1173,9 +1173,9 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 21]
+Yasskin                 Expires September 2, 2019              [Page 21]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    [I-D.ietf-cbor-cddl]
@@ -1184,7 +1184,7 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
               express CBOR and JSON data structures", draft-ietf-cbor-
               cddl-07 (work in progress), February 2019.
 
-   [INFRA]    WHATWG, "Infra", February 2019,
+   [INFRA]    WHATWG, "Infra", March 2019,
               <https://infra.spec.whatwg.org/>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
@@ -1211,8 +1211,7 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
               Recommendation REC-SRI-20160623, June 2016,
               <http://www.w3.org/TR/2016/REC-SRI-20160623>.
 
-   [URL]      WHATWG, "URL", February 2019,
-              <https://url.spec.whatwg.org/>.
+   [URL]      WHATWG, "URL", March 2019, <https://url.spec.whatwg.org/>.
 
 7.2.  Informative References
 
@@ -1229,9 +1228,10 @@ Internet-Draft           Bundled HTTP Exchanges            February 2019
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 22]
+
+Yasskin                 Expires September 2, 2019              [Page 22]
 
-Internet-Draft           Bundled HTTP Exchanges            February 2019
+Internet-Draft           Bundled HTTP Exchanges               March 2019
 
 
    [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
@@ -1285,4 +1285,4 @@ Author's Address
 
 
 
-Yasskin                  Expires August 31, 2019               [Page 23]
+Yasskin                 Expires September 2, 2019              [Page 23]
