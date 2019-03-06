@@ -41,9 +41,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2019-03-01T11:06:57Z",
-    "updated_at": "2019-03-01T11:06:57Z",
+    "updated_at": "2019-03-01T18:32:06Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Current loading spec is checking the `response’s header list` in [Identifying signed exchanges](https://wicg.github.io/webpackage/loading.html#identifying-sxg) section.\r\nSo signed exchanges can't be loaded from blob: or filesystem: URI where no `header list` exists."
@@ -89,9 +89,9 @@
 
     ],
     "milestone": null,
-    "comments": 3,
+    "comments": 13,
     "created_at": "2019-02-28T04:54:55Z",
-    "updated_at": "2019-03-01T06:47:41Z",
+    "updated_at": "2019-03-02T02:10:44Z",
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "CORB seems like a good thing to enable for more mime types. Since there are very few users of our mime types, we should see if it makes sense to turn on CORB for them. We're trying to discourage personalized data in signed exchanges, but unsigned bundles could certainly have it.\r\n\r\n@anforowicz for any thoughts."
@@ -130,7 +130,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -139,8 +139,8 @@
     "milestone": null,
     "comments": 1,
     "created_at": "2019-02-28T04:37:32Z",
-    "updated_at": "2019-03-01T17:39:35Z",
-    "closed_at": null,
+    "updated_at": "2019-03-06T22:46:14Z",
+    "closed_at": "2019-03-06T22:46:14Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/401",
@@ -148,7 +148,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/401.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/401.patch"
     },
-    "body": "https://github.com/WICG/webpackage/issues/400\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/horo-t/webpackage/pull/401.html\" title=\"Last updated on Feb 28, 2019, 4:37 AM UTC (8e7e75b)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/401/af43527...horo-t:8e7e75b.html\" title=\"Last updated on Feb 28, 2019, 4:37 AM UTC (8e7e75b)\">Diff</a>"
+    "body": "https://github.com/WICG/webpackage/issues/400\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/horo-t/webpackage/pull/401.html\" title=\"Last updated on Mar 5, 2019, 5:06 AM UTC (544592e)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/401/af43527...horo-t:544592e.html\" title=\"Last updated on Mar 5, 2019, 5:06 AM UTC (544592e)\">Diff</a>"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/400",
