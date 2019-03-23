@@ -73,17 +73,17 @@ Table of Contents
        2.1.1.  Offline installation  . . . . . . . . . . . . . . . .   4
        2.1.2.  Offline browsing  . . . . . . . . . . . . . . . . . .   5
        2.1.3.  Save and share a web page . . . . . . . . . . . . . .   6
-     2.2.  Nice-to-have  . . . . . . . . . . . . . . . . . . . . . .   6
-       2.2.1.  Packaged Web Publications . . . . . . . . . . . . . .   6
-       2.2.2.  Avoiding Censorship . . . . . . . . . . . . . . . . .   7
-       2.2.3.  Third-party security review . . . . . . . . . . . . .   8
-       2.2.4.  Building packages from multiple libraries . . . . . .   8
-       2.2.5.  Privacy-preserving prefetch . . . . . . . . . . . . .   9
-       2.2.6.  Cross-CDN Serving . . . . . . . . . . . . . . . . . .  10
-       2.2.7.  Installation from a self-extracting executable  . . .  11
-       2.2.8.  Packages in version control . . . . . . . . . . . . .  11
-       2.2.9.  Subresource bundling  . . . . . . . . . . . . . . . .  11
-       2.2.10. Archival  . . . . . . . . . . . . . . . . . . . . . .  12
+       2.1.4.  Privacy-preserving prefetch . . . . . . . . . . . . .   6
+     2.2.  Nice-to-have  . . . . . . . . . . . . . . . . . . . . . .   7
+       2.2.1.  Packaged Web Publications . . . . . . . . . . . . . .   7
+       2.2.2.  Avoiding Censorship . . . . . . . . . . . . . . . . .   8
+       2.2.3.  Third-party security review . . . . . . . . . . . . .   9
+       2.2.4.  Building packages from multiple libraries . . . . . .   9
+       2.2.5.  Cross-CDN Serving . . . . . . . . . . . . . . . . . .  10
+       2.2.6.  Installation from a self-extracting executable  . . .  11
+       2.2.7.  Packages in version control . . . . . . . . . . . . .  11
+       2.2.8.  Subresource bundling  . . . . . . . . . . . . . . . .  11
+       2.2.9.  Archival  . . . . . . . . . . . . . . . . . . . . . .  12
    3.  Requirements  . . . . . . . . . . . . . . . . . . . . . . . .  13
      3.1.  Essential . . . . . . . . . . . . . . . . . . . . . . . .  13
        3.1.1.  Indexed by URL  . . . . . . . . . . . . . . . . . . .  13
@@ -311,24 +311,24 @@ Internet-Draft Use Cases and Requirements for Web Packages    March 2019
    o  Response headers: The meaning of a resource is heavily influenced
       by its HTTP response headers.
 
-2.2.  Nice-to-have
+2.1.4.  Privacy-preserving prefetch
 
-2.2.1.  Packaged Web Publications
+   Lots of websites link to other websites.  Many of these source sites
+   would like the targets of these links to load quickly.  The source
+   could use "<link rel="prefetch">" to prefetch the target of a link,
+   but if the user doesn't actually click that link, that leaks the fact
+   that the user saw a page that linked to the target.  This can be true
+   even if the prefetch is made without browser credentials because of
+   mechanisms like TLS session IDs.
 
-   The W3C's Publishing Working Group [9], merged from the International
-   Digital Publishing Forum (IDPF) and in charge of EPUB maintenance,
-   wants to be able to create publications on the web and then let them
-   be copied to different servers or to other users via arbitrary
-   protocols.  See their Packaged Web Publications use cases [10] for
-   more details.
+   Because clients have limited data budgets to prefetch link targets,
+   this use case is probably limited to sites that can accurately
+   predict which link their users are most likely to click.  For
+   example, search engines can predict that their users will click one
+   of the first couple results, and news aggreggation sites like Reddit
+   or Slashdot can hope that users will read the article if they've
+   navigated to its discussion.
 
-   Associated requirements:
-
-   o  Indexed by URL: Resources on the web are addressed by URL.
-
-   o  Signing as an origin: So that readers can be sure their copy is
-      authentic and so that copying the package preserves the URLs of
-      the content inside it.
 
 
 
@@ -338,10 +338,61 @@ Yasskin                Expires September 24, 2019               [Page 6]
 Internet-Draft Use Cases and Requirements for Web Packages    March 2019
 
 
+   Two search engines have built systems to do this with today's
+   technology: Google's AMP [9] and Baidu's MIP [10] formats and caches
+   allow them to prefetch search results while preserving privacy, at
+   the cost of showing the wrong URLs for the results once the user has
+   clicked.  A good solution to this problem would show the right URLs
+   but still avoid a request to the publishing origin until after the
+   user clicks.
+
+   Associated requirements:
+
+   o  Signing as an origin: To prove the content came from the original
+      origin.
+
+   o  Streamed loading: If the user clicks before the target page is
+      fully transferred, the browser should be able to start loading
+      early parts before the source site finishes sending the whole
+      page.
+
+   o  Compress transfers
+
+   o  Subsetting and reordering: If a prefetched page includes
+      subresources, its publisher might want to provide and sign both
+      WebP and PNG versions of an image, but the source site should be
+      able to transfer only best one for each client.
+
+2.2.  Nice-to-have
+
+2.2.1.  Packaged Web Publications
+
+   The W3C's Publishing Working Group [11], merged from the
+   International Digital Publishing Forum (IDPF) and in charge of EPUB
+   maintenance, wants to be able to create publications on the web and
+   then let them be copied to different servers or to other users via
+   arbitrary protocols.  See their Packaged Web Publications use cases
+   [12] for more details.
+
+   Associated requirements:
+
+   o  Indexed by URL: Resources on the web are addressed by URL.
+
+   o  Signing as an origin: So that readers can be sure their copy is
+      authentic and so that copying the package preserves the URLs of
+      the content inside it.
+
    o  Downgrade prevention: An early version of a publication might
       contain incorrect content, and a publisher should be able to
       update that without worrying that an attacker can still show the
       old content to users.
+
+
+
+Yasskin                Expires September 24, 2019               [Page 7]
+
+Internet-Draft Use Cases and Requirements for Web Packages    March 2019
+
 
    o  Metadata: A publication can have copyright and licensing concerns;
       a title, author, and cover image; an ISBN or DOI name; etc.; which
@@ -385,21 +436,20 @@ Internet-Draft Use Cases and Requirements for Web Packages    March 2019
    user an accurate representation of the content: the user has to trust
    the third party.
 
-
-
-
-
-Yasskin                Expires September 24, 2019               [Page 7]
-
-Internet-Draft Use Cases and Requirements for Web Packages    March 2019
-
-
    With signed web packages, the user can re-gain assurance that the
    content is authentic, while still bypassing the censorship.  Packages
    don't do anything to help discover this content.
 
    Systems that make censorship more difficult can also make legitimate
    content filtering more difficult.  Because the client that processes
+
+
+
+Yasskin                Expires September 24, 2019               [Page 8]
+
+Internet-Draft Use Cases and Requirements for Web Packages    March 2019
+
+
    a web package always knows the true URL, this forces content
    filtering to happen on the client instead of on the network.
 
@@ -437,66 +487,16 @@ Internet-Draft Use Cases and Requirements for Web Packages    March 2019
    "<iframe>"d subresources.  In the first case, the packager could copy
    the JS files to their own origin; but in the second, it may be
    important for the "<iframe>"d resources to be able to make same-
-   origin [11] requests back to their own origin, for example to
+   origin [13] requests back to their own origin, for example to
    implement federated sign-in.
 
    Associated requirements:
-
-
-
-
-Yasskin                Expires September 24, 2019               [Page 8]
-
-Internet-Draft Use Cases and Requirements for Web Packages    March 2019
-
 
    o  Resources from multiple origins in a package: Each component may
       come from its own origin.
 
    o  Deduplication of diamond dependencies: If we have dependencies
       A->B->D and A->C->D, it's important that a request for a D
-      resource resolves to a single resource that both B and C can
-      handle.
-
-2.2.4.1.  Shared libraries
-
-   In ecosystems like Electron [12] and Node [13], many packages may
-   share some common dependencies.  The cost of downloading each package
-   can be greatly reduced if the package can merely point at other
-   dependencies to download instead of including them all inline.
-
-   Associated requirements:
-
-   o  External dependencies
-
-2.2.5.  Privacy-preserving prefetch
-
-   Lots of websites link to other websites.  Many of these source sites
-   would like the targets of these links to load quickly.  The source
-   could use "<link rel="prefetch">" to prefetch the target of a link,
-   but if the user doesn't actually click that link, that leaks the fact
-   that the user saw a page that linked to the target.  This can be true
-   even if the prefetch is made without browser credentials because of
-   mechanisms like TLS session IDs.
-
-   Because clients have limited data budgets to prefetch link targets,
-   this use case is probably limited to sites that can accurately
-   predict which link their users are most likely to click.  For
-   example, search engines can predict that their users will click one
-   of the first couple results, and news aggreggation sites like Reddit
-   or Slashdot can hope that users will read the article if they've
-   navigated to its discussion.
-
-   Two search engines have built systems to do this with today's
-   technology: Google's AMP [14] and Baidu's MIP [15] formats and caches
-   allow them to prefetch search results while preserving privacy, at
-   the cost of showing the wrong URLs for the results once the user has
-   clicked.  A good solution to this problem would show the right URLs
-   but still avoid a request to the publishing origin until after the
-   user clicks.
-
-   Associated requirements:
-
 
 
 
@@ -506,22 +506,21 @@ Yasskin                Expires September 24, 2019               [Page 9]
 Internet-Draft Use Cases and Requirements for Web Packages    March 2019
 
 
-   o  Signing as an origin: To prove the content came from the original
-      origin.
+      resource resolves to a single resource that both B and C can
+      handle.
 
-   o  Streamed loading: If the user clicks before the target page is
-      fully transferred, the browser should be able to start loading
-      early parts before the source site finishes sending the whole
-      page.
+2.2.4.1.  Shared libraries
 
-   o  Compress transfers
+   In ecosystems like Electron [14] and Node [15], many packages may
+   share some common dependencies.  The cost of downloading each package
+   can be greatly reduced if the package can merely point at other
+   dependencies to download instead of including them all inline.
 
-   o  Subsetting and reordering: If a prefetched page includes
-      subresources, its publisher might want to provide and sign both
-      WebP and PNG versions of an image, but the source site should be
-      able to transfer only best one for each client.
+   Associated requirements:
 
-2.2.6.  Cross-CDN Serving
+   o  External dependencies
+
+2.2.5.  Cross-CDN Serving
 
    When a web page has subresources from a different origin, retrieval
    of those subresources can be optimized if they're transferred over
@@ -557,12 +556,13 @@ Internet-Draft Use Cases and Requirements for Web Packages    March 2019
 
 
 
+
 Yasskin                Expires September 24, 2019              [Page 10]
 
 Internet-Draft Use Cases and Requirements for Web Packages    March 2019
 
 
-2.2.7.  Installation from a self-extracting executable
+2.2.6.  Installation from a self-extracting executable
 
    The Node and Electron communities would like to install packages
    using self-extracting executables.  The traditional way to design a
@@ -574,7 +574,7 @@ Internet-Draft Use Cases and Requirements for Web Packages    March 2019
 
    o  Trailing length
 
-2.2.8.  Packages in version control
+2.2.7.  Packages in version control
 
    Once packages are generated, they should be stored in version
    control.  Many popular VC systems auto-detect text files in order to
@@ -585,7 +585,7 @@ Internet-Draft Use Cases and Requirements for Web Packages    March 2019
 
    o  Binary
 
-2.2.9.  Subresource bundling
+2.2.8.  Subresource bundling
 
    Text based subresources often benefit from improved compression
    ratios when bundled together.
@@ -639,7 +639,7 @@ Internet-Draft Use Cases and Requirements for Web Packages    March 2019
 
    o  Unsigned content: Signing same-origin content wastes space.
 
-2.2.10.  Archival
+2.2.9.  Archival
 
    Existing formats like WARC ([ISO28500]) do a good job of accurately
    representing the state of a web server at a particular time, but a
@@ -1112,7 +1112,7 @@ Internet-Draft Use Cases and Requirements for Web Packages    March 2019
    [8] https://w3c.github.io/ServiceWorker/#navigator-service-worker-
        register
 
-   [9] https://www.w3.org/publishing/groups/publ-wg/
+   [9] https://www.ampproject.org/
 
 
 
@@ -1122,17 +1122,17 @@ Yasskin                Expires September 24, 2019              [Page 20]
 Internet-Draft Use Cases and Requirements for Web Packages    March 2019
 
 
-   [10] https://www.w3.org/TR/pwp-ucr/#pwp
+   [10] https://www.mipengine.org/
 
-   [11] https://html.spec.whatwg.org/multipage/origin.html#same-origin
+   [11] https://www.w3.org/publishing/groups/publ-wg/
 
-   [12] https://electron.atom.io/
+   [12] https://www.w3.org/TR/pwp-ucr/#pwp
 
-   [13] https://nodejs.org/en/
+   [13] https://html.spec.whatwg.org/multipage/origin.html#same-origin
 
-   [14] https://www.ampproject.org/
+   [14] https://electron.atom.io/
 
-   [15] https://www.mipengine.org/
+   [15] https://nodejs.org/en/
 
    [16] https://twitter.com/anjacks0n/status/950861384266416134
 
