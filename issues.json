@@ -1,6 +1,114 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/417",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/417/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/417/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/417/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/417",
+    "id": 426390266,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjY1MjUxOTIz",
+    "number": 417,
+    "title": "go: Add basic test for bundle.go",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-03-28T09:37:51Z",
+    "updated_at": "2019-03-28T11:40:18Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/417",
+      "html_url": "https://github.com/WICG/webpackage/pull/417",
+      "diff_url": "https://github.com/WICG/webpackage/pull/417.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/417.patch"
+    },
+    "body": ""
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/416",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/416/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/416/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/416/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/416",
+    "id": 426359901,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MjY1MjI5ODU2",
+    "number": 416,
+    "title": "TravisCI: Test go code",
+    "user": {
+      "login": "nyaxt",
+      "id": 18355,
+      "node_id": "MDQ6VXNlcjE4MzU1",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/18355?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nyaxt",
+      "html_url": "https://github.com/nyaxt",
+      "followers_url": "https://api.github.com/users/nyaxt/followers",
+      "following_url": "https://api.github.com/users/nyaxt/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nyaxt/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nyaxt/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nyaxt/subscriptions",
+      "organizations_url": "https://api.github.com/users/nyaxt/orgs",
+      "repos_url": "https://api.github.com/users/nyaxt/repos",
+      "events_url": "https://api.github.com/users/nyaxt/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nyaxt/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-03-28T08:28:12Z",
+    "updated_at": "2019-03-28T14:20:17Z",
+    "closed_at": null,
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/416",
+      "html_url": "https://github.com/WICG/webpackage/pull/416",
+      "diff_url": "https://github.com/WICG/webpackage/pull/416.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/416.patch"
+    },
+    "body": ""
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/415",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/415/labels{/name}",
@@ -34,7 +142,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -43,8 +151,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-03-28T02:10:55Z",
-    "updated_at": "2019-03-28T02:10:55Z",
-    "closed_at": null,
+    "updated_at": "2019-03-28T02:37:46Z",
+    "closed_at": "2019-03-28T02:37:43Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/415",
@@ -88,7 +196,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -97,8 +205,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-03-27T07:48:31Z",
-    "updated_at": "2019-03-27T09:53:15Z",
-    "closed_at": null,
+    "updated_at": "2019-03-29T02:17:31Z",
+    "closed_at": "2019-03-29T02:17:19Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/414",
@@ -1472,7 +1580,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Say that liveness checks as described in https://github.com/WICG/webpackage/issues/376 are implemented and passing for a given SXG. It seems that the current document could be granted SecureContext.\r\n\r\nLet's say that liveness checks are not passing.\r\nIt seems that the level of security is not as high, which would mean that SecureContext should not be granted. Such variation may actually break content so it might be better to not render content to the user, and render the content fetched from the actual web site instead.\r\n\r\nA consequence is that while the liveness checks can be done in parallel to processing of the SXG (subresource loading, parsing...), the liveness checks should be validated before the first page rendering and any JavaScript execution.\r\n\r\nFor privacy/security purposes, even subresource loading should probably be postponed until these checks are done."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/387",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1574,10 +1685,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/386.patch"
     },
     "body": "@sleevi, how's this look?\r\n\r\nPreview at https://jyasskin.github.io/webpackage/future-dated-ocsp/draft-yasskin-http-origin-signed-responses.html#seccons-off-path"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/385",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3299,7 +3407,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/358.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/357",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3407,10 +3518,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/356.patch"
     },
     "body": "This patch turns all existing tests in signedexchange_test.go\r\ninto grouped tests parameterized by format version."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/355",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4912,7 +5020,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/327.patch"
     },
     "body": "This is part of #319."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/326",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5020,10 +5131,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/325.patch"
     },
     "body": "So that the package can be used independently from Signed Exchange."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/324",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6700,7 +6808,10 @@
     "closed_at": "2018-11-28T20:06:39Z",
     "author_association": "COLLABORATOR",
     "body": "The new spec allows fallbackURLs up to 65536 bytes long, but several existing browsers have lower limits than that. Perhaps the fetch spec should say how browsers should respond if the fallbackUrl is too long, or alternatively specify a minimum length they must support. Otherwise, browsers may behave differently (e.g. network error, redirect to fallback URL, or display a trimmed URL). Or is this already covered by some other part of Fetch?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/296",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6802,10 +6913,7 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Recommend that if the user hits the \"reload\" button in their browser, the browser will contact the logical origin (i.e. the URL that is visible in the browser's URL bar) to determine freshness.\r\n\r\n(Currently not specified, but seem to be the expected behaviour, see e.g. [1](https://github.com/WICG/webpackage/issues/149#issuecomment-374011263), [2](https://github.com/WICG/webpackage/issues/293#issuecomment-415102090), [3](https://github.com/WICG/webpackage/issues/300#issuecomment-456581227).) "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/294",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8287,7 +8395,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/267.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/266",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8395,10 +8506,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/265.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/264",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10029,7 +10137,10 @@
     "closed_at": "2018-07-04T12:46:48Z",
     "author_association": "CONTRIBUTOR",
     "body": "What do you think about using a JWS inside a signature headers instead of redefining a Subset of jws claims?\r\n\r\nWhich is the Right Place for Such a discussion?\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/236",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10131,10 +10242,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/235.patch"
     },
     "body": "The examples show a mi-sha256 hexdigest instead of bas64 encoding,\r\n\r\nsee https://github.com/martinthomson/http-mice/blob/master/draft-thomson-http-mice.md"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/234",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11645,7 +11753,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/207.patch"
     },
     "body": "Add/update following links:\r\n* Bundled exchanges draft html\r\n* Loading sketch explainer\r\n* An additional link to chromium's testing repo that could be helpful for people who want to try out signed exchange tools"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/206",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11747,10 +11858,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/205.patch"
     },
     "body": "HTTP Header names are case-insensitive."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/204",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13361,7 +13469,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Question related to the \"bundling\" spec draft: https://github.com/WICG/webpackage/pull/98\r\n\r\nAre there plans to include an internal referencing mechanism similar to [MHTML](https://tools.ietf.org/html/rfc2557)'s use of [`Content-ID`](https://tools.ietf.org/html/rfc2557#section-9.5) or the TAG's previous [Packaging on the Web](https://www.w3.org/TR/web-packaging/)'s use of [fragment identifiers](https://www.w3.org/TR/2015/WD-web-packaging-20150115/#fragment-identifiers)?\r\n\r\nFor instance, book (et al) publishers are coming from EPUB where \"everything\" is built using internal references and internal-only resources. Additionally, there may be other use cases where \"internal only\" package contents might be needed and beneficial.\r\n\r\nIf that seems out of scope for this sort of bundling, though, no worries. Just wanted to check. 😃 \r\n\r\nWe'll be exploring that need in the Publishing WG via https://github.com/w3c/pwpub/issues/24\r\n\r\nThanks!\r\n🎩 "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/176",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13495,10 +13606,7 @@
     "closed_at": "2018-07-10T06:34:41Z",
     "author_association": "COLLABORATOR",
     "body": "https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cert-chain-format\r\n\r\n> 2. The first certificate’s ocsp value *if any* MUST be a complete, DER-encoded OCSP response for that certificate\r\n\r\nThis reads main certificate's ocsp property is optional, but actually it's required in the step 6.3 of [Cross-origin trust](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cross-origin-trust)?\r\n\r\n> 3. Each certificate’s sct value MUST be a SignedCertificateTimestampList for that certificate\r\n\r\n- Add \"if any\" since SCTs may be embedded in the `cert` or `ocsp`? (#171)\r\n- The step 6.4 of [Cross-origin trust](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#cross-origin-trust) uses only SCTs for main certificate. If `sct` is to provide a channel to supply SCTs instead of the TLS extension, should the spec say that subsequent certificates MUST NOT have a `sct` value?\r\n\r\n@jyasskin @hajimehoshi @nyaxt "
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/174",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15119,7 +15227,10 @@
     "closed_at": "2018-04-06T17:34:09Z",
     "author_association": "MEMBER",
     "body": "H/T @twifkak for noticing that these are underspecified and underthought."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/146",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15227,10 +15338,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/145.patch"
     },
     "body": "PTAL"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/144",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16791,7 +16899,10 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "People with expensive data plans may run out of data early in a month, and not come back online until the next month. The 7-day validity limit in https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#signature-validity is good or even too long while online, but not enough while offline. We need to figure out if we can give clients permission to use expired signatures under certain circumstances, and if so, how to specify that."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/116",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16893,10 +17004,7 @@
     "closed_at": "2018-01-30T00:46:19Z",
     "author_association": "NONE",
     "body": "The README suggests loading will be done at the W3C, which made me wonder. Shouldn't loading be integrated into Fetch somehow?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/114",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18354,7 +18462,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/87.patch"
     },
     "body": "How's this, @agl, @sleevi?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/86",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18456,10 +18567,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/85.patch"
     },
     "body": "I hope this'll make it a little easier to follow along as things move into formal standards bodies."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/84",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20013,7 +20121,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Having some minimal documentation for webpack would be helpful for those of us not fluent in Golang. "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/56",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20121,10 +20232,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/55.patch"
     },
     "body": "There's no support yet for serializing the text format including manifest data, or serializing and signing the CBOR format."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/54",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -21546,7 +21654,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/27.patch"
     },
     "body": "fixes https://github.com/dimich-g/webpackage/issues/16"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/26",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -21648,10 +21759,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/25.patch"
     },
     "body": "fixes https://github.com/dimich-g/webpackage/issues/9 by using a sub tree of `application/package.index`"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/24",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
