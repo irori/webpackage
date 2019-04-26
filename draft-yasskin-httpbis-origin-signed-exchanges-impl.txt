@@ -5,7 +5,7 @@
 Network Working Group                                         J. Yasskin
 Internet-Draft                                                   K. Ueno
 Intended status: Standards Track                                  Google
-Expires: September 30, 2019                               March 29, 2019
+Expires: October 28, 2019                                 April 26, 2019
 
 
             Signed HTTP Exchanges Implementation Checkpoints
@@ -41,7 +41,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 30, 2019.
+   This Internet-Draft will expire on October 28, 2019.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Yasskin & Ueno         Expires September 30, 2019               [Page 1]
+Yasskin & Ueno          Expires October 28, 2019                [Page 1]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    (https://trustee.ietf.org/license-info) in effect on the date of
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Yasskin & Ueno         Expires September 30, 2019               [Page 2]
+Yasskin & Ueno          Expires October 28, 2019                [Page 2]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  31
@@ -165,9 +165,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019               [Page 3]
+Yasskin & Ueno          Expires October 28, 2019                [Page 3]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
 3.  Signing an exchange
@@ -221,9 +221,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019               [Page 4]
+Yasskin & Ueno          Expires October 28, 2019                [Page 4]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    "integrity"  A string (Section 3.7 of
@@ -277,9 +277,9 @@ Signature:
 
 
 
-Yasskin & Ueno         Expires September 30, 2019               [Page 5]
+Yasskin & Ueno          Expires October 28, 2019                [Page 5]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    The signature includes a "validity-url" that includes the first time
@@ -333,9 +333,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019               [Page 6]
+Yasskin & Ueno          Expires October 28, 2019                [Page 6]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
 3.2.1.  Example
@@ -389,9 +389,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019               [Page 7]
+Yasskin & Ueno          Expires October 28, 2019                [Page 7]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    The first map (second item) in the CBOR array is treated as the end-
@@ -445,9 +445,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019               [Page 8]
+Yasskin & Ueno          Expires October 28, 2019                [Page 8]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    o  The keys in every map MUST be sorted in the bytewise lexicographic
@@ -501,9 +501,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019               [Page 9]
+Yasskin & Ueno          Expires October 28, 2019                [Page 9]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    Potentially-valid results include:
@@ -557,9 +557,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 10]
+Yasskin & Ueno          Expires October 28, 2019               [Page 10]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
             2.  Let "main-certificate" be the first certificate in
@@ -613,9 +613,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 11]
+Yasskin & Ueno          Expires October 28, 2019               [Page 11]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
         9.  The 8-byte big-endian encoding of the length in bytes of
@@ -669,9 +669,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 12]
+Yasskin & Ueno          Expires October 28, 2019               [Page 12]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    The "validity-url" parameter (Paragraph 5) of the signatures provides
@@ -725,9 +725,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 13]
+Yasskin & Ueno          Expires October 28, 2019               [Page 13]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    Signature:
@@ -781,9 +781,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 14]
+Yasskin & Ueno          Expires October 28, 2019               [Page 14]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    advantage of any available signatures and to indicate what kinds of
@@ -837,9 +837,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 15]
+Yasskin & Ueno          Expires October 28, 2019               [Page 15]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    If the "Accept-Signature" header field is present, servers SHOULD
@@ -893,9 +893,9 @@ Accept-Signature: ..., ed25519key; **
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 16]
+Yasskin & Ueno          Expires October 28, 2019               [Page 16]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    states that the client will accept ECDSA keys on the secp384r1 curve
@@ -949,9 +949,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 17]
+Yasskin & Ueno          Expires October 28, 2019               [Page 17]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
        with the "forceFetch" flag set, and restart from step 2.  If a
@@ -1005,9 +1005,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 18]
+Yasskin & Ueno          Expires October 28, 2019               [Page 18]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    o  "Authorization", [RFC7235]
@@ -1061,9 +1061,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 19]
+Yasskin & Ueno          Expires October 28, 2019               [Page 19]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    Leaf certificates without this extension need to be revoked if the
@@ -1117,9 +1117,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 20]
+Yasskin & Ueno          Expires October 28, 2019               [Page 20]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    o  The response's payload.
@@ -1173,9 +1173,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 21]
+Yasskin & Ueno          Expires October 28, 2019               [Page 21]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    Signed-Headers = sh-list
@@ -1229,9 +1229,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 22]
+Yasskin & Ueno          Expires October 28, 2019               [Page 22]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    5.  3 bytes storing a big-endian integer "headerLength".  If this is
@@ -1285,9 +1285,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 23]
+Yasskin & Ueno          Expires October 28, 2019               [Page 23]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    sxg1-b2\0<2-byte length of the following url string>
@@ -1341,9 +1341,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 24]
+Yasskin & Ueno          Expires October 28, 2019               [Page 24]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
 8.  IANA considerations
@@ -1390,16 +1390,16 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 9.1.  Normative References
 
-   [FETCH]    WHATWG, "Fetch", March 2019,
+   [FETCH]    WHATWG, "Fetch", April 2019,
               <https://fetch.spec.whatwg.org/>.
 
 
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 25]
+Yasskin & Ueno          Expires October 28, 2019               [Page 25]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    [I-D.ietf-cbor-cddl]
@@ -1410,8 +1410,8 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
-              draft-ietf-httpbis-header-structure-09 (work in progress),
-              December 2018.
+              draft-ietf-httpbis-header-structure-10 (work in progress),
+              April 2019.
 
    [I-D.ietf-tls-tls13]
               Rescorla, E., "The Transport Layer Security (TLS) Protocol
@@ -1453,9 +1453,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 26]
+Yasskin & Ueno          Expires October 28, 2019               [Page 26]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    [RFC6960]  Santesson, S., Myers, M., Ankney, R., Malpani, A.,
@@ -1496,7 +1496,7 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-   [URL]      WHATWG, "URL", March 2019, <https://url.spec.whatwg.org/>.
+   [URL]      WHATWG, "URL", April 2019, <https://url.spec.whatwg.org/>.
 
 9.2.  Informative References
 
@@ -1509,9 +1509,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 27]
+Yasskin & Ueno          Expires October 28, 2019               [Page 27]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    [I-D.yasskin-http-origin-signed-responses-03]
@@ -1565,9 +1565,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 28]
+Yasskin & Ueno          Expires October 28, 2019               [Page 28]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
 9.3.  URIs
@@ -1621,9 +1621,9 @@ Appendix A.  Change Log
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 29]
+Yasskin & Ueno          Expires October 28, 2019               [Page 29]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    Vs.  [I-D.yasskin-http-origin-signed-responses-04]:
@@ -1677,9 +1677,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 30]
+Yasskin & Ueno          Expires October 28, 2019               [Page 30]
 
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints  March 2019
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints  April 2019
 
 
    o  Signed exchanges can only be transmitted using the application/
@@ -1733,4 +1733,4 @@ Authors' Addresses
 
 
 
-Yasskin & Ueno         Expires September 30, 2019              [Page 31]
+Yasskin & Ueno          Expires October 28, 2019               [Page 31]
