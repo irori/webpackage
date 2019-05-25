@@ -1213,9 +1213,9 @@ Possible extra rowspan handling
 	}
 </style>
   <link href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED" rel="stylesheet">
-  <meta content="Bikeshed version 6dcfb71280c822ba1243caec7a720fa926b21c7e" name="generator">
+  <meta content="Bikeshed version a4ba3118581eb4a2d65bef06b8b413c5a28bd1d5" name="generator">
   <link href="https://wicg.github.io/webpackage/loading.html" rel="canonical">
-  <meta content="f9d96b4d8d6fa091cdfdd47ecb4181a1f0c760cb" name="document-revision">
+  <meta content="5408bf1388d2d86a68dbf3e542d75a852777ff34" name="document-revision">
 <style>/* style-md-lists */
 
 /* This is a weird hack for me not yet following the commonmark spec
@@ -1473,7 +1473,7 @@ c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Loading Signed Exchanges</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-05-23">23 May 2019</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">Editor’s Draft, <time class="dt-updated" datetime="2019-05-25">25 May 2019</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1664,8 +1664,7 @@ is null or an <a data-link-type="dfn" href="#exchange" id="ref-for-exchange">exc
      <p>If <var>date</var> is a failure, return the point in time of the beginning of the
 universe.</p>
     <li data-md>
-     <p>Return the point in time represented by <var>date</var>, as interpreted for the <a data-link-type="dfn" href="https://tools.ietf.org/html/rfc7231#section-7.1.1.2" id="ref-for-section-7.1.1.2">Date
-header field</a>.</p>
+     <p>Return the point in time represented by <var>date</var>, as interpreted for the <a data-link-type="http-header" href="https://tools.ietf.org/html/rfc7231#section-7.1.1.2" id="ref-for-section-7.1.1.2">Date</a> header field.</p>
    </ol>
    <h3 class="heading settled algorithm" data-algorithm="Monkeypatch HTTP fetch" data-level="2.4" id="mp-http-fetch"><span class="secno">2.4. </span><span class="content">Monkeypatch HTTP fetch</span><a class="self-link" href="#mp-http-fetch"></a></h3>
    <p>In <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-http-fetch" id="ref-for-concept-http-fetch">HTTP fetch</a>, before</p>
@@ -2455,7 +2454,7 @@ alpha</a>, return a failure.</p>
          <p>Let <var>instance-digests</var> be the result of <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-get-decode-split" id="ref-for-concept-header-list-get-decode-split">getting,
 decoding, and splitting</a> <code>`digest`</code> from <var>response</var>’s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list⑦">header list</a>.</p>
          <p class="note" role="note"><span>Note:</span> No <a data-link-type="dfn" href="https://www.iana.org/assignments/http-dig-alg/http-dig-alg.xhtml#http-dig-alg-1" id="ref-for-http-dig-alg-1">Digest algorithm</a> uses non-ASCII characters or 0x22
-(<code>"</code>), so this is equivalent to parsing from the <a data-link-type="dfn" href="https://tools.ietf.org/html/rfc3230#section-4.3.2" id="ref-for-section-4.3.2">Digest</a> ABNF <code>&lt;encoded digest output></code>.</p>
+(<code>"</code>), so this is equivalent to parsing from the <a data-link-type="http-header" href="https://tools.ietf.org/html/rfc3230#section-4.3.2" id="ref-for-section-4.3.2">Digest</a> ABNF <code>&lt;encoded digest output></code>.</p>
         <li data-md>
          <p>Let <var>mi</var> be the element of <var>instance-digests</var> that starts with <code>"mi-sha256-03="</code>. If there is no such element, return an error
 string "<a data-link-type="dfn" href="#signed-exchange-report-invalid_integrity_header" id="ref-for-signed-exchange-report-invalid_integrity_header">invalid_integrity_header</a>".</p>
@@ -2528,16 +2527,14 @@ explicit here.</p>
      </dl>
     <li data-md>
      <p>If <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-get" id="ref-for-concept-header-list-get">getting</a> <code>`Variants`</code> from <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response①⓪">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list①⓪">header list</a> returns a value that fails
-to parse according to the instructions for the <a data-link-type="dfn" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants" id="ref-for-variants">Variants Header Field</a>,
-return "mismatch".</p>
+to parse according to the instructions for the <a data-link-type="http-header" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants" id="ref-for-variants">Variants</a> Header Field, return "mismatch".</p>
     <li data-md>
      <p>Let <var>acceptableVariantKeys</var> be the result of running the <a data-link-type="dfn" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache" id="ref-for-cache">Variants Cache
 Behavior</a> on an incoming-request of <var>browserRequest</var> and stored-responses
 of a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list②">list</a> containing <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response①①">response</a>.</p>
     <li data-md>
      <p>Let <var>variantKeys</var> be the result of <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-header-list-get" id="ref-for-concept-header-list-get①">getting</a> <code>`Variant-Key`</code> from <var>storedExchange</var>’s <a data-link-type="dfn" href="#exchange-response" id="ref-for-exchange-response①②">response</a>'s <a data-link-type="dfn" href="https://fetch.spec.whatwg.org/#concept-response-header-list" id="ref-for-concept-response-header-list①①">header list</a>,
-and parsing it into a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list③">list</a> of <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list④">lists</a> as described in <a data-link-type="dfn" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variant-key" id="ref-for-variant-key">Variant-Key
-Header Field</a>.</p>
+and parsing it into a <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list③">list</a> of <a data-link-type="dfn" href="https://infra.spec.whatwg.org/#list" id="ref-for-list④">lists</a> as described in the <a data-link-type="http-header" href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variant-key" id="ref-for-variant-key">Variant-Key</a> Header Field.</p>
     <li data-md>
      <p>If parsing <var>variantKeys</var> failed, return "mismatch".</p>
     <li data-md>
@@ -3042,16 +3039,16 @@ stop the UA from trusting it no more than 7 days later.</p>
     <li><a href="#ref-for-variant-key">4.13. Request matching</a>
    </ul>
   </aside>
-  <aside class="dfn-panel" data-for="term-for-cache">
-   <a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache">https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache</a><b>Referenced in:</b>
-   <ul>
-    <li><a href="#ref-for-cache">4.13. Request matching</a> <a href="#ref-for-cache①">(2)</a>
-   </ul>
-  </aside>
   <aside class="dfn-panel" data-for="term-for-variants">
    <a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants">https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#variants</a><b>Referenced in:</b>
    <ul>
     <li><a href="#ref-for-variants">4.13. Request matching</a>
+   </ul>
+  </aside>
+  <aside class="dfn-panel" data-for="term-for-cache">
+   <a href="https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache">https://httpwg.org/http-extensions/draft-ietf-httpbis-variants.html#cache</a><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-cache">4.13. Request matching</a> <a href="#ref-for-cache①">(2)</a>
    </ul>
   </aside>
   <aside class="dfn-panel" data-for="term-for-section-2.2">
@@ -3806,9 +3803,9 @@ stop the UA from trusting it no more than 7 days later.</p>
    <li>
     <a data-link-type="biblio">[draft-ietf-httpbis-variants]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-variant-key" style="color:initial">variant-key header field</span>
+     <li><span class="dfn-paneled" id="term-for-variant-key" style="color:initial">variant-key</span>
+     <li><span class="dfn-paneled" id="term-for-variants" style="color:initial">variants</span>
      <li><span class="dfn-paneled" id="term-for-cache" style="color:initial">variants cache behavior</span>
-     <li><span class="dfn-paneled" id="term-for-variants" style="color:initial">variants header field</span>
     </ul>
    <li>
     <a data-link-type="biblio">[draft-thomson-http-mice]</a> defines the following terms:
@@ -3966,7 +3963,7 @@ stop the UA from trusting it no more than 7 days later.</p>
    <li>
     <a data-link-type="biblio">[rfc7231]</a> defines the following terms:
     <ul>
-     <li><span class="dfn-paneled" id="term-for-section-7.1.1.2" style="color:initial">date header field</span>
+     <li><span class="dfn-paneled" id="term-for-section-7.1.1.2" style="color:initial">date</span>
     </ul>
    <li>
     <a data-link-type="biblio">[RFC8446]</a> defines the following terms:
