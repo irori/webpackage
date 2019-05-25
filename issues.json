@@ -2299,9 +2299,9 @@
 
     ],
     "milestone": null,
-    "comments": 10,
+    "comments": 14,
     "created_at": "2019-02-13T04:57:55Z",
-    "updated_at": "2019-05-21T03:30:49Z",
+    "updated_at": "2019-05-24T18:30:01Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "In the current loading spec, redirect to the fallback URL happens only when [the signed exchange version is not supported](https://wicg.github.io/webpackage/loading.html#mp-http-fetch).\r\n\r\nHowever, Chromium implementation performs fallback redirect in the following cases (corresponding to the error codes [here](https://chromium.googlesource.com/chromium/src/+/HEAD/content/browser/web_package/signed_exchange_error.h)):\r\n\r\n- SXG was served from non-secure origin.\r\n- Unsupported version of SXG (could extract fallback URL).\r\n- SXG parse error (could extract fallback URL).\r\n- Network error occurred while loading SXG header.\r\n- Failed to fetch certificate chain.\r\n- Failed to parse certificate chain.\r\n- Signature verification failed.\r\n- Cert verification failed.\r\n- CT verification failed.\r\n- OCSP check failed.\r\n- Certificate Requirements aren't met.\r\n- SXG was served without `X-Content-Type-Options: nosniff` header.\r\n\r\nChromium doesn't fallbeck on the following errors:\r\n\r\n- SXG parse error (couldn't extract fallback URL).\r\n- Merkle integrity error.\r\n\r\nWe should clarify that which error should cause a fallback redirect, and spec them.\r\n"
