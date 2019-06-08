@@ -4,8 +4,8 @@
 
 Network Working Group                                         J. Yasskin
 Internet-Draft                                                    Google
-Intended status: Standards Track                           June 06, 2019
-Expires: December 8, 2019
+Intended status: Standards Track                           June 08, 2019
+Expires: December 10, 2019
 
 
                          Bundled HTTP Exchanges
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on December 8, 2019.
+   This Internet-Draft will expire on December 10, 2019.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Yasskin                 Expires December 8, 2019                [Page 1]
+Yasskin                 Expires December 10, 2019               [Page 1]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Yasskin                 Expires December 8, 2019                [Page 2]
+Yasskin                 Expires December 10, 2019               [Page 2]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -165,7 +165,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019                [Page 3]
+Yasskin                 Expires December 10, 2019               [Page 3]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -221,7 +221,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019                [Page 4]
+Yasskin                 Expires December 10, 2019               [Page 4]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -277,7 +277,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019                [Page 5]
+Yasskin                 Expires December 10, 2019               [Page 5]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -333,7 +333,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019                [Page 6]
+Yasskin                 Expires December 10, 2019               [Page 6]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -389,7 +389,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019                [Page 7]
+Yasskin                 Expires December 10, 2019               [Page 7]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -445,7 +445,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019                [Page 8]
+Yasskin                 Expires December 10, 2019               [Page 8]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -501,7 +501,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019                [Page 9]
+Yasskin                 Expires December 10, 2019               [Page 9]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -557,7 +557,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 10]
+Yasskin                 Expires December 10, 2019              [Page 10]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -613,7 +613,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 11]
+Yasskin                 Expires December 10, 2019              [Page 11]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -669,7 +669,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 12]
+Yasskin                 Expires December 10, 2019              [Page 12]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -725,7 +725,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 13]
+Yasskin                 Expires December 10, 2019              [Page 13]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -781,7 +781,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 14]
+Yasskin                 Expires December 10, 2019              [Page 14]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -837,7 +837,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 15]
+Yasskin                 Expires December 10, 2019              [Page 15]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -893,7 +893,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 16]
+Yasskin                 Expires December 10, 2019              [Page 16]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -949,7 +949,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 17]
+Yasskin                 Expires December 10, 2019              [Page 17]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -1005,7 +1005,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 18]
+Yasskin                 Expires December 10, 2019              [Page 18]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -1061,7 +1061,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 19]
+Yasskin                 Expires December 10, 2019              [Page 19]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -1117,7 +1117,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 20]
+Yasskin                 Expires December 10, 2019              [Page 20]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -1173,7 +1173,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 21]
+Yasskin                 Expires December 10, 2019              [Page 21]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -1229,7 +1229,7 @@ Internet-Draft           Bundled HTTP Exchanges                June 2019
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 22]
+Yasskin                 Expires December 10, 2019              [Page 22]
 
 Internet-Draft           Bundled HTTP Exchanges                June 2019
 
@@ -1285,4 +1285,4 @@ Author's Address
 
 
 
-Yasskin                 Expires December 8, 2019               [Page 23]
+Yasskin                 Expires December 10, 2019              [Page 23]
