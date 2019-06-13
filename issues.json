@@ -1,6 +1,102 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/442",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/442/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/442/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/442/events",
+    "html_url": "https://github.com/WICG/webpackage/issues/442",
+    "id": 455010958,
+    "node_id": "MDU6SXNzdWU0NTUwMTA5NTg=",
+    "number": 442,
+    "title": "Can parameterised identifiers in Signature header have extra parameter?",
+    "user": {
+      "login": "tomokinat",
+      "id": 49511064,
+      "node_id": "MDQ6VXNlcjQ5NTExMDY0",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/49511064?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tomokinat",
+      "html_url": "https://github.com/tomokinat",
+      "followers_url": "https://api.github.com/users/tomokinat/followers",
+      "following_url": "https://api.github.com/users/tomokinat/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tomokinat/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tomokinat/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tomokinat/subscriptions",
+      "organizations_url": "https://api.github.com/users/tomokinat/orgs",
+      "repos_url": "https://api.github.com/users/tomokinat/repos",
+      "events_url": "https://api.github.com/users/tomokinat/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tomokinat/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-06-12T04:52:42Z",
+    "updated_at": "2019-06-12T04:52:42Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "According to https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#signature-header, each parameterised identifier MUST have parameters 'sig', 'integirty', and so on. Then is it okay for them to contain other parameters not referred as 'necessary' in the spec?"
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/441",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/441/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/441/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/441/events",
+    "html_url": "https://github.com/WICG/webpackage/issues/441",
+    "id": 454640081,
+    "node_id": "MDU6SXNzdWU0NTQ2NDAwODE=",
+    "number": 441,
+    "title": "dump-signedexchange: command not found",
+    "user": {
+      "login": "prash-mi",
+      "id": 11733935,
+      "node_id": "MDQ6VXNlcjExNzMzOTM1",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/11733935?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/prash-mi",
+      "html_url": "https://github.com/prash-mi",
+      "followers_url": "https://api.github.com/users/prash-mi/followers",
+      "following_url": "https://api.github.com/users/prash-mi/following{/other_user}",
+      "gists_url": "https://api.github.com/users/prash-mi/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/prash-mi/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/prash-mi/subscriptions",
+      "organizations_url": "https://api.github.com/users/prash-mi/orgs",
+      "repos_url": "https://api.github.com/users/prash-mi/repos",
+      "events_url": "https://api.github.com/users/prash-mi/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/prash-mi/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 3,
+    "created_at": "2019-06-11T11:42:22Z",
+    "updated_at": "2019-06-12T09:01:54Z",
+    "closed_at": null,
+    "author_association": "NONE",
+    "body": "I am trying to install 'dump-signedexchange' on Linux (Debian) and Mac(v10.14) running go 1.12.5, using this command:\r\n\r\n`go get -u github.com/WICG/webpackage/go/signedexchange/cmd/...`\r\n\r\nbut its simply exiting with no output on the console: \r\n\r\n```\r\n$ go get -u github.com/WICG/webpackage/go/signedexchange/cmd/...\r\n$ dump-signedexchange\r\nbash: dump-signedexchange: command not found\r\n```\r\n\r\nIs there an alternate way to install it?\r\n\r\n\r\n"
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/440",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/440/labels{/name}",
@@ -34,7 +130,7 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
@@ -43,8 +139,8 @@
     "milestone": null,
     "comments": 0,
     "created_at": "2019-06-07T22:31:25Z",
-    "updated_at": "2019-06-07T22:31:25Z",
-    "closed_at": null,
+    "updated_at": "2019-06-08T00:20:47Z",
+    "closed_at": "2019-06-08T00:20:47Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/440",
@@ -733,17 +829,17 @@
     "labels": [
 
     ],
-    "state": "open",
+    "state": "closed",
     "locked": false,
     "assignee": null,
     "assignees": [
 
     ],
     "milestone": null,
-    "comments": 5,
+    "comments": 10,
     "created_at": "2019-05-02T21:00:29Z",
-    "updated_at": "2019-05-07T06:28:49Z",
-    "closed_at": null,
+    "updated_at": "2019-06-13T02:34:56Z",
+    "closed_at": "2019-06-13T02:34:56Z",
     "author_association": "COLLABORATOR",
     "pull_request": {
       "url": "https://api.github.com/repos/WICG/webpackage/pulls/429",
@@ -751,7 +847,7 @@
       "diff_url": "https://github.com/WICG/webpackage/pull/429.diff",
       "patch_url": "https://github.com/WICG/webpackage/pull/429.patch"
     },
-    "body": "This PR makes some quality of life improvements for the dump-signedexchange tool\r\n\r\n- Adds support for reading a signed exchange from an HTTPS endpoint rather than from the file system. This feels much more natural to use and allows for faster debugging.\r\n- Allows for more granular control over the output. Generally when I dump a signed exchange, I don't want to see the entire HTML, I'm interested in the signature and the headers.\r\n\r\nEDIT:\r\n- The tool will also warn the user if -i or -uri is not passed instead of simply hanging indefinitely\r\n\r\nEDIT 2:\r\n- Allows the version to be specified with the `-version` flag which defaults to the latest version\r\n- Allows a header such as `AMP-Cache-Transform: google;v=1` to be sent along with the `-uri` request with the `-requestHeader` flag\r\n- Fixes a few instances of `singedexchange` and makes them `signedexchange`"
+    "body": "This PR makes some quality of life improvements for the dump-signedexchange tool\r\n\r\n- Adds support for reading a signed exchange from an HTTPS endpoint rather than from the file system. This feels much more natural to use and allows for faster debugging.\r\n- Allows for more granular control over the output. Generally when I dump a signed exchange, I don't want to see the entire HTML, I'm interested in the signature and the headers.\r\n\r\nEDIT:\r\n- The tool will also warn the user if -i or -uri is not passed instead of simply hanging indefinitely\r\n\r\nEDIT 2:\r\n- Allows the version to be specified with the `-version` flag which defaults to the latest version\r\n- Allows a header such as `AMP-Cache-Transform: google;v=1` to be sent along with the `-uri` request with the `-requestHeader` flag\r\n- Fixes a few instances of `singedexchange` and makes them `signedexchange`\r\n\r\nEDIT 3:\r\n- Added info about json flag to README\r\n- Allows more than one header to be passed with -requestHeader flag\r\n- Mime type factored to version.go\r\n- Input flags take precedence over pipe"
   },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/428",
@@ -1673,7 +1769,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Reflecting on [H2 push is tougher than I thought](https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/), there's still one common use case: a set of JS binaries are always downloaded together. This would typically be due to breaking down a big binary into smaller ones where:\r\n 1. The first binary is critical for immediate execution.\r\n 2. All other binaries could be delayed. But ideally not turned into a download waterfall.\r\n 3. Otherwise, the \"other\" binaries are never used by themselves, without the first binary.\r\n\r\nThis is one case, where H2 push would be useful and Web Packages could make this a much simpler and more predictable.\r\n\r\nTo further explain this, consider one big binary that looks like this:\r\n\r\n```\r\n// First critical block of JS.\r\n(function() {\r\n  global.doLater = function() {...};\r\n  // E.g. 20K of JS code.\r\n})();\r\n\r\n// Second non-critical block of JS.\r\ndoLater(function() {\r\n  // E.g. 40K of JS code.\r\n});\r\n\r\n// Third non-critical block of JS.\r\ndoLater(function() {\r\n  // E.g. 60K of JS code.\r\n});\r\n```\r\n\r\nThis kind of delivery could still save lots of CPU by not immediately executing block 2 and 3, but the main negative is that the overall binary is bigger and has to be fully parsed/compiled before anything can be executed, thus delaying execution of the critical block 1. While some engines are capable of lazy compiling some of the non-critical blocks, the full download/parse is still necessary.\r\n\r\nWeb Packages could help this case by splitting a big binary into smaller files and executing the smaller critical blocks as soon as they are downloaded/parsed.\r\n\r\n/cc @cramforce "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/412",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1782,10 +1881,7 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "If you have 2 modules:\r\n\r\nA.mjs:\r\n```javascript\r\nimport \"B\"\r\n// Lots of code.\r\n``` \r\nB.mjs:\r\n```javascript\r\n// Lots more code.\r\n``` \r\n\r\nYou have to download A and parse it to figure out that it depends on B. Then you have to download B and execute it before you can use nearly any of the bytes you downloaded for A.\r\n\r\nBundles should help speed this up, either by directly expressing the import dependency graph in a way that the JS interpreter will trust, or by letting the bytes of the resources interleave so they can parse and execute in the order they arrive."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/410",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3257,7 +3353,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/383.patch"
     },
     "body": "This is not necessarily the limit we'll want in the long run, but it\r\nhelps ensure that any future changes can go into effect reasonably\r\nquickly.\r\n\r\nI won't submit this until I have some indication that the folks who have already started experimenting with signed exchanges can handle 90-day certificates.\r\n\r\n@clintwilson, I want to make sure this doesn't cause any problems for you, since I believe Digicert has been issuing certificates with validity periods longer than 90 days. I don't intend to declare that any of your existing certificates are out of bounds.\r\n\r\n@AGWA, this isn't intended to stop discussion on #378, just to put _some_ limit in place while we figure out what the right limit is.\r\n\r\nPreview: https://jyasskin.github.io/webpackage/90-day-lifetime/draft-yasskin-http-origin-signed-responses.html#cross-origin-cert-req\r\nDiff: https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/90-day-lifetime/draft-yasskin-http-origin-signed-responses.txt"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/382",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3365,10 +3464,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/381.patch"
     },
     "body": "Thanks to @youennf for describing this risk.\r\n\r\nPreview at https://jyasskin.github.io/webpackage/watermarking/draft-yasskin-http-origin-signed-responses.html#priv-watermarking."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/380",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5090,7 +5186,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/353.patch"
     },
     "body": "Start adding support for #350\r\n\r\nThe output is identical to `b2` but the magic bytes for now."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/352",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -5198,10 +5297,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/351.patch"
     },
     "body": "This flag lets gen-signedexchange skip some input validations. This is needed to create SXGs for web-platform-tests.\r\n\r\nThis also fixes a bug that Exchange.Verify() fails when `url.Parse(fallbackUrl).String() != fallbackUrl`. (Note: current Chromium impl has the same bug, see https://crbug.com/914247)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/350",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6807,7 +6903,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "(filing an open issue so we wouldn't forget)\r\n\r\nhttps://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#rfc.section.8.5"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/321",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6909,10 +7008,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/320.patch"
     },
     "body": "Mostly just refactoring, except that dump-signedexchange now prints\r\nformat version."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/319",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8479,7 +8575,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/292.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/291",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8587,10 +8686,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/290.patch"
     },
     "body": "@jyasskin FYI OOO"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/289",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10078,7 +10174,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/262.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/261",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10186,10 +10285,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/260.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/259",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11815,7 +11911,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/232.patch"
     },
     "body": "I think this catches everything that we're expecting to be different or missing in the Chrome 69 implementation vs the main spec. Let me know if I've missed anything.\r\n\r\nFixes #186."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/231",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11923,10 +12022,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/230.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/229",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13491,7 +13587,10 @@
     "closed_at": "2018-06-19T05:50:47Z",
     "author_association": "COLLABORATOR",
     "body": "cc: @jyasskin \r\n\r\nIn the step 12.2 of \"[Load a bundle's metadata](https://wicg.github.io/webpackage/draft-yasskin-dispatch-bundled-exchanges.html#load-metadata)\", the text says:\r\n> If \"name\"’s Metadata field is “No”, continue to the next triple.\r\n\r\nI couldn't find where a Metadata field for a \"name\" is. Can we clarify the text here?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/201",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13631,10 +13730,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/200.patch"
     },
     "body": "Follows spec change after #180."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/199",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15230,7 +15326,10 @@
     "closed_at": "2018-04-10T22:18:52Z",
     "author_association": "COLLABORATOR",
     "body": "After the change https://github.com/WICG/webpackage/pull/170, URLs (request URL, certUrl, and validityUrl) must be **[absolute-URL string](https://url.spec.whatwg.org/#absolute-url-string)**.\r\n\r\nIf my understanding is correct, **[absolute-URL string](https://url.spec.whatwg.org/#absolute-url-string)** can't contain the fragment.\r\nThe fragments is meaningless for certURL and validityUrl.\r\nBut I think it is useful for request URL.\r\n\r\ncc: @jyasskin @twifkak @nyaxt "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/171",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15338,10 +15437,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/170.patch"
     },
     "body": "I realized this should probably also go in before I publish the implementation draft.\r\n\r\nSpec: [Preview](https://jyasskin.github.io/webpackage/absolute-urls/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/absolute-urls/draft-yasskin-http-origin-signed-responses.txt)\r\n\r\nImpl draft: [Preview](https://jyasskin.github.io/webpackage/absolute-urls/draft-yasskin-httpbis-origin-signed-exchanges-impl.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.txt&url2=https://jyasskin.github.io/webpackage/absolute-urls/draft-yasskin-httpbis-origin-signed-exchanges-impl.txt)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/169",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -17079,7 +17175,10 @@
     "closed_at": "2018-12-20T04:05:26Z",
     "author_association": "COLLABORATOR",
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/141",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -17188,10 +17287,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/140.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/139",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18717,7 +18813,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/112.patch"
     },
     "body": "[Preview](https://jyasskin.github.io/webpackage/cleanup/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/cleanup/draft-yasskin-http-origin-signed-responses.txt)\r\n\r\n@KenjiBaheux, the introduction here should be usable as a simple explainer. Please check that it's readable and explains enough."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/111",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18825,10 +18924,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/110.patch"
     },
     "body": "[Preview](https://jyasskin.github.io/webpackage/envelope-format/draft-yasskin-http-origin-signed-responses.html#application-http-exchange)\r\n\r\nThis format wraps an HTTP exchange, which allows an HTTP/1 connection to\r\ntransfer cross-origin signed exchanges, and which may have other uses.\r\n\r\n@kinu @yoavweiss Does this look reasonable?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/109",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20359,7 +20455,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/82.patch"
     },
     "body": "Preview in https://jyasskin.github.io/webpackage/alex-changes/draft-yasskin-webpackage-use-cases.html.\r\n\r\nDid I miss anything obvious or say anything incorrect?\r\n\r\nThis also adds an explicit \"Implementations are hard to get wrong\" requirement."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/81",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20467,10 +20566,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/80.patch"
     },
     "body": "Preview at https://jyasskin.github.io/webpackage/draft-webpackage-use-cases/draft-yasskin-webpackage-use-cases.html\r\n\r\n@mnot, you seemed to have some use cases for signing individual request/response/body triples, but I don't remember what they were. Could you list a couple so I can add them to this document?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/79",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -22070,7 +22166,10 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "https://research.google.com/pubs/pub41892.html describes a way to grant capabilities in a way the receiver can attenuate and pass on. We're thinking of having authorities counter-sign packages in order to say, for example, that FooCorp trusts this package to `fetch()` from internal systems. Maybe macaroons are a better way to express this."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/51",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -22178,10 +22277,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/50.patch"
     },
     "body": "This uses the tool from #49."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/49",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -23639,7 +23735,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/22.patch"
     },
     "body": "fixes #14 "
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/21",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -23741,10 +23840,7 @@
     "closed_at": "2017-03-30T18:07:48Z",
     "author_association": "COLLABORATOR",
     "body": "For self extracting executables, the common implementation is to produce a file which is a concatenated binary executable head, and an archive tail.\r\n\r\nNode and Electron are looking at reusing webpackage possibly as things progress and need a way:\r\n\r\n* Have a signature for the concatenated binary+archive\r\n* Have a length pointer to let the runtime jump to the start of the archive\r\n\r\nSelf extracting zip files, ASAR from electron, and NODA are examples of this from the past. These all work by having a directory at end of file, but for all use cases I know a pointer to start of archive on the tail would be sufficient. Doing so would most likely just be a series of magic bytes and kength that exists at the end of the file. It could be optional but must be easy to add to an existing webpackage.\r\n\r\nFor a signature of the entire binary + archive this is important so people don't perform a secondary concatenation and load a different archive than expected, it most likely can just be a well known header that optionally exists on the package headers."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/19",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
