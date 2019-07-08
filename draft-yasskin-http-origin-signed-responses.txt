@@ -2468,8 +2468,8 @@ Internet-Draft            Signed HTTP Exchanges                July 2019
 
    [I-D.ietf-httpbis-cache]
               Fielding, R., Nottingham, M., and J. Reschke, "HTTP
-              Caching", draft-ietf-httpbis-cache-04 (work in progress),
-              March 2019.
+              Caching", draft-ietf-httpbis-cache-05 (work in progress),
+              July 2019.
 
    [I-D.ietf-httpbis-http2-secondary-certs]
               Bishop, M., Sullivan, N., and M. Thomson, "Secondary

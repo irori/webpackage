@@ -532,9 +532,9 @@ ul.toc li {
 <h1 id="rfc.section.2.3">
 <a href="#rfc.section.2.3">2.3.</a> <a href="#semantics-load-response" id="semantics-load-response">Load a response from a bundle</a>
 </h1>
-<p id="rfc.section.2.3.p.1">This takes the sequence of bytes representing the bundle and a URL, combination of <samp>Variants</samp> available-values (<a href="#I-D.ietf-httpbis-variants" class="xref">[I-D.ietf-httpbis-variants]</a>), and <samp>ResponseMetadata</samp> returned from <a href="#semantics-load-metadata" class="xref">Section 2.2</a>, and returns the response (<a href="#FETCH" class="xref">[FETCH]</a>) matching that request.</p>
+<p id="rfc.section.2.3.p.1">This takes the stream of bytes representing the bundle, a request (<a href="#FETCH" class="xref">[FETCH]</a>), and the <samp>ResponseMetadata</samp> returned from <a href="#semantics-load-metadata" class="xref">Section 2.2</a> for the appropriate content-negotiated resource within the request&#8217;s URL, and returns the response (<a href="#FETCH" class="xref">[FETCH]</a>) matching that request.</p>
 <p id="rfc.section.2.3.p.2">This operation can be completed without inspecting bytes other than those that make up the loaded response, although higher-level operations like proving that an exchange is correctly signed (<a href="#I-D.yasskin-http-origin-signed-responses" class="xref">[I-D.yasskin-http-origin-signed-responses]</a>) may need to load other responses.</p>
-<p id="rfc.section.2.3.p.3">Note that this operation uses the metadata for a particular request returned by <a href="#semantics-load-metadata" class="xref">Section 2.2</a>, while a client will generally want to load the response for a request that the client generated. TODO: Specify how a client determines the best available bundled response, if any, for that client-generated request, in this or another document.</p>
+<p id="rfc.section.2.3.p.3">A client will generally want to load the response for a request that the client generated. For a URL with multiple variants, the client SHOULD use the algorithm in Section 4 of <a href="#I-D.ietf-httpbis-variants" class="xref">[I-D.ietf-httpbis-variants]</a> to select the best variant.</p>
 <p id="rfc.section.2.3.p.4">This operation&#8217;s implementation is in <a href="#load-response" class="xref">Section 3.4</a>.</p>
 <h1 id="rfc.section.3">
 <a href="#rfc.section.3">3.</a> <a href="#format" id="format">Format</a>
@@ -808,15 +808,15 @@ critical = [*tstr]
 <h1 id="rfc.section.3.4">
 <a href="#rfc.section.3.4">3.4.</a> <a href="#load-response" id="load-response">Load a response from a bundle</a>
 </h1>
-<p id="rfc.section.3.4.p.1">The result of <a href="#load-metadata" class="xref">Load a bundle&#8217;s metadata</a> maps each request to a response, which consists of headers and a payload. The headers can be loaded from the bundle&#8217;s stream before waiting for the payload, and similarly the payload can be streamed to downstream consumers.</p>
+<p id="rfc.section.3.4.p.1">The result of <a href="#load-metadata" class="xref">Load a bundle&#8217;s metadata</a> maps each URL and Variant-Key (<a href="#I-D.ietf-httpbis-variants" class="xref">[I-D.ietf-httpbis-variants]</a>) to a response, which consists of headers and a payload. The headers can be loaded from the bundle&#8217;s stream before waiting for the payload, and similarly the payload can be streamed to downstream consumers.</p>
 <pre>
 response = [headers: bstr .cbor headers, payload: bstr]
 </pre>
-<p id="rfc.section.3.4.p.2">To implement <a href="#semantics-load-response" class="xref">Section 2.3</a>, the parser MUST run the following steps, taking the bundle&#8217;s <samp>stream</samp> and one <samp>request</samp> and its <samp>requestMetadata</samp> as returned by <a href="#semantics-load-metadata" class="xref">Section 2.2</a>.</p>
+<p id="rfc.section.3.4.p.2">To implement <a href="#semantics-load-response" class="xref">Section 2.3</a>, the parser MUST run the following steps, taking the bundle&#8217;s <samp>stream</samp>, a <samp>request</samp> (<a href="#FETCH" class="xref">[FETCH]</a>), and a <samp>responseMetadata</samp> returned by <a href="#semantics-load-metadata" class="xref">Section 2.2</a> .</p>
 <p></p>
 
 <ol>
-<li>Seek to offset <samp>requestMetadata.offset</samp> in <samp>stream</samp>. If this fails, return an error.</li>
+<li>Seek to offset <samp>responseMetadata.offset</samp> in <samp>stream</samp>. If this fails, return an error.</li>
 <li>Read 1 byte from <samp>stream</samp>. If this is an error or isn&#8217;t <samp>0x82</samp>, return an error.</li>
 <li>Let <samp>headerLength</samp> be the result of getting the length of a CBOR bytestring header from <samp>stream</samp> (<a href="#parse-bytestring" class="xref">Section 3.5.2</a>). If <samp>headerLength</samp> is an error, return that error.</li>
 <li>If <samp>headerLength</samp> is 524288 (512*1024) or greater, return an error.</li>
@@ -826,7 +826,7 @@ response = [headers: bstr .cbor headers, payload: bstr]
 <li>If <samp>pseudos[':status']</samp> isn&#8217;t exactly 3 ASCII decimal digits, return an error.</li>
 <li>If <samp>headers</samp> does not contain a <samp>Content-Type</samp> header, return an error.  <br><br> The client MUST interpret the following payload as this specified media type instead of trying to sniff a media type from the bytes of the payload, for example by appending an artificial <samp>X-Content-Type-Options: nosniff</samp> header field (<a href="#FETCH" class="xref">[FETCH]</a>) to <samp>headers</samp>.</li>
 <li>Let <samp>payloadLength</samp> be the result of getting the length of a CBOR bytestring header from <samp>stream</samp> (<a href="#parse-bytestring" class="xref">Section 3.5.2</a>). If <samp>payloadLength</samp> is an error, return that error.</li>
-<li>If <samp>stream.currentOffset + payloadLength != requestMetadata.offset + requestMetadata.length</samp>, return an error.</li>
+<li>If <samp>stream.currentOffset + payloadLength != responseMetadata.offset + responseMetadata.length</samp>, return an error.</li>
 <li>Let <samp>body</samp> be a new body (<a href="#FETCH" class="xref">[FETCH]</a>) whose stream is a tee&#8217;d copy of <samp>stream</samp> starting at the current offset and ending after <samp>payloadLength</samp> bytes.  <br><br> TODO: Add the rest of the details of creating a <samp>ReadableStream</samp> object.</li>
 <li>Let <samp>response</samp> be a new response (<a href="#FETCH" class="xref">[FETCH]</a>) whose: <ul>
 <li>Url list is <samp>request</samp>&#8217;s url list,</li>
@@ -1076,7 +1076,7 @@ headers = {* bstr =&gt; bstr}
 <tr>
 <td class="reference"><b id="I-D.yasskin-http-origin-signed-responses">[I-D.yasskin-http-origin-signed-responses]</b></td>
 <td class="top">
-<a>Yasskin, J.</a>, "<a href="https://tools.ietf.org/html/draft-yasskin-http-origin-signed-responses-05">Signed HTTP Exchanges</a>", Internet-Draft draft-yasskin-http-origin-signed-responses-05, January 2019.</td>
+<a>Yasskin, J.</a>, "<a href="https://tools.ietf.org/html/draft-yasskin-http-origin-signed-responses-06">Signed HTTP Exchanges</a>", Internet-Draft draft-yasskin-http-origin-signed-responses-06, July 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="INFRA">[INFRA]</b></td>
