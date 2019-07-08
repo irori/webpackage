@@ -1013,7 +1013,7 @@ Internet-Draft           Bundled HTTP Exchanges                July 2019
 3.5.  Parsing CBOR items
 
    Parsing a bundle involves parsing many CBOR items.  All of these
-   items need to be canonically encoded.
+   items need to be deterministically encoded.
 
 3.5.1.  Parse a known-length item
 
@@ -1026,7 +1026,8 @@ Internet-Draft           Bundled HTTP Exchanges                July 2019
    2.  If "bytes" does not satisfy the core deterministic encoding
        requirements from Section 4.2.1 of [CBORbis], return an error.
        This format does not use floating point values or tags, so this
-       specification does not add any canonicalization rules for them.
+       specification does not add any deterministic encoding rules for
+       them.
 
    3.  If "bytes" includes extra bytes after the encoding of a CBOR
        item, return an error.
@@ -1056,7 +1057,6 @@ Internet-Draft           Bundled HTTP Exchanges                July 2019
        error.
 
    3.  Return "argument".
-
 
 
 
@@ -1165,7 +1165,7 @@ Internet-Draft           Bundled HTTP Exchanges                July 2019
 4.  Guidelines for bundle authors
 
    Bundles SHOULD consist of a single CBOR item satisfying the core
-   canonicalization requirements (Section 3.5) and matching the
+   deterministic encoding requirements (Section 3.5) and matching the
    "webbundle" CDDL rule in Section 3.1.
 
 
