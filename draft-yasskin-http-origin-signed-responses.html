@@ -663,7 +663,7 @@ ul.toc li {
 <pre>
 Signature = sh-param-list
 </pre>
-<p id="rfc.section.3.1.p.3">Each parameterised identifier in the list MUST have parameters named &#8220;sig&#8221;, &#8220;integrity&#8221;, &#8220;validity-url&#8221;, &#8220;date&#8221;, and &#8220;expires&#8221;. Each parameterised identifier MUST also have either &#8220;cert-url&#8221; and &#8220;cert-sha256&#8221; parameters or an &#8220;ed25519key&#8221; parameter. This specification gives no meaning to the identifier itself, which can be used as a human-readable identifier for the signature (see <a href="#parameterised-binary" class="xref">Section 3.1.2, Paragraph 1</a>). The present parameters MUST have the following values:</p>
+<p id="rfc.section.3.1.p.3">Each parameterised identifier in the list MUST have parameters named &#8220;sig&#8221;, &#8220;integrity&#8221;, &#8220;validity-url&#8221;, &#8220;date&#8221;, and &#8220;expires&#8221;. Each parameterised identifier MUST also have either &#8220;cert-url&#8221; and &#8220;cert-sha256&#8221; parameters or an &#8220;ed25519key&#8221; parameter. This specification gives no meaning to the identifier itself, which can be used as a human-readable identifier for the signature (however, this is likely to change soon; see <a href="#parameterised-binary" class="xref">Section 3.1.2, Paragraph 1</a>). The present parameters MUST have the following values:</p>
 <p></p>
 
 <dl>
@@ -727,7 +727,7 @@ Signature:
 <h1 id="rfc.section.3.1.2">
 <a href="#rfc.section.3.1.2">3.1.2.</a> <a href="#oq-signature-header" id="oq-signature-header">Open Questions</a>
 </h1>
-<p><a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a> provides a way to parameterise identifiers but not other supported types like byte sequences. If the <samp>Signature</samp> header field is notionally a list of parameterised signatures, maybe we should add a &#8220;parameterised byte sequence&#8221; type.</p>
+<p id="rfc.section.3.1.2.p.1"><a name="parameterised-binary"></a>The next revision of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a> will provide a way to parameterise byte sequences, at which point the signature itself is likely to become the main list item.</p>
 <p id="rfc.section.3.1.2.p.2">Should the cert-url and validity-url be lists so that intermediates can offer a cache without losing the original URLs? Putting lists in dictionary fields is more complex than <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a> allows, so they&#8217;re single items for now.</p>
 <h1 id="rfc.section.3.2">
 <a href="#rfc.section.3.2">3.2.</a> <a href="#cbor-representation" id="cbor-representation">CBOR representation of exchange response headers</a>
@@ -758,7 +758,7 @@ Signed-Headers: "content-type", "digest"
 &lt;html&gt;
 ...
 </pre>
-<p id="rfc.section.3.2.1.p.2">The cbor representation consists of the following item, represented using the extended diagnostic notation from <a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a> appendix G:</p>
+<p id="rfc.section.3.2.1.p.2">The cbor representation consists of the following item, represented using the extended diagnostic notation from <a href="#CDDL" class="xref">[CDDL]</a> appendix G:</p>
 <pre>
 {
   'digest': 'mi-sha256=dcRDgR2GM35DluAV13PzgnG6+pvQwPywfFvAu1UeFrs=',
@@ -911,7 +911,7 @@ augmented-certificate = {
 <p id="rfc.section.3.6.p.2">This specification provides no way to update OCSP responses by themselves.  Instead, <a href="#force-fetch" class="xref">clients need to re-fetch the &#8220;cert-url&#8221;</a> to get a chain including a newer OCSP response.</p>
 <p id="rfc.section.3.6.p.3">The <a href="#signature-validityurl" class="xref">&#8220;validity-url&#8221; parameter</a> of the signatures provides a way to fetch new signatures or learn where to fetch a complete updated exchange.</p>
 <p id="rfc.section.3.6.p.4">Each version of a signed exchange SHOULD have its own validity URLs, since each version needs different signatures and becomes obsolete at different times.</p>
-<p id="rfc.section.3.6.p.5">The resource at a &#8220;validity-url&#8221; is &#8220;validity data&#8221;, a CBOR map matching the following CDDL (<a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>):</p>
+<p id="rfc.section.3.6.p.5">The resource at a &#8220;validity-url&#8221; is &#8220;validity data&#8221;, a CBOR map matching the following CDDL (<a href="#CDDL" class="xref">[CDDL]</a>):</p>
 <pre>
 validity = {
   ? signatures: [ + bytes ]
@@ -1303,7 +1303,7 @@ Signed-Headers = sh-list
 <h1 id="rfc.section.5.3.2">
 <a href="#rfc.section.5.3.2">5.3.2.</a> <a href="#example-application-signed-exchange" id="example-application-signed-exchange">Example</a>
 </h1>
-<p id="rfc.section.5.3.2.p.1">An example <samp>application/signed-exchange</samp> file representing a possible signed exchange with <a href="https://example.com/">https://example.com/</a> follows, with lengths represented by descriptions in <samp>&lt;&gt;</samp>s, CBOR represented in the extended diagnostic format defined in Appendix G of <a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>, and most of the <samp>Signature</samp> header field and payload elided with a &#8230;:</p>
+<p id="rfc.section.5.3.2.p.1">An example <samp>application/signed-exchange</samp> file representing a possible signed exchange with <a href="https://example.com/">https://example.com/</a> follows, with lengths represented by descriptions in <samp>&lt;&gt;</samp>s, CBOR represented in the extended diagnostic format defined in Appendix G of <a href="#CDDL" class="xref">[CDDL]</a>, and most of the <samp>Signature</samp> header field and payload elided with a &#8230;:</p>
 <pre>
 sxg1\0\0\0\0&lt;2-byte length of the following url string&gt;
 https://example.com/&lt;3-byte length of the following header
@@ -1520,14 +1520,14 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256"; ...{
 <a href="#rfc.references.1">9.1.</a> Normative References</h1>
 <table><tbody>
 <tr>
+<td class="reference"><b id="CDDL">[CDDL]</b></td>
+<td class="top">
+<a>Birkholz, H.</a>, <a>Vigano, C.</a> and <a>C. Bormann</a>, "<a href="https://tools.ietf.org/html/rfc8610">Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures</a>", RFC 8610, DOI 10.17487/RFC8610, June 2019.</td>
+</tr>
+<tr>
 <td class="reference"><b id="FETCH">[FETCH]</b></td>
 <td class="top">
 <a>WHATWG</a>, "<a href="https://fetch.spec.whatwg.org/">Fetch</a>", July 2019.</td>
-</tr>
-<tr>
-<td class="reference"><b id="I-D.ietf-cbor-cddl">[I-D.ietf-cbor-cddl]</b></td>
-<td class="top">
-<a>Birkholz, H.</a>, <a>Vigano, C.</a> and <a>C. Bormann</a>, "<a href="https://tools.ietf.org/html/draft-ietf-cbor-cddl-08">Concise data definition language (CDDL): a notational convention to express CBOR and JSON data structures</a>", Internet-Draft draft-ietf-cbor-cddl-08, March 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="I-D.ietf-httpbis-header-structure">[I-D.ietf-httpbis-header-structure]</b></td>
