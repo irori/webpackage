@@ -103,7 +103,7 @@ Table of Contents
      6.2.  Web Bundle Section Name Registry  . . . . . . . . . . . .  24
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  25
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  25
-     7.2.  Informative References  . . . . . . . . . . . . . . . . .  27
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .  26
      7.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  27
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  27
 
@@ -1441,14 +1441,14 @@ Internet-Draft           Bundled HTTP Exchanges                July 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-   [SRI]      Akhawe, D., Braun, F., Marier, F., and J. Weinberger,
-              "Subresource Integrity", World Wide Web Consortium
-              Recommendation REC-SRI-20160623, June 2016,
-              <http://www.w3.org/TR/2016/REC-SRI-20160623>.
-
    [URL]      WHATWG, "URL", July 2019, <https://url.spec.whatwg.org/>.
 
+7.2.  Informative References
 
+   [I-D.yasskin-webpackage-use-cases]
+              Yasskin, J., "Use Cases and Requirements for Web
+              Packages", draft-yasskin-webpackage-use-cases-01 (work in
+              progress), March 2018.
 
 
 
@@ -1457,13 +1457,6 @@ Yasskin                  Expires January 9, 2020               [Page 26]
 
 Internet-Draft           Bundled HTTP Exchanges                July 2019
 
-
-7.2.  Informative References
-
-   [I-D.yasskin-webpackage-use-cases]
-              Yasskin, J., "Use Cases and Requirements for Web
-              Packages", draft-yasskin-webpackage-use-cases-01 (work in
-              progress), March 2018.
 
    [RFC6265]  Barth, A., "HTTP State Management Mechanism", RFC 6265,
               DOI 10.17487/RFC6265, April 2011,
@@ -1506,6 +1499,13 @@ Appendix A.  Change Log
 
    o  Require the "manifest" to be embedded into the bundle.
 
+   o  Add a content sniffing security consideration.
+
+   o  Add a version string to the format and its mime type.
+
+   o  Add a fallback URL in a fixed location in the format, and use that
+      fallback URL as the primary URL of the bundle.
+
 
 
 
@@ -1513,13 +1513,6 @@ Yasskin                  Expires January 9, 2020               [Page 27]
 
 Internet-Draft           Bundled HTTP Exchanges                July 2019
 
-
-   o  Add a content sniffing security consideration.
-
-   o  Add a version string to the format and its mime type.
-
-   o  Add a fallback URL in a fixed location in the format, and use that
-      fallback URL as the primary URL of the bundle.
 
    o  Add a "signatures" section to let authorities (like domain-trusted
       X.509 certificates) vouch for subsets of a bundle.
@@ -1538,6 +1531,13 @@ Author's Address
    Google
 
    Email: jyasskin@chromium.org
+
+
+
+
+
+
+
 
 
 
