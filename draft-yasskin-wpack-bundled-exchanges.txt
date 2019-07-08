@@ -705,7 +705,7 @@ Internet-Draft           Bundled HTTP Exchanges                July 2019
    manifest+json" ([appmanifest]) and an "accept-language" header of
    "es-419".
 
-   manifest = text
+   manifest = whatwg-url
 
    To parse the manifest section, given its "sectionContents" and the
    "metadata" map to fill in, the parser MUST do the following:
@@ -1498,13 +1498,13 @@ Appendix A.  Change Log
 
    draft-01
 
-   o  Order the index in the same order as the responses, and require
-      responses to be sequential without gaps.
+   o  Include only section lengths in the section index, requiring
+      sections to be listed in order.
 
-   o  "manifest" needs to be embedded into the bundle.
+   o  Have the "index" section map URLs to sets of responses negotiated
+      using the Variants system ([I-D.ietf-httpbis-variants]).
 
-
-
+   o  Require the "manifest" to be embedded into the bundle.
 
 
 
@@ -1513,6 +1513,19 @@ Yasskin                  Expires January 9, 2020               [Page 27]
 
 Internet-Draft           Bundled HTTP Exchanges                July 2019
 
+
+   o  Add a content sniffing security consideration.
+
+   o  Add a version string to the format and its mime type.
+
+   o  Add a fallback URL in a fixed location in the format, and use that
+      fallback URL as the primary URL of the bundle.
+
+   o  Add a "signatures" section to let authorities (like domain-trusted
+      X.509 certificates) vouch for subsets of a bundle.
+
+   o  Use the CBORbis "deterministic encoding" requirements instead of
+      "canonicalization" requirements.
 
 Appendix B.  Acknowledgements
 
@@ -1525,19 +1538,6 @@ Author's Address
    Google
 
    Email: jyasskin@chromium.org
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

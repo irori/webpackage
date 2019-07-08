@@ -696,7 +696,7 @@ location-in-responses = (offset: uint, length: uint)
 <p id="rfc.section.3.3.2.p.1">The &#8220;manifest&#8221; section records a single URL identifying the manifest of the bundle. The URL MUST refer to the one or more response(s) contained in the bundle itself.</p>
 <p id="rfc.section.3.3.2.p.2">The bundle can contain multiple resources at this URL, and the client is expected to content-negotiate for the best one. For example, a client might select the one with an <samp>accept</samp> header of <samp>application/manifest+json</samp> (<a href="#appmanifest" class="xref">[appmanifest]</a>) and an <samp>accept-language</samp> header of <samp>es-419</samp>.</p>
 <pre>
-manifest = text
+manifest = whatwg-url
 </pre>
 <p id="rfc.section.3.3.2.p.3">To parse the manifest section, given its <samp>sectionContents</samp> and the <samp>metadata</samp> map to fill in, the parser MUST do the following:</p>
 <p></p>
@@ -1146,8 +1146,14 @@ headers = {* bstr =&gt; bstr}
 <p></p>
 
 <ul>
-<li>Order the index in the same order as the responses, and require responses to be sequential without gaps.</li>
-<li>&#8220;manifest&#8221; needs to be embedded into the bundle.</li>
+<li>Include only section lengths in the section index, requiring sections to be listed in order.</li>
+<li>Have the &#8220;index&#8221; section map URLs to sets of responses negotiated using the Variants system (<a href="#I-D.ietf-httpbis-variants" class="xref">[I-D.ietf-httpbis-variants]</a>).</li>
+<li>Require the &#8220;manifest&#8221; to be embedded into the bundle.</li>
+<li>Add a content sniffing security consideration.</li>
+<li>Add a version string to the format and its mime type.</li>
+<li>Add a fallback URL in a fixed location in the format, and use that fallback URL as the primary URL of the bundle.</li>
+<li>Add a &#8220;signatures&#8221; section to let authorities (like domain-trusted X.509 certificates) vouch for subsets of a bundle.</li>
+<li>Use the CBORbis &#8220;deterministic encoding&#8221; requirements instead of &#8220;canonicalization&#8221; requirements.</li>
 </ul>
 <h1 id="rfc.appendix.B">
 <a href="#rfc.appendix.B">Appendix B.</a> <a href="#acknowledgements" id="acknowledgements">Acknowledgements</a>
