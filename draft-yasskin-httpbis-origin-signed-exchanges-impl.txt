@@ -92,19 +92,19 @@ Table of Contents
      5.2.  HTTP/2 extension for cross-origin Server Push . . . . . .  19
      5.3.  application/signed-exchange format  . . . . . . . . . . .  19
        5.3.1.  Cross-origin trust in application/signed-exchange . .  20
-       5.3.2.  Example . . . . . . . . . . . . . . . . . . . . . . .  21
+       5.3.2.  Content negotiation . . . . . . . . . . . . . . . . .  21
+       5.3.3.  Example . . . . . . . . . . . . . . . . . . . . . . .  21
    6.  Security considerations . . . . . . . . . . . . . . . . . . .  21
    7.  Privacy considerations  . . . . . . . . . . . . . . . . . . .  21
    8.  IANA considerations . . . . . . . . . . . . . . . . . . . . .  22
      8.1.  Internet Media Type application/signed-exchange . . . . .  22
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  22
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  22
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .  24
+   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  23
+     9.1.  Normative References  . . . . . . . . . . . . . . . . . .  23
+     9.2.  Informative References  . . . . . . . . . . . . . . . . .  25
      9.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .  26
    Appendix A.  Change Log . . . . . . . . . . . . . . . . . . . . .  27
    Appendix B.  Acknowledgements . . . . . . . . . . . . . . . . . .  29
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  29
-
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  30
 
 
 
@@ -328,8 +328,8 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
    <html>
    ...
 
-
-
+   The cbor representation consists of the following item, represented
+   using the extended diagnostic notation from [CDDL] appendix G:
 
 
 
@@ -337,10 +337,6 @@ Yasskin & Ueno          Expires January 23, 2020                [Page 6]
 
 Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
-
-   The cbor representation consists of the following item, represented
-   using the extended diagnostic notation from [I-D.ietf-cbor-cddl]
-   appendix G:
 
   {
     'digest': 'mi-sha256-03=dcRDgR2GM35DluAV13PzgnG6+pvQwPywfFvAu1UeFrs=',
@@ -386,6 +382,10 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
    1.  Let "raw-chain" be the result of fetching ([FETCH]) "cert-url".
        If "forceFetch" is _not_ set, the fetch can be fulfilled from a
+       cache using normal HTTP semantics [RFC7234].  If this fetch
+       fails, return "invalid".
+
+
 
 
 
@@ -393,9 +393,6 @@ Yasskin & Ueno          Expires January 23, 2020                [Page 7]
 
 Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
-
-       cache using normal HTTP semantics [RFC7234].  If this fetch
-       fails, return "invalid".
 
    2.  Let "certificate-chain" be the array of certificates and
        properties produced by parsing "raw-chain" using the CDDL above.
@@ -441,6 +438,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
    Note: this specification does not use floating point, tags, or other
    more complex data types, so it doesn't need rules to canonicalize
    those.
+
+
+
 
 
 
@@ -536,7 +536,7 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
             5.  If "publicKey" is a key using the secp256r1 elliptic
                 curve, set "signing-alg" to ecdsa_secp256r1_sha256 as
-                defined in Section 4.2.3 of [I-D.ietf-tls-tls13].
+                defined in Section 4.2.3 of [TLS1.3].
 
             6.  Otherwise, return "invalid".
 
@@ -547,7 +547,7 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
         "invalid".
 
    5.   Let "message" be the concatenation of the following byte
-        strings.  This matches the [RFC8446] format to avoid cross-
+        strings.  This matches the [TLS1.3] format to avoid cross-
         protocol attacks if anyone uses the same key in a TLS
         certificate and an exchange-signing certificate.
 
@@ -596,7 +596,7 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
         Note that this intentionally differs from TLS 1.3, which signs
         the entire certificate chain in its Certificate Verify
-        (Section 4.4.3 of [RFC8446]), in order to allow updating the
+        (Section 4.4.3 of [TLS1.3]), in order to allow updating the
         stapled OCSP response without updating signatures at the same
         time.
 
@@ -664,7 +664,7 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
    different times.
 
    The resource at a "validity-url" is "validity data", a CBOR map
-   matching the following CDDL ([I-D.ietf-cbor-cddl]):
+   matching the following CDDL ([CDDL]):
 
 
 
@@ -986,7 +986,7 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
        on the property and is equal to "yes"
 
    Clients MUST NOT accept certificates with this extension in TLS
-   connections (Section 4.4.2.2 of [RFC8446]).
+   connections (Section 4.4.2.2 of [TLS1.3]).
 
    This draft of the specification identifies the CanSignHttpExchanges
    extension with the id-ce-canSignHttpExchangesDraft OID:
@@ -1057,7 +1057,7 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
    1.  8 bytes consisting of the ASCII characters "sxg1-b3" followed by
        a 0 byte, to serve as a file signature.  This is redundant with
        the MIME type, and recipients that receive both MUST check that
-       they match and stop parsing if they don't.
+
 
 
 
@@ -1065,6 +1065,9 @@ Yasskin & Ueno          Expires January 23, 2020               [Page 19]
 
 Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
+
+       they match and, if they don't, either stop parsing or redirect to
+       the "fallbackUrl" in the next two entries.
 
        Note: As this is a snapshot of a draft of
        [I-D.yasskin-http-origin-signed-responses], it uses a distinct
@@ -1114,22 +1117,29 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
 
 
-
-
-
 Yasskin & Ueno          Expires January 23, 2020               [Page 20]
 
 Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
 
-5.3.2.  Example
+5.3.2.  Content negotiation
+
+   If the signed response headers include a "Variants-04" header field,
+   the client MUST use the cache behavior algorithm in Section 4 of
+   [I-D.ietf-httpbis-variants-05] to check that the signed response is
+   an appropriate representation for the request the client is trying to
+   fulfil.  If the response is not an appropriate representation, the
+   client MUST treat the signature as invalid.  Note the mismatch
+   between the name of the header field and the version of the Variants
+   draft.
+
+5.3.3.  Example
 
    An example "application/signed-exchange" file representing a possible
    signed exchange with https://example.com/ [7] follows, with lengths
    represented by descriptions in "<>"s, CBOR represented in the
-   extended diagnostic format defined in Appendix G of
-   [I-D.ietf-cbor-cddl], and most of the "Signature" header field and
-   payload elided with a ...:
+   extended diagnostic format defined in Appendix G of [CDDL], and most
+   of the "Signature" header field and payload elided with a ...:
 
    sxg1-b3\0<2-byte length of the following url string>
    https://example.com/<3-byte length of the following header
@@ -1158,6 +1168,16 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
    it's the entity that directed the client to "o1resource.js", but
    there may be cases where this leaks extra information.
 
+
+
+
+
+
+Yasskin & Ueno          Expires January 23, 2020               [Page 21]
+
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
+
+
    For non-executable resource types, a signed response can improve the
    privacy situation by hiding the client's interest from the original
    publisher.
@@ -1167,16 +1187,9 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
    exchanges fetched over a transport that's protected from
    eavesdroppers.  This can be difficult to determine when the exchange
    is being loaded from local disk, but when the client itself requested
-   the exchange over a network it SHOULD require TLS ([RFC8446]) or a
+   the exchange over a network it SHOULD require TLS ([TLS1.3]) or a
    successor transport layer, and MUST NOT accept exchanges transferred
    over plain HTTP without TLS.
-
-
-
-Yasskin & Ueno          Expires January 23, 2020               [Page 21]
-
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
-
 
 8.  IANA considerations
 
@@ -1214,25 +1227,25 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
    The other fields are the same as the registration in
    [I-D.yasskin-http-origin-signed-responses].
 
-9.  References
-
-9.1.  Normative References
-
-   [FETCH]    WHATWG, "Fetch", July 2019,
-              <https://fetch.spec.whatwg.org/>.
-
-   [I-D.ietf-cbor-cddl]
-              Birkholz, H., Vigano, C., and C. Bormann, "Concise data
-              definition language (CDDL): a notational convention to
-              express CBOR and JSON data structures", draft-ietf-cbor-
-              cddl-08 (work in progress), March 2019.
-
 
 
 Yasskin & Ueno          Expires January 23, 2020               [Page 22]
 
 Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
+
+9.  References
+
+9.1.  Normative References
+
+   [CDDL]     Birkholz, H., Vigano, C., and C. Bormann, "Concise Data
+              Definition Language (CDDL): A Notational Convention to
+              Express Concise Binary Object Representation (CBOR) and
+              JSON Data Structures", RFC 8610, DOI 10.17487/RFC8610,
+              June 2019, <https://www.rfc-editor.org/info/rfc8610>.
+
+   [FETCH]    WHATWG, "Fetch", July 2019,
+              <https://fetch.spec.whatwg.org/>.
 
    [I-D.ietf-httpbis-header-structure]
               Nottingham, M. and P. Kamp, "Structured Headers for HTTP",
@@ -1243,11 +1256,6 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
               Nottingham, M., "HTTP Representation Variants", draft-
               ietf-httpbis-variants-05 (work in progress), March 2019,
               <https://tools.ietf.org/html/ietf-httpbis-variants-05>.
-
-   [I-D.ietf-tls-tls13]
-              Rescorla, E., "The Transport Layer Security (TLS) Protocol
-              Version 1.3", draft-ietf-tls-tls13-28 (work in progress),
-              March 2018.
 
    [I-D.yasskin-http-origin-signed-responses]
               Yasskin, J., "Signed HTTP Exchanges", draft-yasskin-http-
@@ -1275,20 +1283,17 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
               (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
               <https://www.rfc-editor.org/info/rfc5280>.
 
-   [RFC6844]  Hallam-Baker, P. and R. Stradling, "DNS Certification
-              Authority Authorization (CAA) Resource Record", RFC 6844,
-              DOI 10.17487/RFC6844, January 2013,
-              <https://www.rfc-editor.org/info/rfc6844>.
-
-
-
-
 
 
 Yasskin & Ueno          Expires January 23, 2020               [Page 23]
 
 Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
+
+   [RFC6844]  Hallam-Baker, P. and R. Stradling, "DNS Certification
+              Authority Authorization (CAA) Resource Record", RFC 6844,
+              DOI 10.17487/RFC6844, January 2013,
+              <https://www.rfc-editor.org/info/rfc6844>.
 
    [RFC6960]  Santesson, S., Myers, M., Ankney, R., Malpani, A.,
               Galperin, S., and C. Adams, "X.509 Internet Public Key
@@ -1323,18 +1328,13 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
+   [TLS1.3]   Rescorla, E., "The Transport Layer Security (TLS) Protocol
               Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
               <https://www.rfc-editor.org/info/rfc8446>.
 
    [URL]      WHATWG, "URL", July 2019, <https://url.spec.whatwg.org/>.
 
-9.2.  Informative References
 
-   [I-D.ietf-httpbis-cache]
-              Fielding, R., Nottingham, M., and J. Reschke, "HTTP
-              Caching", draft-ietf-httpbis-cache-05 (work in progress),
-              July 2019.
 
 
 
@@ -1345,6 +1345,13 @@ Yasskin & Ueno          Expires January 23, 2020               [Page 24]
 
 Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
+
+9.2.  Informative References
+
+   [I-D.ietf-httpbis-cache]
+              Fielding, R., Nottingham, M., and J. Reschke, "HTTP
+              Caching", draft-ietf-httpbis-cache-05 (work in progress),
+              July 2019.
 
    [I-D.thomson-http-mice]
               Thomson, M. and J. Yasskin, "Merkle Integrity Content
@@ -1385,6 +1392,16 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
               RFC 6455, DOI 10.17487/RFC6455, December 2011,
               <https://www.rfc-editor.org/info/rfc6455>.
 
+
+
+
+
+
+Yasskin & Ueno          Expires January 23, 2020               [Page 25]
+
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
+
+
    [RFC6797]  Hodges, J., Jackson, C., and A. Barth, "HTTP Strict
               Transport Security (HSTS)", RFC 6797,
               DOI 10.17487/RFC6797, November 2012,
@@ -1394,13 +1411,6 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
               Protocol (HTTP/1.1): Authentication", RFC 7235,
               DOI 10.17487/RFC7235, June 2014,
               <https://www.rfc-editor.org/info/rfc7235>.
-
-
-
-Yasskin & Ueno          Expires January 23, 2020               [Page 25]
-
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
-
 
    [RFC7469]  Evans, C., Palmer, C., and R. Sleevi, "Public Key Pinning
               Extension for HTTP", RFC 7469, DOI 10.17487/RFC7469, April
@@ -1441,22 +1451,19 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
    [4] https://url.spec.whatwg.org/#absolute-url-string
 
-   [5] http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/
-       V1_chap04.html#tag_04_16
-
-   [6] https://html.spec.whatwg.org/multipage/origin.html#same-origin
-
-   [7] https://example.com/
-
-
-
-
 
 
 Yasskin & Ueno          Expires January 23, 2020               [Page 26]
 
 Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
+
+   [5] http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/
+       V1_chap04.html#tag_04_16
+
+   [6] https://html.spec.whatwg.org/multipage/origin.html#same-origin
+
+   [7] https://example.com/
 
 Appendix A.  Change Log
 
@@ -1499,13 +1506,6 @@ Appendix A.  Change Log
       variants-05 (but spelled Variants-04) and the mi-sha256 digest
       algorithm at draft-thomson-http-mice-03.
 
-   draft-02
-
-   Vs. draft-01:
-
-   o  Define absolute URLs, and limit the schemes each instance can use.
-
-   o  Update to mice-03 including the Digest header.
 
 
 
@@ -1513,6 +1513,17 @@ Yasskin & Ueno          Expires January 23, 2020               [Page 27]
 
 Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
+
+   o  Allow mismatches between the MIME type and file signature to
+      redirect to the fallback URL.
+
+   draft-02
+
+   Vs. draft-01:
+
+   o  Define absolute URLs, and limit the schemes each instance can use.
+
+   o  Update to mice-03 including the Digest header.
 
    o  Define the "integrity" field of the Signature header to include
       the digest algorithm.
@@ -1551,6 +1562,14 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
 
    o  Versions in file signatures and context strings are "b1".
 
+
+
+
+Yasskin & Ueno          Expires January 23, 2020               [Page 28]
+
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
+
+
    o  Only 1 signature is supported.
 
    o  Removed support for ed25519 signatures.
@@ -1562,13 +1581,6 @@ Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
    o  Removed non-normative sections.
 
    o  Only 1 signature is supported.
-
-
-
-Yasskin & Ueno          Expires January 23, 2020               [Page 28]
-
-Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
-
 
    o  Only 2048-bit RSA keys are supported.
 
@@ -1604,6 +1616,16 @@ Appendix B.  Acknowledgements
    Mark Nottingham, Mike Bishop, Ryan Sleevi, and Yoav Weiss for
    comments that improved this draft.
 
+
+
+
+
+
+Yasskin & Ueno          Expires January 23, 2020               [Page 29]
+
+Internet-DraSigned HTTP Exchanges Implementation Checkpoints   July 2019
+
+
 Authors' Addresses
 
    Jeffrey Yasskin
@@ -1621,4 +1643,38 @@ Authors' Addresses
 
 
 
-Yasskin & Ueno          Expires January 23, 2020               [Page 29]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Yasskin & Ueno          Expires January 23, 2020               [Page 30]

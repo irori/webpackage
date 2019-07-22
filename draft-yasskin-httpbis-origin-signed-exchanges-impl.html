@@ -305,7 +305,8 @@ ul.toc li {
 <link href="#rfc.section.5.2" rel="Chapter" title="5.2 HTTP/2 extension for cross-origin Server Push">
 <link href="#rfc.section.5.3" rel="Chapter" title="5.3 application/signed-exchange format">
 <link href="#rfc.section.5.3.1" rel="Chapter" title="5.3.1 Cross-origin trust in application/signed-exchange">
-<link href="#rfc.section.5.3.2" rel="Chapter" title="5.3.2 Example">
+<link href="#rfc.section.5.3.2" rel="Chapter" title="5.3.2 Content negotiation">
+<link href="#rfc.section.5.3.3" rel="Chapter" title="5.3.3 Example">
 <link href="#rfc.section.6" rel="Chapter" title="6 Security considerations">
 <link href="#rfc.section.7" rel="Chapter" title="7 Privacy considerations">
 <link href="#rfc.section.8" rel="Chapter" title="8 IANA considerations">
@@ -423,7 +424,9 @@ ul.toc li {
 </li>
 <ul><li>5.3.1.   <a href="#rfc.section.5.3.1">Cross-origin trust in application/signed-exchange</a>
 </li>
-<li>5.3.2.   <a href="#rfc.section.5.3.2">Example</a>
+<li>5.3.2.   <a href="#rfc.section.5.3.2">Content negotiation</a>
+</li>
+<li>5.3.3.   <a href="#rfc.section.5.3.3">Example</a>
 </li>
 </ul></ul><li>6.   <a href="#rfc.section.6">Security considerations</a>
 </li>
@@ -555,7 +558,7 @@ Signed-Headers: "content-type", "digest"
 &lt;html&gt;
 ...
 </pre>
-<p id="rfc.section.3.2.1.p.2">The cbor representation consists of the following item, represented using the extended diagnostic notation from <a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a> appendix G:</p>
+<p id="rfc.section.3.2.1.p.2">The cbor representation consists of the following item, represented using the extended diagnostic notation from <a href="#CDDL" class="xref">[CDDL]</a> appendix G:</p>
 <pre>
   {
     'digest': 'mi-sha256-03=dcRDgR2GM35DluAV13PzgnG6+pvQwPywfFvAu1UeFrs=',
@@ -664,14 +667,14 @@ cert-chain = [
 <li>Let <samp>main-certificate</samp> be the first certificate in <samp>certificate-chain</samp>.</li>
 <li>Set <samp>publicKey</samp> to <samp>main-certificate</samp>&#8217;s public key.</li>
 <li>If <samp>publicKey</samp> is an RSA key, return &#8220;invalid&#8221;.</li>
-<li>If <samp>publicKey</samp> is a key using the secp256r1 elliptic curve, set <samp>signing-alg</samp> to ecdsa_secp256r1_sha256 as defined in Section 4.2.3 of <a href="#I-D.ietf-tls-tls13" class="xref">[I-D.ietf-tls-tls13]</a>.</li>
+<li>If <samp>publicKey</samp> is a key using the secp256r1 elliptic curve, set <samp>signing-alg</samp> to ecdsa_secp256r1_sha256 as defined in Section 4.2.3 of <a href="#TLS1.3" class="xref">[TLS1.3]</a>.</li>
 <li>Otherwise, return &#8220;invalid&#8221;.</li>
 </ol>
 </li></ol>
 </li>
 <li>If <samp>expires</samp> is more than 7 days (604800 seconds) after <samp>date</samp>, return &#8220;invalid&#8221;.</li>
 <li>If the current time is before <samp>date</samp> or after <samp>expires</samp>, return &#8220;invalid&#8221;.</li>
-<li>Let <samp>message</samp> be the concatenation of the following byte strings. This matches the <a href="#RFC8446" class="xref">[RFC8446]</a> format to avoid cross-protocol attacks if anyone uses the same key in a TLS certificate and an exchange-signing certificate.  <ol>
+<li>Let <samp>message</samp> be the concatenation of the following byte strings. This matches the <a href="#TLS1.3" class="xref">[TLS1.3]</a> format to avoid cross-protocol attacks if anyone uses the same key in a TLS certificate and an exchange-signing certificate.  <ol>
 <li>A string that consists of octet 32 (0x20) repeated 64 times.</li>
 <li>A context string: the ASCII encoding of &#8220;HTTP Exchange 1 b3&#8221;.      <br><br> Note: As this is a snapshot of a draft of <a href="#I-D.yasskin-http-origin-signed-responses" class="xref">[I-D.yasskin-http-origin-signed-responses]</a>, it uses a distinct context string.</li>
 <li>A single 0 byte which serves as a separator.</li>
@@ -683,7 +686,7 @@ cert-chain = [
 <li>The 8-byte big-endian encoding of the length in bytes of <samp>responseHeaders</samp>, followed by the bytes of <samp>responseHeaders</samp>.</li>
 </ol>
 </li>
-<li>If <samp>cert-url</samp> is present and the SHA-256 hash of <samp>main-certificate</samp>&#8217;s <samp>cert_data</samp> is not equal to <samp>cert-sha256</samp> (whose presence was checked when the <samp>Signature</samp> header field was parsed), return &#8220;invalid&#8221;.  <br><br> Note that this intentionally differs from TLS 1.3, which signs the entire certificate chain in its Certificate Verify (Section 4.4.3 of <a href="#RFC8446" class="xref">[RFC8446]</a>), in order to allow updating the stapled OCSP response without updating signatures at the same time.</li>
+<li>If <samp>cert-url</samp> is present and the SHA-256 hash of <samp>main-certificate</samp>&#8217;s <samp>cert_data</samp> is not equal to <samp>cert-sha256</samp> (whose presence was checked when the <samp>Signature</samp> header field was parsed), return &#8220;invalid&#8221;.  <br><br> Note that this intentionally differs from TLS 1.3, which signs the entire certificate chain in its Certificate Verify (Section 4.4.3 of <a href="#TLS1.3" class="xref">[TLS1.3]</a>), in order to allow updating the stapled OCSP response without updating signatures at the same time.</li>
 <li>If <samp>signature</samp> is not a valid signature of <samp>message</samp> by <samp>publicKey</samp> using <samp>signing-alg</samp>, return &#8220;invalid&#8221;.</li>
 <li>If <samp>headers</samp>, interpreted according to <a href="#cbor-representation" class="xref">Section 3.2</a>, does not contain a <samp>Content-Type</samp> response header field (Section 3.1.1.5 of <a href="#RFC7231" class="xref">[RFC7231]</a>), return &#8220;invalid&#8221;.  <br><br> Clients MUST interpret the signed payload as this specified media type instead of trying to sniff a media type from the bytes of the payload, for example by attaching an <samp>X-Content-Type-Options: nosniff</samp> header field (<a href="#FETCH" class="xref">[FETCH]</a>) to the extracted response.</li>
 <li>If <samp>integrity</samp> does not match &#8220;digest/mi-sha256-03&#8221;, return &#8220;invalid&#8221;.</li>
@@ -698,7 +701,7 @@ cert-chain = [
 <p id="rfc.section.3.6.p.2">This specification provides no way to update OCSP responses by themselves.  Instead, <a href="#force-fetch" class="xref">clients need to re-fetch the &#8220;cert-url&#8221;</a> to get a chain including a newer OCSP response.</p>
 <p id="rfc.section.3.6.p.3">The <a href="#signature-validityurl" class="xref">&#8220;validity-url&#8221; parameter</a> of the signatures provides a way to fetch new signatures or learn where to fetch a complete updated exchange.</p>
 <p id="rfc.section.3.6.p.4">Each version of a signed exchange SHOULD have its own validity URLs, since each version needs different signatures and becomes obsolete at different times.</p>
-<p id="rfc.section.3.6.p.5">The resource at a &#8220;validity-url&#8221; is &#8220;validity data&#8221;, a CBOR map matching the following CDDL (<a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>):</p>
+<p id="rfc.section.3.6.p.5">The resource at a &#8220;validity-url&#8221; is &#8220;validity data&#8221;, a CBOR map matching the following CDDL (<a href="#CDDL" class="xref">[CDDL]</a>):</p>
 <pre>
 validity = {
   ? signatures: [ + bytes ]
@@ -882,7 +885,7 @@ Signature:
 <li>An &#8220;issue&#8221; or &#8220;issuewild&#8221; CAA property (<a href="#RFC6844" class="xref">[RFC6844]</a>) exists that authorizes the CA to issue the certificate; and</li>
 <li>The &#8220;cansignhttpexchanges&#8221; parameter (<a href="#caa-cansignhttpexchanges" class="xref">Section 4.2.1</a>) is present on the property and is equal to &#8220;yes&#8221;</li>
 </ol>
-<p id="rfc.section.4.2.p.10">Clients MUST NOT accept certificates with this extension in TLS connections (Section 4.4.2.2 of <a href="#RFC8446" class="xref">[RFC8446]</a>).</p>
+<p id="rfc.section.4.2.p.10">Clients MUST NOT accept certificates with this extension in TLS connections (Section 4.4.2.2 of <a href="#TLS1.3" class="xref">[TLS1.3]</a>).</p>
 <p id="rfc.section.4.2.p.11">This draft of the specification identifies the CanSignHttpExchanges extension with the id-ce-canSignHttpExchangesDraft OID:</p>
 <pre>
    id-ce-google OBJECT IDENTIFIER ::= { 1 3 6 1 4 1 11129 }
@@ -928,7 +931,7 @@ Signature:
 <p></p>
 
 <ol>
-<li>8 bytes consisting of the ASCII characters &#8220;sxg1-b3&#8221; followed by a 0 byte, to serve as a file signature. This is redundant with the MIME type, and recipients that receive both MUST check that they match and stop parsing if they don&#8217;t.  <br><br> Note: As this is a snapshot of a draft of <a href="#I-D.yasskin-http-origin-signed-responses" class="xref">[I-D.yasskin-http-origin-signed-responses]</a>, it uses a distinct file signature.</li>
+<li>8 bytes consisting of the ASCII characters &#8220;sxg1-b3&#8221; followed by a 0 byte, to serve as a file signature. This is redundant with the MIME type, and recipients that receive both MUST check that they match and, if they don&#8217;t, either stop parsing or redirect to the <samp>fallbackUrl</samp> in the next two entries.  <br><br> Note: As this is a snapshot of a draft of <a href="#I-D.yasskin-http-origin-signed-responses" class="xref">[I-D.yasskin-http-origin-signed-responses]</a>, it uses a distinct file signature.</li>
 <li>2 bytes storing a big-endian integer <samp>fallbackUrlLength</samp>.</li>
 <li>
 <samp>fallbackUrlLength</samp> bytes holding a <samp>fallbackUrl</samp>, which MUST UTF-8 decode to an absolute URL with a scheme of &#8220;https&#8221;.  <br><br> Note: The byte location of the fallback URL is intended to remain invariant across versions of the <samp>application/signed-exchange</samp> format so that parsers encountering unknown versions can always find a URL to redirect to.</li>
@@ -945,9 +948,13 @@ Signature:
 </h1>
 <p id="rfc.section.5.3.1.p.1">To determine whether to trust a cross-origin exchange stored in an <samp>application/signed-exchange</samp> resource, pass the <samp>Signature</samp> header field&#8217;s value, <samp>fallbackUrl</samp> as the effective request URI, <samp>signedHeaders</samp>, and the payload body to the algorithm in <a href="#cross-origin-trust" class="xref">Section 4</a>.</p>
 <h1 id="rfc.section.5.3.2">
-<a href="#rfc.section.5.3.2">5.3.2.</a> <a href="#example-application-signed-exchange" id="example-application-signed-exchange">Example</a>
+<a href="#rfc.section.5.3.2">5.3.2.</a> <a href="#app-signed-exchange-negotiation" id="app-signed-exchange-negotiation">Content negotiation</a>
 </h1>
-<p id="rfc.section.5.3.2.p.1">An example <samp>application/signed-exchange</samp> file representing a possible signed exchange with <a href="https://example.com/">https://example.com/</a> follows, with lengths represented by descriptions in <samp>&lt;&gt;</samp>s, CBOR represented in the extended diagnostic format defined in Appendix G of <a href="#I-D.ietf-cbor-cddl" class="xref">[I-D.ietf-cbor-cddl]</a>, and most of the <samp>Signature</samp> header field and payload elided with a &#8230;:</p>
+<p id="rfc.section.5.3.2.p.1">If the signed response headers include a <samp>Variants-04</samp> header field, the client MUST use the cache behavior algorithm in Section 4 of <a href="#I-D.ietf-httpbis-variants-05" class="xref">[I-D.ietf-httpbis-variants-05]</a> to check that the signed response is an appropriate representation for the request the client is trying to fulfil. If the response is not an appropriate representation, the client MUST treat the signature as invalid. Note the mismatch between the name of the header field and the version of the Variants draft.</p>
+<h1 id="rfc.section.5.3.3">
+<a href="#rfc.section.5.3.3">5.3.3.</a> <a href="#example-application-signed-exchange" id="example-application-signed-exchange">Example</a>
+</h1>
+<p id="rfc.section.5.3.3.p.1">An example <samp>application/signed-exchange</samp> file representing a possible signed exchange with <a href="https://example.com/">https://example.com/</a> follows, with lengths represented by descriptions in <samp>&lt;&gt;</samp>s, CBOR represented in the extended diagnostic format defined in Appendix G of <a href="#CDDL" class="xref">[CDDL]</a>, and most of the <samp>Signature</samp> header field and payload elided with a &#8230;:</p>
 <pre>
 sxg1-b3\0&lt;2-byte length of the following url string&gt;
 https://example.com/&lt;3-byte length of the following header
@@ -967,7 +974,7 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256-03"; ...{
 <p id="rfc.section.7.p.1">Normally, when a client fetches <samp>https://o1.com/resource.js</samp>, <samp>o1.com</samp> learns that the client is interested in the resource. If <samp>o1.com</samp> signs <samp>resource.js</samp>, <samp>o2.com</samp> serves it as <samp>https://o2.com/o1resource.js</samp>, and the client fetches it from there, then <samp>o2.com</samp> learns that the client is interested, and if the client executes the Javascript, that could also report the client&#8217;s interest back to <samp>o1.com</samp>.</p>
 <p id="rfc.section.7.p.2">Often, <samp>o2.com</samp> already knew about the client&#8217;s interest, because it&#8217;s the entity that directed the client to <samp>o1resource.js</samp>, but there may be cases where this leaks extra information.</p>
 <p id="rfc.section.7.p.3">For non-executable resource types, a signed response can improve the privacy situation by hiding the client&#8217;s interest from the original publisher.</p>
-<p id="rfc.section.7.p.4">To prevent network operators other than <samp>o1.com</samp> or <samp>o2.com</samp> from learning which exchanges were read, clients SHOULD only load exchanges fetched over a transport that&#8217;s protected from eavesdroppers. This can be difficult to determine when the exchange is being loaded from local disk, but when the client itself requested the exchange over a network it SHOULD require TLS (<a href="#RFC8446" class="xref">[RFC8446]</a>) or a successor transport layer, and MUST NOT accept exchanges transferred over plain HTTP without TLS.</p>
+<p id="rfc.section.7.p.4">To prevent network operators other than <samp>o1.com</samp> or <samp>o2.com</samp> from learning which exchanges were read, clients SHOULD only load exchanges fetched over a transport that&#8217;s protected from eavesdroppers. This can be difficult to determine when the exchange is being loaded from local disk, but when the client itself requested the exchange over a network it SHOULD require TLS (<a href="#TLS1.3" class="xref">[TLS1.3]</a>) or a successor transport layer, and MUST NOT accept exchanges transferred over plain HTTP without TLS.</p>
 <h1 id="rfc.section.8">
 <a href="#rfc.section.8">8.</a> <a href="#iana-considerations" id="iana-considerations">IANA considerations</a>
 </h1>
@@ -996,14 +1003,14 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256-03"; ...{
 <a href="#rfc.references.1">9.1.</a> Normative References</h1>
 <table><tbody>
 <tr>
+<td class="reference"><b id="CDDL">[CDDL]</b></td>
+<td class="top">
+<a>Birkholz, H.</a>, <a>Vigano, C.</a> and <a>C. Bormann</a>, "<a href="https://tools.ietf.org/html/rfc8610">Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures</a>", RFC 8610, DOI 10.17487/RFC8610, June 2019.</td>
+</tr>
+<tr>
 <td class="reference"><b id="FETCH">[FETCH]</b></td>
 <td class="top">
 <a>WHATWG</a>, "<a href="https://fetch.spec.whatwg.org/">Fetch</a>", July 2019.</td>
-</tr>
-<tr>
-<td class="reference"><b id="I-D.ietf-cbor-cddl">[I-D.ietf-cbor-cddl]</b></td>
-<td class="top">
-<a>Birkholz, H.</a>, <a>Vigano, C.</a> and <a>C. Bormann</a>, "<a href="https://tools.ietf.org/html/draft-ietf-cbor-cddl-08">Concise data definition language (CDDL): a notational convention to express CBOR and JSON data structures</a>", Internet-Draft draft-ietf-cbor-cddl-08, March 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="I-D.ietf-httpbis-header-structure">[I-D.ietf-httpbis-header-structure]</b></td>
@@ -1014,11 +1021,6 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256-03"; ...{
 <td class="reference"><b id="I-D.ietf-httpbis-variants-05">[I-D.ietf-httpbis-variants-05]</b></td>
 <td class="top">
 <a>Nottingham, M.</a>, "<a href="https://tools.ietf.org/html/draft-ietf-httpbis-variants-05">HTTP Representation Variants</a>", Internet-Draft draft-ietf-httpbis-variants-05, March 2019.</td>
-</tr>
-<tr>
-<td class="reference"><b id="I-D.ietf-tls-tls13">[I-D.ietf-tls-tls13]</b></td>
-<td class="top">
-<a>Rescorla, E.</a>, "<a href="https://tools.ietf.org/html/draft-ietf-tls-tls13-28">The Transport Layer Security (TLS) Protocol Version 1.3</a>", Internet-Draft draft-ietf-tls-tls13-28, March 2018.</td>
 </tr>
 <tr>
 <td class="reference"><b id="I-D.yasskin-http-origin-signed-responses">[I-D.yasskin-http-origin-signed-responses]</b></td>
@@ -1086,7 +1088,7 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256-03"; ...{
 <a>Leiba, B.</a>, "<a href="https://tools.ietf.org/html/rfc8174">Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</a>", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017.</td>
 </tr>
 <tr>
-<td class="reference"><b id="RFC8446">[RFC8446]</b></td>
+<td class="reference"><b id="TLS1.3">[TLS1.3]</b></td>
 <td class="top">
 <a>Rescorla, E.</a>, "<a href="https://tools.ietf.org/html/rfc8446">The Transport Layer Security (TLS) Protocol Version 1.3</a>", RFC 8446, DOI 10.17487/RFC8446, August 2018.</td>
 </tr>
@@ -1212,6 +1214,7 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256-03"; ...{
 <li>The above UTF-8 decoding.</li>
 <li>The above CAA parameter and certificate lifetimes.</li>
 <li>Versioned the Variants header field at draft-ietf-httpbis-variants-05 (but spelled Variants-04) and the mi-sha256 digest algorithm at draft-thomson-http-mice-03.</li>
+<li>Allow mismatches between the MIME type and file signature to redirect to the fallback URL.</li>
 </ul>
 <p id="rfc.section.A.p.6">draft-02</p>
 <p id="rfc.section.A.p.7">Vs. draft-01:</p>
