@@ -324,7 +324,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Yasskin, J. and K. Ueno" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-yasskin-httpbis-origin-signed-exchanges-impl-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-07-22" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-07-23" />
   <meta name="dct.abstract" content="This document describes checkpoints of draft-yasskin-http-origin-signed-responses to synchronize implementation between clients, intermediates, and publishers." />
   <meta name="description" content="This document describes checkpoints of draft-yasskin-http-origin-signed-responses to synchronize implementation between clients, intermediates, and publishers." />
 
@@ -348,8 +348,8 @@ ul.toc li {
 <td class="right">Google</td>
 </tr>
 <tr>
-<td class="left">Expires: January 23, 2020</td>
-<td class="right">July 22, 2019</td>
+<td class="left">Expires: January 24, 2020</td>
+<td class="right">July 23, 2019</td>
 </tr>
 
     	
@@ -368,7 +368,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 23, 2020.</p>
+<p>This Internet-Draft will expire on January 24, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -488,7 +488,7 @@ ul.toc li {
 <a href="#rfc.section.3.1">3.1.</a> <a href="#signature-header" id="signature-header">The Signature Header</a>
 </h1>
 <p id="rfc.section.3.1.p.1">The <samp>Signature</samp> header field conveys a single signature for an exchange, accompanied by information about how to determine the authority of and refresh that signature. Each signature directly signs the exchange&#8217;s URL and response headers and identifies one of those headers that enforces the integrity of the exchange&#8217;s payload.</p>
-<p id="rfc.section.3.1.p.2">The <samp>Signature</samp> header is a Structured Header as defined by <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>. Its value MUST be a parameterised list (Section 3.4 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>), and the list MUST contain exactly one element. Its ABNF is:</p>
+<p id="rfc.section.3.1.p.2">The <samp>Signature</samp> header is a Structured Header as defined by <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>. Its value MUST be a parameterised list (Section 3.4 of <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>), and the list MUST contain exactly one element. Its ABNF is:</p>
 <pre>
 Signature = sh-param-list
 </pre>
@@ -497,18 +497,18 @@ Signature = sh-param-list
 
 <dl>
 <dt>&#8220;sig&#8221;</dt>
-<dd style="margin-left: 8">Byte sequence (Section 3.10 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) holding the signature of most of these parameters and the exchange&#8217;s URL and response headers.</dd>
+<dd style="margin-left: 8">Byte sequence (Section 3.10 of <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>) holding the signature of most of these parameters and the exchange&#8217;s URL and response headers.</dd>
 <dt>&#8220;integrity&#8221;</dt>
-<dd style="margin-left: 8">A string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) containing a &#8220;/&#8221;-separated sequence of names starting with the lowercase name of the response header field that guards the response payload&#8217;s integrity. The meaning of subsequent names depends on the response header field, but for the &#8220;digest&#8221; header field, the single following name is the name of the digest algorithm that guards the payload&#8217;s integrity.</dd>
+<dd style="margin-left: 8">A string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>) containing a &#8220;/&#8221;-separated sequence of names starting with the lowercase name of the response header field that guards the response payload&#8217;s integrity. The meaning of subsequent names depends on the response header field, but for the &#8220;digest&#8221; header field, the single following name is the name of the digest algorithm that guards the payload&#8217;s integrity.</dd>
 <dt>&#8220;cert-url&#8221;</dt>
-<dd style="margin-left: 8">A string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) containing an absolute URL (<a href="#terminology" class="xref">Section 2</a>) with a scheme of &#8220;https&#8221; or &#8220;data&#8221;.</dd>
+<dd style="margin-left: 8">A string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>) containing an absolute URL (<a href="#terminology" class="xref">Section 2</a>) with a scheme of &#8220;https&#8221; or &#8220;data&#8221;.</dd>
 <dt>&#8220;cert-sha256&#8221;</dt>
-<dd style="margin-left: 8">Byte sequence (Section 3.10 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) holding the SHA-256 hash of the first certificate found at &#8220;cert-url&#8221;.</dd>
+<dd style="margin-left: 8">Byte sequence (Section 3.10 of <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>) holding the SHA-256 hash of the first certificate found at &#8220;cert-url&#8221;.</dd>
 <dt>&#8220;validity-url&#8221;</dt>
 <dd style="margin-left: 8">
-<a name="signature-validityurl"></a>A string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) containing an absolute URL (<a href="#terminology" class="xref">Section 2</a>) with a scheme of &#8220;https&#8221;.</dd>
+<a name="signature-validityurl"></a>A string (Section 3.8 of <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>) containing an absolute URL (<a href="#terminology" class="xref">Section 2</a>) with a scheme of &#8220;https&#8221;.</dd>
 <dt>&#8220;date&#8221; and &#8220;expires&#8221;</dt>
-<dd style="margin-left: 8">An integer (Section 3.6 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) representing a Unix time.</dd>
+<dd style="margin-left: 8">An integer (Section 3.6 of <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>) representing a Unix time.</dd>
 </dl>
 <p id="rfc.section.3.1.p.5">The &#8220;cert-url&#8221; parameter is <em>not</em> signed, so intermediates can update it with a pointer to a cached version.</p>
 <h1 id="rfc.section.3.1.1">
@@ -622,7 +622,7 @@ cert-chain = [
 <h1 id="rfc.section.3.5">
 <a href="#rfc.section.3.5">3.5.</a> <a href="#signature-validity" id="signature-validity">Signature validity</a>
 </h1>
-<p id="rfc.section.3.5.p.1">The client MUST parse the <samp>Signature</samp> header field as the parameterised list (Section 4.2.5 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) described in <a href="#signature-header" class="xref">Section 3.1</a>. If an error is thrown during this parsing or any of the requirements described there aren&#8217;t satisfied, the exchange has no valid signatures. Otherwise, each member of this list represents a signature with parameters.</p>
+<p id="rfc.section.3.5.p.1">The client MUST parse the <samp>Signature</samp> header field as the parameterised list (Section 4.2.5 of <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>) described in <a href="#signature-header" class="xref">Section 3.1</a>. If an error is thrown during this parsing or any of the requirements described there aren&#8217;t satisfied, the exchange has no valid signatures. Otherwise, each member of this list represents a signature with parameters.</p>
 <p id="rfc.section.3.5.p.2">The client MUST use the following algorithm to determine whether each signature with parameters is invalid or potentially-valid for an exchange&#8217;s</p>
 <p></p>
 
@@ -710,7 +710,7 @@ validity = {
   }
 ]
 </pre>
-<p id="rfc.section.3.6.p.6">The elements of the <samp>signatures</samp> array are parameterised identifiers (Section 4.2.6 of <a href="#I-D.ietf-httpbis-header-structure" class="xref">[I-D.ietf-httpbis-header-structure]</a>) meant to replace the signatures within the <samp>Signature</samp> header field pointing to this validity data. If the signed exchange contains a bug severe enough that clients need to stop using the content, the <samp>signatures</samp> array MUST NOT be present.</p>
+<p id="rfc.section.3.6.p.6">The elements of the <samp>signatures</samp> array are parameterised identifiers (Section 4.2.6 of <a href="#I-D.ietf-httpbis-header-structure-10" class="xref">[I-D.ietf-httpbis-header-structure-10]</a>) meant to replace the signatures within the <samp>Signature</samp> header field pointing to this validity data. If the signed exchange contains a bug severe enough that clients need to stop using the content, the <samp>signatures</samp> array MUST NOT be present.</p>
 <p id="rfc.section.3.6.p.7">If the the <samp>update</samp> map is present, that indicates that a new version of the signed exchange is available at its effective request URI (Section 5.5 of <a href="#RFC7230" class="xref">[RFC7230]</a>) and can give an estimate of the size of the updated exchange (<samp>update.size</samp>). If the signed exchange is currently the most recent version, the <samp>update</samp> SHOULD NOT be present.</p>
 <p id="rfc.section.3.6.p.8">If both the <samp>signatures</samp> and <samp>update</samp> fields are present, clients can use the estimated size to decide whether to update the whole resource or just its signatures.</p>
 <h1 id="rfc.section.3.6.1">
@@ -1013,9 +1013,9 @@ following map&gt;sig1; sig=*...; integrity="digest/mi-sha256-03"; ...{
 <a>WHATWG</a>, "<a href="https://fetch.spec.whatwg.org/">Fetch</a>", July 2019.</td>
 </tr>
 <tr>
-<td class="reference"><b id="I-D.ietf-httpbis-header-structure">[I-D.ietf-httpbis-header-structure]</b></td>
+<td class="reference"><b id="I-D.ietf-httpbis-header-structure-10">[I-D.ietf-httpbis-header-structure-10]</b></td>
 <td class="top">
-<a>Nottingham, M.</a> and <a>P. Kamp</a>, "<a href="https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-11">Structured Headers for HTTP</a>", Internet-Draft draft-ietf-httpbis-header-structure-11, July 2019.</td>
+<a>Nottingham, M.</a> and <a>P. Kamp</a>, "<a href="https://tools.ietf.org/html/draft-ietf-httpbis-header-structure-10">Structured Headers for HTTP</a>", Internet-Draft draft-ietf-httpbis-header-structure-10, April 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="I-D.ietf-httpbis-variants-05">[I-D.ietf-httpbis-variants-05]</b></td>
