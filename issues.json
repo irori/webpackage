@@ -1,6 +1,114 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/476",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/476/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/476/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/476/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/476",
+    "id": 475529557,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzAzMjYyMTg2",
+    "number": 476,
+    "title": "Fix error message: mix-up between encode and decode",
+    "user": {
+      "login": "tomokinat",
+      "id": 49511064,
+      "node_id": "MDQ6VXNlcjQ5NTExMDY0",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/49511064?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tomokinat",
+      "html_url": "https://github.com/tomokinat",
+      "followers_url": "https://api.github.com/users/tomokinat/followers",
+      "following_url": "https://api.github.com/users/tomokinat/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tomokinat/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tomokinat/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tomokinat/subscriptions",
+      "organizations_url": "https://api.github.com/users/tomokinat/orgs",
+      "repos_url": "https://api.github.com/users/tomokinat/repos",
+      "events_url": "https://api.github.com/users/tomokinat/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tomokinat/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-08-01T07:52:15Z",
+    "updated_at": "2019-08-01T07:54:10Z",
+    "closed_at": null,
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/476",
+      "html_url": "https://github.com/WICG/webpackage/pull/476",
+      "diff_url": "https://github.com/WICG/webpackage/pull/476.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/476.patch"
+    },
+    "body": "While working on #475 I happened to find tiny errata in the file."
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/475",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/475/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/475/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/475/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/475",
+    "id": 475491574,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzAzMjMyMjI4",
+    "number": 475,
+    "title": "CBOR decoder: block  resource exhaustion attacks",
+    "user": {
+      "login": "tomokinat",
+      "id": 49511064,
+      "node_id": "MDQ6VXNlcjQ5NTExMDY0",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/49511064?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/tomokinat",
+      "html_url": "https://github.com/tomokinat",
+      "followers_url": "https://api.github.com/users/tomokinat/followers",
+      "following_url": "https://api.github.com/users/tomokinat/following{/other_user}",
+      "gists_url": "https://api.github.com/users/tomokinat/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/tomokinat/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/tomokinat/subscriptions",
+      "organizations_url": "https://api.github.com/users/tomokinat/orgs",
+      "repos_url": "https://api.github.com/users/tomokinat/repos",
+      "events_url": "https://api.github.com/users/tomokinat/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/tomokinat/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2019-08-01T06:12:33Z",
+    "updated_at": "2019-08-01T07:50:25Z",
+    "closed_at": "2019-08-01T07:50:25Z",
+    "author_association": "CONTRIBUTOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/475",
+      "html_url": "https://github.com/WICG/webpackage/pull/475",
+      "diff_url": "https://github.com/WICG/webpackage/pull/475.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/475.patch"
+    },
+    "body": "As stated in https://tools.ietf.org/html/rfc7049#section-8, CBOR decoder should be careful about resource exhaustion attacks. Typical one could be passing `0x5BFFFFFFFFFFFFFFFF`, a header saying \"I am a byte string of length 2^64 - 1\", without actual data followed.\r\n\r\nCurrent implementation allocates memory for following bytes exactly as the header requested:\r\nhttps://github.com/WICG/webpackage/blob/ce24b25d587c891a45aa6602fef2ded1854d45fa/go/signedexchange/cbor/decoder.go#L93-L98\r\n\r\nFor instance, Chromium checks the size of rest bytes beforehand to defend against this:\r\nhttps://github.com/chromium/chromium/blob/6efa1184771ace08f3e2162b0255c93526d1750d/components/cbor/reader.cc#L352-L355\r\n\r\nDisclaimer: I'm not familiar with golang so if there is any better solution, please go that way.\r\n\r\nGolang's `io.Reader` seems a sort of \"stream\" interface therefore the same solution cannot be applicable.\r\nAlternatives could be\r\n- Stop using `io.Reader`\r\n- Read byte by byte into growing buffer\r\n- Try to read by doubling the size (read 1 byte, 2 byte, 4byte, 8 byte...)\r\n(The last two are almost same in terms of amortized complexity trick but the latter can be faster if the read operation costs)\r\n\r\nCurrent choice is to use `bytes.Buffer`, which is, to my understanding, a wrapped growing byte vector which can behave as `io.Writer`. That's because changing to this is super-easy and doesn't cost computation time a lot, very similar to the second solution above.\r\n\r\n"
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/474",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/474/labels{/name}",
@@ -1503,7 +1611,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/447.patch"
     },
     "body": "This header integrity value will be used in \"allowed-alt-sxg\" link header to support subresource signed exchange loading.\r\n\r\nhttps://github.com/WICG/webpackage/issues/347#issuecomment-467743010"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/446",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1606,10 +1717,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "https://wicg.github.io/webpackage/draft-yasskin-wpack-bundled-exchanges.html#load-response\r\n\r\n> 9. If headers does not contain a Content-Type header, return an error.\r\n>\r\n>    The client MUST interpret the following payload as this specified media type instead of trying to sniff a media type from the bytes of the payload, for example by appending an artificial X-Content-Type-Options: nosniff header field ([FETCH]) to headers.\r\n\r\nShould we require `Content-Type` for 3xx redirection responses that don't have response body?\r\n\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/444",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1770,7 +1878,7 @@
     "created_at": "2019-06-12T04:52:42Z",
     "updated_at": "2019-06-27T21:55:41Z",
     "closed_at": null,
-    "author_association": "NONE",
+    "author_association": "CONTRIBUTOR",
     "body": "According to https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#signature-header, each parameterised identifier MUST have parameters 'sig', 'integirty', and so on. Then is it okay for them to contain other parameters not referred as 'necessary' in the spec?"
   },
   {
@@ -3284,7 +3392,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/417.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/416",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3392,10 +3503,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/415.patch"
     },
     "body": "`Z` doesn't have an offset suffix."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/414",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4862,7 +4970,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Scenario is the following:\r\n- User A goes to site S and gets a SXG\r\n- User A shares the SXG to user B\r\n- User B loads the SXG\r\n- Site S learns that there is a connection between user A and user B.\r\n\r\nOverall, SXG seems to ask publishers to use SXG so that content is not user-specific.\r\nBut there is currently no way for users to ensure that this is the case.\r\n\r\nOne possible solution is some kind of SXG transparency, as added https://github.com/WICG/webpackage/pull/381.\r\nIt is not clear whether that will scale though.\r\n\r\nAnother possibility is to get such a proof from the server itself.\r\nA specific credential less request from user B to the signed URL or to an URL generated from it by the client could do the trick. Liveness check could also piggy back on such a request."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/386",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4970,10 +5081,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/385.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/384",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6695,7 +6803,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/357.patch"
     },
     "body": "This commit updates the CBOR representation of the exchange headers to\r\nonly contain response map."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/356",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6803,10 +6914,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/355.patch"
     },
     "body": "This is the most basic test case, but before this patch it only covered\r\nthe b1 format. Also, we did not have any tests for `ReadExchange()`.\r\n\r\nAfter this patch, it tests all the supported format versions, by using\r\n`ReadExchange()` to deserialize exchanges."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/354",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8308,7 +8416,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/326.patch"
     },
     "body": "Chromium CL: https://chromium-review.googlesource.com/c/chromium/src/+/1313712\n\n\n<!--\n    This comment and the below content is programatically generated.\n    You may add a comma-separated list of anchors you'd like a\n    direct link to below (e.g. #idl-serializers, #idl-sequence):\n\n    Don't remove this comment or modify anything below this line.\n    If you don't want a preview generated for this pull request,\n    just replace the whole of this comment's content by \"no preview\"\n    and remove what's below.\n-->\n***\n<a href=\"https://pr-preview.s3.amazonaws.com/nyaxt/webpackage/pull/326.html\" title=\"Last updated on Nov 20, 2018, 5:59 AM GMT (95b849a)\">Preview</a> | <a href=\"https://pr-preview.s3.amazonaws.com/WICG/webpackage/326/54c7a94...nyaxt:95b849a.html\" title=\"Last updated on Nov 20, 2018, 5:59 AM GMT (95b849a)\">Diff</a>"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/325",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8488,10 +8599,7 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "The current loading spec talks about UAs which do not involve checking validityUrl data.\r\n\r\nWe expect intermediates to check validityUrl data, and we need to specify how their SXG fetch would work."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/323",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10096,7 +10204,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/296.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/295",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10198,10 +10309,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/294.patch"
     },
     "body": "…gging"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/293",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11683,7 +11791,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/266.patch"
     },
     "body": "Prints warning message when:\r\n- OCSP data cannot be parsed as a DER-encoded OCSP response\r\n- Cert and OCSP do not have embedded SCT, and `-sctDir` is not specified\r\n\r\nDidn't make them error since these are OK if generated cert-chain is used for testing, with the `--ignore-certificate-errors-spki-list` Chromium flag."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/265",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11791,10 +11902,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/264.patch"
     },
     "body": "Change the function to a method to follow the same way as net/http.Request.Write."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/263",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13426,7 +13534,10 @@
     "closed_at": null,
     "author_association": "MEMBER",
     "body": "@slightlyoff mentioned that we might want to have [third-party security reviewers](https://tools.ietf.org/html/draft-yasskin-webpackage-use-cases-01#section-2.2.3) check more or less stringently depending on which permissions an app uses. To do that, they'll need to be able to sign over the permissions they've checked for."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/235",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13528,10 +13639,7 @@
     "closed_at": "2018-07-02T22:41:03Z",
     "author_association": "CONTRIBUTOR",
     "body": "## I expect\r\n\r\n- mi-sha256 signatures to be base64 encoded\r\n\r\n## instead\r\n\r\n- in examples, they are hexdigest"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/233",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15057,7 +15165,10 @@
     "closed_at": "2019-05-13T17:18:38Z",
     "author_association": "NONE",
     "body": "1, navigate to https://example.com/a.sxg\r\n2, a.sxg is signed by https://example.net so browser display it as https://example.net\r\n3, clicking the link on https://example.net\r\n\r\nin request of 3, which origin should on referrer header example.com (actual) or example.net (display) ?\r\n(spec seems not mention this: https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/205",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15165,10 +15276,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/204.patch"
     },
     "body": "Also change the content of the extension to an ASN.1 NULL.\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/test-oid/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/test-oid/draft-yasskin-http-origin-signed-responses.txt)\r\n\r\n@sleevi Is this right? Would you approve when the OID is actually allocated?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/203",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16809,7 +16917,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Various things in the ecosystem use symlinks, the behavior of symlinks in node and how HTTP redirects is not compatible per https://github.com/nodejs/modules/issues/62 . Could repurpose the `Location` header over `file:` but https://fetch.spec.whatwg.org/#scheme-fetch could be changed in a forwards incompatible way if we do that."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/175",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16949,10 +17060,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/174.patch"
     },
     "body": "Fixes #165 \r\n\r\nOriginal author: @irori\r\n\r\nThis PR fixes gen-certurl to follow the latest specification.\r\n\r\nThis PR also adds internal/testhelper package for testing to show readable strings of CBOR binary."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/173",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18638,7 +18746,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/146.patch"
     },
     "body": "PTAL"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/145",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18746,10 +18857,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/144.patch"
     },
     "body": "This fixes the bug that colons were not usable in request/response headers.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/143",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20340,7 +20448,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/116.patch"
     },
     "body": "That draft splits the rsa_pss signature algorithm names to depend on the key's OID. I suspect all RSA keys in the wild use the rsaEncryption OID, so banning that (to avoid Bleichenbacher attacks) would be equivalent to banning RSA keys, but if not, maybe we could allow the RSASSA-PSS ones.\r\n\r\n@sleevi @davidben"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/115",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20436,10 +20547,7 @@
     "closed_at": "2019-05-13T17:07:40Z",
     "author_association": "NONE",
     "body": "As a developer, it would be useful to be able to read what resources are in my own bundle.\r\n\r\nUse case example: I am writing a offline capable Zine webapp. I typically have a directory for each issue, and a number of html files in each directory corresponding to pages in my Zine. There is also a \"zine browser\" main interface that let's me pick which zine I want to read, or skip to pages, and the main interface knows what I was last reading. To let people share my zine, I create a webpackage of the client software, and a number of zine issues.\r\n\r\nDilemma: how does my main interface know what zines are available in the bundle?\r\n\r\nIdeally, as a developer, I could have the main-client reader able to ask- what resources do I already know about? Any zines in a webpackage ought to be able to present themselves to my main client, let it know: hey, there's content here.\r\n\r\nThis issue gets more pointed if users start collecting multiple webpackages, like if I release a new webpackage with new zines. Before- considering the case of only a single webpackage of main-client+zines- it would perhaps not be pleasant but it could be possible to build an index file into my webpackage that enumerates all the content. However when there are multiple webpackages available, it becomes outright impossible to work with this situation. The main-client will not have a way to figure out what is in other bundles.\r\n\r\nAn implementation of #107 would resolve this use case. If webpackage content were available via the page's Cache APIs then we could use `Cache.keys()` to discover the content.\r\n\r\nThere is a related problem in HTTP/2 PUSH, with not being able to detect content: whatwg/fetch#65. As a page, there's no way to detect resources that HTTP/2 PUSH has sent: once again the developer needs to create an out-of-band mechanism to ever be able to access the resource.\r\n\r\nI would like to see listing of at least same-origin content added to the use-cases. I hope this example of a Zine illustrates the need and how this capability would help. Thanks."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/113",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -21964,7 +22072,10 @@
     "closed_at": null,
     "author_association": "NONE",
     "body": "Hello web packaging fans - \r\n\r\nWe're just cleaning up issues in possibly obsolete repos under [our organization](github.com/w3ctag/) (W3CTAG). One of these documents was the original packaging on the web which has since been obsoleted by your work. However there are many open issues on our document and before we summarily closed them we wanted to alert you to these issues in case you wanted to bring any of them over into your issues list. Can you please have a look through [these issues](https://github.com/w3ctag/packaging-on-the-web/issues) and leave a note on each issue to let us know that it's OK to close it? If you do take one of them on as an issue, please leave a note including a link to your new issue.\r\n\r\nThanks,\r\nDan Appelquist\r\nCo-Chair, W3CTAG"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/85",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -22072,10 +22183,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/84.patch"
     },
     "body": "See the thread starting at https://lists.w3.org/Archives/Public/ietf-http-wg/2017JulSep/0385.html.\r\n\r\nPreview at https://jyasskin.github.io/webpackage/signed-responses-update/draft-yasskin-http-origin-signed-responses.html"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/83",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -23674,7 +23782,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/56.patch"
     },
     "body": "I'll try to get some experienced Go programmers to review this and suggest other ways to improve readability, as requested in https://github.com/dimich-g/webpackage/pull/53#pullrequestreview-38510830."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/55",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -23782,10 +23893,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/54.patch"
     },
     "body": "This lets me write tests without adding a new file for each test."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/53",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -25244,7 +25352,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "For some use cases like Source Maps packages may wish to not include the full asset within themselves but have another package containing debugging symbols. Currently fragment URLs are proposed for removal, however I don't see a clear way to have a situation like:\r\n\r\n```\r\nminified.webpackage\r\n\\- index.min.js\r\n```\r\n\r\n```\r\nsource-maps.webpackage\r\n\\- index.min.js.map\r\n```\r\n\r\nAnd have `index.min.js` able to point to `index.min.js.map`."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/25",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -25352,10 +25463,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/24.patch"
     },
     "body": "Will update as discussion on https://github.com/dimich-g/webpackage/issues/20 evolves."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/23",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
