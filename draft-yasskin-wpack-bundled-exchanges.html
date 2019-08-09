@@ -326,7 +326,7 @@ ul.toc li {
 
   <meta name="dct.creator" content="Yasskin, J." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-yasskin-wpack-bundled-exchanges-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2019-08-08" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-08-09" />
   <meta name="dct.abstract" content="Bundled exchanges provide a way to bundle up groups of HTTP request+response pairs to transmit or store them together. They can include multiple top-level resources with one identified as the default by a manifest, provide random access to their component exchanges, and efficiently store 8-bit resources." />
   <meta name="description" content="Bundled exchanges provide a way to bundle up groups of HTTP request+response pairs to transmit or store them together. They can include multiple top-level resources with one identified as the default by a manifest, provide random access to their component exchanges, and efficiently store 8-bit resources." />
 
@@ -347,10 +347,10 @@ ul.toc li {
 </tr>
 <tr>
 <td class="left">Intended status: Standards Track</td>
-<td class="right">August 08, 2019</td>
+<td class="right">August 09, 2019</td>
 </tr>
 <tr>
-<td class="left">Expires: February 9, 2020</td>
+<td class="left">Expires: February 10, 2020</td>
 <td class="right"></td>
 </tr>
 
@@ -370,7 +370,7 @@ ul.toc li {
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on February 9, 2020.</p>
+<p>This Internet-Draft will expire on February 10, 2020.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -824,8 +824,8 @@ response = [headers: bstr .cbor headers, payload: bstr]
 <li>Let (<samp>headers</samp>, <samp>pseudos</samp>) be the result of converting <samp>headerCbor</samp> to a header list and pseudoheaders using the algorithm in <a href="#cbor-headers" class="xref">Section 3.6</a>. If this returns an error, return that error.</li>
 <li>If <samp>pseudos</samp> does not have a key named &#8216;:status&#8217; or its size isn&#8217;t 1, return an error.</li>
 <li>If <samp>pseudos[':status']</samp> isn&#8217;t exactly 3 ASCII decimal digits, return an error.</li>
-<li>If <samp>headers</samp> does not contain a <samp>Content-Type</samp> header, return an error.  <br><br> The client MUST interpret the following payload as this specified media type instead of trying to sniff a media type from the bytes of the payload, for example by appending an artificial <samp>X-Content-Type-Options: nosniff</samp> header field (<a href="#FETCH" class="xref">[FETCH]</a>) to <samp>headers</samp>.</li>
 <li>Let <samp>payloadLength</samp> be the result of getting the length of a CBOR bytestring header from <samp>stream</samp> (<a href="#parse-bytestring" class="xref">Section 3.5.2</a>). If <samp>payloadLength</samp> is an error, return that error.</li>
+<li>If <samp>payloadLength</samp> is greater than 0 and <samp>headers</samp> does not contain a <samp>Content-Type</samp> header, return an error.  <br><br> The client MUST interpret the following payload as this specified media type instead of trying to sniff a media type from the bytes of the payload, for example by appending an artificial <samp>X-Content-Type-Options: nosniff</samp> header field (<a href="#FETCH" class="xref">[FETCH]</a>) to <samp>headers</samp>.</li>
 <li>If <samp>stream.currentOffset + payloadLength != responseMetadata.offset + responseMetadata.length</samp>, return an error.</li>
 <li>Let <samp>body</samp> be a new body (<a href="#FETCH" class="xref">[FETCH]</a>) whose stream is a tee&#8217;d copy of <samp>stream</samp> starting at the current offset and ending after <samp>payloadLength</samp> bytes.  <br><br> TODO: Add the rest of the details of creating a <samp>ReadableStream</samp> object.</li>
 <li>Let <samp>response</samp> be a new response (<a href="#FETCH" class="xref">[FETCH]</a>) whose: <ul>
