@@ -1,6 +1,114 @@
 [
 
   {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/486",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/486/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/486/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/486/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/486",
+    "id": 481472582,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzA3OTY0OTY2",
+    "number": 486,
+    "title": "go: Refactor certchain.go",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-08-16T07:02:15Z",
+    "updated_at": "2019-08-16T07:28:48Z",
+    "closed_at": "2019-08-16T07:28:20Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/486",
+      "html_url": "https://github.com/WICG/webpackage/pull/486",
+      "diff_url": "https://github.com/WICG/webpackage/pull/486.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/486.patch"
+    },
+    "body": "- `CertChainItem` struct is renamed to `AugmentedCertificate` (to match the spec).\r\n- Added methods that {encode,decode} an `AugmentedCertificate` {to,from}\r\n  `cbor.{Encoder,Decoder}`. These will be used from go/bundle to process the\r\n  signatures section.\r\n- Utility methods `Validate()` and `CertSha256()` are added."
+  },
+  {
+    "url": "https://api.github.com/repos/WICG/webpackage/issues/485",
+    "repository_url": "https://api.github.com/repos/WICG/webpackage",
+    "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/485/labels{/name}",
+    "comments_url": "https://api.github.com/repos/WICG/webpackage/issues/485/comments",
+    "events_url": "https://api.github.com/repos/WICG/webpackage/issues/485/events",
+    "html_url": "https://github.com/WICG/webpackage/pull/485",
+    "id": 480490807,
+    "node_id": "MDExOlB1bGxSZXF1ZXN0MzA3MTc2MzQx",
+    "number": 485,
+    "title": "Move go/signedexchange/internal/signingalgorithm package to go/internal/",
+    "user": {
+      "login": "irori",
+      "id": 80796,
+      "node_id": "MDQ6VXNlcjgwNzk2",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/80796?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/irori",
+      "html_url": "https://github.com/irori",
+      "followers_url": "https://api.github.com/users/irori/followers",
+      "following_url": "https://api.github.com/users/irori/following{/other_user}",
+      "gists_url": "https://api.github.com/users/irori/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/irori/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/irori/subscriptions",
+      "organizations_url": "https://api.github.com/users/irori/orgs",
+      "repos_url": "https://api.github.com/users/irori/repos",
+      "events_url": "https://api.github.com/users/irori/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/irori/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "labels": [
+
+    ],
+    "state": "closed",
+    "locked": false,
+    "assignee": null,
+    "assignees": [
+
+    ],
+    "milestone": null,
+    "comments": 0,
+    "created_at": "2019-08-14T05:42:26Z",
+    "updated_at": "2019-08-14T10:40:30Z",
+    "closed_at": "2019-08-14T06:20:54Z",
+    "author_association": "COLLABORATOR",
+    "pull_request": {
+      "url": "https://api.github.com/repos/WICG/webpackage/pulls/485",
+      "html_url": "https://github.com/WICG/webpackage/pull/485",
+      "diff_url": "https://github.com/WICG/webpackage/pull/485.diff",
+      "patch_url": "https://github.com/WICG/webpackage/pull/485.patch"
+    },
+    "body": "This package will be used from go/bundle too."
+  },
+  {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/484",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
     "labels_url": "https://api.github.com/repos/WICG/webpackage/issues/484/labels{/name}",
@@ -671,9 +779,9 @@
 
     ],
     "milestone": null,
-    "comments": 0,
+    "comments": 2,
     "created_at": "2019-07-29T09:47:51Z",
-    "updated_at": "2019-07-29T09:47:51Z",
+    "updated_at": "2019-08-15T06:25:05Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Bundled Exchanges spec [defines the format of signature section](https://wicg.github.io/webpackage/draft-yasskin-wpack-bundled-exchanges.html#signatures-section) but doesn't define how to validate it.\r\n\r\nI can imagine how validation works; To validate `(authority, sig, signed)` triple in `vouched-subsets`, a client would run an algorithm similar to the [SXG's Signature validity](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#signature-validity) but its entities replaced as follows:\r\n\r\n- `requestUrl` -> `signed.subset-hashes` which includes `whatwg-url`\r\n- `responseHeaders` -> `signed.subset-hashes` which includes `header-sha256`\r\n- `payload` -> `payload` in the responses section\r\n- `signature` -> `sig`\r\n- `integrity` -> `payload-integrity-header` included in `signed.subset-hashes`\r\n- `validity-url` -> `signed.validity-url`\r\n- `cert-sha256` -> `signed.auth-sha256`\r\n- `date` -> `signed.date`\r\n- `expires` -> `signed.expires`\r\n- `certificate-chain` -> `authorities`\r\n- `main-certificate` -> `authorities[authority]`\r\n\r\nDoes this align with your idea? @jyasskin\r\n\r\nQuestions:\r\n\r\n- Will signing message be the `signed` binary string itself? It doesn't have the 64-spaces padding nor a context string.\r\n- What's the content of resource at `validity-url`?\r\n- Do the requirements of SXG headers (e.g. no uncached fields) apply to BXG too? Response headers are not included in bundle's metadata, so it'd have to be checked in a later step of loading (it wouldn't be a big deal though).\r\n- What about the certificate requirements?\r\n- Is it possible to unify the algorithm to SXG's validation algorithm? It would make implementation simpler.\r\n"
@@ -885,9 +993,9 @@
 
     ],
     "milestone": null,
-    "comments": 1,
+    "comments": 2,
     "created_at": "2019-07-26T01:42:32Z",
-    "updated_at": "2019-08-09T00:40:28Z",
+    "updated_at": "2019-08-16T05:04:57Z",
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "Current bundle spec says that [Bundled Exchanges parser must fail if URL have a fragment or credentials](https://wicg.github.io/webpackage/draft-yasskin-wpack-bundled-exchanges.html#index-section), but says nothing about the URL scheme.\r\n\r\nIn Signed Exchange, [exchange's URL must be `https:`](https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#application-signed-exchange). Sould Bundled Exchanges follow this, or should also allow `http:`? Since exchange is defined as HTTP request+response pair, I think non-http(s) schemes don't make sense.\r\n"
@@ -1505,7 +1613,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/457.patch"
     },
     "body": "This functionality was reverted in #429 (I think unintentionally);\r\nre-enabling, to allow use of this tool as a hacky way to extract\r\nMICE-decoded payload, via something like:\r\n\r\n$ cat sxg | dump-signedexchange -verify | sed '0,/^payload /d' >html"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/456",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -1613,10 +1724,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/455.patch"
     },
     "body": "Thanks @yuizumi!"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/454",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3217,7 +3325,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/427.patch"
     },
     "body": "Adds a switch, `-json` to `dump-signedexchange` (fixes #418):\r\n\r\n```sh\r\n$ curl -sS -H 'accept: application/signed-exchange;v=b3' -H 'amp-cache-transform: google;v=\"1\"' https://amp.dev/ | ./dump-signedexchange -json\r\n{\r\n  \"Valid\": true,\r\n  \"Payload\": \"\",\r\n  \"SignatureHeaderValue\": {\r\n    \"cert-sha256\": \"lWfYk+0jeC/HkleYD4fj98y6GixIjocIkMpjsB8dToA=\",\r\n    \"cert-url\": \"https://amp.dev/amppkg/cert/lWfYk-0jeC_HkleYD4fj98y6GixIjocIkMpjsB8dToA\",\r\n    \"date\": 1559608738,\r\n    \"expires\": 1560213538,\r\n    \"integrity\": \"digest/mi-sha256-03\",\r\n    \"sig\": \"MEYCIQDNXSYTBrsbJVJrm79lPTRXITmvraoQj77axnslJa7HUwIhAOwTFoVFhQwfYICNHa+fSewH6mxaD5K6YPdcGbbgIG6w\",\r\n    \"validity-url\": \"https://amp.dev/amppkg/validity\"\r\n  },\r\n  \"Version\": \"1b3\",\r\n…\r\n```\r\n\r\nCan be used with e.g. https://stedolan.github.io/jq/ to extract specific properties such as the cert-url:\r\n\r\n```sh\r\n$ curl -sS -H 'accept: application/signed-exchange;v=b3' -H 'amp-cache-transform: google;v=\"1\"' https://amp.dev/ | ./dump-signedexchange -json | jq -r '.SignatureHeaderValue|.\"cert-url\"'\r\nhttps://amp.dev/amppkg/cert/lWfYk-0jeC_HkleYD4fj98y6GixIjocIkMpjsB8dToA\r\n```\r\n\r\n(FYI @patrickkettner re #418, had a quick look and just figured I'd have a go at this!)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/426",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -3325,10 +3436,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/425.patch"
     },
     "body": "While working on the security architecture for Drupal's planned auto-update features, I realized that many of our use cases could be solvable using SXG rather than rolling our own signing mechanism (as APT and Yum have) to support offline signatures for metadata from update servers. We already intend to distribute the metadata via a CDN that has appropriate certificates for drupal.org, but we also don't want the attack surface introduced by every POP being a potential point of compromise. Given that we control the client side in these scenarios, SXG represents one brightly lit path to trusting the metadata without relying solely on TLS or using baroque integrations with GnuPG."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/424",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4856,7 +4964,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "In the current loading spec, redirect to the fallback URL happens only when [the signed exchange version is not supported](https://wicg.github.io/webpackage/loading.html#mp-http-fetch).\r\n\r\nHowever, Chromium implementation performs fallback redirect in the following cases (corresponding to the error codes [here](https://chromium.googlesource.com/chromium/src/+/HEAD/content/browser/web_package/signed_exchange_error.h)):\r\n\r\n- SXG was served from non-secure origin.\r\n- Unsupported version of SXG (could extract fallback URL).\r\n- SXG parse error (could extract fallback URL).\r\n- Network error occurred while loading SXG header.\r\n- Failed to fetch certificate chain.\r\n- Failed to parse certificate chain.\r\n- Signature verification failed.\r\n- Cert verification failed.\r\n- CT verification failed.\r\n- OCSP check failed.\r\n- Certificate Requirements aren't met.\r\n- SXG was served without `X-Content-Type-Options: nosniff` header.\r\n\r\nChromium doesn't fallbeck on the following errors:\r\n\r\n- SXG parse error (couldn't extract fallback URL).\r\n- Merkle integrity error.\r\n\r\nWe should clarify that which error should cause a fallback redirect, and spec them.\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/396",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -4964,10 +5075,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/395.patch"
     },
     "body": "This will be used to parse Variant / Variant-Key headers."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/394",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6579,7 +6687,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/367.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/366",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -6720,10 +6831,7 @@
     "closed_at": "2019-01-10T07:23:41Z",
     "author_association": "COLLABORATOR",
     "body": "Found by @irori while implementing \"is complete check\" #363 #364 \r\n\r\nWe introduced \"is complete\" check in #326.\r\n\r\nhttps://tools.ietf.org/html/rfc7234#section-3.1 says \r\n> A response message is considered complete when all of the octets\r\n   indicated by the message framing ([RFC7230]) are received prior to\r\n   the connection being closed.\r\n\r\nThis check is tricky to implement for streaming clients (e.g. Chromium).\r\n\r\nIf the offset at mice stream EOS doesn't match \"Content-Length\", what should the UA do?\r\n- If C-L > actual EOS. The response payload may be already fully consumed by the client.\r\n- The UA may track the expected C-L while running mice streaming encoder to:\r\n  - emit error if the mice stream payload exceeded the expected C-L\r\n  - emit error on the last chunk if the payload stream length doesn't match the expected C-L.\r\n\r\nI think we have at least the following options:\r\n- Option A: Implement the complex check.\r\n  - Chromium may need this anyway if we add support for mice decoder in for non-SXG raw HTTP.\r\n- Option B: Remove \"is complete\" check and replace it with plain 206 check.\r\n  - This was @kinu's preference in #326.\r\n- Option B': Check 206 && if Content-Length is formatted correctly (\"the response has valid message framing\")\r\n  - Not sure how much this is worth doing.\r\n\r\n@jyasskin, @irori, @kinu : Your thoughts welcome.\r\n"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/364",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8272,7 +8380,10 @@
     "closed_at": "2019-01-10T17:31:58Z",
     "author_association": "COLLABORATOR",
     "body": "I've noticed the `Transfer-Encoding` header usage in SXG inner response headers.\r\nWe should specify how it will work.\r\n\r\n- Option 1) Add to banned headers list.\r\n- Option 2) Clarify in the loading spec that...\r\n  - Option 2.a) Only compression schemes are allowed (Ban only `Transfer-Encoding: chunked`)\r\n  - Option 2.b) They are ignored.\r\n\r\nNote that Chromium ToT currently ~~ignores them. Which means, the response bytes are treated as they are raw bytes and doesn't go through decompressor/unchunking.~~ supports them"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/335",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -8412,10 +8523,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/334.patch"
     },
     "body": "...mentioning about `dump-exchange`'s `-verify` option.\r\n\r\nThis is part of #319."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/333",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10109,7 +10217,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/306.patch"
     },
     "body": "This will be used by upcoming `dump-certurl` tool."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/305",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -10217,10 +10328,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/304.patch"
     },
     "body": "- Add OCSP and SCT to the test input\r\n- Remove an unused function"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/303",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11691,7 +11799,10 @@
     "closed_at": "2018-08-17T05:42:03Z",
     "author_association": "COLLABORATOR",
     "body": "We might want to adjust the signature message format so that it is easy to reuse the encoded headers when verifying the signature.\r\nThe `headers` required in Section 3.5 step 7.4.5 is a copy of the cbor appearing earlier. However, the fact that it appears inline in the map makes it hard for many cbor encoder implementation to reconstruct the cbor representation of the map without decode(encode(headers)), which is non-secure.\r\n\r\nMore discussion on the [crbug](https://bugs.chromium.org/p/chromium/issues/detail?id=863499)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/275",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -11799,10 +11910,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/274.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/273",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13328,7 +13436,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/246.patch"
     },
     "body": "* Certificate chains have an array item before the first certificate.\r\n* The first certificate's OCSP response was described as optional when\r\n  it's not.\r\n* The first certificate's SCT was *not* described as optional, but it\r\n  can appear in the certificate itself or the OCSP response.\r\n* \"digest/mi-sha256\" doesn't make sense.\r\n* There's no longer a non-signed headers section in SXG files.\r\n* An example had lengths in the wrong order.\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/devin-cleanups/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/devin-cleanups/draft-yasskin-http-origin-signed-responses.txt)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/245",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -13488,10 +13599,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/244.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/243",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15050,7 +15158,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/216.patch"
     },
     "body": "[Preview](https://jyasskin.github.io/webpackage/register-headers/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/register-headers/draft-yasskin-http-origin-signed-responses.txt)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/215",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -15152,10 +15263,7 @@
     "closed_at": "2019-03-19T00:02:55Z",
     "author_association": "MEMBER",
     "body": "This should use http://wicg.github.io/reporting/."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/213",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16800,7 +16908,10 @@
     "closed_at": "2018-07-09T18:41:36Z",
     "author_association": "COLLABORATOR",
     "body": "Chromium would like to start adding support for next \"implementation checkpoint\".\r\nCan we increment ver num on https://wicg.github.io/webpackage/draft-yasskin-httpbis-origin-signed-exchanges-impl.html#rfc.section.5.3 ?"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/185",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -16902,10 +17013,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/184.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/183",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18566,7 +18674,10 @@
     "closed_at": null,
     "author_association": "COLLABORATOR",
     "body": "This came up in https://chromium-review.googlesource.com/c/chromium/src/+/967632.\r\n\r\nWhen a HTTP Exchange is loaded from an application/http-exchange+cbor envelope, what the resource timing fields for that load should represent?\r\n\r\ncc: @jyasskin @kinu\r\n"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/155",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -18668,10 +18779,7 @@
     "closed_at": "2018-05-08T22:41:28Z",
     "author_association": "MEMBER",
     "body": "The signature's expiry limits when you can receive the exchange. The HTTP cache control headers limit when you can use the exchange after it's successfully received.\r\n\r\nIt's not obvious what the policy should be, but a simple policy is to say that the resource expires from the cache at the earlier time of the signature expiration and the cache expiration.\r\n\r\nWe also need to specify how the resource is revalidated after it expires.\r\n1. The first use needs to be similar to [`<link rel=preload>`](https://w3c.github.io/preload/#link-type-preload) so that it's not revalidated during that first use.\r\n1. Subsequent uses can either [update signature validity](https://wicg.github.io/webpackage/draft-yasskin-http-origin-signed-responses.html#updating-validity) if the signature's expired, or use a conditional request if the cache information's expired. Once the signature's expired, remember that the etag isn't trustworthy."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/153",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20318,7 +20426,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/126.patch"
     },
     "body": "The test results was changed at https://github.com/WICG/webpackage/commit/d989c1be0e6e717476f4291cea2edd2adbd867ac and this PR updates the test results."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/125",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -20427,10 +20538,7 @@
     "closed_at": "2018-03-01T17:29:55Z",
     "author_association": "COLLABORATOR",
     "body": "Originally requested by @kinu.\r\n\r\nWe should be able to set arbitrary request/response HTTP headers to be captured in the generated signed exchange.\r\n```\r\n$ ./gen-signedexchange \\\r\n    -requestHeader \"Accept-Language: en\" \\\r\n    -responseHeader \"Server: Nginx\" \\\r\n    -responseHeader \"X-Frame-Options: Deny\"\r\n```\r\n\r\n@hajimehoshi Would you work on this?"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/123",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -21928,7 +22036,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/96.patch"
     },
     "body": "I used the pre-hashed variants for those and switched the raw ed25519\r\npublic key to use ed25519ph, with an Open Question for whether that's\r\nthe right choice.\r\n\r\nIlari Liusvaara pointed out that draft-ietf-curdle-pkix is nearly published, so it makes sense to include its public key types in this document now. \r\n\r\n@sleevi, is this the right choice?\r\n\r\n[Preview](https://jyasskin.github.io/webpackage/define-ed25519-certs/draft-yasskin-http-origin-signed-responses.html#signature-validity), [Diff](https://tools.ietf.org/rfcdiff?url1=https://jyasskin.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/define-ed25519-certs/draft-yasskin-http-origin-signed-responses.txt)"
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/95",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -22036,10 +22147,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/94.patch"
     },
     "body": "[Preview](https://jyasskin.github.io/webpackage/http-extension/draft-yasskin-http-origin-signed-responses.html), [Diff](https://tools.ietf.org/rfcdiff?url1=https://jyasskin.github.io/webpackage/draft-yasskin-http-origin-signed-responses.txt&url2=https://jyasskin.github.io/webpackage/http-extension/draft-yasskin-http-origin-signed-responses.txt)"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/93",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -23643,7 +23751,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/66.patch"
     },
     "body": ""
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/65",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -23751,10 +23862,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/64.patch"
     },
     "body": "And add some Go code to sign a message into a byte string."
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/63",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -25269,7 +25377,10 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/36.patch"
     },
     "body": "I haven't updated the Use Cases yet, but here are some thoughts on how we should update the format to deal with #33 (@bmeck), Ryan's security concerns in #31, #29 (@jianli-chromium), and #10, #11, and #12 (@lrosenthal). I've tried to mark all the places that still need work with \"TODO\", but I may have missed some."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/35",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -25371,10 +25482,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/34.patch"
     },
     "body": ""
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/33",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -26830,7 +26938,10 @@
     "closed_at": "2017-03-30T03:05:56Z",
     "author_association": "NONE",
     "body": "One of the reasons that the [packaging on the web](https://w3ctag.github.io/packaging-on-the-web/) spec chose to avoid ZIP in favor of something new & different was due to the (perceived) lack of streaming support.\r\n\r\nHowever, this proposal suffers from the same problem.  You cannot create it entirely in stream, due to (a) the way that offsets are used and (b) the index file needing to list all other files.\r\n\r\nIf streaming is not a requirement for this format - that's fine.  But then, that should also be called out in the spec."
-  },
+  }
+
+,
+
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/5",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
@@ -26938,10 +27049,7 @@
       "patch_url": "https://github.com/WICG/webpackage/pull/4.patch"
     },
     "body": "s/subresourcves/resources/"
-  }
-
-,
-
+  },
   {
     "url": "https://api.github.com/repos/WICG/webpackage/issues/3",
     "repository_url": "https://api.github.com/repos/WICG/webpackage",
