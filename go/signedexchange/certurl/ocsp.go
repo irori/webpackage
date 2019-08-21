@@ -77,6 +77,8 @@ func (chain CertChain) prettyPrintOCSP(w io.Writer, OCSPResponse []byte) {
 		if rest, err := asn1.Unmarshal(o.RawResponderName, &subject); err == nil && len(rest) == 0{
 			fmt.Fprintln(w, "  ResponderName:", subject)
 		}
+	} else if o.ResponderKeyHash != nil {
+		fmt.Fprintln(w, "  ResponderKeyHash:", o.ResponderKeyHash)
 	}
 	fmt.Fprintln(w, "  ProducedAt:", o.ProducedAt)
 	fmt.Fprintln(w, "  ThisUpdate:", o.ThisUpdate)
