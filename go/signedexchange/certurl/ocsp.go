@@ -3,6 +3,8 @@ package certurl
 import (
 	"bytes"
 	"crypto/x509"
+	"crypto/x509/pkix"
+	"encoding/asn1"
 	"fmt"
 	"golang.org/x/crypto/ocsp"
 	"io"
@@ -70,6 +72,12 @@ func (chain CertChain) prettyPrintOCSP(w io.Writer, OCSPResponse []byte) {
 		ocsp.Unknown: "unknown",
 	}
 	fmt.Fprintf(w, "  Status: %d (%s)\n", o.Status, ocspStatusToString[o.Status])
+	if o.RawResponderName != nil {
+		var subject pkix.RDNSequence
+		if rest, err := asn1.Unmarshal(o.RawResponderName, &subject); err == nil && len(rest) == 0{
+			fmt.Fprintln(w, "  ResponderName:", subject)
+		}
+	}
 	fmt.Fprintln(w, "  ProducedAt:", o.ProducedAt)
 	fmt.Fprintln(w, "  ThisUpdate:", o.ThisUpdate)
 	fmt.Fprintln(w, "  NextUpdate:", o.NextUpdate)

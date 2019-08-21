@@ -184,7 +184,7 @@ func DecodeAugmentedCertificateFrom(dec *cbor.Decoder) (*AugmentedCertificate, e
 func (chain CertChain) PrettyPrint(w io.Writer) {
 	for i, item := range chain {
 		fmt.Fprintf(w, "Certificate #%d:\n", i)
-		fmt.Fprintln(w, "  Subject:", item.Cert.Subject.CommonName)
+		fmt.Fprintln(w, "  Subject:", item.Cert.Subject.String())
 		fmt.Fprintln(w, "  Valid from:", item.Cert.NotBefore)
 		fmt.Fprintln(w, "  Valid until:", item.Cert.NotAfter)
 		fmt.Fprintln(w, "  Issuer:", item.Cert.Issuer.CommonName)
