@@ -13,7 +13,7 @@ import (
 	"github.com/WICG/webpackage/go/bundle"
 )
 
-func fromURLList(urlListFile string) ([]*bundle.Exchange, error) {
+func fromURLList(urlListFile string, es []*bundle.Exchange) ([]*bundle.Exchange, error) {
 	input, err := os.Open(urlListFile)
 	if err != nil {
 		return nil, fmt.Errorf("Failed to open %q: %v", urlListFile, err)
@@ -21,13 +21,23 @@ func fromURLList(urlListFile string) ([]*bundle.Exchange, error) {
 	defer input.Close()
 	scanner := bufio.NewScanner(input)
 
-	es := []*bundle.Exchange{}
+	urls := make(map[string]bool)
+	for _, e := range es {
+		urls[e.Request.URL.String()] = true
+	}
+
 	for scanner.Scan() {
 		rawURL := strings.TrimSpace(scanner.Text())
 		// Skip blank lines and comments.
 		if len(rawURL) == 0 || rawURL[0] == '#' {
 			continue
 		}
+
+		if _, ok := urls[rawURL]; ok {
+			log.Printf("Skipping %q", rawURL)
+			continue
+		}
+		urls[rawURL] = true
 		log.Printf("Processing %q", rawURL)
 
 		parsedURL, err := url.Parse(rawURL)
@@ -36,7 +46,8 @@ func fromURLList(urlListFile string) ([]*bundle.Exchange, error) {
 		}
 		resp, err := http.Get(rawURL)
 		if err != nil {
-			return nil, fmt.Errorf("Failed to fetch %q: %v", rawURL, err)
+			log.Printf("Failed to fetch %q: %v", rawURL, err)
+			continue
 		}
 		defer resp.Body.Close()
 		body, err := ioutil.ReadAll(resp.Body)

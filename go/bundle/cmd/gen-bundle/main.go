@@ -18,9 +18,19 @@ var (
 	flagBaseURL     = flag.String("baseURL", "", "Base URL (used with -dir)")
 	flagPrimaryURL  = flag.String("primaryURL", "", "Primary URL")
 	flagManifestURL = flag.String("manifestURL", "", "Manifest URL")
+	flagInput       = flag.String("i", "", "Webbundle input file")
 	flagOutput      = flag.String("o", "out.wbn", "Webbundle output file")
 	flagURLList     = flag.String("URLList", "", "URL list file")
 )
+
+func ReadBundleFromFile(path string) (*bundle.Bundle, error) {
+	fi, err := os.Open(path)
+	if err != nil {
+		return nil, fmt.Errorf("Failed to open input file %q for reading. err: %v", path, err)
+	}
+	defer fi.Close()
+	return bundle.Read(fi)
+}
 
 func main() {
 	flag.Parse()
@@ -47,6 +57,12 @@ func main() {
 	}
 
 	b := &bundle.Bundle{Version: ver, PrimaryURL: parsedPrimaryURL, ManifestURL: parsedManifestURL}
+	if *flagInput != "" {
+		b, err = ReadBundleFromFile(*flagInput)
+		if err != nil {
+			log.Fatalf("%v", err)
+		}
+	}
 
 	if *flagHar != "" {
 		if *flagBaseURL != "" {
@@ -73,7 +89,7 @@ func main() {
 		}
 		b.Exchanges = es
 	} else if *flagURLList != "" {
-		es, err := fromURLList(*flagURLList)
+		es, err := fromURLList(*flagURLList, b.Exchanges)
 		if err != nil {
 			log.Fatal(err)
 		}
